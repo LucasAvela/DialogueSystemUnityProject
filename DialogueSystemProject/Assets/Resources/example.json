@@ -1,0 +1,45 @@
+{
+    "key_0": {
+        "Actor": {
+            "en_us": "John Peter",
+            "en_gb": "John Peter",
+            "pt_br": "João Pedro",
+            "es": "Juan Pedro",
+            "it": "Giovanni Pietro",
+            "fr": "Jean Pierre",
+            "de": "Johann Peter",
+            "pl": "Jan Piotr",
+            "ru": "Джон Питер",
+            "ja": "ジョン・ピーター",
+            "ko": "존 피터",
+            "zh": "约翰·彼得"
+        },
+        "Text": {
+            "en_us": "This is the first test of the Dialogue System by Corylus Dev",
+            "en_gb": "This is the first test of the Dialogue System by Corylus Dev",
+            "pt_br": "Este é o primeiro teste do Sistema de Diálogo da Corylus Dev",
+            "es": "Esta es la primera prueba del Sistema de Diálogo de Corylus Dev",
+            "it": "Questo è il primo test del Sistema di Dialogo di Corylus Dev",
+            "fr": "Ceci est le premier test du Système de Dialogue de Corylus Dev",
+            "de": "Dies ist der erste Test des Dialogsystems von Corylus Dev",
+            "pl": "To jest pierwszy test Systemu Dialogowego od Corylus Dev",
+            "ru": "Это первый тест системы диалога от Corylus Dev",
+            "ja": "これはCorylus Devによるダイアログシステムの最初のテストです",
+            "ko": "이것은 Corylus Dev의 대화 시스템 첫 번째 테스트입니다",
+            "zh": "这是Corylus Dev的对话系统的第一次测试"
+        },
+        "Scripts": {
+            "Start": [
+                "StartScript()"
+            ],
+            "Middle": [
+                "MiddleScript(0)",
+                "MiddleScript(1)",
+                "MiddleScript(2)"
+            ],
+            "End": [
+                "EndScript()"
+            ]
+        }
+    }
+}
