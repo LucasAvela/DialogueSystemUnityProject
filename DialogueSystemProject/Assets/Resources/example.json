@@ -30,6 +30,50 @@
         },
         "Scripts": {
             "Start": [
+                ""
+            ],
+            "Middle": [
+                "",
+                "",
+                ""
+            ],
+            "End": [
+                ""
+            ],
+            "Next_Key": "key_1"
+        }
+    },
+    "key_1": {
+        "Actor": {
+            "en_us": "Michael",
+            "en_gb": "Michael",
+            "pt_br": "Maicon",
+            "es": "Miguel",
+            "it": "Michele",
+            "fr": "Michel",
+            "de": "Michael",
+            "pl": "Michał",
+            "ru": "Михаил",
+            "ja": "マイケル",
+            "ko": "마이클",
+            "zh": "迈克尔"
+        },
+        "Text": {
+            "en_us": "It looks like it's working, John Peter!",
+            "en_gb": "It looks like it's working, John Peter!",
+            "pt_br": "Parece que está funcionando, João Pedro!",
+            "es": "¡Parece que está funcionando, Juan Pedro!",
+            "it": "Sembra che stia funzionando, Giovanni Pietro!",
+            "fr": "On dirait que ça fonctionne, Jean Pierre !",
+            "de": "Es sieht so aus, als würde es funktionieren, Johann Peter!",
+            "pl": "Wygląda na to, że działa, Jan Piotr!",
+            "ru": "Похоже, это работает, Джон Питер!",
+            "ja": "動いているようですね、ジョン・ピーター！",
+            "ko": "잘 작동하는 것 같네요, 존 피터!",
+            "zh": "看起来好像正常运行了，约翰·彼得！"
+        },
+        "Scripts": {
+            "Start": [
                 "StartScript()"
             ],
             "Middle": [
@@ -39,7 +83,8 @@
             ],
             "End": [
                 "EndScript()"
-            ]
+            ],
+            "Next_Key": ""
         }
     }
 }

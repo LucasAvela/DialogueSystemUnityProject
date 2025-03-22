@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Lorem ipsum
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b44ec95f179f4f428315c8c6d211bdc, type: 2}
   m_sharedMaterial: {fileID: 4577293055737491961, guid: 6b44ec95f179f4f428315c8c6d211bdc, type: 2}
@@ -1162,7 +1162,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique
+    viverra tellus, vel commodo justo egestas sed. Proin congue at erat nec dignissim.
+    Nam ut mauris in leo dictum commodo. Proin et diam non leo vestibulum fermentum.
+    Mauris pellentesque cursus aliquam. Nam nunc metus, rutrum tincidunt tortor quis,
+    fermentum tristique sem. Quisque ultricies, erat in mollis lobortis, odio est
+    fringilla lectus, ac congue enim nisi imperdiet nisl. Class aptent taciti sociosqu
+    ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi libero risus,
+    suscipit eget elit nec, faucibus pulvinar nisi. Morbi molestie mattis dolor,
+    ornare euismod neque sollicitudin eu. Suspendisse auctor nulla eget elit sodales,
+    vitae ultrices ipsum lobortis. Proin fermentum vehicula congue. Maecenas mattis
+    dolor lectus, nec tristique tortor eleifend vel.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d02220f44203294cb5e8e02c7826ec5, type: 2}
   m_sharedMaterial: {fileID: 4577293055737491961, guid: 2d02220f44203294cb5e8e02c7826ec5, type: 2}
@@ -1189,7 +1199,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 33.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
