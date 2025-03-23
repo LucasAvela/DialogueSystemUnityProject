@@ -1,0 +1,50 @@
+{
+    "StartDialogue": {
+        "Text": {
+            "en_us": "Start Dialogue",
+            "en_gb": "Start Dialogue",
+            "pt_br": "Iniciar Diálogo",
+            "es": "Iniciar Diálogo",
+            "it": "Avvia Dialogo",
+            "fr": "Démarrer le Dialogue",
+            "de": "Dialog Starten",
+            "pl": "Rozpocznij Dialog",
+            "ru": "Начать Диалог",
+            "ja": "ダイアログを開始",
+            "ko": "대화 시작",
+            "zh": "开始对话"
+        }
+    },
+    "NextDialogue": {
+        "Text": {
+            "en_us": "Next Dialogue",
+            "en_gb": "Next Dialogue",
+            "pt_br": "Próximo Diálogo",
+            "es": "Próximo Diálogo",
+            "it": "Dialogo Successivo",
+            "fr": "Dialogue Suivant",
+            "de": "Nächster Dialog",
+            "pl": "Następny Dialog",
+            "ru": "Следующий Диалог",
+            "ja": "次のダイアログ",
+            "ko": "다음 대화",
+            "zh": "下一个对话"
+        }
+    },
+    "SelectLanguage": {
+        "Text": {
+            "en_us": "Select Language",
+            "en_gb": "Select Language",
+            "pt_br": "Selecionar Idioma",
+            "es": "Seleccionar Idioma",
+            "it": "Seleziona Lingua",
+            "fr": "Sélectionner la Langue",
+            "de": "Sprache Wählen",
+            "pl": "Wybierz Język",
+            "ru": "Выбрать Язык",
+            "ja": "言語を選択",
+            "ko": "언어 선택",
+            "zh": "选择语言"
+        }
+    }
+}

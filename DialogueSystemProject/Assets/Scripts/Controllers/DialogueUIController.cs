@@ -1,0 +1,18 @@
+using UnityEngine;
+using TMPro;
+
+public class DialogueUIController : MonoBehaviour
+{
+    [SerializeField] string _key;
+
+    void Start()
+    {
+        DialogueManager.Instance.onDialogueUIUpdated += UpdateUI;
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        this.gameObject.GetComponent<TextMeshProUGUI>().text = DialogueManager.Instance.TextUI(_key);
+    }
+}

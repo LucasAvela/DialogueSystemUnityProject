@@ -1140,6 +1140,7 @@ GameObject:
   - component: {fileID: 698242951}
   - component: {fileID: 698242953}
   - component: {fileID: 698242952}
+  - component: {fileID: 698242954}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1251,7 +1252,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10, y: 5, z: 10, w: 5}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1265,6 +1266,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698242950}
   m_CullTransparentMesh: 1
+--- !u!114 &698242954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698242950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd21c8fbdff8e1145a9bc596d5ed996b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: NextDialogue
 --- !u!1 &743234231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +1690,7 @@ GameObject:
   - component: {fileID: 969040344}
   - component: {fileID: 969040346}
   - component: {fileID: 969040345}
+  - component: {fileID: 969040347}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1787,7 +1802,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10, y: 5, z: 10, w: 5}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1801,6 +1816,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969040343}
   m_CullTransparentMesh: 1
+--- !u!114 &969040347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969040343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd21c8fbdff8e1145a9bc596d5ed996b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: StartDialogue
 --- !u!1 &1006031581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,6 +1876,7 @@ GameObject:
   - component: {fileID: 1096662623}
   - component: {fileID: 1096662625}
   - component: {fileID: 1096662624}
+  - component: {fileID: 1096662627}
   - component: {fileID: 1096662626}
   m_Layer: 0
   m_Name: DialogueManager
@@ -1897,6 +1926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueParser: {fileID: 1096662624}
+  _dialogueParserUI: {fileID: 1096662627}
   _language: 0
   _dialoguePanel: {fileID: 1170275280}
   _dialogueText: {fileID: 1121373984}
@@ -1907,6 +1937,7 @@ MonoBehaviour:
   _actualActor: 
   _onDialogue: 0
   _writing: 0
+  _middleScriptRunning: 0
   _skipWriting: 0
   _animating: 0
 --- !u!114 &1096662626
@@ -1921,6 +1952,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfd1688f1b58a8418dcc105d719b64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1096662627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096662622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e0eed3656e2344eb0964529448a89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 04dcedbdc75746a4283b90ffbce7ce66, type: 3}
 --- !u!1 &1121373982
 GameObject:
   m_ObjectHideFlags: 0

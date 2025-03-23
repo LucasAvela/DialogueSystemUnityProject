@@ -1,0 +1,82 @@
+{
+    "key_0": {
+        "Actor": {
+            "en_us": "John Peter",
+            "en_gb": "John Peter",
+            "pt_br": "João Pedro",
+            "es": "Juan Pedro",
+            "it": "Giovanni Pietro",
+            "fr": "Jean Pierre",
+            "de": "Johann Peter",
+            "pl": "Jan Piotr",
+            "ru": "Джон Питер",
+            "ja": "ジョン・ピーター",
+            "ko": "존 피터",
+            "zh": "约翰·彼得"
+        },
+        "Text": {
+            "en_us": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+            "en_gb": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+            "pt_br": "Este é o primeiro teste do <b>Sistema de Diálogo</b> da <#00bf2d>Corylus Dev</color>",
+            "es": "Esta es la primera prueba del <b>Sistema de Diálogo</b> de <#00bf2d>Corylus Dev</color>",
+            "it": "Questo è il primo test del <b>Sistema di Dialogo</b> di <#00bf2d>Corylus Dev</color>",
+            "fr": "Ceci est le premier test du <b>Système de Dialogue</b> de <#00bf2d>Corylus Dev</color>",
+            "de": "Dies ist der erste Test des <b>Dialogsystems</b> von <#00bf2d>Corylus Dev</color>",
+            "pl": "To jest pierwszy test <b>Systemu Dialogowego</b> od <#00bf2d>Corylus Dev</color>",
+            "ru": "Это первый тест <b>системы диалога</b> от <#00bf2d>Corylus Dev</color>",
+            "ja": "これは <#00bf2d>Corylus Dev</color> による <b>ダイアログシステム</b> の最初のテストです",
+            "ko": "이것은 <#00bf2d>Corylus Dev</color>의 <b>대화 시스템</b> 첫 번째 테스트입니다",
+            "zh": "这是 <#00bf2d>Corylus Dev</color> 的 <b>对话系统</b> 的第一次测试"
+        },
+        "Next_Key": "key_1",
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key_1": {
+        "Actor": {
+            "en_us": "Michael",
+            "en_gb": "Michael",
+            "pt_br": "Maicon",
+            "es": "Miguel",
+            "it": "Michele",
+            "fr": "Michel",
+            "de": "Michael",
+            "pl": "Michał",
+            "ru": "Михаил",
+            "ja": "マイケル",
+            "ko": "마이클",
+            "zh": "迈克尔"
+        },
+        "Text": {
+            "en_us": "It... {0}looks like... {2}it's working, {1}John Peter!",
+            "en_gb": "It... {0}looks like... {2}it's working, {1}John Peter!",
+            "pt_br": "Parece que {0}está... {2}funcionando, {1}João Pedro!",
+            "es": "¡Parece que {0}está... {2}funcionando, {1}Juan Pedro!",
+            "it": "Sembra che {0}stia... {2}funzionando, {1}Giovanni Pietro!",
+            "fr": "On dirait que {0}ça... {2}fonctionne, {1}Jean Pierre !",
+            "de": "Es sieht so aus, als würde es {0}... {2}funktionieren, {1}Johann Peter!",
+            "pl": "Wygląda na to, że {0}to... {2}działa, {1}Jan Piotr!",
+            "ru": "Похоже, {0}это... {2}работает, {1}Джон Питер!",
+            "ja": "{1}ジョン・ピーターさん... {0}動いている... {2}ようですね。",
+            "ko": "{1}조너 피터... {0}잘... {2}작동하는 것 같네요!",
+            "zh": "看起来{0}好像... {2}正常运行了, {1}约翰·彼得!"
+        },
+        "Next_Key": null,
+        "Scripts": {
+            "Start": [
+                "StartScript(0)"
+            ],
+            "Middle": [
+                "MiddleScript(0)",
+                "MiddleScript(1)",
+                "MiddleScript(2)"
+            ],
+            "End": [
+                "EndScript(0)"
+            ]
+        }
+    }
+}
