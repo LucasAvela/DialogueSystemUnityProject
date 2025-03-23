@@ -84,7 +84,7 @@
             "End": [
                 "EndScript()"
             ],
-            "Next_Key": ""
+            "Next_Key": null
         }
     }
 }
