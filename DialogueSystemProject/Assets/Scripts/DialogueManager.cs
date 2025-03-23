@@ -282,6 +282,7 @@ public class DialogueManager : MonoBehaviour
     public void ChangeLanguage(Languages lang)
     {
         _language = lang;
+        StopAllCoroutines();
         if (_onDialogue) { UpdateDialogue(_actualKey); }
         Debug.Log($"Dialogue Manager change actual localization to {_language}");
     }
