@@ -31,15 +31,10 @@
         "Next_Key": "key_1",
         "Scripts": {
             "Start": [
-                ""
             ],
             "Middle": [
-                "",
-                "",
-                ""
             ],
             "End": [
-                ""
             ]
         }
     },
@@ -75,7 +70,7 @@
         "Next_Key": null,
         "Scripts": {
             "Start": [
-                "StartScript()"
+                "StartScript(0)"
             ],
             "Middle": [
                 "MiddleScript(0)",
@@ -83,7 +78,7 @@
                 "MiddleScript(2)"
             ],
             "End": [
-                "EndScript()"
+                "EndScript(0)"
             ]
         }
     }

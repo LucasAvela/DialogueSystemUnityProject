@@ -1848,6 +1848,7 @@ GameObject:
   - component: {fileID: 1096662623}
   - component: {fileID: 1096662625}
   - component: {fileID: 1096662624}
+  - component: {fileID: 1096662626}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -1902,6 +1903,24 @@ MonoBehaviour:
   _dialogueActor: {fileID: 175031115}
   _writingTime: 0.01
   _animationTime: 0.1
+  _actualKey: 
+  _actualActor: 
+  _onDialogue: 0
+  _writing: 0
+  _skipWriting: 0
+  _animating: 0
+--- !u!114 &1096662626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096662622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfd1688f1b58a8418dcc105d719b64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1121373982
 GameObject:
   m_ObjectHideFlags: 0

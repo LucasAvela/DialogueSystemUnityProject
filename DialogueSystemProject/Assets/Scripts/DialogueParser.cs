@@ -7,8 +7,8 @@ public class DialogueEntry
 {
     public Dictionary<string, string> Actor;
     public Dictionary<string, string> Text;
-    public ScriptsData Scripts;
     public string Next_Key;
+    public ScriptsData Scripts;
 }
 
 [System.Serializable]

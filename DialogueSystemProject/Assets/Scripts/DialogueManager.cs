@@ -30,11 +30,11 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    [Header("Dependencies")]
+    [Space(10)][Header("Dependencies")]
     [SerializeField] DialogueParser _dialogueParser;
     [SerializeField] Languages _language;
 
-    [Header("Action")]
+    [Space(10)][Header("Action")]
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _dialogueText;
     [SerializeField] TextMeshProUGUI _dialogueActor;
@@ -138,11 +138,13 @@ public class DialogueManager : MonoBehaviour
         _animating = false;
     }
 
-    private string _actualKey = null;
-    private bool _onDialogue = false;
-    private bool _writing = false;
-    private bool _skipWriting = false;
-    private bool _animating = false;
+    [Space(10)][Header("Debug")]
+    [SerializeField] private string _actualKey = null;
+    [SerializeField] private string _actualActor = null;
+    [SerializeField] private bool _onDialogue = false;
+    [SerializeField] private bool _writing = false;
+    [SerializeField] private bool _skipWriting = false;
+    [SerializeField] private bool _animating = false;
 
     public void StartDialogue(string key)
     {
@@ -171,6 +173,14 @@ public class DialogueManager : MonoBehaviour
                     _onDialogue = false;
                     StartCoroutine(CloseDialoguePanel());
                 }
+
+                if (dialogue.Scripts.End != null)
+                {
+                    foreach (string endScript in dialogue.Scripts.End)
+                    {   
+                        DialogueScriptsManager.Instance.EndScript(endScript);
+                    }
+                }
             }
             else
             {
@@ -182,17 +192,27 @@ public class DialogueManager : MonoBehaviour
     public void UpdateDialogue(string key)
     {   
         ClearDialogue();
+        _actualKey = key;
         var dialogue = _dialogueParser.GetDialogueByKey(key);
         StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
-        _dialogueActor.text = dialogue.Actor[ReturnLanguage()];
-        _actualKey = key;
+        _actualActor = dialogue.Actor[ReturnLanguage()];
+        _dialogueActor.text = _actualActor;
     }
 
     private IEnumerator WriteDialogue(string text)
     {
         _writing = true;
-        int i = 0;
 
+        var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
+        if (dialogue.Scripts.Start != null)
+        {
+            foreach (string startScript in dialogue.Scripts.Start)
+            {
+                DialogueScriptsManager.Instance.StartScript(startScript);
+            }
+        }
+
+        int i = 0;
         while (i < text.Length)
         {
             if (text[i] == '<')
