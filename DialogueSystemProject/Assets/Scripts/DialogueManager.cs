@@ -30,11 +30,13 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    [Space(10)][Header("Dependencies")]
+    [Space(10)]
+    [Header("Dependencies")]
     [SerializeField] DialogueParser _dialogueParser;
     [SerializeField] Languages _language;
 
-    [Space(10)][Header("Action")]
+    [Space(10)]
+    [Header("Action")]
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _dialogueText;
     [SerializeField] TextMeshProUGUI _dialogueActor;
@@ -138,11 +140,13 @@ public class DialogueManager : MonoBehaviour
         _animating = false;
     }
 
-    [Space(10)][Header("Debug")]
+    [Space(10)]
+    [Header("Debug")]
     [SerializeField] private string _actualKey = null;
     [SerializeField] private string _actualActor = null;
     [SerializeField] private bool _onDialogue = false;
     [SerializeField] private bool _writing = false;
+    [SerializeField] private bool _middleScriptRunning = false;
     [SerializeField] private bool _skipWriting = false;
     [SerializeField] private bool _animating = false;
 
@@ -177,7 +181,7 @@ public class DialogueManager : MonoBehaviour
                 if (dialogue.Scripts.End != null)
                 {
                     foreach (string endScript in dialogue.Scripts.End)
-                    {   
+                    {
                         DialogueScriptsManager.Instance.EndScript(endScript);
                     }
                 }
@@ -190,7 +194,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void UpdateDialogue(string key)
-    {   
+    {
         ClearDialogue();
         _actualKey = key;
         var dialogue = _dialogueParser.GetDialogueByKey(key);
@@ -227,11 +231,37 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
-            if (_skipWriting)
+            if (text[i] == '{')
             {
-                _dialogueText.text = text;
-                _skipWriting = false;
-                break;
+                int endMidScriptTag = text.IndexOf('}', i);
+                if (endMidScriptTag != -1)
+                {
+                    string fullMidScriptTag = text.Substring(i + 1, endMidScriptTag - i - 1);
+                    _middleScriptRunning = true;
+                    yield return StartCoroutine(DialogueScriptsManager.Instance.MiddleScript(dialogue.Scripts.Middle[int.Parse(fullMidScriptTag)]));
+                    _middleScriptRunning = false;
+                    i = endMidScriptTag + 1;
+                    continue;
+                }
+            }
+
+            if (_skipWriting & !_middleScriptRunning)
+            {
+                int nextMidScriptIndex = text.IndexOf("{", i);
+                if (nextMidScriptIndex != -1)
+                {
+                    string textUntilMidScript = text.Substring(i, nextMidScriptIndex - i);
+                    _dialogueText.text += textUntilMidScript;
+                    i = nextMidScriptIndex;
+                    _skipWriting = false;
+                    continue;
+                }
+                else
+                {
+                    _dialogueText.text = System.Text.RegularExpressions.Regex.Replace(text, "\\{\\d+\\}", "");
+                    _skipWriting = false;
+                    break;
+                }
             }
 
             _dialogueText.text += text[i];

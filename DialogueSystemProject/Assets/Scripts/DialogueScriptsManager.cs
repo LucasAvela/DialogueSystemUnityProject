@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DialogueScriptsManager : MonoBehaviour
@@ -38,6 +39,31 @@ public class DialogueScriptsManager : MonoBehaviour
             
             default:
                 Debug.LogError($"StartScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
+                break;
+        }
+    }
+
+    public IEnumerator MiddleScript(string script)
+    {
+        switch (script)
+        {
+            case "MiddleScript(0)":
+                print("Chamando MiddleScript(0)");
+                yield return new WaitForSeconds(1f);
+                break;
+            
+            case "MiddleScript(1)":
+                print("Chamando MiddleScript(1)");
+                yield return new WaitForSeconds(1f);
+                break;
+            
+            case "MiddleScript(2)":
+                print("Chamando MiddleScript(2)");
+                yield return new WaitForSeconds(1f);
+                break;
+            
+            default:
+                Debug.LogError($"MiddleScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
                 break;
         }
     }
