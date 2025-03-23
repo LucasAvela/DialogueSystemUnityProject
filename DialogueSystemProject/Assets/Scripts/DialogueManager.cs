@@ -38,7 +38,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _dialogueText;
     [SerializeField] TextMeshProUGUI _dialogueActor;
-    [SerializeField] float _animationTIme = 0.1f;
+    [SerializeField] float _writingTime = 0.01f;
+    [SerializeField] float _animationTime = 0.1f;
 
     public enum Languages
     {
@@ -101,7 +102,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     private IEnumerator AnimationDialoguePanel(string perform)
-    {   
+    {
         _animating = true;
 
         _dialoguePanel.SetActive(true);
@@ -115,21 +116,21 @@ public class DialogueManager : MonoBehaviour
             target = rectTransform.rect.width;
             start = 0;
         }
-        
+
         float elapsedTime = 0f;
 
-        while (elapsedTime < _animationTIme)
+        while (elapsedTime < _animationTime)
         {
-            float newWidht = Mathf.Lerp(start, target, elapsedTime / _animationTIme);
+            float newWidht = Mathf.Lerp(start, target, elapsedTime / _animationTime);
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidht);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, target);
-        
+
         if (perform == "Close")
-        {    
+        {
             _dialoguePanel.SetActive(false);
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
         }
@@ -139,10 +140,12 @@ public class DialogueManager : MonoBehaviour
 
     private string _actualKey = null;
     private bool _onDialogue = false;
+    private bool _writing = false;
+    private bool _skipWriting = false;
     private bool _animating = false;
 
     public void StartDialogue(string key)
-    {   
+    {
         if (!_onDialogue)
         {
             ClearDialogue();
@@ -150,31 +153,73 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(OpenDialoguePanel(key));
         }
     }
-    
-    public void UpdateDialogue(string key)
-    {
-        var dialogue = _dialogueParser.GetDialogueByKey(key);
-        _dialogueText.text = dialogue.Text[ReturnLanguage()];
-        _dialogueActor.text = dialogue.Actor[ReturnLanguage()];
-        _actualKey = key;
-    }
 
     public void ConsumeInput()
     {
         if (_onDialogue & !_animating)
         {
-            var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
-            if (dialogue.Next_Key != null)
+            if (!_writing)
             {
-                UpdateDialogue(dialogue.Next_Key);
+                var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
+                if (dialogue.Next_Key != null)
+                {
+                    UpdateDialogue(dialogue.Next_Key);
+                }
+                else
+                {
+                    ClearDialogue();
+                    _onDialogue = false;
+                    StartCoroutine(CloseDialoguePanel());
+                }
             }
             else
             {
-                ClearDialogue();
-                _onDialogue = false;
-                StartCoroutine(CloseDialoguePanel());
+                _skipWriting = true;
             }
         }
+    }
+
+    public void UpdateDialogue(string key)
+    {   
+        ClearDialogue();
+        var dialogue = _dialogueParser.GetDialogueByKey(key);
+        StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
+        _dialogueActor.text = dialogue.Actor[ReturnLanguage()];
+        _actualKey = key;
+    }
+
+    private IEnumerator WriteDialogue(string text)
+    {
+        _writing = true;
+        int i = 0;
+
+        while (i < text.Length)
+        {
+            if (text[i] == '<')
+            {
+                int endTag = text.IndexOf('>', i);
+                if (endTag != -1)
+                {
+                    string fullTag = text.Substring(i, endTag - i + 1);
+                    _dialogueText.text += fullTag;
+                    i = endTag + 1;
+                    continue;
+                }
+            }
+
+            if (_skipWriting)
+            {
+                _dialogueText.text = text;
+                _skipWriting = false;
+                break;
+            }
+
+            _dialogueText.text += text[i];
+            i++;
+            yield return new WaitForSeconds(_writingTime);
+        }
+
+        _writing = false;
     }
 
     private void ClearDialogue()
@@ -187,7 +232,7 @@ public class DialogueManager : MonoBehaviour
     public void ChangeLanguage(Languages lang)
     {
         _language = lang;
-        if (_onDialogue) {UpdateDialogue(_actualKey);}
+        if (_onDialogue) { UpdateDialogue(_actualKey); }
         Debug.Log($"Dialogue Manager change actual localization to {_language}");
     }
 }

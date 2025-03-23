@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Dialogue
+  m_text: "Consume \nDialogue"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5acd131a5a5a9fd45bc9ae8f38dde362, type: 2}
   m_sharedMaterial: {fileID: -4393635001011147415, guid: 5acd131a5a5a9fd45bc9ae8f38dde362, type: 2}
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 823217734}
   - component: {fileID: 823217737}
   m_Layer: 5
-  m_Name: ConsomeDialogue
+  m_Name: ConsumeDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Dialogue
+  m_text: "Start \nDialogue"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5acd131a5a5a9fd45bc9ae8f38dde362, type: 2}
   m_sharedMaterial: {fileID: -4393635001011147415, guid: 5acd131a5a5a9fd45bc9ae8f38dde362, type: 2}
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1900,7 +1900,8 @@ MonoBehaviour:
   _dialoguePanel: {fileID: 1170275280}
   _dialogueText: {fileID: 1121373984}
   _dialogueActor: {fileID: 175031115}
-  _animationTIme: 0.2
+  _writingTime: 0.01
+  _animationTime: 0.1
 --- !u!1 &1121373982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,9 +2526,9 @@ MonoBehaviour:
   m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 16
+  m_fontSizeMax: 24
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
