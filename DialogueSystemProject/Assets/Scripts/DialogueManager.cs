@@ -103,7 +103,7 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator AnimationDialoguePanel(string perform)
     {   
         _animating = true;
-        
+
         _dialoguePanel.SetActive(true);
         RectTransform rectTransform = _dialoguePanel.GetComponent<RectTransform>();
         float width = rectTransform.rect.width;
@@ -182,5 +182,12 @@ public class DialogueManager : MonoBehaviour
         _dialogueText.text = "";
         _dialogueActor.text = "";
         _actualKey = null;
+    }
+
+    public void ChangeLanguage(Languages lang)
+    {
+        _language = lang;
+        if (_onDialogue) {UpdateDialogue(_actualKey);}
+        Debug.Log($"Dialogue Manager change actual localization to {_language}");
     }
 }
