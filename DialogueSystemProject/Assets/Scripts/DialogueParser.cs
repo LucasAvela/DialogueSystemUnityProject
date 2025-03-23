@@ -8,6 +8,7 @@ public class DialogueEntry
     public Dictionary<string, string> Actor;
     public Dictionary<string, string> Text;
     public ScriptsData Scripts;
+    public string Next_Key;
 }
 
 [System.Serializable]
@@ -16,7 +17,6 @@ public class ScriptsData
     public List<string> Start;
     public List<string> Middle;
     public List<string> End;
-    public string Next_Key;
 }
 
 public class DialogueParser : MonoBehaviour

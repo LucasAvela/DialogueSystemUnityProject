@@ -15,19 +15,20 @@
             "zh": "约翰·彼得"
         },
         "Text": {
-            "en_us": "This is the first test of the Dialogue System by Corylus Dev",
-            "en_gb": "This is the first test of the Dialogue System by Corylus Dev",
-            "pt_br": "Este é o primeiro teste do Sistema de Diálogo da Corylus Dev",
-            "es": "Esta es la primera prueba del Sistema de Diálogo de Corylus Dev",
-            "it": "Questo è il primo test del Sistema di Dialogo di Corylus Dev",
-            "fr": "Ceci est le premier test du Système de Dialogue de Corylus Dev",
-            "de": "Dies ist der erste Test des Dialogsystems von Corylus Dev",
-            "pl": "To jest pierwszy test Systemu Dialogowego od Corylus Dev",
-            "ru": "Это первый тест системы диалога от Corylus Dev",
-            "ja": "これはCorylus Devによるダイアログシステムの最初のテストです",
-            "ko": "이것은 Corylus Dev의 대화 시스템 첫 번째 테스트입니다",
-            "zh": "这是Corylus Dev的对话系统的第一次测试"
+            "en_us": "This is the first test of the Dialogue System by <#00bf2d>Corylus Dev</color>",
+            "en_gb": "This is the first test of the Dialogue System by <#00bf2d>Corylus Dev</color>",
+            "pt_br": "Este é o primeiro teste do Sistema de Diálogo da <#00bf2d>Corylus Dev</color>",
+            "es": "Esta es la primera prueba del Sistema de Diálogo de <#00bf2d>Corylus Dev</color>",
+            "it": "Questo è il primo test del Sistema di Dialogo di <#00bf2d>Corylus Dev</color>",
+            "fr": "Ceci est le premier test du Système de Dialogue de <#00bf2d>Corylus Dev</color>",
+            "de": "Dies ist der erste Test des Dialogsystems von <#00bf2d>Corylus Dev</color>",
+            "pl": "To jest pierwszy test Systemu Dialogowego od <#00bf2d>Corylus Dev</color>",
+            "ru": "Это первый тест системы диалога от <#00bf2d>Corylus Dev</color>",
+            "ja": "これは<#00bf2d>Corylus Dev</color>によるダイアログシステムの最初のテストです",
+            "ko": "이것은 <#00bf2d>Corylus Dev</color>의 대화 시스템 첫 번째 테스트입니다",
+            "zh": "这是<#00bf2d>Corylus Dev</color>的对话系统的第一次测试"
         },
+        "Next_Key": "key_1",
         "Scripts": {
             "Start": [
                 ""
@@ -39,8 +40,7 @@
             ],
             "End": [
                 ""
-            ],
-            "Next_Key": "key_1"
+            ]
         }
     },
     "key_1": {
@@ -72,6 +72,7 @@
             "ko": "잘 작동하는 것 같네요, 존 피터!",
             "zh": "看起来好像正常运行了，约翰·彼得！"
         },
+        "Next_Key": null,
         "Scripts": {
             "Start": [
                 "StartScript()"
@@ -83,8 +84,7 @@
             ],
             "End": [
                 "EndScript()"
-            ],
-            "Next_Key": null
+            ]
         }
     }
 }

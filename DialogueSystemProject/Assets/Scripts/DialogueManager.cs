@@ -164,9 +164,9 @@ public class DialogueManager : MonoBehaviour
         if (_onDialogue & !_animating)
         {
             var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
-            if (dialogue.Scripts.Next_Key != null)
+            if (dialogue.Next_Key != null)
             {
-                UpdateDialogue(dialogue.Scripts.Next_Key);
+                UpdateDialogue(dialogue.Next_Key);
             }
             else
             {
