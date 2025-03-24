@@ -42,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _dialogueActor;
     [SerializeField] float _writingTime = 0.01f;
     [SerializeField] float _animationTime = 0.1f;
+    Coroutine _writingDialogueCoroutine;
 
     [Space(10)][Header("Simple Dialogue")]
     [SerializeField] TextMeshProUGUI _dialogueSimple;
@@ -204,7 +205,7 @@ public class DialogueManager : MonoBehaviour
         ClearDialogue();
         _actualKey = key;
         var dialogue = _dialogueParser.GetDialogueByKey(key);
-        StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
+        _writingDialogueCoroutine = StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
         _actualActor = dialogue.Actor[ReturnLanguage()];
         _dialogueActor.text = _actualActor;
     }
@@ -343,5 +344,11 @@ public class DialogueManager : MonoBehaviour
     {
         _language = lang;
         onDialogueUIUpdated?.Invoke();
+
+        if (_onDialogue)
+        {
+            StopCoroutine(_writingDialogueCoroutine);
+            UpdateDialogue(_actualKey);
+        }
     }
 }

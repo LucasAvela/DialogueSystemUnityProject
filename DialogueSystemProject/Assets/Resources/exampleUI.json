@@ -46,5 +46,21 @@
             "ko": "간단한 대화 시작",
             "zh": "开始简单对话"
         }
+    },
+    "EasterEgg": {
+        "Text": {
+            "en_us": "Easter Egg",
+            "en_gb": "Easter Egg",
+            "pt_br": "Ovo de Páscoa",
+            "es": "Huevo de Pascua",
+            "it": "Uovo di Pasqua",
+            "fr": "Œuf de Pâques",
+            "de": "Osterei",
+            "pl": "Jajko Wielkanocne",
+            "ru": "Пасхальное яйцо",
+            "ja": "イースターエッグ",
+            "ko": "이스터 에그",
+            "zh": "彩蛋"
+        }
     }
 }
