@@ -17,18 +17,18 @@
     },
     "ClosedDoor": {
         "Text": {
-            "en_us": "The door is locked.",
-            "en_gb": "The door is locked.",
-            "pt_br": "A porta está trancada.",
-            "es": "La puerta está cerrada con llave.",
-            "it": "La porta è chiusa a chiave.",
-            "fr": "La porte est verrouillée.",
-            "de": "Die Tür ist verschlossen.",
-            "pl": "Drzwi są zamknięte na klucz.",
-            "ru": "Дверь заперта.",
-            "ja": "ドアはロックされています。",
-            "ko": "문이 잠겨 있습니다.",
-            "zh": "门是锁着的。"
+            "en_us": "<#fff952>The door</color> is locked.",
+            "en_gb": "<#fff952>The door</color> is locked.",
+            "pt_br": "<#fff952>A porta</color> está trancada.",
+            "es": "<#fff952>La puerta</color> está cerrada con llave.",
+            "it": "<#fff952>La porta</color> è chiusa a chiave.",
+            "fr": "<#fff952>La porte</color> est verrouillée.",
+            "de": "<#fff952>Die Tür</color> ist verschlossen.",
+            "pl": "<#fff952>Drzwi</color> są zamknięte na klucz.",
+            "ru": "<#fff952>Дверь</color> заперта.",
+            "ja": "<#fff952>ドア</color>はロックされています。",
+            "ko": "<#fff952>문</color>이 잠겨 있습니다.",
+            "zh": "<#fff952>门</color>是锁着的。"
         }
     }
 }
