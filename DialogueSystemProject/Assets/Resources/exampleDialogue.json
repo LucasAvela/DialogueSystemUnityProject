@@ -51,7 +51,7 @@
             "zh": "迈克尔"
         },
         "Text": {
-            "en_us": "It... {0}looks like... {2}it's working, {1}John Peter!",
+            "en_us": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
             "en_gb": "It... {0}looks like... {2}it's working, {1}John Peter!",
             "pt_br": "Parece que {0}está... {2}funcionando, {1}João Pedro!",
             "es": "¡Parece que {0}está... {2}funcionando, {1}Juan Pedro!",
@@ -239,18 +239,18 @@
             "zh": "爱德华"
         },
         "Text": {
-            "en_us": "... Can you get me a <b><#ffdd47>flashlight</color></b>?",
-            "en_gb": "... Can you get me a <b><#ffdd47>flashlight</color></b>?",
-            "pt_br": "... Você pode me dar uma <b><#ffdd47>lanterna</color></b>?",
-            "es": "... ¿Puedes conseguirme una <b><#ffdd47>linterna</color></b>?",
-            "it": "... Puoi procurarmi una <b><#ffdd47>torcia</color></b>?",
-            "fr": "... Peux-tu me donner une <b><#ffdd47>torche</color></b> ?",
-            "de": "... Können Sie mir eine <b><#ffdd47>Taschenlampe</color></b> besorgen?",
-            "pl": "... Czy mógłbyś mi przynieść <b><#ffdd47>latarkę</color></b>?",
-            "ru": "...Дашь мне <b><#ffdd47>фонарик</color></b>?",
-            "ja": "…<b><#ffdd47>懐中電灯</color></b>を貸してくれないか？",
-            "ko": "... <b><#ffdd47>손전등</color></b> 좀 구해줄 수 있어요?",
-            "zh": "...可以给我一个<b><#ffdd47>电筒</color></b>吗？"
+            "en_us": "... Can you get me a <font=NotoSans Underlay SDF><b><#ffdd47>flashlight</color></b></font>?",
+            "en_gb": "... Can you get me a <font=NotoSans Underlay SDF><b><#ffdd47>flashlight</color></b></font>?",
+            "pt_br": "... Você pode me dar uma <font=NotoSans Underlay SDF><b><#ffdd47>lanterna</color></b></font>?",
+            "es": "... ¿Puedes conseguirme una <font=NotoSans Underlay SDF><b><#ffdd47>linterna</color></b></font>?",
+            "it": "... Puoi procurarmi una <font=NotoSans Underlay SDF><b><#ffdd47>torcia</color></b></font>?",
+            "fr": "... Peux-tu me donner une <font=NotoSans Underlay SDF><b><#ffdd47>torche</color></b></font> ?",
+            "de": "... Können Sie mir eine <font=NotoSans Underlay SDF><b><#ffdd47>Taschenlampe</color></b></font> besorgen?",
+            "pl": "... Czy mógłbyś mi przynieść <font=NotoSans Underlay SDF><b><#ffdd47>latarkę</color></b></font>?",
+            "ru": "...Дашь мне <font=NotoSans Underlay SDF><b><#ffdd47>фонарик</color></b></font>?",
+            "ja": "…<font=NotoSans Underlay SDF><b><#ffdd47>懐中電灯</color></b></font>を貸してくれないか？",
+            "ko": "... <font=NotoSans Underlay SDF><b><#ffdd47>손전등</color></b></font> 좀 구해줄 수 있어요?",
+            "zh": "...可以给我一个<font=NotoSans Underlay SDF><b><#ffdd47>电筒</color></b></font>吗？"
         },
         "Next_Key": "Americo_5",
         "Scripts": {

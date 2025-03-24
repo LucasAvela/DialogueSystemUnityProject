@@ -358,8 +358,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lorem ipsum
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5acd131a5a5a9fd45bc9ae8f38dde362, type: 2}
-  m_sharedMaterial: {fileID: -4393635001011147415, guid: 5acd131a5a5a9fd45bc9ae8f38dde362, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a251aac16057f084ea3b806453c91376, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: ebf8f135c96e05f4da4b4843de54f775, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2581,20 +2581,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique
-    viverra tellus, vel commodo justo egestas sed. Proin congue at erat nec dignissim.
-    Nam ut mauris in leo dictum commodo. Proin et diam non leo vestibulum fermentum.
-    Mauris pellentesque cursus aliquam. Nam nunc metus, rutrum tincidunt tortor quis,
-    fermentum tristique sem. Quisque ultricies, erat in mollis lobortis, odio est
-    fringilla lectus, ac congue enim nisi imperdiet nisl. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi libero risus,
-    suscipit eget elit nec, faucibus pulvinar nisi. Morbi molestie mattis dolor,
-    ornare euismod neque sollicitudin eu. Suspendisse auctor nulla eget elit sodales,
-    vitae ultrices ipsum lobortis. Proin fermentum vehicula congue. Maecenas mattis
-    dolor lectus, nec tristique tortor eleifend vel.
+  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel est
+    mauris. Etiam id nunc non mauris convallis iaculis. Curabitur aliquam metus nec
+    ligula aliquam pulvinar ullamcorper tristique ex. Vestibulum fringilla interdum
+    justo eget rhoncus.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0b3d3d14ed994e846b53d14b75aec50c, type: 2}
-  m_sharedMaterial: {fileID: -4393635001011147415, guid: 0b3d3d14ed994e846b53d14b75aec50c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6c52a58b6ec3b744b38f3571052e9f8, type: 2}
+  m_sharedMaterial: {fileID: -4393635001011147415, guid: b6c52a58b6ec3b744b38f3571052e9f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2618,7 +2611,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.35
+  m_fontSize: 52.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
