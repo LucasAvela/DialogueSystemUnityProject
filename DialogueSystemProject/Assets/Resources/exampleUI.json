@@ -31,20 +31,20 @@
             "zh": "下一个对话"
         }
     },
-    "SelectLanguage": {
+    "StartSimpleDialogue": {
         "Text": {
-            "en_us": "Select Language",
-            "en_gb": "Select Language",
-            "pt_br": "Selecionar Idioma",
-            "es": "Seleccionar Idioma",
-            "it": "Seleziona Lingua",
-            "fr": "Sélectionner la Langue",
-            "de": "Sprache Wählen",
-            "pl": "Wybierz Język",
-            "ru": "Выбрать Язык",
-            "ja": "言語を選択",
-            "ko": "언어 선택",
-            "zh": "选择语言"
+            "en_us": "Start Simple Dialogue",
+            "en_gb": "Start Simple Dialogue",
+            "pt_br": "Iniciar Diálogo Simples",
+            "es": "Iniciar Diálogo Simple",
+            "it": "Avvia Dialogo Semplice",
+            "fr": "Démarrer le Dialogue Simple",
+            "de": "Einfachen Dialog Starten",
+            "pl": "Rozpocznij Prosty Dialog",
+            "ru": "Начать Простой Диалог",
+            "ja": "シンプルな会話を開始",
+            "ko": "간단한 대화 시작",
+            "zh": "开始简单对话"
         }
     }
 }

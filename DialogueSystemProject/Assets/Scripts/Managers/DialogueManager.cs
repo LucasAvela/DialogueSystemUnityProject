@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dependencies")]
     [SerializeField] DialogueParser _dialogueParser;
     [SerializeField] DialogueParserUI _dialogueParserUI;
+    [SerializeField] DialogueParserSimple _dialogueParserSimple;
     [SerializeField] Languages _language;
 
     [Space(10)]
@@ -286,14 +287,22 @@ public class DialogueManager : MonoBehaviour
         return dialogue.Text[ReturnLanguage()];
     }
 
+    public string TextSimple(string key)
+    {
+        var dialogue = _dialogueParserSimple.GetDialogueByKey(key);
+        return dialogue.Text[ReturnLanguage()];
+    }
+
     public event System.Action onDialogueUIUpdated;
+    public event System.Action onDialogueSimpleUpdated;
 
     public void ChangeLanguage(Languages lang)
     {
         _language = lang;
-        StopAllCoroutines();
-        if (_onDialogue) { UpdateDialogue(_actualKey); }
+        //StopAllCoroutines();
+        //if (_onDialogue) { UpdateDialogue(_actualKey); }
         onDialogueUIUpdated?.Invoke();
-        Debug.Log($"Dialogue Manager change actual localization to {_language}");
+        onDialogueSimpleUpdated?.Invoke();
+        //Debug.Log($"Dialogue Manager change actual localization to {_language}");
     }
 }

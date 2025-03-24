@@ -78,5 +78,221 @@
                 "EndScript(0)"
             ]
         }
+    },
+    "Americo_0": {
+        "Actor": {
+            "en_us": "Edgar",
+            "en_gb": "Edgar",
+            "pt_br": "Edgar",
+            "es": "Edgar",
+            "it": "Edgar",
+            "fr": "Edgar",
+            "de": "Edgar",
+            "pl": "Edgar",
+            "ru": "Эдгар",
+            "ja": "エドガー",
+            "ko": "에드가",
+            "zh": "爱德华"
+        },
+        "Text": {
+            "en_us": "Americo, the lights are out, can...",
+            "en_gb": "Americo, the lights are out, can...",
+            "pt_br": "Américo, as luzes estão apagadas, podes...",
+            "es": "Americo, las luces están apagadas, ¿puedes...?",
+            "it": "Americo, le luci sono spente, puoi...?",
+            "fr": "Americo, il n'y a plus de lumière, peux-tu…",
+            "de": "Americo, das Licht ist aus, können Sie ...",
+            "pl": "Americo, światła zgasły, czy mógłbyś…",
+            "ru": "Америко. Опять нет света. Ты мог бы...",
+            "ja": "アメリコ、停電のようだ。悪いが…。",
+            "ko": "아메리코, 불이 나가서요. 혹시...",
+            "zh": "亚美利哥，灯灭了，可以..."
+        },
+        "Next_Key": "Americo_1",
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_1": {
+        "Actor": {
+            "en_us": "Americo",
+            "en_gb": "Americo",
+            "pt_br": "Américo",
+            "es": "Américo",
+            "it": "Americo",
+            "fr": "Américo",
+            "de": "Americo",
+            "pl": "Americo",
+            "ru": "Америко",
+            "ja": "アメリコ",
+            "ko": "아메리코",
+            "zh": "阿梅里科"
+        },
+        "Text": {
+            "en_us": "No shit! I thought my eyes were closed.",
+            "en_gb": "No shit! I thought my eyes were closed.",
+            "pt_br": "Não brinca! Pensei que meus olhos estavam fechados.",
+            "es": "¡No me jodas! ¡Pensaba que tenía los ojos cerrados!",
+            "it": "Ma dai! Pensavo di avere gli occhi chiusi.",
+            "fr": "Oh putain ! J'croyais que mes yeux étaient fermés !",
+            "de": "Was, wirklich?! Ich dachte, ich hätte die Augen zu.",
+            "pl": "Serio? A ja myślałem, że mam zamknięte oczy.",
+            "ru": "Блядь! А я думал, что заснул.",
+            "ja": "嘘だろ!?まぶたが閉じただけだと思ったぞ。",
+            "ko": "미친! 내가 눈을 감고 있는 거라 생각했는데.",
+            "zh": "真的？！我以为我闭眼了。"
+        },
+        "Next_Key": "Americo_2",
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_2": {
+        "Actor": {
+            "en_us": "Edgar",
+            "en_gb": "Edgar",
+            "pt_br": "Edgar",
+            "es": "Edgar",
+            "it": "Edgar",
+            "fr": "Edgar",
+            "de": "Edgar",
+            "pl": "Edgar",
+            "ru": "Эдгар",
+            "ja": "エドガー",
+            "ko": "에드가",
+            "zh": "爱德华"
+        },
+        "Text": {
+            "en_us": "...",
+            "en_gb": "...",
+            "pt_br": "...",
+            "es": "...",
+            "it": "...",
+            "fr": "...",
+            "de": "...",
+            "pl": "...",
+            "ru": "...",
+            "ja": "...",
+            "ko": "...",
+            "zh": "..."
+        },
+        "Next_Key": "Americo_3",
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_3": {
+        "Actor": {
+            "en_us": "Americo",
+            "en_gb": "Americo",
+            "pt_br": "Américo",
+            "es": "Américo",
+            "it": "Americo",
+            "fr": "Américo",
+            "de": "Americo",
+            "pl": "Americo",
+            "ru": "Америко",
+            "ja": "アメリコ",
+            "ko": "아메리코",
+            "zh": "阿梅里科"
+        },
+        "Text": {
+            "en_us": "What do you want?",
+            "en_gb": "What do you want?",
+            "pt_br": "O que você quer?",
+            "es": "¿Qué quieres?",
+            "it": "Cosa vuoi?",
+            "fr": "Qu'est-ce que tu veux ?",
+            "de": "Was wollen Sie?",
+            "pl": "Czego pan chce?",
+            "ru": "Чего тебе?",
+            "ja": "で、何の用だ？",
+            "ko": "뭐가 필요한데요?",
+            "zh": "你要啥？"
+        },
+        "Next_Key": "Americo_4",
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_4": {
+        "Actor": {
+            "en_us": "Edgar",
+            "en_gb": "Edgar",
+            "pt_br": "Edgar",
+            "es": "Edgar",
+            "it": "Edgar",
+            "fr": "Edgar",
+            "de": "Edgar",
+            "pl": "Edgar",
+            "ru": "Эдгар",
+            "ja": "エドガー",
+            "ko": "에드가",
+            "zh": "爱德华"
+        },
+        "Text": {
+            "en_us": "... Can you get me a flashlight?",
+            "en_gb": "... Can you get me a flashlight?",
+            "pt_br": "... Você pode me dar uma lanterna?",
+            "es": "... ¿Puedes conseguirme una linterna?",
+            "it": "... Puoi procurarmi una torcia?",
+            "fr": "... Peux-tu me donner une torche ?",
+            "de": "... Können Sie mir eine Taschenlampe besorgen?",
+            "pl": "... Czy mógłbyś mi przynieść latarkę?",
+            "ru": "...Дашь мне фонарик?",
+            "ja": "…懐中電灯を貸してくれないか？",
+            "ko": "... 손전등 좀 구해줄 수 있어요?",
+            "zh": "...可以给我一个电筒吗？"
+        },
+        "Next_Key": "Americo_5",
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_5": {
+        "Actor": {
+            "en_us": "Americo",
+            "en_gb": "Americo",
+            "pt_br": "Américo",
+            "es": "Américo",
+            "it": "Americo",
+            "fr": "Américo",
+            "de": "Americo",
+            "pl": "Americo",
+            "ru": "Америко",
+            "ja": "アメリコ",
+            "ko": "아메리코",
+            "zh": "阿梅里科"
+        },
+        "Text": {
+            "en_us": "Maybe Stella's got one. There's just junk in the storage downstairs.",
+            "en_gb": "Maybe Stella's got one. There's just junk in the storage downstairs.",
+            "pt_br": "Talvez Stella tenha uma. Só tem tralha no depósito lá embaixo.",
+            "es": "Tal vez Stella tenga una. En el almacén de abajo solo hay trastos.",
+            "it": "Forse Stella ne ha una. C'è solo roba inutile nel deposito di sotto.",
+            "fr": "Peut-être que Stella en a une. Il n'y a que du bazar dans les rangements en bas.",
+            "de": "Vielleicht hat Stella eine. Unten im Lagerraum gibt es nur Schrott.",
+            "pl": "Może Stella ma. W magazynie na dole są same śmieci.",
+            "ru": "У Стеллы должен быть. Наверно. А на складе внизу просто куча хлама.",
+            "ja": "ステラに聞けよ。アイツが持ってるだろう？ 下の倉庫？あそこはガラクタだらけさ。",
+            "ko": "스텔라한테 있을 걸요. 아래층 창고엔 쓰레기밖에 없어요.",
+            "zh": "史黛拉好像有一个。 楼下储物室里都是些垃圾玩意儿。"
+        },
+        "Next_Key": null,
+        "Scripts": {
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
     }
 }
