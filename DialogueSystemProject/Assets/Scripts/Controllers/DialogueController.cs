@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
-    [SerializeField] string _key;
-
-    [Header("Simple Dialogue Debug")]
-    [SerializeField] GameObject _simpleDialogueDebug;
+    [SerializeField] string _dialoguekey;
+    [SerializeField] string _simpleDialoguekey;
 
     public void StartDialogue()
     {
-        DialogueManager.Instance.StartDialogue(_key);
+        DialogueManager.Instance.StartDialogue(_dialoguekey);
     }
 
     public void ConsumeInput()
@@ -19,6 +17,6 @@ public class DialogueController : MonoBehaviour
 
     public void StartSimpleDialogue()
     {
-        _simpleDialogueDebug.SetActive(true);
+        DialogueManager.Instance.StartSimpleDialogue(_simpleDialoguekey);
     }
 }

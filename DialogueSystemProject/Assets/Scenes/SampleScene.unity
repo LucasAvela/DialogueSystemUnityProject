@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 112476829}
+  - component: {fileID: 112476830}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -158,6 +159,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &112476830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112476828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialoguekey: key_0
+  _simpleDialoguekey: ClosedDoor
 --- !u!1 &143834876
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +483,6 @@ GameObject:
   - component: {fileID: 283805523}
   - component: {fileID: 283805522}
   - component: {fileID: 283805521}
-  - component: {fileID: 283805524}
   m_Layer: 5
   m_Name: StartDialogue
   m_TagString: Untagged
@@ -540,7 +554,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283805524}
+      - m_Target: {fileID: 112476830}
         m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
         m_MethodName: StartDialogue
         m_Mode: 1
@@ -590,20 +604,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283805519}
   m_CullTransparentMesh: 1
---- !u!114 &283805524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283805519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: Americo_0
-  _simpleDialogueDebug: {fileID: 0}
 --- !u!1 &306645770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,7 +1486,6 @@ GameObject:
   - component: {fileID: 768427971}
   - component: {fileID: 768427974}
   - component: {fileID: 768427973}
-  - component: {fileID: 768427972}
   m_Layer: 5
   m_Name: SimpleDialogue
   m_TagString: Untagged
@@ -1513,21 +1512,6 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 500, y: 75}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &768427972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768427970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e395068621dd7140a759d55f743f78f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: ClosedDoor
-  _time: 1
-  _waitTime: 2
 --- !u!114 &768427973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,7 +1623,6 @@ GameObject:
   - component: {fileID: 823217736}
   - component: {fileID: 823217735}
   - component: {fileID: 823217734}
-  - component: {fileID: 823217737}
   m_Layer: 5
   m_Name: ConsumeDialogue
   m_TagString: Untagged
@@ -1711,7 +1694,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 823217737}
+      - m_Target: {fileID: 112476830}
         m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
         m_MethodName: ConsumeInput
         m_Mode: 1
@@ -1761,20 +1744,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823217732}
   m_CullTransparentMesh: 1
---- !u!114 &823217737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823217732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: 
-  _simpleDialogueDebug: {fileID: 0}
 --- !u!1 &833942684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,8 +2177,11 @@ MonoBehaviour:
   _dialoguePanel: {fileID: 1170275280}
   _dialogueText: {fileID: 1121373984}
   _dialogueActor: {fileID: 175031115}
-  _writingTime: 0.01
-  _animationTime: 0.1
+  _writingTime: 0.05
+  _animationTime: 0.2
+  _dialogueSimple: {fileID: 768427973}
+  _simpleDialogueTime: 1
+  _simpleDialogueWaitTime: 2
   _actualKey: 
   _actualActor: 
   _onDialogue: 0
@@ -3234,7 +3206,6 @@ GameObject:
   - component: {fileID: 2113453979}
   - component: {fileID: 2113453978}
   - component: {fileID: 2113453977}
-  - component: {fileID: 2113453976}
   m_Layer: 5
   m_Name: StartSimpleDialogue
   m_TagString: Untagged
@@ -3262,20 +3233,6 @@ RectTransform:
   m_AnchoredPosition: {x: 275, y: -50}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &2113453976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113453974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: 
-  _simpleDialogueDebug: {fileID: 768427970}
 --- !u!114 &2113453977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,7 +3277,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113453976}
+      - m_Target: {fileID: 112476830}
         m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
         m_MethodName: StartSimpleDialogue
         m_Mode: 1

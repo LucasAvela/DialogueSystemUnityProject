@@ -30,20 +30,24 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    [Space(10)]
-    [Header("Dependencies")]
+    [Space(10)][Header("Dependencies")]
     [SerializeField] DialogueParser _dialogueParser;
     [SerializeField] DialogueParserUI _dialogueParserUI;
     [SerializeField] DialogueParserSimple _dialogueParserSimple;
     [SerializeField] Languages _language;
 
-    [Space(10)]
-    [Header("Action")]
+    [Space(10)][Header("Dialogue")]
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _dialogueText;
     [SerializeField] TextMeshProUGUI _dialogueActor;
     [SerializeField] float _writingTime = 0.01f;
     [SerializeField] float _animationTime = 0.1f;
+
+    [Space(10)][Header("Simple Dialogue")]
+    [SerializeField] TextMeshProUGUI _dialogueSimple;
+    [SerializeField] float _simpleDialogueTime = 1f;
+    [SerializeField] float _simpleDialogueWaitTime = 2f;
+    Coroutine _simpleDialogueCoroutine;
 
     public enum Languages
     {
@@ -281,6 +285,46 @@ public class DialogueManager : MonoBehaviour
         _actualKey = null;
     }
 
+    public void StartSimpleDialogue(string key)
+    {
+        var dialogue = _dialogueParserSimple.GetDialogueByKey(key);
+        _dialogueSimple.text = dialogue.Text[ReturnLanguage()];
+
+        if (_simpleDialogueCoroutine != null) {StopCoroutine(_simpleDialogueCoroutine);}
+        _simpleDialogueCoroutine = StartCoroutine(EnableSimpleDialogue());
+    }
+
+    private IEnumerator EnableSimpleDialogue()
+    {   
+        _dialogueSimple.gameObject.SetActive(true);
+        
+        float elapsedTime = 0f;
+        Color color = _dialogueSimple.color;
+        color.a = 0f;
+        _dialogueSimple.color = color;
+
+        while (elapsedTime < _simpleDialogueTime)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Clamp01(elapsedTime / _simpleDialogueTime);
+            _dialogueSimple.color = color;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(_simpleDialogueWaitTime);
+
+        elapsedTime = 0f;
+        while (elapsedTime < _simpleDialogueTime)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Clamp01(1f - (elapsedTime / _simpleDialogueTime));
+            _dialogueSimple.color = color;
+            yield return null;
+        }
+
+        _dialogueSimple.gameObject.SetActive(false);
+    }
+
     public string TextUI(string key)
     {
         var dialogue = _dialogueParserUI.GetDialogueByKey(key);
@@ -294,15 +338,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     public event System.Action onDialogueUIUpdated;
-    public event System.Action onDialogueSimpleUpdated;
 
     public void ChangeLanguage(Languages lang)
     {
         _language = lang;
-        //StopAllCoroutines();
-        //if (_onDialogue) { UpdateDialogue(_actualKey); }
         onDialogueUIUpdated?.Invoke();
-        onDialogueSimpleUpdated?.Invoke();
-        //Debug.Log($"Dialogue Manager change actual localization to {_language}");
     }
 }

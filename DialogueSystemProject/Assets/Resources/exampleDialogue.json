@@ -131,18 +131,18 @@
             "zh": "阿梅里科"
         },
         "Text": {
-            "en_us": "No shit! I thought my eyes were closed.",
-            "en_gb": "No shit! I thought my eyes were closed.",
-            "pt_br": "Não brinca! Pensei que meus olhos estavam fechados.",
-            "es": "¡No me jodas! ¡Pensaba que tenía los ojos cerrados!",
-            "it": "Ma dai! Pensavo di avere gli occhi chiusi.",
-            "fr": "Oh putain ! J'croyais que mes yeux étaient fermés !",
-            "de": "Was, wirklich?! Ich dachte, ich hätte die Augen zu.",
-            "pl": "Serio? A ja myślałem, że mam zamknięte oczy.",
-            "ru": "Блядь! А я думал, что заснул.",
-            "ja": "嘘だろ!?まぶたが閉じただけだと思ったぞ。",
-            "ko": "미친! 내가 눈을 감고 있는 거라 생각했는데.",
-            "zh": "真的？！我以为我闭眼了。"
+            "en_us": "<b>No shit!</b> I thought my eyes were closed.",
+            "en_gb": "<b>No shit!</b> I thought my eyes were closed.",
+            "pt_br": "<b>Não brinca!</b> Pensei que meus olhos estavam fechados.",
+            "es": "<b>¡No me jodas!</b> ¡Pensaba que tenía los ojos cerrados!",
+            "it": "<b>Ma dai!</b> Pensavo di avere gli occhi chiusi.",
+            "fr": "<b>Oh putain !</b> J'croyais que mes yeux étaient fermés !",
+            "de": "<b>Was, wirklich?!</b> Ich dachte, ich hätte die Augen zu.",
+            "pl": "<b>Serio?</b> A ja myślałem, że mam zamknięte oczy.",
+            "ru": "<b>Блядь!</b> А я думал, что заснул.",
+            "ja": "<b>嘘だろ!?</b> まぶたが閉じただけだと思ったぞ。",
+            "ko": "<b>미친!</b> 내가 눈을 감고 있는 거라 생각했는데.",
+            "zh": "<b>真的？！</b> 我以为我闭眼了。"
         },
         "Next_Key": "Americo_2",
         "Scripts": {
@@ -239,18 +239,18 @@
             "zh": "爱德华"
         },
         "Text": {
-            "en_us": "... Can you get me a flashlight?",
-            "en_gb": "... Can you get me a flashlight?",
-            "pt_br": "... Você pode me dar uma lanterna?",
-            "es": "... ¿Puedes conseguirme una linterna?",
-            "it": "... Puoi procurarmi una torcia?",
-            "fr": "... Peux-tu me donner une torche ?",
-            "de": "... Können Sie mir eine Taschenlampe besorgen?",
-            "pl": "... Czy mógłbyś mi przynieść latarkę?",
-            "ru": "...Дашь мне фонарик?",
-            "ja": "…懐中電灯を貸してくれないか？",
-            "ko": "... 손전등 좀 구해줄 수 있어요?",
-            "zh": "...可以给我一个电筒吗？"
+            "en_us": "... Can you get me a <b><#ffdd47>flashlight</color></b>?",
+            "en_gb": "... Can you get me a <b><#ffdd47>flashlight</color></b>?",
+            "pt_br": "... Você pode me dar uma <b><#ffdd47>lanterna</color></b>?",
+            "es": "... ¿Puedes conseguirme una <b><#ffdd47>linterna</color></b>?",
+            "it": "... Puoi procurarmi una <b><#ffdd47>torcia</color></b>?",
+            "fr": "... Peux-tu me donner une <b><#ffdd47>torche</color></b> ?",
+            "de": "... Können Sie mir eine <b><#ffdd47>Taschenlampe</color></b> besorgen?",
+            "pl": "... Czy mógłbyś mi przynieść <b><#ffdd47>latarkę</color></b>?",
+            "ru": "...Дашь мне <b><#ffdd47>фонарик</color></b>?",
+            "ja": "…<b><#ffdd47>懐中電灯</color></b>を貸してくれないか？",
+            "ko": "... <b><#ffdd47>손전등</color></b> 좀 구해줄 수 있어요?",
+            "zh": "...可以给我一个<b><#ffdd47>电筒</color></b>吗？"
         },
         "Next_Key": "Americo_5",
         "Scripts": {
@@ -275,23 +275,25 @@
             "zh": "阿梅里科"
         },
         "Text": {
-            "en_us": "Maybe Stella's got one. There's just junk in the storage downstairs.",
-            "en_gb": "Maybe Stella's got one. There's just junk in the storage downstairs.",
-            "pt_br": "Talvez Stella tenha uma. Só tem tralha no depósito lá embaixo.",
-            "es": "Tal vez Stella tenga una. En el almacén de abajo solo hay trastos.",
-            "it": "Forse Stella ne ha una. C'è solo roba inutile nel deposito di sotto.",
-            "fr": "Peut-être que Stella en a une. Il n'y a que du bazar dans les rangements en bas.",
-            "de": "Vielleicht hat Stella eine. Unten im Lagerraum gibt es nur Schrott.",
-            "pl": "Może Stella ma. W magazynie na dole są same śmieci.",
-            "ru": "У Стеллы должен быть. Наверно. А на складе внизу просто куча хлама.",
-            "ja": "ステラに聞けよ。アイツが持ってるだろう？ 下の倉庫？あそこはガラクタだらけさ。",
-            "ko": "스텔라한테 있을 걸요. 아래층 창고엔 쓰레기밖에 없어요.",
-            "zh": "史黛拉好像有一个。 楼下储物室里都是些垃圾玩意儿。"
+            "en_us": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+            "en_gb": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+            "pt_br": "Talvez Stella tenha uma.{0} Só tem tralha no depósito lá embaixo.",
+            "es": "Tal vez Stella tenga una.{0} En el almacén de abajo solo hay trastos.",
+            "it": "Forse Stella ne ha una.{0} C'è solo roba inutile nel deposito di sotto.",
+            "fr": "Peut-être que Stella en a une.{0} Il n'y a que du bazar dans les rangements en bas.",
+            "de": "Vielleicht hat Stella eine.{0} Unten im Lagerraum gibt es nur Schrott.",
+            "pl": "Może Stella ma.{0} W magazynie na dole są same śmieci.",
+            "ru": "У Стеллы должен быть.{0} А на складе внизу просто куча хлама.",
+            "ja": "ステラに聞けよ。アイツが持ってるだろう？{0} 下の倉庫？あそこはガラクタだらけさ。",
+            "ko": "스텔라한테 있을 걸요.{0} 아래층 창고엔 쓰레기밖에 없어요.",
+            "zh": "史黛拉好像有一个。{0} 楼下储物室里都是些垃圾玩意儿。"
         },
         "Next_Key": null,
         "Scripts": {
             "Start": [],
-            "Middle": [],
+            "Middle": [
+                "MiddleScriptAmerico"
+            ],
             "End": []
         }
     }

@@ -62,6 +62,11 @@ public class DialogueScriptsManager : MonoBehaviour
                 yield return new WaitForSeconds(1f);
                 break;
             
+            case "MiddleScriptAmerico":
+                DialogueManager.Instance.StartSimpleDialogue("AmericoSimple");
+                yield return new WaitForSeconds(2f);
+                break;
+
             default:
                 Debug.LogError($"MiddleScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
                 break;
