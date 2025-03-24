@@ -194,8 +194,11 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             else
-            {
-                _skipWriting = true;
+            {   
+                if (!_middleScriptRunning)
+                {
+                    _skipWriting = true;
+                }
             }
         }
     }
