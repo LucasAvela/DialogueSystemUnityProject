@@ -1,4 +1,41 @@
 {
+    "key": {
+        "Actor": {
+            "en_us": "",
+            "en_gb": "",
+            "pt_br": "",
+            "es": "",
+            "it": "",
+            "fr": "",
+            "de": "",
+            "pl": "",
+            "ru": "",
+            "ja": "",
+            "ko": "",
+            "zh": ""
+        },
+        "Text": {
+            "en_us": "",
+            "en_gb": "",
+            "pt_br": "",
+            "es": "",
+            "it": "",
+            "fr": "",
+            "de": "",
+            "pl": "",
+            "ru": "",
+            "ja": "",
+            "ko": "",
+            "zh": ""
+        },
+        "Next_Key": "",
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
     "key_0": {
         "Actor": {
             "en_us": "John Peter",
@@ -30,6 +67,7 @@
         },
         "Next_Key": "key_1",
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [],
             "End": []
@@ -66,6 +104,7 @@
         },
         "Next_Key": null,
         "Scripts": {
+            "Insert": [],
             "Start": [
                 "StartScript(0)"
             ],
@@ -77,6 +116,45 @@
             "End": [
                 "EndScript(0)"
             ]
+        }
+    },
+    "Player_0": {
+        "Actor": {
+            "en_us": "Soldier",
+            "en_gb": "Soldier",
+            "pt_br": "Soldado",
+            "es": "Soldado",
+            "it": "Soldato",
+            "fr": "Soldat",
+            "de": "Soldat",
+            "pl": "Żołnierz",
+            "ru": "Солдат",
+            "ja": "兵士",
+            "ko": "비교",
+            "zh": "士兵"
+        },
+        "Text": {
+            "en_us": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Then I took an arrow in the knee.",
+            "en_gb": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Then I took an arrow in the knee.",
+            "pt_br": "Eu costumava ser um aventureiro como você, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Então eu levei uma flecha no joelho.",
+            "es": "Solía ser un aventurero como tú, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Entonces recibí una flecha en la rodilla.",
+            "it": "Ero un avventuriero come te, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Poi ho preso una freccia al ginocchio.",
+            "fr": "J'étais un aventurier comme toi, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Puis j'ai pris une flèche dans le genou.",
+            "de": "Ich war mal ein Abenteurer wie du, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Dann bekam ich einen Pfeil ins Knie.",
+            "pl": "Kiedyś byłem poszukiwaczem przygód jak ty, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Potem dostałem strzałę w kolano.",
+            "ru": "Я раньше был авантюристом, как и ты, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>. Потом я получил стрелу в колено.",
+            "ja": "かつてはおまえのような冒険者だったんだ、<font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>。しかし、ひざにやをもらってしまった。",
+            "ko": " 나는 야, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>애가 드래는 힘들 편이었는데, 무롱에 팔로 내 무롱에 팔을 보고 나와 내린 심장이 발견되었다.",
+            "zh": "我曾经像你一样是个冒险家，<font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>。然后我的膝盖中了一箭。"
+        },
+        "Next_Key": null,
+        "Scripts": {
+            "Insert": [
+                "PlayerName"
+            ],
+            "Start": [],
+            "Middle": [],
+            "End": []
         }
     },
     "Americo_0": {
@@ -110,6 +188,7 @@
         },
         "Next_Key": "Americo_1",
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [],
             "End": []
@@ -146,6 +225,7 @@
         },
         "Next_Key": "Americo_2",
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [],
             "End": []
@@ -182,6 +262,7 @@
         },
         "Next_Key": "Americo_3",
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [],
             "End": []
@@ -218,6 +299,7 @@
         },
         "Next_Key": "Americo_4",
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [],
             "End": []
@@ -254,6 +336,7 @@
         },
         "Next_Key": "Americo_5",
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [],
             "End": []
@@ -290,6 +373,7 @@
         },
         "Next_Key": null,
         "Scripts": {
+            "Insert": [],
             "Start": [],
             "Middle": [
                 "MiddleScriptAmerico"

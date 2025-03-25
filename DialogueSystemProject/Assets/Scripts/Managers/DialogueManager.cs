@@ -216,8 +216,17 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator WriteDialogue(string text)
     {
         _writing = true;
-
+        
         var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
+        
+        if (dialogue.Scripts.Insert != null)
+        {
+            foreach (string insert in dialogue.Scripts.Insert)
+            {
+                text = DialogueScriptsManager.Instance.InsertText(insert, text);
+            }
+        }
+
         if (dialogue.Scripts.Start != null)
         {
             foreach (string startScript in dialogue.Scripts.Start)

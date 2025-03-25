@@ -13,7 +13,8 @@ public class DialogueEntry
 
 [System.Serializable]
 public class ScriptsData
-{
+{   
+    public List<string> Insert;
     public List<string> Start;
     public List<string> Middle;
     public List<string> End;

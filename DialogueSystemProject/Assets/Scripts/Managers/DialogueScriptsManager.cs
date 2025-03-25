@@ -29,6 +29,18 @@ public class DialogueScriptsManager : MonoBehaviour
     }
     #endregion
 
+    public string InsertText(string insert, string text)
+    {
+        switch (insert)
+        {
+            case "PlayerName":
+                return text.Replace("{PlayerName}", GameManager.Instance.ReturnPlayerName());
+            
+            default:
+                return text;
+        }
+    }
+
     public void StartScript(string script)
     {
         switch (script)
