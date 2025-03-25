@@ -1283,7 +1283,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2479,9 +2479,13 @@ MonoBehaviour:
   _dialogueSimple: {fileID: 768427973}
   _simpleDialogueTime: 1
   _simpleDialogueWaitTime: 2
+  _questionContainer: {fileID: 0}
+  _questionButtonPrefab: {fileID: 0}
   _actualKey: 
+  _actualSimpleKey: 
   _actualActor: 
   _onDialogue: 0
+  _onSimpleDialogue: 0
   _writing: 0
   _middleScriptRunning: 0
   _skipWriting: 0
@@ -3617,8 +3621,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1096662623}
   - {fileID: 1120620989}
+  - {fileID: 1096662623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137965272
