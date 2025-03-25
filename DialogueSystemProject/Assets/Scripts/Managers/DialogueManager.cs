@@ -150,8 +150,10 @@ public class DialogueManager : MonoBehaviour
     [Space(10)]
     [Header("Debug")]
     [SerializeField] private string _actualKey = null;
+    [SerializeField] private string _actualSimpleKey = null;
     [SerializeField] private string _actualActor = null;
     [SerializeField] private bool _onDialogue = false;
+    [SerializeField] private bool _onSimpleDialogue = false;
     [SerializeField] private bool _writing = false;
     [SerializeField] private bool _middleScriptRunning = false;
     [SerializeField] private bool _skipWriting = false;
@@ -305,10 +307,13 @@ public class DialogueManager : MonoBehaviour
 
         if (_simpleDialogueCoroutine != null) {StopCoroutine(_simpleDialogueCoroutine);}
         _simpleDialogueCoroutine = StartCoroutine(EnableSimpleDialogue());
+
+        _actualSimpleKey = key;
     }
 
     private IEnumerator EnableSimpleDialogue()
     {   
+        _onSimpleDialogue = true;
         _dialogueSimple.gameObject.SetActive(true);
         
         float elapsedTime = 0f;
@@ -336,17 +341,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         _dialogueSimple.gameObject.SetActive(false);
+        _onSimpleDialogue = false;
     }
 
     public string TextUI(string key)
     {
         var dialogue = _dialogueParserUI.GetDialogueByKey(key);
-        return dialogue.Text[ReturnLanguage()];
-    }
-
-    public string TextSimple(string key)
-    {
-        var dialogue = _dialogueParserSimple.GetDialogueByKey(key);
         return dialogue.Text[ReturnLanguage()];
     }
 
@@ -361,6 +361,11 @@ public class DialogueManager : MonoBehaviour
         {
             StopCoroutine(_writingDialogueCoroutine);
             UpdateDialogue(_actualKey);
+        }
+
+        if (_onSimpleDialogue)
+        {
+            StartSimpleDialogue(_actualSimpleKey);
         }
     }
 }
