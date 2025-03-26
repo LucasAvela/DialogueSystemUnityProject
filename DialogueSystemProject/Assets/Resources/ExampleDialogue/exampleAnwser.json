@@ -1,0 +1,38 @@
+{
+    "Question": [
+        {
+            "UIKey": "yes_key",
+            "NextKey": "key"
+        },
+        {
+            "UIKey": "no_key",
+            "NextKey": "key"
+        },
+        {
+            "UIKey": "maybe_key",
+            "NextKey": "key"
+        },
+        {
+            "UIKey": "later_key",
+            "NextKey": "key"
+        }
+    ],
+    "MinecraftQuestion": [
+        {
+            "UIKey": "yes_key",
+            "NextKey": "question_1"
+        },
+        {
+            "UIKey": "no_key",
+            "NextKey": "question_1"
+        },
+        {
+            "UIKey": "maybe_key",
+            "NextKey": "question_1"
+        },
+        {
+            "UIKey": "later_key",
+            "NextKey": "question_1"
+        }
+    ]
+}

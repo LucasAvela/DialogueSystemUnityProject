@@ -1,0 +1,50 @@
+{
+    "SimpleDialogue": {
+        "Text": {
+            "en_us": "Simple Dialogue",
+            "en_gb": "Simple Dialogue",
+            "pt_br": "Diálogo Simples",
+            "es": "Diálogo Simple",
+            "it": "Dialogo Semplice",
+            "fr": "Dialogue Simple",
+            "de": "Einfacher Dialog",
+            "pl": "Prosty Dialog",
+            "ru": "Простой Диалог",
+            "ja": "シンプルな会話",
+            "ko": "간단한 대화",
+            "zh": "简单对话"
+        }
+    },
+    "ClosedDoor": {
+        "Text": {
+            "en_us": "<#fff952>The door</color> is locked.",
+            "en_gb": "<#fff952>The door</color> is locked.",
+            "pt_br": "<#fff952>A porta</color> está trancada.",
+            "es": "<#fff952>La puerta</color> está cerrada con llave.",
+            "it": "<#fff952>La porta</color> è chiusa a chiave.",
+            "fr": "<#fff952>La porte</color> est verrouillée.",
+            "de": "<#fff952>Die Tür</color> ist verschlossen.",
+            "pl": "<#fff952>Drzwi</color> są zamknięte na klucz.",
+            "ru": "<#fff952>Дверь</color> заперта.",
+            "ja": "<#fff952>ドア</color>はロックされています。",
+            "ko": "<#fff952>문</color>이 잠겨 있습니다.",
+            "zh": "<#fff952>门</color>是锁着的。"
+        }
+    },
+    "AmericoSimple": {
+        "Text": {
+            "en_us": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
+            "en_gb": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
+            "pt_br": "Américo <b><#fff952>acende</color></b> um <b><#eb7826>cigarro</color></b>.",
+            "es": "Américo <b><#fff952>enciende</color></b> un <b><#eb7826>cigarrillo</color></b>.",
+            "it": "Américo <b><#fff952>accende</color></b> una <b><#eb7826>sigaretta</color></b>.",
+            "fr": "Américo <b><#fff952>allume</color></b> une <b><#eb7826>cigarette</color></b>.",
+            "de": "Américo <b><#fff952>zündet</color></b> eine <b><#eb7826>Zigarette</color></b> an.",
+            "pl": "Américo <b><#fff952>zapala</color></b> <b><#eb7826>papierosa</color></b>.",
+            "ru": "Америко <b><#fff952>зажигает</color></b> <b><#eb7826>сигарету</color></b>.",
+            "ja": "アメリコは<b><#fff952>タバコに火をつける</color></b>。",
+            "ko": "아메리코가 <b><#fff952>담배에 불을 붙인다</color></b>.",
+            "zh": "阿梅里科<b><#fff952>点燃</color></b>了一支<b><#eb7826>香烟</color></b>。"
+        }
+    }
+}

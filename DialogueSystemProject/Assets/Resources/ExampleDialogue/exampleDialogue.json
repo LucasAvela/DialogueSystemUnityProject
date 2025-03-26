@@ -1,0 +1,472 @@
+{
+    "key": {
+        "Actor": {
+            "en_us": "",
+            "en_gb": "",
+            "pt_br": "",
+            "es": "",
+            "it": "",
+            "fr": "",
+            "de": "",
+            "pl": "",
+            "ru": "",
+            "ja": "",
+            "ko": "",
+            "zh": ""
+        },
+        "Text": {
+            "en_us": "",
+            "en_gb": "",
+            "pt_br": "",
+            "es": "",
+            "it": "",
+            "fr": "",
+            "de": "",
+            "pl": "",
+            "ru": "",
+            "ja": "",
+            "ko": "",
+            "zh": ""
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key_0": {
+        "Actor": {
+            "en_us": "John Peter",
+            "en_gb": "John Peter",
+            "pt_br": "João Pedro",
+            "es": "Juan Pedro",
+            "it": "Giovanni Pietro",
+            "fr": "Jean Pierre",
+            "de": "Johann Peter",
+            "pl": "Jan Piotr",
+            "ru": "Джон Питер",
+            "ja": "ジョン・ピーター",
+            "ko": "존 피터",
+            "zh": "约翰·彼得"
+        },
+        "Text": {
+            "en_us": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+            "en_gb": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+            "pt_br": "Este é o primeiro teste do <b>Sistema de Diálogo</b> da <#00bf2d>Corylus Dev</color>",
+            "es": "Esta es la primera prueba del <b>Sistema de Diálogo</b> de <#00bf2d>Corylus Dev</color>",
+            "it": "Questo è il primo test del <b>Sistema di Dialogo</b> di <#00bf2d>Corylus Dev</color>",
+            "fr": "Ceci est le premier test du <b>Système de Dialogue</b> de <#00bf2d>Corylus Dev</color>",
+            "de": "Dies ist der erste Test des <b>Dialogsystems</b> von <#00bf2d>Corylus Dev</color>",
+            "pl": "To jest pierwszy test <b>Systemu Dialogowego</b> od <#00bf2d>Corylus Dev</color>",
+            "ru": "Это первый тест <b>системы диалога</b> от <#00bf2d>Corylus Dev</color>",
+            "ja": "これは <#00bf2d>Corylus Dev</color> による <b>ダイアログシステム</b> の最初のテストです",
+            "ko": "이것은 <#00bf2d>Corylus Dev</color>의 <b>대화 시스템</b> 첫 번째 테스트입니다",
+            "zh": "这是 <#00bf2d>Corylus Dev</color> 的 <b>对话系统</b> 的第一次测试"
+        },
+        "Next_Key": "key_1",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key_1": {
+        "Actor": {
+            "en_us": "{Player}",
+            "en_gb": "{Player}",
+            "pt_br": "{Player}",
+            "es": "{Player}",
+            "it": "{Player}",
+            "fr": "{Player}",
+            "de": "{Player}",
+            "pl": "{Player}",
+            "ru": "{Player}",
+            "ja": "{Player}",
+            "ko": "{Player}",
+            "zh": "{Player}"
+        },
+        "Text": {
+            "en_us": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
+            "en_gb": "It... {0}looks like... {2}it's working, {1}John Peter!",
+            "pt_br": "Parece que {0}está... {2}funcionando, {1}João Pedro!",
+            "es": "¡Parece que {0}está... {2}funcionando, {1}Juan Pedro!",
+            "it": "Sembra che {0}stia... {2}funzionando, {1}Giovanni Pietro!",
+            "fr": "On dirait que {0}ça... {2}fonctionne, {1}Jean Pierre !",
+            "de": "Es sieht so aus, als würde es {0}... {2}funktionieren, {1}Johann Peter!",
+            "pl": "Wygląda na to, że {0}to... {2}działa, {1}Jan Piotr!",
+            "ru": "Похоже, {0}это... {2}работает, {1}Джон Питер!",
+            "ja": "{1}ジョン・ピーターさん... {0}動いている... {2}ようですね。",
+            "ko": "{1}조너 피터... {0}잘... {2}작동하는 것 같네요!",
+            "zh": "看起来{0}好像... {2}正常运行了, {1}约翰·彼得!"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [
+                "StartScript(0)"
+            ],
+            "Middle": [
+                "MiddleScript(0)",
+                "MiddleScript(1)",
+                "MiddleScript(2)"
+            ],
+            "End": [
+                "EndScript(0)"
+            ]
+        }
+    },
+    "Player_0": {
+        "Actor": {
+            "en_us": "Soldier",
+            "en_gb": "Soldier",
+            "pt_br": "Soldado",
+            "es": "Soldado",
+            "it": "Soldato",
+            "fr": "Soldat",
+            "de": "Soldat",
+            "pl": "Żołnierz",
+            "ru": "Солдат",
+            "ja": "兵士",
+            "ko": "비교",
+            "zh": "士兵"
+        },
+        "Text": {
+            "en_us": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
+            "en_gb": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
+            "pt_br": "Eu costumava ser um aventureiro como você, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Então eu levei uma flecha no joelho.",
+            "es": "Solía ser un aventurero como tú, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Entonces recibí una flecha en la rodilla.",
+            "it": "Ero un avventuriero come te, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Poi ho preso una freccia al ginocchio.",
+            "fr": "J'étais un aventurier comme toi, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Puis j'ai pris une flèche dans le genou.",
+            "de": "Ich war mal ein Abenteurer wie du, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Dann bekam ich einen Pfeil ins Knie.",
+            "pl": "Kiedyś byłem poszukiwaczem przygód jak ty, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Potem dostałem strzałę w kolano.",
+            "ru": "Я раньше был авантюристом, как и ты, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Потом я получил стрелу в колено.",
+            "ja": "かつてはおまえのような冒険者だったんだ、<font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>。{0}しかし、ひざにやをもらってしまった。",
+            "ko": " 나는 야, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>{0}애가 드래는 힘들 편이었는데, 무롱에 팔로 내 무롱에 팔을 보고 나와 내린 심장이 발견되었다.",
+            "zh": "我曾经像你一样是个冒险家，<font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>。{0}然后我的膝盖中了一箭。"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [
+                "PlayerName"
+            ],
+            "Start": [],
+            "Middle": [
+                "MiddleScriptAmerico"
+            ],
+            "End": []
+        }
+    },
+    "Americo_0": {
+        "Actor": {
+            "en_us": "Edgar",
+            "en_gb": "Edgar",
+            "pt_br": "Edgar",
+            "es": "Edgar",
+            "it": "Edgar",
+            "fr": "Edgar",
+            "de": "Edgar",
+            "pl": "Edgar",
+            "ru": "Эдгар",
+            "ja": "エドガー",
+            "ko": "에드가",
+            "zh": "爱德华"
+        },
+        "Text": {
+            "en_us": "Americo, the lights are out, can...",
+            "en_gb": "Americo, the lights are out, can...",
+            "pt_br": "Américo, as luzes estão apagadas, podes...",
+            "es": "Americo, las luces están apagadas, ¿puedes...?",
+            "it": "Americo, le luci sono spente, puoi...?",
+            "fr": "Americo, il n'y a plus de lumière, peux-tu…",
+            "de": "Americo, das Licht ist aus, können Sie ...",
+            "pl": "Americo, światła zgasły, czy mógłbyś…",
+            "ru": "Америко. Опять нет света. Ты мог бы...",
+            "ja": "アメリコ、停電のようだ。悪いが…。",
+            "ko": "아메리코, 불이 나가서요. 혹시...",
+            "zh": "亚美利哥，灯灭了，可以..."
+        },
+        "Next_Key": "Americo_1",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_1": {
+        "Actor": {
+            "en_us": "Americo",
+            "en_gb": "Americo",
+            "pt_br": "Américo",
+            "es": "Américo",
+            "it": "Americo",
+            "fr": "Américo",
+            "de": "Americo",
+            "pl": "Americo",
+            "ru": "Америко",
+            "ja": "アメリコ",
+            "ko": "아메리코",
+            "zh": "阿梅里科"
+        },
+        "Text": {
+            "en_us": "<b>No shit!</b> I thought my eyes were closed.",
+            "en_gb": "<b>No shit!</b> I thought my eyes were closed.",
+            "pt_br": "<b>Não brinca!</b> Pensei que meus olhos estavam fechados.",
+            "es": "<b>¡No me jodas!</b> ¡Pensaba que tenía los ojos cerrados!",
+            "it": "<b>Ma dai!</b> Pensavo di avere gli occhi chiusi.",
+            "fr": "<b>Oh putain !</b> J'croyais que mes yeux étaient fermés !",
+            "de": "<b>Was, wirklich?!</b> Ich dachte, ich hätte die Augen zu.",
+            "pl": "<b>Serio?</b> A ja myślałem, że mam zamknięte oczy.",
+            "ru": "<b>Блядь!</b> А я думал, что заснул.",
+            "ja": "<b>嘘だろ!?</b> まぶたが閉じただけだと思ったぞ。",
+            "ko": "<b>미친!</b> 내가 눈을 감고 있는 거라 생각했는데.",
+            "zh": "<b>真的？！</b> 我以为我闭眼了。"
+        },
+        "Next_Key": "Americo_2",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_2": {
+        "Actor": {
+            "en_us": "Edgar",
+            "en_gb": "Edgar",
+            "pt_br": "Edgar",
+            "es": "Edgar",
+            "it": "Edgar",
+            "fr": "Edgar",
+            "de": "Edgar",
+            "pl": "Edgar",
+            "ru": "Эдгар",
+            "ja": "エドガー",
+            "ko": "에드가",
+            "zh": "爱德华"
+        },
+        "Text": {
+            "en_us": "...",
+            "en_gb": "...",
+            "pt_br": "...",
+            "es": "...",
+            "it": "...",
+            "fr": "...",
+            "de": "...",
+            "pl": "...",
+            "ru": "...",
+            "ja": "...",
+            "ko": "...",
+            "zh": "..."
+        },
+        "Next_Key": "Americo_3",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_3": {
+        "Actor": {
+            "en_us": "Americo",
+            "en_gb": "Americo",
+            "pt_br": "Américo",
+            "es": "Américo",
+            "it": "Americo",
+            "fr": "Américo",
+            "de": "Americo",
+            "pl": "Americo",
+            "ru": "Америко",
+            "ja": "アメリコ",
+            "ko": "아메리코",
+            "zh": "阿梅里科"
+        },
+        "Text": {
+            "en_us": "What do you want?",
+            "en_gb": "What do you want?",
+            "pt_br": "O que você quer?",
+            "es": "¿Qué quieres?",
+            "it": "Cosa vuoi?",
+            "fr": "Qu'est-ce que tu veux ?",
+            "de": "Was wollen Sie?",
+            "pl": "Czego pan chce?",
+            "ru": "Чего тебе?",
+            "ja": "で、何の用だ？",
+            "ko": "뭐가 필요한데요?",
+            "zh": "你要啥？"
+        },
+        "Next_Key": "Americo_4",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_4": {
+        "Actor": {
+            "en_us": "Edgar",
+            "en_gb": "Edgar",
+            "pt_br": "Edgar",
+            "es": "Edgar",
+            "it": "Edgar",
+            "fr": "Edgar",
+            "de": "Edgar",
+            "pl": "Edgar",
+            "ru": "Эдгар",
+            "ja": "エドガー",
+            "ko": "에드가",
+            "zh": "爱德华"
+        },
+        "Text": {
+            "en_us": "... Can you get me a <font=NotoSans Underlay SDF><b><#ffdd47>flashlight</color></b></font>?",
+            "en_gb": "... Can you get me a <font=NotoSans Underlay SDF><b><#ffdd47>flashlight</color></b></font>?",
+            "pt_br": "... Você pode me dar uma <font=NotoSans Underlay SDF><b><#ffdd47>lanterna</color></b></font>?",
+            "es": "... ¿Puedes conseguirme una <font=NotoSans Underlay SDF><b><#ffdd47>linterna</color></b></font>?",
+            "it": "... Puoi procurarmi una <font=NotoSans Underlay SDF><b><#ffdd47>torcia</color></b></font>?",
+            "fr": "... Peux-tu me donner une <font=NotoSans Underlay SDF><b><#ffdd47>torche</color></b></font> ?",
+            "de": "... Können Sie mir eine <font=NotoSans Underlay SDF><b><#ffdd47>Taschenlampe</color></b></font> besorgen?",
+            "pl": "... Czy mógłbyś mi przynieść <font=NotoSans Underlay SDF><b><#ffdd47>latarkę</color></b></font>?",
+            "ru": "...Дашь мне <font=NotoSans Underlay SDF><b><#ffdd47>фонарик</color></b></font>?",
+            "ja": "…<font=NotoSans Underlay SDF><b><#ffdd47>懐中電灯</color></b></font>を貸してくれないか？",
+            "ko": "... <font=NotoSans Underlay SDF><b><#ffdd47>손전등</color></b></font> 좀 구해줄 수 있어요?",
+            "zh": "...可以给我一个<font=NotoSans Underlay SDF><b><#ffdd47>电筒</color></b></font>吗？"
+        },
+        "Next_Key": "Americo_5",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Americo_5": {
+        "Actor": {
+            "en_us": "Americo",
+            "en_gb": "Americo",
+            "pt_br": "Américo",
+            "es": "Américo",
+            "it": "Americo",
+            "fr": "Américo",
+            "de": "Americo",
+            "pl": "Americo",
+            "ru": "Америко",
+            "ja": "アメリコ",
+            "ko": "아메리코",
+            "zh": "阿梅里科"
+        },
+        "Text": {
+            "en_us": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+            "en_gb": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+            "pt_br": "Talvez Stella tenha uma.{0} Só tem tralha no depósito lá embaixo.",
+            "es": "Tal vez Stella tenga una.{0} En el almacén de abajo solo hay trastos.",
+            "it": "Forse Stella ne ha una.{0} C'è solo roba inutile nel deposito di sotto.",
+            "fr": "Peut-être que Stella en a une.{0} Il n'y a que du bazar dans les rangements en bas.",
+            "de": "Vielleicht hat Stella eine.{0} Unten im Lagerraum gibt es nur Schrott.",
+            "pl": "Może Stella ma.{0} W magazynie na dole są same śmieci.",
+            "ru": "У Стеллы должен быть.{0} А на складе внизу просто куча хлама.",
+            "ja": "ステラに聞けよ。アイツが持ってるだろう？{0} 下の倉庫？あそこはガラクタだらけさ。",
+            "ko": "스텔라한테 있을 걸요.{0} 아래층 창고엔 쓰레기밖에 없어요.",
+            "zh": "史黛拉好像有一个。{0} 楼下储物室里都是些垃圾玩意儿。"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [
+                "MiddleScriptAmerico"
+            ],
+            "End": []
+        }
+    },
+    "question_0": {
+        "Actor": {
+            "en_us": "Carlos",
+            "en_gb": "Carlos",
+            "pt_br": "Carlos",
+            "es": "Carlos",
+            "it": "Carlos",
+            "fr": "Carlos",
+            "de": "Carlos",
+            "pl": "Carlos",
+            "ru": "Карлос",
+            "ja": "カルロス",
+            "ko": "칼로스",
+            "zh": "卡洛斯"
+        },
+        "Text": {
+            "en_us": "Lucas, do you want to play <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "en_gb": "Lucas, fancy a game of <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "pt_br": "Lucas, você quer jogar <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "es": "Lucas, ¿quieres jugar a <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "it": "Lucas, vuoi giocare a <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "fr": "Lucas, veux-tu jouer à <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "de": "Lucas, möchtest du <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color> spielen?",
+            "pl": "Lucas, czy chcesz zagrać w <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "ru": "Лукас, хочешь поиграть в <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+            "ja": "ルーカス、<#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>をしませんか？",
+            "ko": "루카스, <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>를 하고 싶으신가요?",
+            "zh": "卡洛斯，你想玩<#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>吗？"
+        },
+        "Next_Key": null,
+        "Question": "MinecraftQuestion",
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "question_1": {
+        "Actor": {
+            "en_us": "Carlos",
+            "en_gb": "Carlos",
+            "pt_br": "Carlos",
+            "es": "Carlos",
+            "it": "Carlos",
+            "fr": "Carlos",
+            "de": "Carlos",
+            "pl": "Carlos",
+            "ru": "Карлос",
+            "ja": "カルロス",
+            "ko": "칼로스",
+            "zh": "卡洛斯"
+        },
+        "Text": {
+            "en_us": "Alright then.",
+            "en_gb": "Alright then.",
+            "pt_br": "Então tá bom.",
+            "es": "Está bien entonces.",
+            "it": "Va bene allora.",
+            "fr": "Très bien alors.",
+            "de": "Na gut.",
+            "pl": "W porządku.",
+            "ru": "Ну ладно.",
+            "ja": "じゃあ、いいよ。",
+            "ko": "좋아, 그러면.",
+            "zh": "那好吧。"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    }
+}

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] DialogueParser _dialogueParser;
     [SerializeField] DialogueParserUI _dialogueParserUI;
     [SerializeField] DialogueParserSimple _dialogueParserSimple;
+    [SerializeField] DialogueParserAnswers _dialogueParserAnswers;
     [SerializeField] Languages _language;
 
     [Space(10)][Header("Dialogue")]
@@ -49,6 +51,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float _simpleDialogueTime = 1f;
     [SerializeField] float _simpleDialogueWaitTime = 2f;
     Coroutine _simpleDialogueCoroutine;
+
+    [Space(10)][Header("Question")]
+    [SerializeField] public Transform _questionContainer;
+    [SerializeField] public GameObject _questionPrefab;
 
     public enum Languages
     {
@@ -211,6 +217,16 @@ public class DialogueManager : MonoBehaviour
         _actualKey = key;
         var dialogue = _dialogueParser.GetDialogueByKey(key);
         _writingDialogueCoroutine = StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
+
+        if (dialogue.Actor[ReturnLanguage()].Contains("{"))
+        {
+            _actualActor = DialogueScriptsManager.Instance.InsertActor(dialogue.Actor[ReturnLanguage()]);
+        }
+        else
+        {
+            _actualActor = dialogue.Actor[ReturnLanguage()];
+        }
+        
         _actualActor = dialogue.Actor[ReturnLanguage()];
         _dialogueActor.text = _actualActor;
     }
@@ -288,6 +304,22 @@ public class DialogueManager : MonoBehaviour
             _dialogueText.text += text[i];
             i++;
             yield return new WaitForSeconds(_writingTime);
+        }
+
+        if (dialogue.Question != null)
+        {   
+            var question = _dialogueParserAnswers.GetDialogueByKey(dialogue.Question);
+            List<string> uiKeys = new List<string>();
+            List<string> nextKeys = new List<string>();
+
+            foreach (var answer in question)
+            {
+                uiKeys.Add(answer.UIKey);
+                nextKeys.Add(answer.NextKey);
+            }
+
+            _skipWriting = false;
+            yield return StartCoroutine(DialogueScriptsManager.Instance.QuestionScript(uiKeys, nextKeys));
         }
 
         _writing = false;

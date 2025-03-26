@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialoguekey: key_0
+  _dialoguekey: question_0
   _simpleDialoguekey: ClosedDoor
 --- !u!1 &143834876
 GameObject:
@@ -604,6 +604,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283805519}
   m_CullTransparentMesh: 1
+--- !u!1 &298090727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298090728}
+  - component: {fileID: 298090729}
+  m_Layer: 5
+  m_Name: QuestionContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &298090728
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298090727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006031582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 660, y: 455}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &298090729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298090727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 2
+  m_StartCorner: 1
+  m_StartAxis: 1
+  m_CellSize: {x: 200, y: 100}
+  m_Spacing: {x: 10, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &306645770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2459,7 @@ RectTransform:
   m_Children:
   - {fileID: 1170275281}
   - {fileID: 768427971}
+  - {fileID: 298090728}
   m_Father: {fileID: 1405692222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2419,6 +2480,7 @@ GameObject:
   - component: {fileID: 1096662624}
   - component: {fileID: 1096662627}
   - component: {fileID: 1096662628}
+  - component: {fileID: 1096662629}
   - component: {fileID: 1096662626}
   m_Layer: 0
   m_Name: DialogueManager
@@ -2470,7 +2532,8 @@ MonoBehaviour:
   _dialogueParser: {fileID: 1096662624}
   _dialogueParserUI: {fileID: 1096662627}
   _dialogueParserSimple: {fileID: 1096662628}
-  _language: 0
+  _dialogueParserAnswers: {fileID: 1096662629}
+  _language: 2
   _dialoguePanel: {fileID: 1170275280}
   _dialogueText: {fileID: 1121373984}
   _dialogueActor: {fileID: 175031115}
@@ -2479,8 +2542,8 @@ MonoBehaviour:
   _dialogueSimple: {fileID: 768427973}
   _simpleDialogueTime: 1
   _simpleDialogueWaitTime: 2
-  _questionContainer: {fileID: 0}
-  _questionButtonPrefab: {fileID: 0}
+  _questionContainer: {fileID: 298090728}
+  _questionPrefab: {fileID: 4408445369185028781, guid: a987d1ba0b7ab3140bb9c865560e9071, type: 3}
   _actualKey: 
   _actualSimpleKey: 
   _actualActor: 
@@ -2502,6 +2565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfd1688f1b58a8418dcc105d719b64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waitingInput: 0
 --- !u!114 &1096662627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2528,6 +2592,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: 170912e82cc8d9d4b98dcb286ee3a119, type: 3}
+--- !u!114 &1096662629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096662622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2ec02930bbeef4d96abad7f934e441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: e2242cf5806a42846a54d11dd6aef821, type: 3}
 --- !u!1 &1120620988
 GameObject:
   m_ObjectHideFlags: 0

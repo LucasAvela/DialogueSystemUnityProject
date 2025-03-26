@@ -8,6 +8,7 @@ public class DialogueEntry
     public Dictionary<string, string> Actor;
     public Dictionary<string, string> Text;
     public string Next_Key;
+    public string Question;
     public ScriptsData Scripts;
 }
 

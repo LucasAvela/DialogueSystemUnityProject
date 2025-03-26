@@ -14,5 +14,6 @@ public class DialogueUIController : MonoBehaviour
     void UpdateUI()
     {
         this.gameObject.GetComponent<TextMeshProUGUI>().text = DialogueManager.Instance.TextUI(_key);
+        DialogueScriptsManager.Instance.DestroyAllAnswers();
     }
 }
