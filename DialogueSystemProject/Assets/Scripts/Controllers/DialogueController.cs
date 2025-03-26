@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
-    [SerializeField] string _dialoguekey;
-    [SerializeField] string _simpleDialoguekey;
+    [SerializeField] private DialogueManager _dialogueManager;
+
+    [Space(10)][Header("Settings")]
+    [SerializeField] private string _dialogueKey;
+    [SerializeField] private string _simpleDialogueKey;
 
     public void StartDialogue()
     {
-        DialogueManager.Instance.StartDialogue(_dialoguekey);
-    }
-
-    public void ConsumeInput()
-    {
-        DialogueManager.Instance.ConsumeInput();
+        _dialogueManager.StartDialogue(_dialogueKey);
     }
 
     public void StartSimpleDialogue()
     {
-        DialogueManager.Instance.StartSimpleDialogue(_simpleDialoguekey);
+        _dialogueManager.StartSimpleDialogue(_simpleDialogueKey);
+    }
+
+    public void ConsumeInput()
+    {
+        _dialogueManager.ConsumeInput();
     }
 }

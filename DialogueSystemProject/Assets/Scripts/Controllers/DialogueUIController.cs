@@ -13,7 +13,6 @@ public class DialogueUIController : MonoBehaviour
 
     void UpdateUI()
     {
-        this.gameObject.GetComponent<TextMeshProUGUI>().text = DialogueManager.Instance.TextUI(_key);
-        DialogueScriptsManager.Instance.DestroyAllAnswers();
+        this.gameObject.GetComponent<TextMeshProUGUI>().text = DialogueManager.Instance.GetSimpleText(_key);
     }
 }
