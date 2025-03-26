@@ -34,9 +34,6 @@ public class DialogueManager : MonoBehaviour
     [Space(10)]
     [Header("Dependencies")]
     [SerializeField] DialogueParser _dialogueParser;
-    [SerializeField] DialogueParserUI _dialogueParserUI;
-    [SerializeField] DialogueParserSimple _dialogueParserSimple;
-    [SerializeField] DialogueParserAnswers _dialogueParserAnswers;
     [SerializeField] Languages _language;
 
     [Space(10)]
@@ -187,7 +184,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (_onDialogue & !_animating)
         {
-            if (!_writing)
+            if (!_writing & !DialogueScriptsManager.Instance._waitingInput) 
             {
                 var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
                 if (dialogue.Next_Key != null)
@@ -211,7 +208,7 @@ public class DialogueManager : MonoBehaviour
 
                 if (dialogue.Question != null & _useQuestionText)
                 {
-                    var question = _dialogueParserAnswers.GetDialogueByKey(dialogue.Question);
+                    var question = _dialogueParser.GetQuestionDialogueByKey(dialogue.Question);
                     List<string> uiKeys = new List<string>();
                     List<string> nextKeys = new List<string>();
 
@@ -228,7 +225,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                if (!_middleScriptRunning)
+                if (!_middleScriptRunning & !DialogueScriptsManager.Instance._waitingInput)
                 {
                     _skipWriting = true;
                 }
@@ -325,7 +322,7 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogue.Question != null & !_useQuestionText)
         {
-            var question = _dialogueParserAnswers.GetDialogueByKey(dialogue.Question);
+            var question = _dialogueParser.GetQuestionDialogueByKey(dialogue.Question);
             List<string> uiKeys = new List<string>();
             List<string> nextKeys = new List<string>();
 
@@ -351,7 +348,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartSimpleDialogue(string key)
     {
-        var dialogue = _dialogueParserSimple.GetDialogueByKey(key);
+        var dialogue = _dialogueParser.GetSimpleDialogueByKey(key);
         _dialogueSimple.text = dialogue.Text[ReturnLanguage()];
 
         if (_simpleDialogueCoroutine != null) { StopCoroutine(_simpleDialogueCoroutine); }
@@ -395,7 +392,7 @@ public class DialogueManager : MonoBehaviour
 
     public string TextUI(string key)
     {
-        var dialogue = _dialogueParserUI.GetDialogueByKey(key);
+        var dialogue = _dialogueParser.GetUIDialogueByKey(key);
         return dialogue.Text[ReturnLanguage()];
     }
 

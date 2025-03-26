@@ -2538,11 +2538,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1096662623}
   - component: {fileID: 1096662625}
-  - component: {fileID: 1096662624}
-  - component: {fileID: 1096662627}
-  - component: {fileID: 1096662628}
-  - component: {fileID: 1096662629}
   - component: {fileID: 1096662626}
+  - component: {fileID: 1096662624}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -2577,7 +2574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d77864fcd1391428599f7ff4ca1f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: fea04ed744c1b2142bde6936ceb00c7f, type: 3}
+  jsonFileDialogue: {fileID: 4900000, guid: fea04ed744c1b2142bde6936ceb00c7f, type: 3}
+  jsonFileSimpleDialogue: {fileID: 4900000, guid: 170912e82cc8d9d4b98dcb286ee3a119, type: 3}
+  jsonFileUIDialogue: {fileID: 4900000, guid: 04dcedbdc75746a4283b90ffbce7ce66, type: 3}
+  jsonFileQuestionDialogue: {fileID: 4900000, guid: e2242cf5806a42846a54d11dd6aef821, type: 3}
 --- !u!114 &1096662625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2591,9 +2591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueParser: {fileID: 1096662624}
-  _dialogueParserUI: {fileID: 1096662627}
-  _dialogueParserSimple: {fileID: 1096662628}
-  _dialogueParserAnswers: {fileID: 1096662629}
   _language: 2
   _dialoguePanel: {fileID: 1170275280}
   _dialogueText: {fileID: 1121373984}
@@ -2631,45 +2628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitingInput: 0
---- !u!114 &1096662627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096662622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e0eed3656e2344eb0964529448a89a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 04dcedbdc75746a4283b90ffbce7ce66, type: 3}
---- !u!114 &1096662628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096662622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66b9a2beb6d8dbf408c6d2309c96b305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 170912e82cc8d9d4b98dcb286ee3a119, type: 3}
---- !u!114 &1096662629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096662622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2ec02930bbeef4d96abad7f934e441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: e2242cf5806a42846a54d11dd6aef821, type: 3}
 --- !u!1 &1120620988
 GameObject:
   m_ObjectHideFlags: 0
