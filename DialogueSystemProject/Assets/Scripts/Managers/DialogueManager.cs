@@ -417,4 +417,6 @@ public class DialogueManager : MonoBehaviour
             StartSimpleDialogue(_actualSimpleKey);
         }
     }
+
+    public event System.Action onActorSpeaking;
 }
