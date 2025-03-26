@@ -468,5 +468,119 @@
             "Middle": [],
             "End": []
         }
+    },
+    "key_none_0": {
+        "Actor": {
+            "en_us": "{Player}",
+            "en_gb": "{Player}",
+            "pt_br": "{Player}",
+            "es": "{Player}",
+            "it": "{Player}",
+            "fr": "{Player}",
+            "de": "{Player}",
+            "pl": "{Player}",
+            "ru": "{Player}",
+            "ja": "{Player}",
+            "ko": "{Player}",
+            "zh": "{Player}"
+        },
+        "Text": {
+            "en_us": "This is the worst dialogue ever! The developer ran out of creativity!",
+            "en_gb": "This is the worst dialogue ever! The developer ran out of creativity!",
+            "pt_br": "Este é o pior diálogo de todos! Acabou a criatividade do desenvolvedor!",
+            "es": "¡Este es el peor diálogo de todos! ¡Al desarrollador se le acabó la creatividad!",
+            "it": "Questo è il peggior dialogo di sempre! Lo sviluppatore ha esaurito la creatività!",
+            "fr": "C'est le pire dialogue de tous les temps ! Le développeur a épuisé sa créativité !",
+            "de": "Dies ist der schlimmste Dialog aller Zeiten! Dem Entwickler ging die Kreativität aus!",
+            "pl": "To najgorszy dialog w historii! Twórcy zabrakło kreatywności!",
+            "ru": "Это худший диалог на свете! У разработчика закончилась креативность!",
+            "ja": "これは史上最悪の会話です！開発者の創造性が尽きました！",
+            "ko": "이것은 이제까지 본 최악의 대화입니다! 개발자의 창의력이 바닥났습니다!",
+            "zh": "这是有史以来最糟糕的对话！开发者的创意耗尽了！"
+        },
+        "Next_Key": null,
+        "Question": "noCreativity0",
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key_none_1": {
+        "Actor": {
+            "en_us": "{Player}",
+            "en_gb": "{Player}",
+            "pt_br": "{Player}",
+            "es": "{Player}",
+            "it": "{Player}",
+            "fr": "{Player}",
+            "de": "{Player}",
+            "pl": "{Player}",
+            "ru": "{Player}",
+            "ja": "{Player}",
+            "ko": "{Player}",
+            "zh": "{Player}"
+        },
+        "Text": {
+            "en_us": "This one is even worse! It's 1:15 AM and the developer hasn't slept yet!",
+            "en_gb": "This one is even worse! It's 1:15 AM and the developer hasn't slept yet!",
+            "pt_br": "Esse aqui consegue ser pior ainda, já é 1:15 da madrugada e o desenvolvedor ainda não dormiu!",
+            "es": "¡Este es aún peor! ¡Son las 1:15 de la madrugada y el desarrollador aún no ha dormido!",
+            "it": "Questo è ancora peggio! Sono le 1:15 del mattino e lo sviluppatore non ha ancora dormito!",
+            "fr": "Celui-ci est encore pire ! Il est 1h15 du matin et le développeur n'a toujours pas dormi !",
+            "de": "Dieser hier ist noch schlimmer! Es ist 1:15 Uhr morgens und der Entwickler hat noch nicht geschlafen!",
+            "pl": "Ten jest jeszcze gorszy! Jest 1:15 w nocy, a twórca jeszcze nie spał!",
+            "ru": "Этот еще хуже! Сейчас 1:15 ночи, а разработчик еще не спал!",
+            "ja": "これはさらに悪いです！午前1時15分ですが、開発者はまだ寝ていません！",
+            "ko": "이것은 더 최악입니다! 새벽 1시 15분인데 개발자는 아직 자지 않았습니다!",
+            "zh": "这个更糟！现在是凌晨1:15，开发者还没睡！"
+        },
+        "Next_Key": null,
+        "Question": "noCreativity1",
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key_none_2": {
+        "Actor": {
+            "en_us": "Roberta",
+            "en_gb": "Roberta",
+            "pt_br": "Roberta",
+            "es": "Roberta",
+            "it": "Roberta",
+            "fr": "Roberta",
+            "de": "Roberta",
+            "pl": "Roberta",
+            "ru": "Роберта",
+            "ja": "ロベルタ",
+            "ko": "로베르타",
+            "zh": "罗伯塔"
+        },
+        "Text": {
+            "en_us": "The developer fell asleep! It's me now, Roberta!",
+            "en_gb": "The developer fell asleep! It's me now, Roberta!",
+            "pt_br": "O Desenvolvedor dormiu! Sou eu agora, a Roberta!",
+            "es": "¡El desarrollador se quedó dormido! ¡Ahora soy yo, Roberta!",
+            "it": "Il sviluppatore si è addormentato! Ora ci sono io, Roberta!",
+            "fr": "Le développeur s'est endormi ! C'est moi maintenant, Roberta !",
+            "de": "Der Entwickler ist eingeschlafen! Jetzt bin ich dran, Roberta!",
+            "pl": "Deweloper zasnął! Teraz to ja, Roberta!",
+            "ru": "Разработчик уснул! Теперь это я, Роберта!",
+            "ja": "開発者は寝てしまいました！今は私、ロベルタです！",
+            "ko": "개발자가 잠들었어요! 이제는 저, 로베르타입니다!",
+            "zh": "开发者睡着了！现在是我，罗伯塔！"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
     }
 }

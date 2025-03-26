@@ -142,5 +142,37 @@
             "ko": "나중에",
             "zh": "稍后"
         }
+    },
+    "colorado_key": {
+        "Text": {
+            "en_us": "International",
+            "en_gb": "International",
+            "pt_br": "Internacional",
+            "es": "Internacional",
+            "it": "Internazionale",
+            "fr": "International",
+            "de": "International",
+            "pl": "Międzynarodowy",
+            "ru": "Международный",
+            "ja": "インターナショナル",
+            "ko": "인터내셔널",
+            "zh": "国际"
+        }
+    },
+    "octa_key": {
+        "Text": {
+            "en_us": "Octa",
+            "en_gb": "Octa",
+            "pt_br": "Octa",
+            "es": "Octa",
+            "it": "Octa",
+            "fr": "Octa",
+            "de": "Octa",
+            "pl": "Octa",
+            "ru": "Окта",
+            "ja": "オクタ",
+            "ko": "옥타",
+            "zh": "八面体"
+        }
     }
 }

@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialoguekey: key_0
+  _dialoguekey: key_none_0
   _simpleDialoguekey: ClosedDoor
 --- !u!1 &143834876
 GameObject:
@@ -1524,6 +1524,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535167745}
   m_CullTransparentMesh: 1
+--- !u!1 &612235555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612235556}
+  - component: {fileID: 612235557}
+  m_Layer: 5
+  m_Name: QuestionDialogueContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &612235556
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612235555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006031582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -650, y: 300}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &612235557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612235555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 1400, y: 150}
+  m_Spacing: {x: 10, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2520,7 @@ RectTransform:
   - {fileID: 1170275281}
   - {fileID: 768427971}
   - {fileID: 298090728}
+  - {fileID: 612235556}
   m_Father: {fileID: 1405692222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2543,7 +2604,11 @@ MonoBehaviour:
   _simpleDialogueTime: 1
   _simpleDialogueWaitTime: 2
   _questionContainer: {fileID: 298090728}
+  _questionTextContainer: {fileID: 612235556}
   _questionPrefab: {fileID: 4408445369185028781, guid: a987d1ba0b7ab3140bb9c865560e9071, type: 3}
+  _questionTextPrefab: {fileID: 3777531909251656574, guid: c2304be8a77a9f7458b749c23fe3d000, type: 3}
+  _dialoguePanelUsefulArea: 300
+  _useQuestionText: 1
   _actualKey: 
   _actualSimpleKey: 
   _actualActor: 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueScriptsManager : MonoBehaviour
 {
@@ -32,14 +33,14 @@ public class DialogueScriptsManager : MonoBehaviour
     #endregion
 
     [HideInInspector] public bool _waitingInput;
-    
+
     public string InsertText(string insert, string text)
     {
         switch (insert)
         {
             case "PlayerName":
                 return text.Replace("{PlayerName}", GameManager.Instance.ReturnPlayerName());
-            
+
             default:
                 return text;
         }
@@ -48,12 +49,12 @@ public class DialogueScriptsManager : MonoBehaviour
     public string InsertActor(string insert)
     {
         name = insert.Replace("{", "").Replace("}", "");
-        
+
         switch (name)
         {
             case "Player":
                 return GameManager.Instance.ReturnPlayerName();
-            
+
             default:
                 return "Actor not found";
         }
@@ -66,7 +67,7 @@ public class DialogueScriptsManager : MonoBehaviour
             case "StartScript(0)":
                 print("Chamando StartScript(0)");
                 break;
-            
+
             default:
                 Debug.LogError($"StartScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
                 break;
@@ -81,17 +82,17 @@ public class DialogueScriptsManager : MonoBehaviour
                 print("Chamando MiddleScript(0)");
                 yield return new WaitForSeconds(1f);
                 break;
-            
+
             case "MiddleScript(1)":
                 print("Chamando MiddleScript(1)");
                 yield return new WaitForSeconds(1f);
                 break;
-            
+
             case "MiddleScript(2)":
                 print("Chamando MiddleScript(2)");
                 yield return new WaitForSeconds(1f);
                 break;
-            
+
             case "MiddleScriptAmerico":
                 DialogueManager.Instance.StartSimpleDialogue("AmericoSimple");
                 yield return new WaitForSeconds(2f);
@@ -110,31 +111,55 @@ public class DialogueScriptsManager : MonoBehaviour
             case "EndScript(0)":
                 print("Chamando EndScript(0)");
                 break;
-            
+
             default:
                 Debug.LogError($"EndScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
                 break;
         }
     }
 
-    public IEnumerator QuestionScript(List<string> uiKeys, List<string> nextKeys)
-    {   
+    public IEnumerator QuestionScript(List<string> uiKeys, List<string> nextKeys, Transform parent, GameObject prefab)
+    {
         _waitingInput = true;
-        DialogueManager.Instance._questionContainer.gameObject.SetActive(true);
+        parent.gameObject.SetActive(true);
+
+        float elementHeight = 0;
+        if (DialogueManager.Instance._useQuestionText)
+        {
+            elementHeight = DialogueManager.Instance._dialoguePanelUsefulArea / uiKeys.Count;
+        }
+        else
+        {
+            elementHeight = parent.GetComponent<GridLayoutGroup>().cellSize.y;
+        }
+
+        parent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(parent.GetComponent<GridLayoutGroup>().cellSize.x, elementHeight);
 
         for (int i = 0; i < uiKeys.Count; i++)
         {
-            GameObject question = Instantiate(DialogueManager.Instance._questionPrefab, DialogueManager.Instance._questionContainer);
+            GameObject question = Instantiate(prefab, parent);
             question.GetComponent<DialogueAnswerController>()._nextKey = nextKeys[i];
-            question.GetComponentInChildren<TextMeshProUGUI>().text = DialogueManager.Instance.TextUI(uiKeys[i]);
+            try
+            {
+                question.GetComponentInChildren<TextMeshProUGUI>().text = DialogueManager.Instance.TextUI(uiKeys[i]);
+            }
+            catch
+            {
+                question.GetComponent<TextMeshProUGUI>().text = DialogueManager.Instance.TextUI(uiKeys[i]);
+            }
         }
-        
+
         yield return new WaitUntil(() => !_waitingInput);
     }
 
     public void DestroyAllAnswers()
     {
         foreach (Transform child in DialogueManager.Instance._questionContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in DialogueManager.Instance._questionTextContainer)
         {
             Destroy(child.gameObject);
         }

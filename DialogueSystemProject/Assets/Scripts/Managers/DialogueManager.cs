@@ -31,14 +31,16 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
-    [Space(10)][Header("Dependencies")]
+    [Space(10)]
+    [Header("Dependencies")]
     [SerializeField] DialogueParser _dialogueParser;
     [SerializeField] DialogueParserUI _dialogueParserUI;
     [SerializeField] DialogueParserSimple _dialogueParserSimple;
     [SerializeField] DialogueParserAnswers _dialogueParserAnswers;
     [SerializeField] Languages _language;
 
-    [Space(10)][Header("Dialogue")]
+    [Space(10)]
+    [Header("Dialogue")]
     [SerializeField] GameObject _dialoguePanel;
     [SerializeField] TextMeshProUGUI _dialogueText;
     [SerializeField] TextMeshProUGUI _dialogueActor;
@@ -46,15 +48,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float _animationTime = 0.1f;
     Coroutine _writingDialogueCoroutine;
 
-    [Space(10)][Header("Simple Dialogue")]
+    [Space(10)]
+    [Header("Simple Dialogue")]
     [SerializeField] TextMeshProUGUI _dialogueSimple;
     [SerializeField] float _simpleDialogueTime = 1f;
     [SerializeField] float _simpleDialogueWaitTime = 2f;
     Coroutine _simpleDialogueCoroutine;
 
-    [Space(10)][Header("Question")]
+    [Space(10)]
+    [Header("Question")]
     [SerializeField] public Transform _questionContainer;
+    [SerializeField] public Transform _questionTextContainer;
     [SerializeField] public GameObject _questionPrefab;
+    [SerializeField] public GameObject _questionTextPrefab;
+    [SerializeField] public float _dialoguePanelUsefulArea;
+    [SerializeField] public bool _useQuestionText = false;
 
     public enum Languages
     {
@@ -186,7 +194,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     UpdateDialogue(dialogue.Next_Key);
                 }
-                else
+                else if (dialogue.Question == null)
                 {
                     ClearDialogue();
                     _onDialogue = false;
@@ -200,9 +208,26 @@ public class DialogueManager : MonoBehaviour
                         DialogueScriptsManager.Instance.EndScript(endScript);
                     }
                 }
+
+                if (dialogue.Question != null & _useQuestionText)
+                {
+                    var question = _dialogueParserAnswers.GetDialogueByKey(dialogue.Question);
+                    List<string> uiKeys = new List<string>();
+                    List<string> nextKeys = new List<string>();
+
+                    foreach (var answer in question)
+                    {
+                        uiKeys.Add(answer.UIKey);
+                        nextKeys.Add(answer.NextKey);
+                    }
+
+                    _skipWriting = false;
+                    ClearDialogue();
+                    StartCoroutine(DialogueScriptsManager.Instance.QuestionScript(uiKeys, nextKeys, _questionTextContainer, _questionTextPrefab));
+                }
             }
             else
-            {   
+            {
                 if (!_middleScriptRunning)
                 {
                     _skipWriting = true;
@@ -218,7 +243,7 @@ public class DialogueManager : MonoBehaviour
         var dialogue = _dialogueParser.GetDialogueByKey(key);
         _writingDialogueCoroutine = StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
         _actualActor = dialogue.Actor[ReturnLanguage()];
-        if (dialogue.Actor[ReturnLanguage()].Contains("{")) 
+        if (dialogue.Actor[ReturnLanguage()].Contains("{"))
             _actualActor = DialogueScriptsManager.Instance.InsertActor(dialogue.Actor[ReturnLanguage()]);
         _dialogueActor.text = _actualActor;
     }
@@ -226,9 +251,9 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator WriteDialogue(string text)
     {
         _writing = true;
-        
+
         var dialogue = _dialogueParser.GetDialogueByKey(_actualKey);
-        
+
         if (dialogue.Scripts.Insert != null)
         {
             foreach (string insert in dialogue.Scripts.Insert)
@@ -298,8 +323,8 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(_writingTime);
         }
 
-        if (dialogue.Question != null)
-        {   
+        if (dialogue.Question != null & !_useQuestionText)
+        {
             var question = _dialogueParserAnswers.GetDialogueByKey(dialogue.Question);
             List<string> uiKeys = new List<string>();
             List<string> nextKeys = new List<string>();
@@ -311,7 +336,7 @@ public class DialogueManager : MonoBehaviour
             }
 
             _skipWriting = false;
-            yield return StartCoroutine(DialogueScriptsManager.Instance.QuestionScript(uiKeys, nextKeys));
+            yield return StartCoroutine(DialogueScriptsManager.Instance.QuestionScript(uiKeys, nextKeys, _questionContainer, _questionPrefab));
         }
 
         _writing = false;
@@ -329,17 +354,17 @@ public class DialogueManager : MonoBehaviour
         var dialogue = _dialogueParserSimple.GetDialogueByKey(key);
         _dialogueSimple.text = dialogue.Text[ReturnLanguage()];
 
-        if (_simpleDialogueCoroutine != null) {StopCoroutine(_simpleDialogueCoroutine);}
+        if (_simpleDialogueCoroutine != null) { StopCoroutine(_simpleDialogueCoroutine); }
         _simpleDialogueCoroutine = StartCoroutine(EnableSimpleDialogue());
 
         _actualSimpleKey = key;
     }
 
     private IEnumerator EnableSimpleDialogue()
-    {   
+    {
         _onSimpleDialogue = true;
         _dialogueSimple.gameObject.SetActive(true);
-        
+
         float elapsedTime = 0f;
         Color color = _dialogueSimple.color;
         color.a = 0f;
