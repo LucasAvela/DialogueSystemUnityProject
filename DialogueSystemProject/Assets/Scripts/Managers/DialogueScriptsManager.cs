@@ -47,7 +47,7 @@ public class DialogueScriptsManager : MonoBehaviour
 
     public string InsertActor(string insert)
     {
-        name = insert.Trim('{', '}');
+        name = insert.Replace("{", "").Replace("}", "");
         
         switch (name)
         {

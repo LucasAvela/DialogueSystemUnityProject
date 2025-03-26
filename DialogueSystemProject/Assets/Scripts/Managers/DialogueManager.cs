@@ -217,17 +217,9 @@ public class DialogueManager : MonoBehaviour
         _actualKey = key;
         var dialogue = _dialogueParser.GetDialogueByKey(key);
         _writingDialogueCoroutine = StartCoroutine(WriteDialogue(dialogue.Text[ReturnLanguage()]));
-
-        if (dialogue.Actor[ReturnLanguage()].Contains("{"))
-        {
-            _actualActor = DialogueScriptsManager.Instance.InsertActor(dialogue.Actor[ReturnLanguage()]);
-        }
-        else
-        {
-            _actualActor = dialogue.Actor[ReturnLanguage()];
-        }
-        
         _actualActor = dialogue.Actor[ReturnLanguage()];
+        if (dialogue.Actor[ReturnLanguage()].Contains("{")) 
+            _actualActor = DialogueScriptsManager.Instance.InsertActor(dialogue.Actor[ReturnLanguage()]);
         _dialogueActor.text = _actualActor;
     }
 

@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialoguekey: question_0
+  _dialoguekey: key_0
   _simpleDialoguekey: ClosedDoor
 --- !u!1 &143834876
 GameObject:
@@ -2649,7 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f53305be8321148b440092b279f2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerName: Lucas
+  _playerName: Jogador
 --- !u!1 &1121373982
 GameObject:
   m_ObjectHideFlags: 0
