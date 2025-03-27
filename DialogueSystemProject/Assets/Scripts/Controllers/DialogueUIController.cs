@@ -7,7 +7,8 @@ public class DialogueUIController : MonoBehaviour
 
     void Start()
     {
-        DialogueManager.Instance.onDialogueUIUpdated += UpdateUI;
+        DialogueManager.Instance.onDialogueUpdated += UpdateUI;
+        
         UpdateUI();
     }
 

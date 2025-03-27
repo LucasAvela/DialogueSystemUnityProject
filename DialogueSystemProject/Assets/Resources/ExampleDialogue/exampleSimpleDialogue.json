@@ -1,4 +1,20 @@
 {
+    "key": {
+        "Text": {
+            "en_us": "",
+            "en_gb": "",
+            "pt_br": "",
+            "es": "",
+            "it": "",
+            "fr": "",
+            "de": "",
+            "pl": "",
+            "ru": "",
+            "ja": "",
+            "ko": "",
+            "zh": ""
+        }
+    },
     "SimpleDialogue": {
         "Text": {
             "en_us": "Simple Dialogue",

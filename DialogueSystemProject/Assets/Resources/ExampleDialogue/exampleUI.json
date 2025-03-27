@@ -190,5 +190,21 @@
             "ko": "옥타",
             "zh": "八面体"
         }
+    },
+    "Wall": {
+        "Text": {
+            "en_us": "I'm at the <b><#fff952>wall</color></b>.",
+            "en_gb": "I'm at the <b><#fff952>wall</color></b>.",
+            "pt_br": "Estou na <b><#fff952>parede</color></b>.",
+            "es": "Estoy en la <b><#fff952>pared</color></b>.",
+            "it": "Sono al <b><#fff952>muro</color></b>.",
+            "fr": "Je suis au <b><#fff952>mur</color></b>.",
+            "de": "Ich bin an der <b><#fff952>Wand</color></b>.",
+            "pl": "Jestem przy <b><#fff952>ścianie</color></b>.",
+            "ru": "Я у <b><#fff952>стены</color></b>.",
+            "ja": "<b><#fff952>壁</color></b>にいます。",
+            "ko": "<b><#fff952>벽</color></b>에 있습니다.",
+            "zh": "我在<b><#fff952>墙</color></b>边。"
+        }
     }
 }

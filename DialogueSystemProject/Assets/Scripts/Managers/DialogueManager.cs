@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     public event System.Action onActorSpeaking;
-    public event System.Action onDialogueUIUpdated;
+    public event System.Action onDialogueUpdated;
 
     [Space(10)]
     [Header("Dependencies")]
@@ -347,7 +347,7 @@ public class DialogueManager : MonoBehaviour
         _language = language;
         if (_onDialogue) UpdateDialogue(_actualDialogueKey);
         if (_onSimpleDialogue) StartSimpleDialogue(_actualSimpleDialogueKey);
-        onDialogueUIUpdated?.Invoke();
+        onDialogueUpdated?.Invoke();
     }
 
     #region Animations
