@@ -47,14 +47,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueActor;
     [SerializeField] private float _writingTime = 0.05f;
     [SerializeField] private float _dialoguePanelAnimationTime = 0.1f;
-    private Coroutine _writingDialogueCoroutine;
+    private Coroutine _writingDialogueCoroutine = null;
 
     [Space(10)]
     [Header("Simple Dialogue")]
     [SerializeField] private TextMeshProUGUI _simpleDialogueText;
     [SerializeField] private float _simpleDialogueAnimationTime = 1f;
     [SerializeField] private float _simpleDialogueWaitTime = 2f;
-    private Coroutine _simpleDialogueCoroutine;
+    private Coroutine _simpleDialogueCoroutine = null;
 
     [Space(10)]
     [Header("Question Dialogue")]
@@ -100,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         _actualDialogueText = dialogue.Text[_language];
 
         DisplayActor(_actualDialogueActor, dialogue);
+        if (_writingDialogueCoroutine != null) StopCoroutine(_writingDialogueCoroutine);
         _writingDialogueCoroutine = StartCoroutine(WriteDialogue(_actualDialogueText, dialogue));
     }
 
