@@ -22,4 +22,9 @@ public class DialogueController : MonoBehaviour
     {
         _dialogueManager.ConsumeInput();
     }
+
+    public void StopDialogue()
+    {
+        _dialogueManager.StopDialogue();
+    }
 }

@@ -31,6 +31,22 @@
             "zh": "开始对话"
         }
     },
+    "StopDialogue": {
+        "Text": {
+            "en_us": "Stop Dialogue",
+            "en_gb": "Stop Dialogue",
+            "pt_br": "Parar Diálogo",
+            "es": "Detener Diálogo",
+            "it": "Interrompere il Dialogo",
+            "fr": "Arrêter le Dialogue",
+            "de": "Dialog Beenden",
+            "pl": "Zatrzymaj Dialog",
+            "ru": "Остановить Диалог",
+            "ja": "ダイアログを停止",
+            "ko": "대화 중지",
+            "zh": "停止对话"
+        }
+    },
     "NextDialogue": {
         "Text": {
             "en_us": "Next Dialogue",

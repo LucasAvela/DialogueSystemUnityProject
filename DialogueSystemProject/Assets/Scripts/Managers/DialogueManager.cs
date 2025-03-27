@@ -71,9 +71,10 @@ public class DialogueManager : MonoBehaviour
     [TextArea(3, 9)][SerializeField] private string _actualDialogueText = null;
     [SerializeField] private bool _onDialogue = false;
     [SerializeField] private bool _onWritingDialogue = false;
-    [SerializeField] private bool _skipWritingDialogue = false;
     [SerializeField] private bool _onMiddleScriptRunning = false;
     [SerializeField] private bool _onDialoguePanelAnimation = false;
+    [SerializeField] private bool _skipWritingDialogue = false;
+    [SerializeField] private bool _stopDialogue = false;
     // Simple Dialogue
     [TextArea(1, 2)][SerializeField] private string _actualSimpleDialogueKey = null;
     [SerializeField] private bool _onSimpleDialogue = false;
@@ -125,6 +126,23 @@ public class DialogueManager : MonoBehaviour
         else
         {
             EndDialogue(dialogue);
+        }
+    }
+
+    public void StopDialogue()
+    {   
+        _stopDialogue = true;
+
+        if (_onDialogue & !_onMiddleScriptRunning)
+        {
+            if (_writingDialogueCoroutine != null) StopCoroutine(_writingDialogueCoroutine);
+            if (_onQuestionDialogue) AnswerInput();
+            _onDialoguePanelAnimation = false;
+            _onWritingDialogue = false;
+            ClearDialogue();
+            StartCoroutine(CloseDialoguePanel());
+            _stopDialogue = false;
+            _onDialogue = false;
         }
     }
 
@@ -182,7 +200,7 @@ public class DialogueManager : MonoBehaviour
 
         float elementHeight = _dialogueText.GetComponent<RectTransform>().rect.height / question.Count;
         _questionDialogueTextContainer.GetComponent<GridLayoutGroup>().cellSize = new Vector2(_questionDialogueTextContainer.GetComponent<GridLayoutGroup>().cellSize.x, elementHeight);
-        
+
         foreach (var answer in question)
         {
             GameObject text = Instantiate(_questionDialogueTextPrefab, _questionDialogueTextContainer);
@@ -259,6 +277,7 @@ public class DialogueManager : MonoBehaviour
                     _onMiddleScriptRunning = true;
                     yield return _dialogueScriptManager.MiddleScript(MiddleScriptKey);
                     _onMiddleScriptRunning = false;
+                    if (_stopDialogue) StopDialogue();
                     i = endMidScriptTag + 1;
                     continue;
                 }
