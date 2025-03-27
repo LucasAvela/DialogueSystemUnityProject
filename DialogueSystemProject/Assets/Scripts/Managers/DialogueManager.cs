@@ -322,6 +322,14 @@ public class DialogueManager : MonoBehaviour
         return text.Text[_language];
     }
 
+    public void ChangeLanguage(string language)
+    {
+        _language = language;
+        if (_onDialogue) UpdateDialogue(_actualDialogueKey);
+        if (_onSimpleDialogue) StartSimpleDialogue(_actualSimpleDialogueKey);
+        onDialogueUIUpdated?.Invoke();
+    }
+
     #region Animations
     private IEnumerator OpenDialoguePanel(string key)
     {

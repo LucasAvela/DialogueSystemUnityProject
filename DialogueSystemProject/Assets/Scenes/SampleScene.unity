@@ -876,8 +876,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 350695154}
-        m_TargetAssemblyTypeName: LanguageChangeController, Assembly-CSharp
-        m_MethodName: ChangeLanguage
+        m_TargetAssemblyTypeName: DialogueLanguageController, Assembly-CSharp
+        m_MethodName: SetLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 350695149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0baef96e68e4a094c96b01bf315b99bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 42e5f1c8fd6ecab4b9cb185a7e88a152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dropdown: {fileID: 350695151}
