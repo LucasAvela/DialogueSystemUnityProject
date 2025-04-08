@@ -1,22 +1,28 @@
 using UnityEngine;
 using UnityEditor;
+using System.IO;
+using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class DialogueSheetsParser : EditorWindow
 {
-    string _key;
-    string _nextKey;
-    string _InsertInfo;
-    string _startScript;
-    string _middleScript;
-    string _endScript;
-    string _originalActor;
+    string _sheetID;
+    int _gidDialogue;
+    int _gidSimpleDialogue;
+    int _gidUI;
+    int _gidQuestion;
+
     int _languagesCount;
     string[] _texts;
-    string[] _actorss;
+    string[] _actors;
 
     bool[] _languageFoldouts;
     bool _showLanguages = true;
-    string _downloadLocation = Application.dataPath + "/Resources/DialogueSystem";
+    string _dialogueSystemFolder = Application.dataPath + "/Resources/DialogueSystem";
+
+    System.Collections.IEnumerator _coroutine;
+    Queue<System.Collections.IEnumerator> _coroutineQueue = new Queue<System.Collections.IEnumerator>();
+    bool _isRunningCoroutine = false;
 
     [MenuItem("Tools/Dialogue")]
     public static void GetWindow()
@@ -28,19 +34,20 @@ public class DialogueSheetsParser : EditorWindow
     {
         GUILayout.Label("Dialogue Sheets Parser", EditorStyles.boldLabel);
 
-        _key = EditorGUILayout.TextField("Key", _key);
-        _nextKey = EditorGUILayout.TextField("Next Key", _nextKey);
-        _InsertInfo = EditorGUILayout.TextField("Insert Info", _InsertInfo);
-        _startScript = EditorGUILayout.TextField("Start Script", _startScript);
-        _middleScript = EditorGUILayout.TextField("Middle Script", _middleScript);
-        _endScript = EditorGUILayout.TextField("End Script", _endScript);
-        _originalActor = EditorGUILayout.TextField("Original Actor", _originalActor);
+        _sheetID = EditorGUILayout.TextField("Sheet ID", _sheetID);
+        _gidDialogue = EditorGUILayout.IntField("GID Dialogue", _gidDialogue);
+        _gidSimpleDialogue = EditorGUILayout.IntField("GID Simple Dialogue", _gidSimpleDialogue);
+        _gidUI = EditorGUILayout.IntField("GID UI", _gidUI);
+        _gidQuestion = EditorGUILayout.IntField("GID Question", _gidQuestion);
+
+        EditorGUILayout.Space();
+
         _languagesCount = EditorGUILayout.IntField("Languages Count", _languagesCount);
 
         if (_texts == null || _texts.Length != _languagesCount)
         {
             _texts = new string[_languagesCount];
-            _actorss = new string[_languagesCount];
+            _actors = new string[_languagesCount];
             _languageFoldouts = new bool[_languagesCount];
         }
 
@@ -62,7 +69,7 @@ public class DialogueSheetsParser : EditorWindow
                 {
                     EditorGUI.indentLevel++;
                     _texts[i] = EditorGUILayout.TextField($"Text {i + 1}", _texts[i]);
-                    _actorss[i] = EditorGUILayout.TextField($"Actor {i + 1}", _actorss[i]);
+                    _actors[i] = EditorGUILayout.TextField($"Actor {i + 1}", _actors[i]);
                     EditorGUI.indentLevel--;
                 }
             }
@@ -72,15 +79,79 @@ public class DialogueSheetsParser : EditorWindow
         EditorGUI.indentLevel--;
 
         EditorGUILayout.Space();
-        _downloadLocation = EditorGUILayout.TextField("Dialogue System Folder", _downloadLocation);
 
+        _dialogueSystemFolder = EditorGUILayout.TextField("Dialogue System Folder", _dialogueSystemFolder);
         if (GUILayout.Button("Select Folder"))
         {
-            string path = EditorUtility.OpenFolderPanel("Dialogue System Folder", _downloadLocation, "");
+            string path = EditorUtility.OpenFolderPanel("Dialogue System Folder", _dialogueSystemFolder, "");
             if (!string.IsNullOrEmpty(path))
             {
-                _downloadLocation = path;
+                _dialogueSystemFolder = path;
             }
+        }
+
+        EditorGUILayout.Space();
+        if (GUILayout.Button("Parse Dialogue Sheet"))
+        {
+            EnqueueDownloads();
+        }
+    }
+
+    void EnqueueDownloads()
+    {
+        _coroutineQueue.Enqueue(DownloadCSV(_gidDialogue, "dialogue_sheet.csv"));
+        _coroutineQueue.Enqueue(DownloadCSV(_gidSimpleDialogue, "simple_dialogue_sheet.csv"));
+        _coroutineQueue.Enqueue(DownloadCSV(_gidUI, "ui_sheet.csv"));
+        _coroutineQueue.Enqueue(DownloadCSV(_gidQuestion, "question_sheet.csv"));
+        TryStartNextCoroutine();
+    }
+
+    System.Collections.IEnumerator DownloadCSV(int gid, string fileName)
+    {
+        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={gid}";
+        string savePath = Path.Combine(_dialogueSystemFolder, fileName);
+
+        Debug.Log("Baixando CSV de: " + url);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
+        {
+            var operation = www.SendWebRequest();
+
+            while (!operation.isDone)
+                yield return null;
+
+            if (www.result == UnityWebRequest.Result.Success)
+            {
+                File.WriteAllText(savePath, www.downloadHandler.text);
+                Debug.Log("CSV salvo em: " + savePath);
+                EditorUtility.DisplayDialog("Sucesso", $"CSV '{fileName}' baixado com sucesso!", "OK");
+            }
+            else
+            {
+                Debug.LogError("Erro ao baixar CSV: " + www.error);
+                EditorUtility.DisplayDialog("Erro", $"Falha ao baixar o CSV '{fileName}'.\n" + www.error, "OK");
+            }
+        }
+    }
+
+    void TryStartNextCoroutine()
+    {
+        if (!_isRunningCoroutine && _coroutineQueue.Count > 0)
+        {
+            _coroutine = _coroutineQueue.Dequeue();
+            _isRunningCoroutine = true;
+            EditorApplication.update += RunCoroutine;
+        }
+    }
+
+    void RunCoroutine()
+    {
+        if (_coroutine == null || !_coroutine.MoveNext())
+        {
+            EditorApplication.update -= RunCoroutine;
+            _coroutine = null;
+            _isRunningCoroutine = false;
+            TryStartNextCoroutine();
         }
     }
 }
