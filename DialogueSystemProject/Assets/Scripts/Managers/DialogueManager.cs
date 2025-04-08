@@ -331,15 +331,35 @@ public class DialogueManager : MonoBehaviour
     {
         _actualSimpleDialogueKey = key;
         DialogueEntrySimple dialogue = _dialogueParser.GetSimpleDialogueByKey(_actualSimpleDialogueKey);
-        _simpleDialogueText.text = dialogue.Text[_language];
+        string text = dialogue.Text[_language];
+
+        if (dialogue.Scripts.Insert != null)
+        {
+            foreach (string insert in dialogue.Scripts.Insert)
+            {
+                text = _dialogueScriptManager.InsertText(insert, text);
+            }
+        }
+
+        _simpleDialogueText.text = text;
         if (_simpleDialogueCoroutine != null) StopCoroutine(_simpleDialogueCoroutine);
         _simpleDialogueCoroutine = StartCoroutine(SimpleDialogueAnimation());
     }
 
     public string GetSimpleText(string key)
     {
-        var text = _dialogueParser.GetUIDialogueByKey(key);
-        return text.Text[_language];
+        DialogueEntryUI dialogue = _dialogueParser.GetUIDialogueByKey(key);
+        string text = dialogue.Text[_language];
+
+        if (dialogue.Scripts.Insert != null)
+        {
+            foreach (string insert in dialogue.Scripts.Insert)
+            {
+                text = _dialogueScriptManager.InsertText(insert, text);
+            }
+        }
+
+        return text;
     }
 
     public void ChangeLanguage(string language)

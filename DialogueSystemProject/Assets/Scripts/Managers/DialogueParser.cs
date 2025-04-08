@@ -12,7 +12,6 @@ public class DialogueEntry
     public string Question;
     public ScriptsData Scripts;
 }
-
 [System.Serializable]
 public class ScriptsData
 {
@@ -28,6 +27,12 @@ public class ScriptsData
 public class DialogueEntrySimple
 {
     public Dictionary<string, string> Text;
+    public ScriptsSimpleData Scripts;
+}
+[System.Serializable]
+public class ScriptsSimpleData
+{
+    public List<string> Insert;
 }
 #endregion
 
@@ -36,6 +41,12 @@ public class DialogueEntrySimple
 public class DialogueEntryUI
 {
     public Dictionary<string, string> Text;
+    public ScriptsUIData Scripts;
+}
+[System.Serializable]
+public class ScriptsUIData
+{
+    public List<string> Insert;
 }
 #endregion
 
