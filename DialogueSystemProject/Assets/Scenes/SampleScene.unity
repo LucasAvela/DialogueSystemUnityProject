@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueManager: {fileID: 1096662625}
-  _dialogueKey: key_0
-  _simpleDialogueKey: SimpleDialogue
+  _dialogueKey: Player_0
+  _simpleDialogueKey: key_player
 --- !u!1 &143834876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,7 +3303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e18f013c2accca4397445dbbb17d752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: Wall
+  _key: key_player
 --- !u!114 &1423180788
 MonoBehaviour:
   m_ObjectHideFlags: 0

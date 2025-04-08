@@ -13,6 +13,9 @@
             "ja": "",
             "ko": "",
             "zh": ""
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "SimpleDialogue": {
@@ -29,6 +32,9 @@
             "ja": "シンプルな会話",
             "ko": "간단한 대화",
             "zh": "简单对话"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "ClosedDoor": {
@@ -45,6 +51,9 @@
             "ja": "<#fff952>ドア</color>はロックされています。",
             "ko": "<#fff952>문</color>이 잠겨 있습니다.",
             "zh": "<#fff952>门</color>是锁着的。"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "AmericoSimple": {
@@ -61,6 +70,30 @@
             "ja": "アメリコは<b><#fff952>タバコに火をつける</color></b>。",
             "ko": "아메리코가 <b><#fff952>담배에 불을 붙인다</color></b>.",
             "zh": "阿梅里科<b><#fff952>点燃</color></b>了一支<b><#eb7826>香烟</color></b>。"
+        },
+        "Scripts": {
+            "Insert": []
+        }
+    },
+    "key_player": {
+        "Text": {
+            "en_us": "{PlayerName} is here.",
+            "en_gb": "{PlayerName} is here.",
+            "pt_br": "{PlayerName} está aqui.",
+            "es": "{PlayerName} está aquí.",
+            "it": "{PlayerName} è qui.",
+            "fr": "{PlayerName} est ici.",
+            "de": "{PlayerName} ist hier.",
+            "pl": "{PlayerName} jest tutaj.",
+            "ru": "{PlayerName} здесь.",
+            "ja": "{PlayerName}がここにいます。",
+            "ko": "{PlayerName}가 여기에 있습니다.",
+            "zh": "{PlayerName}在这里。"
+        },
+        "Scripts": {
+            "Insert": [
+                "PlayerName"
+            ]
         }
     }
 }

@@ -11,7 +11,7 @@ public class DialogueScriptManager : MonoBehaviour
     }
 
     public string InsertText(string insert, string text)
-    {
+    {   
         switch (insert)
         {
             case "PlayerName":

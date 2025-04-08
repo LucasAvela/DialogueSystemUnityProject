@@ -13,6 +13,9 @@
             "ja": "",
             "ko": "",
             "zh": ""
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "StartDialogue": {
@@ -29,6 +32,9 @@
             "ja": "ダイアログを開始",
             "ko": "대화 시작",
             "zh": "开始对话"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "StopDialogue": {
@@ -45,6 +51,9 @@
             "ja": "ダイアログを停止",
             "ko": "대화 중지",
             "zh": "停止对话"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "NextDialogue": {
@@ -61,6 +70,9 @@
             "ja": "次のダイアログ",
             "ko": "다음 대화",
             "zh": "下一个对话"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "StartSimpleDialogue": {
@@ -77,6 +89,9 @@
             "ja": "シンプルな会話を開始",
             "ko": "간단한 대화 시작",
             "zh": "开始简单对话"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "EasterEgg": {
@@ -93,6 +108,9 @@
             "ja": "イースターエッグ",
             "ko": "이스터 에그",
             "zh": "彩蛋"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "yes_key": {
@@ -109,6 +127,9 @@
             "ja": "はい",
             "ko": "네",
             "zh": "是的"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "no_key": {
@@ -125,6 +146,9 @@
             "ja": "いいえ",
             "ko": "아니요",
             "zh": "不"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "maybe_key": {
@@ -141,6 +165,9 @@
             "ja": "多分",
             "ko": "아마도",
             "zh": "也许"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "later_key": {
@@ -157,6 +184,9 @@
             "ja": "後で",
             "ko": "나중에",
             "zh": "稍后"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "colorado_key": {
@@ -173,6 +203,9 @@
             "ja": "インターナショナル",
             "ko": "인터내셔널",
             "zh": "国际"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "octa_key": {
@@ -189,6 +222,9 @@
             "ja": "オクタ",
             "ko": "옥타",
             "zh": "八面体"
+        },
+        "Scripts": {
+            "Insert": []
         }
     },
     "Wall": {
@@ -205,6 +241,30 @@
             "ja": "<b><#fff952>壁</color></b>にいます。",
             "ko": "<b><#fff952>벽</color></b>에 있습니다.",
             "zh": "我在<b><#fff952>墙</color></b>边。"
+        },
+        "Scripts": {
+            "Insert": []
+        }
+    },
+    "key_player": {
+        "Text": {
+            "en_us": "{PlayerName}",
+            "en_gb": "{PlayerName}",
+            "pt_br": "{PlayerName}",
+            "es": "{PlayerName}",
+            "it": "{PlayerName}",
+            "fr": "{PlayerName}",
+            "de": "{PlayerName}",
+            "pl": "{PlayerName}",
+            "ru": "{PlayerName}",
+            "ja": "{PlayerName}",
+            "ko": "{PlayerName}",
+            "zh": "{PlayerName}"
+        },
+        "Scripts": {
+            "Insert": [
+                "PlayerName"
+            ]
         }
     }
 }

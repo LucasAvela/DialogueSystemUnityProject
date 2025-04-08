@@ -240,7 +240,7 @@ public class DialogueManager : MonoBehaviour
         {
             foreach (string insert in dialogue.Scripts.Insert)
             {
-                _dialogueScriptManager.InsertText(insert, text);
+                text = _dialogueScriptManager.InsertText(insert, text);
             }
         }
 
