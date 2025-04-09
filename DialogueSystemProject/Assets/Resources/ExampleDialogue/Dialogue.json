@@ -1,0 +1,122 @@
+{
+    "key0": {
+        "Actor": {
+            "en_us": "Luke",
+            "pt_br": "Lucas"
+        },
+        "Text": {
+            "en_us": "This is the first test of Dialogue Parser System.",
+            "pt_br": "Este é o primeiro teste do Dialogue Parser System."
+        },
+        "Next_Key": "key1",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key1": {
+        "Actor": {
+            "en_us": "Charles",
+            "pt_br": "Carlos"
+        },
+        "Text": {
+            "en_us": "It seems to be working great, Lucas!",
+            "pt_br": "Parece estar funcionando muito bem, Lucas!"
+        },
+        "Next_Key": "key2",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key2": {
+        "Actor": {
+            "en_us": "Luke",
+            "pt_br": "Lucas"
+        },
+        "Text": {
+            "en_us": "Nice",
+            "pt_br": "Legal"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "Player_0": {
+        "Actor": {
+            "en_us": "Soldier",
+            "pt_br": "Soldado"
+        },
+        "Text": {
+            "en_us": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
+            "pt_br": "Eu era um aventureiro como você, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Então levei uma flecha no joelho."
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [
+                "PlayerName"
+            ],
+            "Start": [],
+            "Middle": [
+                "MiddleScriptAmerico"
+            ],
+            "End": []
+        }
+    },
+    "key_0": {
+        "Actor": {
+            "en_us": "John Peter",
+            "pt_br": "João Pedro"
+        },
+        "Text": {
+            "en_us": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+            "pt_br": "Este é o primeiro teste do <b>Sistema de Diálogo</b> de <#00bf2d>Corylus Dev</color>"
+        },
+        "Next_Key": "key_1",
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [],
+            "Middle": [],
+            "End": []
+        }
+    },
+    "key_1": {
+        "Actor": {
+            "en_us": "{Player}",
+            "pt_br": "{Player}"
+        },
+        "Text": {
+            "en_us": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
+            "pt_br": "Parece que {0}está... {2}funcionando, {1}João Pedro!"
+        },
+        "Next_Key": null,
+        "Question": null,
+        "Scripts": {
+            "Insert": [],
+            "Start": [
+                "StartScript(0)"
+            ],
+            "Middle": [
+                "MiddleScript(0)",
+                "MiddleScript(1)",
+                "MiddleScript(2)"
+            ],
+            "End": [
+                "EndScript(0)"
+            ]
+        }
+    }
+}
