@@ -63,3 +63,6 @@
 # Temporary auto-generated Android Assets
 /DialogueSystemProject/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /DialogueSystemProject/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+/DialogueSystemProject/Assets/Resources/DialogueSystem/dialogueParser_config.json
+/DialogueSystemProject/Assets/Resources/DialogueSystem/dialogueParser_config.json.meta
