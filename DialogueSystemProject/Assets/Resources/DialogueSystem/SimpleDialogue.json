@@ -3,7 +3,16 @@
     "Text": {
       "en_us": "",
       "pt_br": "",
-      "ja": ""
+      "ja": "",
+      "en_gb": "",
+      "es": "",
+      "it": "",
+      "fr": "",
+      "de": "",
+      "pl": "",
+      "ru": "",
+      "ko": "",
+      "zh": ""
     },
     "Scripts": {
       "Insert": []
@@ -13,7 +22,16 @@
     "Text": {
       "en_us": "Simple Dialogue",
       "pt_br": "Diálogo Simples",
-      "ja": "シンプルな対話"
+      "ja": "シンプルな対話",
+      "en_gb": "Simple Dialogue",
+      "es": "Diálogo sencillo",
+      "it": "Dialogo semplice",
+      "fr": "Dialogues simples",
+      "de": "Einfacher Dialog",
+      "pl": "Prosty dialog",
+      "ru": "Простой диалог",
+      "ko": "간단한 대화",
+      "zh": "简单对话"
     },
     "Scripts": {
       "Insert": []
@@ -23,7 +41,16 @@
     "Text": {
       "en_us": "<#fff952>The door</color> is locked.",
       "pt_br": "<#fff952>A porta</color> está trancada.",
-      "ja": "<#fff952>ドア</color>はロックされています。"
+      "ja": "<#fff952>ドア</color>はロックされています。",
+      "en_gb": "<#fff952>The door</color> is locked.",
+      "es": "<#fff952>La puerta</color> está cerrada.",
+      "it": "<#fff952>La porta</color> è chiusa a chiave.",
+      "fr": "<#fff952>La porte</color> est verrouillée.",
+      "de": "<#fff952>Die Tür</color> ist verschlossen.",
+      "pl": "<#fff952>Drzwi</color> są zamknięte.",
+      "ru": "<#fff952>Дверь</color> заперта.",
+      "ko": "<#fff952>문</color>이 잠겨 있습니다.",
+      "zh": "<#fff952>门</color>被锁了。"
     },
     "Scripts": {
       "Insert": []
@@ -33,7 +60,16 @@
     "Text": {
       "en_us": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
       "pt_br": "Américo <b><#fff952>acende</color></b> um <b><#eb7826>cigarro</color></b>.",
-      "ja": "アメリコは<b><#eb7826>タバコ</color></b>に<b><#fff952>火をつけます</color></b>。"
+      "ja": "アメリコは<b><#eb7826>タバコ</color></b>に<b><#fff952>火をつけます</color></b>。",
+      "en_gb": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
+      "es": "Américo <b><#fff952>enciende</color></b> un <b><#eb7826>cigarrillo</color></b>.",
+      "it": "Américo <b><#fff952>accende</color></b> una <b><#eb7826>sigaretta</color></b>.",
+      "fr": "Américo <b><#fff952>allume</color></b> une <b><#eb7826>cigarette</color></b>.",
+      "de": "Américo <b><#fff952>zündet</color></b> eine <b><#eb7826>Zigarette</color></b> an.",
+      "pl": "Américo <b><#fff952>zapala</color></b> <b><#eb7826>papierosa</color></b>.",
+      "ru": "Америка <b><#fff952>закуривает</color></b> <b><#eb7826>сигарету</color></b>.",
+      "ko": "Américo는 <b><#eb7826>담배</color></b>에 <b><#fff952>불을 붙입니다</color></b>.",
+      "zh": "Américo <b><#fff952>点燃</color></b>一支<b><#eb7826>香烟</color></b>。"
     },
     "Scripts": {
       "Insert": []
@@ -43,7 +79,16 @@
     "Text": {
       "en_us": "{PlayerName} is here.",
       "pt_br": "{PlayerName} está aqui.",
-      "ja": "{PlayerName} がここにいます。"
+      "ja": "{PlayerName} がここにいます。",
+      "en_gb": "{PlayerName} is here.",
+      "es": "{PlayerName} está aquí.",
+      "it": "{PlayerName} è qui.",
+      "fr": "{PlayerName} est ici.",
+      "de": "{PlayerName} ist hier.",
+      "pl": "{PlayerName} jest tutaj.",
+      "ru": "{PlayerName} здесь.",
+      "ko": "{PlayerName} 님이 여기 있습니다.",
+      "zh": "{PlayerName} 在这里。"
     },
     "Scripts": {
       "Insert": [
