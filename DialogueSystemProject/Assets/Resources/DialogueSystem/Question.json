@@ -71,5 +71,15 @@
       "UIKey": "octa_key",
       "NextKey": "key_none_2"
     }
+  ],
+  "gameQuestion": [
+    {
+      "UIKey": "minecraft_icon",
+      "NextKey": "game_question_mc"
+    },
+    {
+      "UIKey": "cs_icon",
+      "NextKey": "game_question_cs"
+    }
   ]
 }

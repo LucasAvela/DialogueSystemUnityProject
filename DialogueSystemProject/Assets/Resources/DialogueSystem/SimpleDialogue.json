@@ -95,5 +95,24 @@
         "PlayerName"
       ]
     }
+  },
+  "add_bullets": {
+    "Text": {
+      "en_us": "Added <sprite name=\"am\">",
+      "en_gb": "Added <sprite name=\"am\">",
+      "pt_br": "Adicionado <sprite name=\"am\">",
+      "es": "Añadido <sprite name=\"am\">",
+      "it": "Aggiunto <sprite name=\"am\">",
+      "fr": "Ajouté <sprite name=\"am\">",
+      "de": "Hinzugefügt <sprite name=\"am\">",
+      "pl": "Dodano <sprite name=\"am\">",
+      "ru": "Добавлено <sprite name=\"am\">",
+      "ja": "追加済み <sprite name=\"am\">",
+      "ko": "추가됨 <sprite name=\"am\">",
+      "zh": "已添加 <sprite name=\"am\">"
+    },
+    "Scripts": {
+      "Insert": []
+    }
   }
 }

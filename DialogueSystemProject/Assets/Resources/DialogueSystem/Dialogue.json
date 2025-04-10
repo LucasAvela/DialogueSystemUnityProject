@@ -217,18 +217,18 @@
       "zh": "阿梅里科"
     },
     "Text": {
-      "en_us": "<b>No shit!</b> I thought my eyes were closed.",
-      "en_gb": "<b>No shit!</b> I thought my eyes were closed.",
-      "pt_br": "<b>Não brinca!</b> Pensei que meus olhos estavam fechados.",
-      "es": "<b>¡No me jodas!</b> ¡Pensaba que tenía los ojos cerrados!",
-      "it": "<b>Ma dai!</b> Pensavo di avere gli occhi chiusi.",
-      "fr": "<b>Oh putain !</b> J'croyais que mes yeux étaient fermés !",
-      "de": "<b>Was, wirklich?!</b> Ich dachte, ich hätte die Augen zu.",
-      "pl": "<b>Serio?</b> A ja myślałem, że mam zamknięte oczy.",
-      "ru": "<b>Блядь!</b> А я думал, что заснул.",
-      "ja": "<b>嘘だろ!?</b> まぶたが閉じただけだと思ったぞ。",
-      "ko": "<b>미친!</b> 내가 눈을 감고 있는 거라 생각했는데.",
-      "zh": "<b>真的？！</b> 我以为我闭眼了。"
+      "en_us": "<b>No shit!</b><sprite name=\"as\"> I thought my eyes were closed.",
+      "en_gb": "<b>No shit!</b><sprite name=\"as\"> I thought my eyes were closed.",
+      "pt_br": "<b>Não brinca!</b><sprite name=\"as\"> Pensei que meus olhos estavam fechados.",
+      "es": "<b>¡No me jodas!</b><sprite name=\"as\"> ¡Pensaba que tenía los ojos cerrados!",
+      "it": "<b>Ma dai!</b><sprite name=\"as\"> Pensavo di avere gli occhi chiusi.",
+      "fr": "<b>Oh putain !</b><sprite name=\"as\"> J'croyais que mes yeux étaient fermés !",
+      "de": "<b>Was, wirklich?!</b><sprite name=\"as\"> Ich dachte, ich hätte die Augen zu.",
+      "pl": "<b>Serio?</b><sprite name=\"as\"> A ja myślałem, że mam zamknięte oczy.",
+      "ru": "<b>Блядь!</b><sprite name=\"as\"> А я думал, что заснул.",
+      "ja": "<b>嘘だろ!?</b><sprite name=\"as\"> まぶたが閉じただけだと思ったぞ。",
+      "ko": "<b>미친!</b><sprite name=\"as\"> 내가 눈을 감고 있는 거라 생각했는데.",
+      "zh": "<b>真的？！</b><sprite name=\"as\"> 我以为我闭眼了。"
     },
     "Next_Key": "Americo_2",
     "Question": null,
@@ -573,6 +573,120 @@
       "ja": "開発者は寝てしまいました！今は私、ロベルタです！",
       "ko": "개발자가 잠들었어요! 이제는 저, 로베르타입니다!",
       "zh": "开发者睡着了！现在是我，罗伯塔！"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "game_question": {
+    "Actor": {
+      "en_us": "Carl",
+      "en_gb": "Charles",
+      "pt_br": "Carlos",
+      "es": "Carlos",
+      "it": "Carlo",
+      "fr": "Charles",
+      "de": "Karl",
+      "pl": "Karol",
+      "ru": "Карлос",
+      "ja": "Карлос",
+      "ko": "카를로스",
+      "zh": "卡洛斯"
+    },
+    "Text": {
+      "en_us": "What do you wanna play?",
+      "en_gb": "What do you want to play?",
+      "pt_br": "O que você quer jogar?",
+      "es": "¿Qué quieres jugar?",
+      "it": "Cosa vuoi giocare?",
+      "fr": "Tu veux jouer à quoi ?",
+      "de": "Was willst du spielen?",
+      "pl": "W co chcesz zagrać?",
+      "ru": "Во что ты хочешь поиграть?",
+      "ja": "何をプレイしたい？",
+      "ko": "뭐 하고 싶어?",
+      "zh": "你想玩什么？"
+    },
+    "Next_Key": null,
+    "Question": "gameQuestion",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "game_question_mc": {
+    "Actor": {
+      "en_us": "Carl",
+      "en_gb": "Charles",
+      "pt_br": "Carlos",
+      "es": "Carlos",
+      "it": "Carlo",
+      "fr": "Charles",
+      "de": "Karl",
+      "pl": "Karol",
+      "ru": "Карлос",
+      "ja": "Карлос",
+      "ko": "카를로스",
+      "zh": "卡洛斯"
+    },
+    "Text": {
+      "en_us": "I'm going to start the server.",
+      "en_gb": "I'm going to start the server.",
+      "pt_br": "Vou ligar o servidor.",
+      "es": "Voy a encender el servidor.",
+      "it": "Avvierò il server.",
+      "fr": "Je vais démarrer le serveur.",
+      "de": "Ich werde den Server starten.",
+      "pl": "Zamierzam uruchomić serwer.",
+      "ru": "Я собираюсь запустить сервер.",
+      "ja": "サーバーを起動します。",
+      "ko": "서버를 시작할게.",
+      "zh": "我要启动服务器。"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "game_question_cs": {
+    "Actor": {
+      "en_us": "Carl",
+      "en_gb": "Charles",
+      "pt_br": "Carlos",
+      "es": "Carlos",
+      "it": "Carlo",
+      "fr": "Charles",
+      "de": "Karl",
+      "pl": "Karol",
+      "ru": "Карлос",
+      "ja": "Карлос",
+      "ko": "카를로스",
+      "zh": "卡洛斯"
+    },
+    "Text": {
+      "en_us": "Let's go!",
+      "en_gb": "Let's go!",
+      "pt_br": "Bora!",
+      "es": "¡Vamos!",
+      "it": "Andiamo!",
+      "fr": "Allons-y !",
+      "de": "Los geht’s!",
+      "pl": "Chodźmy!",
+      "ru": "Погнали!",
+      "ja": "行こう！",
+      "ko": "가자!",
+      "zh": "走吧！"
     },
     "Next_Key": null,
     "Question": null,

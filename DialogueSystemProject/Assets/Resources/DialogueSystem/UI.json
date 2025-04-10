@@ -266,5 +266,43 @@
         "PlayerName"
       ]
     }
+  },
+  "minecraft_icon": {
+    "Text": {
+      "en_us": "<sprite name=\"mc\">",
+      "en_gb": "<sprite name=\"mc\">",
+      "pt_br": "<sprite name=\"mc\">",
+      "es": "<sprite name=\"mc\">",
+      "it": "<sprite name=\"mc\">",
+      "fr": "<sprite name=\"mc\">",
+      "de": "<sprite name=\"mc\">",
+      "pl": "<sprite name=\"mc\">",
+      "ru": "<sprite name=\"mc\">",
+      "ja": "<sprite name=\"mc\">",
+      "ko": "<sprite name=\"mc\">",
+      "zh": "<sprite name=\"mc\">"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "cs_icon": {
+    "Text": {
+      "en_us": "<sprite name=\"cs\">",
+      "en_gb": "<sprite name=\"cs\">",
+      "pt_br": "<sprite name=\"cs\">",
+      "es": "<sprite name=\"cs\">",
+      "it": "<sprite name=\"cs\">",
+      "fr": "<sprite name=\"cs\">",
+      "de": "<sprite name=\"cs\">",
+      "pl": "<sprite name=\"cs\">",
+      "ru": "<sprite name=\"cs\">",
+      "ja": "<sprite name=\"cs\">",
+      "ko": "<sprite name=\"cs\">",
+      "zh": "<sprite name=\"cs\">"
+    },
+    "Scripts": {
+      "Insert": []
+    }
   }
 }
