@@ -171,9 +171,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e623ef0ed9f086469f6823369f1e60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueManager: {fileID: 1096662625}
-  _dialogueKey: key_0
-  _simpleDialogueKey: SimpleDialogue
+  _dialogueKeys:
+  - key_0
+  - Player_0
+  - Americo_0
+  - question_0
+  - key_none_0
+  - game_question
+  _simpleDialogueKeys:
+  - SimpleDialogue
+  - ClosedDoor
+  - AmericoSimple
+  - key_player
+  - add_bullets
+  _actualDialogueKey: 
+  _actualSimpleDialogueKey: 
+  _nextDialogue: 0
+  _nextSimpleDialogue: 0
 --- !u!1 &143834876
 GameObject:
   m_ObjectHideFlags: 0

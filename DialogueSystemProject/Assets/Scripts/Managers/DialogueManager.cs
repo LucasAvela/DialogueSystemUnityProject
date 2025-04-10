@@ -66,6 +66,7 @@ public class DialogueManager : MonoBehaviour
     [Space(10)]
     [Header("State")]
     // Dialogue
+    [Header("Dialogue State")]
     [TextArea(1, 2)][SerializeField] private string _actualDialogueKey = null;
     [TextArea(1, 2)][SerializeField] private string _actualDialogueActor = null;
     [TextArea(3, 9)][SerializeField] private string _actualDialogueText = null;
@@ -76,9 +77,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool _skipWritingDialogue = false;
     [SerializeField] private bool _stopDialogue = false;
     // Simple Dialogue
+    [Header("Simple Dialogue State")]
     [TextArea(1, 2)][SerializeField] private string _actualSimpleDialogueKey = null;
     [SerializeField] private bool _onSimpleDialogue = false;
     // Question Dialogue
+    [Header("Question State")]
     [SerializeField] private bool _onQuestionDialogue = false;
 
     public void StartDialogue(string key)
