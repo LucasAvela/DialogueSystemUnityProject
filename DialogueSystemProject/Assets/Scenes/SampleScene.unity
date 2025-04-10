@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueManager: {fileID: 1096662625}
   _dialogueKey: key_0
-  _simpleDialogueKey: key_player
+  _simpleDialogueKey: SimpleDialogue
 --- !u!1 &143834876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,9 +2663,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFileDialogue: {fileID: 4900000, guid: 552b86c7b8eb139419c6d764fdf9ddd0, type: 3}
-  jsonFileSimpleDialogue: {fileID: 4900000, guid: 170912e82cc8d9d4b98dcb286ee3a119, type: 3}
-  jsonFileUIDialogue: {fileID: 4900000, guid: 04dcedbdc75746a4283b90ffbce7ce66, type: 3}
-  jsonFileQuestionDialogue: {fileID: 4900000, guid: e2242cf5806a42846a54d11dd6aef821, type: 3}
+  jsonFileSimpleDialogue: {fileID: 4900000, guid: 5dbb6dc09aed9754f89a5d28a6a0d45b, type: 3}
+  jsonFileUIDialogue: {fileID: 4900000, guid: 2242d2050bbffd94480e121c4b247c09, type: 3}
+  jsonFileQuestionDialogue: {fileID: 4900000, guid: 20bec29e89de3e5408de2cd04af369c9, type: 3}
 --- !u!114 &1096662625
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,54 @@
+{
+  "key": {
+    "Text": {
+      "en_us": "",
+      "pt_br": "",
+      "ja": ""
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "SimpleDialogue": {
+    "Text": {
+      "en_us": "Simple Dialogue",
+      "pt_br": "Diálogo Simples",
+      "ja": "シンプルな対話"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "ClosedDoor": {
+    "Text": {
+      "en_us": "<#fff952>The door</color> is locked.",
+      "pt_br": "<#fff952>A porta</color> está trancada.",
+      "ja": "<#fff952>ドア</color>はロックされています。"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "AmericoSimple": {
+    "Text": {
+      "en_us": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
+      "pt_br": "Américo <b><#fff952>acende</color></b> um <b><#eb7826>cigarro</color></b>.",
+      "ja": "アメリコは<b><#eb7826>タバコ</color></b>に<b><#fff952>火をつけます</color></b>。"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "key_player": {
+    "Text": {
+      "en_us": "{PlayerName} is here.",
+      "pt_br": "{PlayerName} está aqui.",
+      "ja": "{PlayerName} がここにいます。"
+    },
+    "Scripts": {
+      "Insert": [
+        "PlayerName"
+      ]
+    }
+  }
+}

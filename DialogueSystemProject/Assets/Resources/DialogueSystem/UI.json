@@ -1,0 +1,144 @@
+{
+  "key": {
+    "Text": {
+      "en_us": "",
+      "pt_br": "",
+      "ja": ""
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "StartDialogue": {
+    "Text": {
+      "en_us": "Start Dialogue",
+      "pt_br": "Iniciar diálogo",
+      "ja": "対話を開始する"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "StopDialogue": {
+    "Text": {
+      "en_us": "Stop Dialogue",
+      "pt_br": "Pare o diálogo",
+      "ja": "対話をやめる"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "NextDialogue": {
+    "Text": {
+      "en_us": "Next Dialogue",
+      "pt_br": "Próximo Diálogo",
+      "ja": "次の対話"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "StartSimpleDialogue": {
+    "Text": {
+      "en_us": "Start Simple Dialogue",
+      "pt_br": "Comece um diálogo simples",
+      "ja": "簡単な対話を開始します"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "EasterEgg": {
+    "Text": {
+      "en_us": "Easter Egg",
+      "pt_br": "ovos de pascoa",
+      "ja": "イースターエッグ"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "yes_key": {
+    "Text": {
+      "en_us": "Yes",
+      "pt_br": "Sim",
+      "ja": "はい"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "no_key": {
+    "Text": {
+      "en_us": "No",
+      "pt_br": "Não",
+      "ja": "いいえ"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "maybe_key": {
+    "Text": {
+      "en_us": "Maybe",
+      "pt_br": "Talvez",
+      "ja": "多分"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "later_key": {
+    "Text": {
+      "en_us": "Later",
+      "pt_br": "Mais tarde",
+      "ja": "後で"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "colorado_key": {
+    "Text": {
+      "en_us": "International",
+      "pt_br": "Internacional",
+      "ja": "国際的"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "octa_key": {
+    "Text": {
+      "en_us": "Octa",
+      "pt_br": "Octa",
+      "ja": "オクタ"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Wall": {
+    "Text": {
+      "en_us": "I'm at the <b><#fff952>wall</color></b>.",
+      "pt_br": "Estou na <b><#fff952>parede</color></b>.",
+      "ja": "私は<b><#fff952>壁</color></b>のところにいます。"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "key_player": {
+    "Text": {
+      "en_us": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "ja": "{PlayerName}"
+    },
+    "Scripts": {
+      "Insert": [
+        "PlayerName"
+      ]
+    }
+  }
+}

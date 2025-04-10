@@ -1,0 +1,74 @@
+{
+  "Question": [
+    {
+      "UIKey": "yes_key",
+      "NextKey": "key"
+    },
+    {
+      "UIKey": "no_key",
+      "NextKey": "key"
+    },
+    {
+      "UIKey": "maybe_key",
+      "NextKey": "key"
+    },
+    {
+      "UIKey": "later_key",
+      "NextKey": "key"
+    }
+  ],
+  "MinecraftQuestion": [
+    {
+      "UIKey": "yes_key",
+      "NextKey": "question_1"
+    },
+    {
+      "UIKey": "no_key",
+      "NextKey": "question_1"
+    },
+    {
+      "UIKey": "maybe_key",
+      "NextKey": "question_1"
+    },
+    {
+      "UIKey": "later_key",
+      "NextKey": "question_1"
+    }
+  ],
+  "noCreativity0": [
+    {
+      "UIKey": "colorado_key",
+      "NextKey": "key_none_1"
+    },
+    {
+      "UIKey": "octa_key",
+      "NextKey": "key_none_1"
+    }
+  ],
+  "noCreativity1": [
+    {
+      "UIKey": "yes_key",
+      "NextKey": "key_none_2"
+    },
+    {
+      "UIKey": "no_key",
+      "NextKey": "key_none_2"
+    },
+    {
+      "UIKey": "maybe_key",
+      "NextKey": "key_none_2"
+    },
+    {
+      "UIKey": "later_key",
+      "NextKey": "key_none_2"
+    },
+    {
+      "UIKey": "colorado_key",
+      "NextKey": "key_none_2"
+    },
+    {
+      "UIKey": "octa_key",
+      "NextKey": "key_none_2"
+    }
+  ]
+}
