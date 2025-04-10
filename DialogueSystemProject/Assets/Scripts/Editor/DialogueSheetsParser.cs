@@ -4,6 +4,8 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System;
+using System.Linq;
 
 public class DialogueSheetsParser : EditorWindow
 {
@@ -20,6 +22,9 @@ public class DialogueSheetsParser : EditorWindow
     private bool _showLanguages = true;
 
     private string _dialogueSystemFolder = Application.dataPath + "/Resources/DialogueSystem";
+
+    List<string> languagesTexts = new List<string>();
+    List<string> languagesActors = new List<string>();
 
     [MenuItem("Tools/Dialogue")]
     public static void OpenWindow()
@@ -105,9 +110,6 @@ public class DialogueSheetsParser : EditorWindow
 
     private void StartParser()
     {
-        List<string> languagesTexts = new List<string>();
-        List<string> languagesActors = new List<string>();
-
         for (int i = 0; i < _languagesCount; i++)
         {
             languagesTexts.Add(_texts[i]);
@@ -115,10 +117,190 @@ public class DialogueSheetsParser : EditorWindow
         }
 
         Debug.Log("⏳ Downloading sheet...");
-        Debug.Log("Texts: " + string.Join(", ", languagesTexts));
-        Debug.Log("Actors: " + string.Join(", ", languagesActors));
+        DialogueParse();
     }
 
+    private void DialogueParse()
+    {
+        string dialogueCsv = Path.Combine(_dialogueSystemFolder, "Dialogue.csv");
+        string dialogueJson = Path.Combine(_dialogueSystemFolder, "Dialogue.json");
+
+        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={_gidDialogue}";
+        UnityWebRequest www = UnityWebRequest.Get(url);
+        var request = www.SendWebRequest();
+
+        while (!request.isDone) { }
+
+        if (www.result == UnityWebRequest.Result.Success)
+        {
+            File.WriteAllBytes(dialogueCsv, www.downloadHandler.data);
+            Debug.Log($"✅ Baixado: {Path.GetFileName(dialogueCsv)}");
+        }
+        else
+        {
+            Debug.LogError($"❌ Erro ao baixar {Path.GetFileName(dialogueCsv)}: {www.error}");
+        }
+
+        var emptyDict = new Dictionary<string, object>
+        {
+            { "Actor", new Dictionary<string, object>() },
+            { "Text", new Dictionary<string, object>() },
+            { "Next_Key", null },
+            { "Question", null },
+            { "Scripts", new Dictionary<string, object>
+                {
+                    { "Insert", new List<object>() },
+                    { "Start", new List<object>() },
+                    { "Middle", new List<object>() },
+                    { "End", new List<object>() }
+                }
+            }
+        };
+
+        string[] lines = File.ReadAllLines(dialogueCsv);
+        string[] headers = lines[0].Split(',');
+
+        int keyIndex = Array.IndexOf(headers, "Key");
+        int nextKeyIndex = Array.IndexOf(headers, "Next_Key");
+        int insertIndex = Array.IndexOf(headers, "Insert");
+        int startIndex = Array.IndexOf(headers, "StartScript");
+        int middleIndex = Array.IndexOf(headers, "MiddleScript");
+        int endIndex = Array.IndexOf(headers, "EndScript");
+        int questionIndex = Array.IndexOf(headers, "Question");
+        int actorDefaultIndex = Array.IndexOf(headers, "Actor");
+
+        var dialogueData = new Dictionary<string, object>();
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            var fields = lines[i].Split(',');
+            if (keyIndex < 0 || keyIndex >= fields.Length) continue;
+            string keyValue = fields[keyIndex].Trim();
+            if (!string.IsNullOrEmpty(keyValue))
+            {
+                var clone = new Dictionary<string, object>
+                {
+                    { "Actor", new Dictionary<string, object>() },
+                    { "Text", new Dictionary<string, object>() },
+                    { "Next_Key", null },
+                    { "Question", null },
+                    { "Scripts", new Dictionary<string, object>
+                        {
+                            { "Insert", new List<object>() },
+                            { "Start", new List<object>() },
+                            { "Middle", new List<object>() },
+                            { "End", new List<object>() }
+                        }
+                    }
+                };
+
+                dialogueData[keyValue] = clone;
+            }
+        }
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            var fields = ParseCsvLine(lines[i]);
+            if (keyIndex < 0 || keyIndex >= fields.Count) continue;
+
+            string keyValue = fields[keyIndex].Trim();
+            if (!dialogueData.ContainsKey(keyValue)) continue;
+
+            var entry = (Dictionary<string, object>)dialogueData[keyValue];
+
+            var actorDict = (Dictionary<string, object>)entry["Actor"];
+            for (int j = 0; j < languagesActors.Count; j++)
+            {
+                string lang = languagesActors[j];
+                int actorColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
+                if (actorColIndex >= 0 && actorColIndex < fields.Count)
+                {
+                    actorDict[languagesTexts[j]] = fields[actorColIndex].Trim();
+                }
+            }
+
+            var textDict = (Dictionary<string, object>)entry["Text"];
+            for (int j = 0; j < languagesTexts.Count; j++)
+            {
+                string lang = languagesTexts[j];
+                int textColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
+                if (textColIndex >= 0 && textColIndex < fields.Count)
+                {
+                    textDict[lang] = fields[textColIndex].Trim();
+                }
+            }
+
+            if (nextKeyIndex >= 0 && nextKeyIndex < fields.Count)
+            {
+                string nextKey = fields[nextKeyIndex].Trim();
+                entry["Next_Key"] = string.IsNullOrEmpty(nextKey) ? null : nextKey;
+            }
+
+            if (questionIndex >= 0 && questionIndex < fields.Count)
+            {
+                string question = fields[questionIndex].Trim();
+                entry["Question"] = string.IsNullOrEmpty(question) ? null : question;
+            }
+
+            var scriptsDict = (Dictionary<string, object>)entry["Scripts"];
+
+            if (insertIndex >= 0 && insertIndex < fields.Count)
+                scriptsDict["Insert"] = fields[insertIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
+
+            if (startIndex >= 0 && startIndex < fields.Count)
+                scriptsDict["Start"] = fields[startIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
+
+            if (middleIndex >= 0 && middleIndex < fields.Count)
+                scriptsDict["Middle"] = fields[middleIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
+
+            if (endIndex >= 0 && endIndex < fields.Count)
+                scriptsDict["End"] = fields[endIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
+
+        }
+
+        string json = JsonConvert.SerializeObject(dialogueData, Formatting.Indented);
+        File.WriteAllText(dialogueJson, json);
+        Debug.Log($"✅ JSON salvo: {Path.GetFileName(dialogueJson)}");
+    }
+
+    public static List<string> ParseCsvLine(string line)
+    {
+        var result = new List<string>();
+        bool inQuotes = false;
+        string current = "";
+
+        for (int i = 0; i < line.Length; i++)
+        {
+            char c = line[i];
+
+            if (c == '"')
+            {
+                if (inQuotes && i + 1 < line.Length && line[i + 1] == '"')
+                {
+                    current += '"';
+                    i++;
+                }
+                else
+                {
+                    inQuotes = !inQuotes;
+                }
+            }
+            else if (c == ',' && !inQuotes)
+            {
+                result.Add(current);
+                current = "";
+            }
+            else
+            {
+                current += c;
+            }
+        }
+
+        result.Add(current);
+        return result;
+    }
+
+    #region save/load
     [System.Serializable]
     public class DialogueSheetConfig
     {
@@ -181,4 +363,5 @@ public class DialogueSheetsParser : EditorWindow
 
         Debug.Log("✅ Config loaded successfully.");
     }
+    #endregion
 }

@@ -1,0 +1,286 @@
+{
+  "key": {
+    "Actor": {
+      "en_us": "",
+      "pt_br": ""
+    },
+    "Text": {
+      "en_us": "",
+      "pt_br": ""
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_0": {
+    "Actor": {
+      "en_us": "John Peter",
+      "pt_br": "João Pedro"
+    },
+    "Text": {
+      "en_us": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+      "pt_br": "Este é o primeiro teste do <b>Sistema de Diálogo</b> de <#00bf2d>Corylus Dev</color>"
+    },
+    "Next_Key": "key_1",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_1": {
+    "Actor": {
+      "en_us": "{Player}",
+      "pt_br": "{Player}"
+    },
+    "Text": {
+      "en_us": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
+      "pt_br": "Parece... {0}parece... {2}está funcionando, {1}<font=NotoSans Underlay SDF>John Peter!</font>"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [
+        "StartScript(0)"
+      ],
+      "Middle": [
+        "MiddleScript(0)",
+        "MiddleScript(1)",
+        "MiddleScript(2)"
+      ],
+      "End": [
+        "EndScript(0)"
+      ]
+    }
+  },
+  "Player_0": {
+    "Actor": {
+      "en_us": "Soldier",
+      "pt_br": "Soldado"
+    },
+    "Text": {
+      "en_us": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
+      "pt_br": "Eu era um aventureiro como você, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Então levei uma flecha no joelho."
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [
+        "PlayerName"
+      ],
+      "Start": [],
+      "Middle": [
+        "MiddleScriptAmerico"
+      ],
+      "End": []
+    }
+  },
+  "Americo_0": {
+    "Actor": {
+      "en_us": "Edgar",
+      "pt_br": "Edgar"
+    },
+    "Text": {
+      "en_us": "Americo, the lights are out, can...",
+      "pt_br": "Américo, as luzes estão apagadas, pode..."
+    },
+    "Next_Key": "Americo_1",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_1": {
+    "Actor": {
+      "en_us": "Americo",
+      "pt_br": "Américo"
+    },
+    "Text": {
+      "en_us": "<b>No shit!</b> I thought my eyes were closed.",
+      "pt_br": "<b>Não brinca!</b> Achei que meus olhos estavam fechados."
+    },
+    "Next_Key": "Americo_2",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_2": {
+    "Actor": {
+      "en_us": "Edgar",
+      "pt_br": "Edgar"
+    },
+    "Text": {
+      "en_us": "...",
+      "pt_br": "..."
+    },
+    "Next_Key": "Americo_3",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_3": {
+    "Actor": {
+      "en_us": "Americo",
+      "pt_br": "Américo"
+    },
+    "Text": {
+      "en_us": "What do you want?",
+      "pt_br": "O que você quer?"
+    },
+    "Next_Key": "Americo_4",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_4": {
+    "Actor": {
+      "en_us": "Edgar",
+      "pt_br": "Edgar"
+    },
+    "Text": {
+      "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><b><#ffdd47>flashlight</color></b></font>?",
+      "pt_br": "... Você pode me dar uma <font=NotoSans Underlay Outline SDF><b><#ffdd47>lanterna</color></b></font>?"
+    },
+    "Next_Key": "Americo_5",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_5": {
+    "Actor": {
+      "en_us": "Americo",
+      "pt_br": "Américo"
+    },
+    "Text": {
+      "en_us": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+      "pt_br": "Talvez Stella tenha um.{0} Só há lixo no depósito lá embaixo."
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [
+        "MiddleScriptAmerico"
+      ],
+      "End": []
+    }
+  },
+  "question_0": {
+    "Actor": {
+      "en_us": "Charles",
+      "pt_br": "Carlos"
+    },
+    "Text": {
+      "en_us": "Lucas, do you want to play <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
+      "pt_br": "Lucas, você quer jogar <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?"
+    },
+    "Next_Key": null,
+    "Question": "MinecraftQuestion",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "question_1": {
+    "Actor": {
+      "en_us": "Charles",
+      "pt_br": "Carlos"
+    },
+    "Text": {
+      "en_us": "Alright then.",
+      "pt_br": "Tudo bem então."
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_none_0": {
+    "Actor": {
+      "en_us": "{Player}",
+      "pt_br": "{Player}"
+    },
+    "Text": {
+      "en_us": "This is the worst dialogue ever! The developer ran out of creativity!",
+      "pt_br": "Este é o pior diálogo de todos os tempos! O desenvolvedor ficou sem criatividade!"
+    },
+    "Next_Key": null,
+    "Question": "noCreativity0",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_none_1": {
+    "Actor": {
+      "en_us": "{Player}",
+      "pt_br": "{Player}"
+    },
+    "Text": {
+      "en_us": "This one is even worse! It's 1:15 AM and the developer hasn't slept yet!",
+      "pt_br": "Este é ainda pior! É 1h15 e o desenvolvedor ainda não dormiu!"
+    },
+    "Next_Key": null,
+    "Question": "noCreativity1",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_none_2": {
+    "Actor": {
+      "en_us": "Roberta",
+      "pt_br": "Roberta"
+    },
+    "Text": {
+      "en_us": "The developer fell asleep! It's me now, Roberta!",
+      "pt_br": "O desenvolvedor adormeceu! Agora sou eu, Roberta!"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  }
+}
