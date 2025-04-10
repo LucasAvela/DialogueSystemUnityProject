@@ -56,7 +56,7 @@ MonoBehaviour:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 3
-    m_Scale: 1.2
+    m_Scale: 2
     m_Name: am
   m_GlyphTable:
   - m_Index: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
       m_HorizontalAdvance: 200
     m_GlyphRect:
       m_X: 256
-      m_Y: 0
+      m_Y: 15
       m_Width: 256
       m_Height: 256
     m_Scale: 1

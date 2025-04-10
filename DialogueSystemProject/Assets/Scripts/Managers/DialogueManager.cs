@@ -131,6 +131,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StopDialogue()
     {   
+        if (!_onDialogue) return;
+
         _stopDialogue = true;
 
         if (_onDialogue & !_onMiddleScriptRunning)
