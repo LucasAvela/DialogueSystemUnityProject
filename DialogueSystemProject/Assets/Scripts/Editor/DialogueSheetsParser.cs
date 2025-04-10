@@ -102,6 +102,10 @@ public class DialogueSheetsParser : EditorWindow
         }
 
         EditorGUILayout.Space();
+        if (GUILayout.Button("Delete All JSON Files"))
+        {
+            DeleteData();
+        }
         if (GUILayout.Button("Parse Dialogue Sheet"))
         {
             StartParser();
@@ -110,17 +114,30 @@ public class DialogueSheetsParser : EditorWindow
 
     private void StartParser()
     {
+        languagesTexts.Clear();
+        languagesActors.Clear();
         for (int i = 0; i < _languagesCount; i++)
         {
             languagesTexts.Add(_texts[i]);
             languagesActors.Add(_actors[i]);
         }
-
+        Debug.Log($"🔣 Selected Languages: {string.Join(", ", languagesTexts)}");
         Debug.Log("⏳ Downloading spreadsheet data...");
-        DialogueParse();
-        SimpleDialogueParser();
-        UIParser();
-        QuestionParser();
+        try
+        {
+            EditorUtility.DisplayProgressBar("Parsing Sheets", "Downloading and parsing Dialogue...", 0.25f);
+            DialogueParse();
+            EditorUtility.DisplayProgressBar("Parsing Sheets", "Parsing Simple Dialogue...", 0.5f);
+            SimpleDialogueParser();
+            EditorUtility.DisplayProgressBar("Parsing Sheets", "Parsing UI data...", 0.75f);
+            UIParser();
+            EditorUtility.DisplayProgressBar("Parsing Sheets", "Parsing Questions...", 1f);
+            QuestionParser();
+        }
+        finally
+        {
+            EditorUtility.ClearProgressBar();
+        }
         Debug.Log("✅ Download and processing complete!");
     }
 
@@ -539,6 +556,22 @@ public class DialogueSheetsParser : EditorWindow
         string json = JsonConvert.SerializeObject(questionData, Formatting.Indented);
         File.WriteAllText(questionJson, json);
         Debug.Log($"✅ JSON saved: {Path.GetFileName(questionJson)}");
+        AssetDatabase.Refresh();
+    }
+
+    public void DeleteData()
+    {
+        string dialogueJson = Path.Combine(_dialogueSystemFolder, "Dialogue.json");
+        string simpleDialogueJson = Path.Combine(_dialogueSystemFolder, "SimpleDialogue.json");
+        string uiJson = Path.Combine(_dialogueSystemFolder, "UI.json");
+        string questionJson = Path.Combine(_dialogueSystemFolder, "Question.json");
+
+        if (File.Exists(dialogueJson)) File.Delete(dialogueJson);
+        if (File.Exists(simpleDialogueJson)) File.Delete(simpleDialogueJson);
+        if (File.Exists(uiJson)) File.Delete(uiJson);
+        if (File.Exists(questionJson)) File.Delete(questionJson);
+
+        Debug.Log("✅ Deleted all JSON files.");
         AssetDatabase.Refresh();
     }
 

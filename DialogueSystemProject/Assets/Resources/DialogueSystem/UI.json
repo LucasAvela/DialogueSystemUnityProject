@@ -2,15 +2,15 @@
   "key": {
     "Text": {
       "en_us": "",
-      "pt_br": "",
-      "ja": "",
       "en_gb": "",
+      "pt_br": "",
       "es": "",
       "it": "",
       "fr": "",
       "de": "",
       "pl": "",
       "ru": "",
+      "ja": "",
       "ko": "",
       "zh": ""
     },
@@ -21,15 +21,15 @@
   "StartDialogue": {
     "Text": {
       "en_us": "Start Dialogue",
-      "pt_br": "Iniciar diálogo",
-      "ja": "対話を開始する",
       "en_gb": "Start Dialogue",
+      "pt_br": "Iniciar diálogo",
       "es": "Iniciar diálogo",
       "it": "Inizia il dialogo",
       "fr": "Démarrer le dialogue",
       "de": "Dialog starten",
       "pl": "Rozpocznij dialog",
       "ru": "Начать диалог",
+      "ja": "対話を開始する",
       "ko": "대화 시작",
       "zh": "开始对话"
     },
@@ -40,15 +40,15 @@
   "StopDialogue": {
     "Text": {
       "en_us": "Stop Dialogue",
-      "pt_br": "Pare o diálogo",
-      "ja": "対話をやめる",
       "en_gb": "Stop Dialogue",
+      "pt_br": "Pare o diálogo",
       "es": "Detener el diálogo",
       "it": "Interrompi il dialogo",
       "fr": "Arrêter le dialogue",
       "de": "Stoppen Sie den Dialog",
       "pl": "Zatrzymaj dialog",
       "ru": "Остановить диалог",
+      "ja": "対話をやめる",
       "ko": "대화 중지",
       "zh": "停止对话"
     },
@@ -59,15 +59,15 @@
   "NextDialogue": {
     "Text": {
       "en_us": "Next Dialogue",
-      "pt_br": "Próximo Diálogo",
-      "ja": "次の対話",
       "en_gb": "Next Dialogue",
+      "pt_br": "Próximo Diálogo",
       "es": "Próximo diálogo",
       "it": "Prossimo dialogo",
       "fr": "Dialogue suivant",
       "de": "Nächster Dialog",
       "pl": "Następny dialog",
       "ru": "Следующий диалог",
+      "ja": "次の対話",
       "ko": "다음 대화",
       "zh": "下一个对话"
     },
@@ -78,15 +78,15 @@
   "StartSimpleDialogue": {
     "Text": {
       "en_us": "Start Simple Dialogue",
-      "pt_br": "Comece um diálogo simples",
-      "ja": "簡単な対話を開始します",
       "en_gb": "Start Simple Dialogue",
+      "pt_br": "Comece um diálogo simples",
       "es": "Iniciar un diálogo sencillo",
       "it": "Inizia un dialogo semplice",
       "fr": "Démarrer un dialogue simple",
       "de": "Starten Sie den einfachen Dialog",
       "pl": "Rozpocznij prosty dialog",
       "ru": "Начать простой диалог",
+      "ja": "簡単な対話を開始します",
       "ko": "간단한 대화 시작",
       "zh": "开始简单对话"
     },
@@ -97,15 +97,15 @@
   "EasterEgg": {
     "Text": {
       "en_us": "Easter Egg",
-      "pt_br": "ovos de pascoa",
-      "ja": "イースターエッグ",
       "en_gb": "Easter Egg",
+      "pt_br": "ovos de pascoa",
       "es": "el huevo de Pascua",
       "it": "uovo di Pasqua",
       "fr": "œuf de Pâques",
       "de": "Osterei",
       "pl": "Pisanka",
       "ru": "пасхальное яйцо",
+      "ja": "イースターエッグ",
       "ko": "부활절 달걀",
       "zh": "复活节彩蛋"
     },
@@ -116,15 +116,15 @@
   "yes_key": {
     "Text": {
       "en_us": "Yes",
-      "pt_br": "Sim",
-      "ja": "はい",
       "en_gb": "Yes",
+      "pt_br": "Sim",
       "es": "Sí",
       "it": "SÌ",
       "fr": "Oui",
       "de": "Ja",
       "pl": "Tak",
       "ru": "Да",
+      "ja": "はい",
       "ko": "예",
       "zh": "是的"
     },
@@ -135,15 +135,15 @@
   "no_key": {
     "Text": {
       "en_us": "No",
-      "pt_br": "Não",
-      "ja": "いいえ",
       "en_gb": "No",
+      "pt_br": "Não",
       "es": "No",
       "it": "NO",
       "fr": "Non",
       "de": "NEIN",
       "pl": "NIE",
       "ru": "Нет",
+      "ja": "いいえ",
       "ko": "아니요",
       "zh": "不"
     },
@@ -154,15 +154,15 @@
   "maybe_key": {
     "Text": {
       "en_us": "Maybe",
-      "pt_br": "Talvez",
-      "ja": "多分",
       "en_gb": "Maybe",
+      "pt_br": "Talvez",
       "es": "Tal vez",
       "it": "Forse",
       "fr": "Peut être",
       "de": "Vielleicht",
       "pl": "Może",
       "ru": "Может быть",
+      "ja": "多分",
       "ko": "아마도",
       "zh": "或许"
     },
@@ -173,15 +173,15 @@
   "later_key": {
     "Text": {
       "en_us": "Later",
-      "pt_br": "Mais tarde",
-      "ja": "後で",
       "en_gb": "Later",
+      "pt_br": "Mais tarde",
       "es": "Más tarde",
       "it": "Dopo",
       "fr": "Plus tard",
       "de": "Später",
       "pl": "Później",
       "ru": "Позже",
+      "ja": "後で",
       "ko": "나중에",
       "zh": "之后"
     },
@@ -192,15 +192,15 @@
   "colorado_key": {
     "Text": {
       "en_us": "International",
-      "pt_br": "Internacional",
-      "ja": "国際的",
       "en_gb": "International",
+      "pt_br": "Internacional",
       "es": "Internacional",
       "it": "Internazionale",
       "fr": "International",
       "de": "International",
       "pl": "Międzynarodowy",
       "ru": "Международный",
+      "ja": "国際的",
       "ko": "국제적인",
       "zh": "国际的"
     },
@@ -211,15 +211,15 @@
   "octa_key": {
     "Text": {
       "en_us": "Octa",
-      "pt_br": "Octa",
-      "ja": "オクタ",
       "en_gb": "Octa",
+      "pt_br": "Octa",
       "es": "octava",
       "it": "Otta",
       "fr": "Octa",
       "de": "Okta",
       "pl": "Okta",
       "ru": "Окта",
+      "ja": "オクタ",
       "ko": "옥타",
       "zh": "奥克塔"
     },
@@ -230,15 +230,15 @@
   "Wall": {
     "Text": {
       "en_us": "I'm at the <b><#fff952>wall</color></b>.",
-      "pt_br": "Estou na <b><#fff952>parede</color></b>.",
-      "ja": "私は<b><#fff952>壁</color></b>のところにいます。",
       "en_gb": "I'm at the <b><#fff952>wall</color></b>.",
+      "pt_br": "Estou na <b><#fff952>parede</color></b>.",
       "es": "Estoy en el <b><#fff952>muro</color></b>.",
       "it": "Sono al <b><#fff952>muro</color></b>.",
       "fr": "Je suis au <b><#fff952>mur</color></b>.",
       "de": "Ich bin an der <b><#fff952>Wand</color></b>.",
       "pl": "Jestem pod <b><#fff952>ścianą</color></b>.",
       "ru": "Я у <b><#fff952>стены</color></b>.",
+      "ja": "私は<b><#fff952>壁</color></b>のところにいます。",
       "ko": "나는 <b><#fff952>벽</color></b>에 있습니다.",
       "zh": "我在<b><#fff952>墙</color></b>处。"
     },
@@ -249,15 +249,15 @@
   "key_player": {
     "Text": {
       "en_us": "{PlayerName}",
-      "pt_br": "{PlayerName}",
-      "ja": "{PlayerName}",
       "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
       "es": "{PlayerName}",
       "it": "{PlayerName}",
       "fr": "{PlayerName}",
       "de": "{PlayerName}",
       "pl": "{PlayerName}",
       "ru": "{PlayerName}",
+      "ja": "{PlayerName}",
       "ko": "{PlayerName}",
       "zh": "{PlayerName}"
     },
