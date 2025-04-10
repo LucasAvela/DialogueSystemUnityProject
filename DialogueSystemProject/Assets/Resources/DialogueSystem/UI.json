@@ -22,14 +22,14 @@
     "Text": {
       "en_us": "Start Dialogue",
       "en_gb": "Start Dialogue",
-      "pt_br": "Iniciar diálogo",
-      "es": "Iniciar diálogo",
-      "it": "Inizia il dialogo",
-      "fr": "Démarrer le dialogue",
-      "de": "Dialog starten",
-      "pl": "Rozpocznij dialog",
-      "ru": "Начать диалог",
-      "ja": "対話を開始する",
+      "pt_br": "Iniciar Diálogo",
+      "es": "Iniciar Diálogo",
+      "it": "Avvia Dialogo",
+      "fr": "Démarrer le Dialogue",
+      "de": "Dialog Starten",
+      "pl": "Rozpocznij Dialog",
+      "ru": "Начать Диалог",
+      "ja": "ダイアログを開始",
       "ko": "대화 시작",
       "zh": "开始对话"
     },
@@ -41,14 +41,14 @@
     "Text": {
       "en_us": "Stop Dialogue",
       "en_gb": "Stop Dialogue",
-      "pt_br": "Pare o diálogo",
-      "es": "Detener el diálogo",
-      "it": "Interrompi il dialogo",
-      "fr": "Arrêter le dialogue",
-      "de": "Stoppen Sie den Dialog",
-      "pl": "Zatrzymaj dialog",
-      "ru": "Остановить диалог",
-      "ja": "対話をやめる",
+      "pt_br": "Parar Diálogo",
+      "es": "Detener Diálogo",
+      "it": "Interrompere il Dialogo",
+      "fr": "Arrêter le Dialogue",
+      "de": "Dialog Beenden",
+      "pl": "Zatrzymaj Dialog",
+      "ru": "Остановить Диалог",
+      "ja": "ダイアログを停止",
       "ko": "대화 중지",
       "zh": "停止对话"
     },
@@ -61,13 +61,13 @@
       "en_us": "Next Dialogue",
       "en_gb": "Next Dialogue",
       "pt_br": "Próximo Diálogo",
-      "es": "Próximo diálogo",
-      "it": "Prossimo dialogo",
-      "fr": "Dialogue suivant",
+      "es": "Próximo Diálogo",
+      "it": "Dialogo Successivo",
+      "fr": "Dialogue Suivant",
       "de": "Nächster Dialog",
-      "pl": "Następny dialog",
-      "ru": "Следующий диалог",
-      "ja": "次の対話",
+      "pl": "Następny Dialog",
+      "ru": "Следующий Диалог",
+      "ja": "次のダイアログ",
       "ko": "다음 대화",
       "zh": "下一个对话"
     },
@@ -79,14 +79,14 @@
     "Text": {
       "en_us": "Start Simple Dialogue",
       "en_gb": "Start Simple Dialogue",
-      "pt_br": "Comece um diálogo simples",
-      "es": "Iniciar un diálogo sencillo",
-      "it": "Inizia un dialogo semplice",
-      "fr": "Démarrer un dialogue simple",
-      "de": "Starten Sie den einfachen Dialog",
-      "pl": "Rozpocznij prosty dialog",
-      "ru": "Начать простой диалог",
-      "ja": "簡単な対話を開始します",
+      "pt_br": "Iniciar Diálogo Simples",
+      "es": "Iniciar Diálogo Simple",
+      "it": "Avvia Dialogo Semplice",
+      "fr": "Démarrer le Dialogue Simple",
+      "de": "Einfachen Dialog Starten",
+      "pl": "Rozpocznij Prosty Dialog",
+      "ru": "Начать Простой Диалог",
+      "ja": "シンプルな会話を開始",
       "ko": "간단한 대화 시작",
       "zh": "开始简单对话"
     },
@@ -98,16 +98,16 @@
     "Text": {
       "en_us": "Easter Egg",
       "en_gb": "Easter Egg",
-      "pt_br": "ovos de pascoa",
-      "es": "el huevo de Pascua",
-      "it": "uovo di Pasqua",
-      "fr": "œuf de Pâques",
+      "pt_br": "Ovo de Páscoa",
+      "es": "Huevo de Pascua",
+      "it": "Uovo di Pasqua",
+      "fr": "Œuf de Pâques",
       "de": "Osterei",
-      "pl": "Pisanka",
-      "ru": "пасхальное яйцо",
+      "pl": "Jajko Wielkanocne",
+      "ru": "Пасхальное яйцо",
       "ja": "イースターエッグ",
-      "ko": "부활절 달걀",
-      "zh": "复活节彩蛋"
+      "ko": "이스터 에그",
+      "zh": "彩蛋"
     },
     "Scripts": {
       "Insert": []
@@ -119,13 +119,13 @@
       "en_gb": "Yes",
       "pt_br": "Sim",
       "es": "Sí",
-      "it": "SÌ",
+      "it": "Sì",
       "fr": "Oui",
       "de": "Ja",
       "pl": "Tak",
       "ru": "Да",
       "ja": "はい",
-      "ko": "예",
+      "ko": "네",
       "zh": "是的"
     },
     "Scripts": {
@@ -138,10 +138,10 @@
       "en_gb": "No",
       "pt_br": "Não",
       "es": "No",
-      "it": "NO",
+      "it": "No",
       "fr": "Non",
-      "de": "NEIN",
-      "pl": "NIE",
+      "de": "Nein",
+      "pl": "Nie",
       "ru": "Нет",
       "ja": "いいえ",
       "ko": "아니요",
@@ -156,15 +156,15 @@
       "en_us": "Maybe",
       "en_gb": "Maybe",
       "pt_br": "Talvez",
-      "es": "Tal vez",
+      "es": "Quizás",
       "it": "Forse",
-      "fr": "Peut être",
+      "fr": "Peut-être",
       "de": "Vielleicht",
       "pl": "Może",
-      "ru": "Может быть",
+      "ru": "Возможно",
       "ja": "多分",
       "ko": "아마도",
-      "zh": "或许"
+      "zh": "也许"
     },
     "Scripts": {
       "Insert": []
@@ -174,16 +174,16 @@
     "Text": {
       "en_us": "Later",
       "en_gb": "Later",
-      "pt_br": "Mais tarde",
+      "pt_br": "Mais Tarde",
       "es": "Más tarde",
-      "it": "Dopo",
+      "it": "Più tardi",
       "fr": "Plus tard",
       "de": "Später",
       "pl": "Później",
       "ru": "Позже",
       "ja": "後で",
       "ko": "나중에",
-      "zh": "之后"
+      "zh": "稍后"
     },
     "Scripts": {
       "Insert": []
@@ -200,9 +200,9 @@
       "de": "International",
       "pl": "Międzynarodowy",
       "ru": "Международный",
-      "ja": "国際的",
-      "ko": "국제적인",
-      "zh": "国际的"
+      "ja": "インターナショナル",
+      "ko": "인터내셔널",
+      "zh": "国际"
     },
     "Scripts": {
       "Insert": []
@@ -213,15 +213,15 @@
       "en_us": "Octa",
       "en_gb": "Octa",
       "pt_br": "Octa",
-      "es": "octava",
-      "it": "Otta",
+      "es": "Octa",
+      "it": "Octa",
       "fr": "Octa",
-      "de": "Okta",
-      "pl": "Okta",
+      "de": "Octa",
+      "pl": "Octa",
       "ru": "Окта",
       "ja": "オクタ",
       "ko": "옥타",
-      "zh": "奥克塔"
+      "zh": "八面体"
     },
     "Scripts": {
       "Insert": []
@@ -232,15 +232,15 @@
       "en_us": "I'm at the <b><#fff952>wall</color></b>.",
       "en_gb": "I'm at the <b><#fff952>wall</color></b>.",
       "pt_br": "Estou na <b><#fff952>parede</color></b>.",
-      "es": "Estoy en el <b><#fff952>muro</color></b>.",
+      "es": "Estoy en la <b><#fff952>pared</color></b>.",
       "it": "Sono al <b><#fff952>muro</color></b>.",
       "fr": "Je suis au <b><#fff952>mur</color></b>.",
       "de": "Ich bin an der <b><#fff952>Wand</color></b>.",
-      "pl": "Jestem pod <b><#fff952>ścianą</color></b>.",
+      "pl": "Jestem przy <b><#fff952>ścianie</color></b>.",
       "ru": "Я у <b><#fff952>стены</color></b>.",
-      "ja": "私は<b><#fff952>壁</color></b>のところにいます。",
-      "ko": "나는 <b><#fff952>벽</color></b>에 있습니다.",
-      "zh": "我在<b><#fff952>墙</color></b>处。"
+      "ja": "<b><#fff952>壁</color></b>にいます。",
+      "ko": "<b><#fff952>벽</color></b>에 있습니다.",
+      "zh": "我在<b><#fff952>墙</color></b>边。"
     },
     "Scripts": {
       "Insert": []
