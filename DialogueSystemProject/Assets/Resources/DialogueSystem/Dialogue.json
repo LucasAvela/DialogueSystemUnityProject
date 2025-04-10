@@ -95,7 +95,7 @@
     "Actor": {
       "en_us": "Edgar",
       "pt_br": "Edgar",
-      "ja": "エドガー"
+      "ja": "Edgar"
     },
     "Text": {
       "en_us": "Americo, the lights are out, can...",
@@ -113,9 +113,9 @@
   },
   "Americo_1": {
     "Actor": {
-      "en_us": "",
-      "pt_br": "",
-      "ja": ""
+      "en_us": "Americo",
+      "pt_br": "Americo",
+      "ja": "Americo"
     },
     "Text": {
       "en_us": "<b>No shit!</b> I thought my eyes were closed.",
@@ -133,9 +133,9 @@
   },
   "Americo_2": {
     "Actor": {
-      "en_us": "",
-      "pt_br": "",
-      "ja": ""
+      "en_us": "Edgar",
+      "pt_br": "Edgar",
+      "ja": "Edgar"
     },
     "Text": {
       "en_us": "...",
@@ -153,9 +153,9 @@
   },
   "Americo_3": {
     "Actor": {
-      "en_us": "",
-      "pt_br": "",
-      "ja": ""
+      "en_us": "Americo",
+      "pt_br": "Americo",
+      "ja": "Americo"
     },
     "Text": {
       "en_us": "What do you want?",
@@ -173,9 +173,9 @@
   },
   "Americo_4": {
     "Actor": {
-      "en_us": "",
-      "pt_br": "",
-      "ja": ""
+      "en_us": "Edgar",
+      "pt_br": "Edgar",
+      "ja": "Edgar"
     },
     "Text": {
       "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><b><#ffdd47>flashlight</color></b></font>?",
@@ -193,9 +193,9 @@
   },
   "Americo_5": {
     "Actor": {
-      "en_us": "",
-      "pt_br": "",
-      "ja": ""
+      "en_us": "Americo",
+      "pt_br": "Americo",
+      "ja": "Americo"
     },
     "Text": {
       "en_us": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",

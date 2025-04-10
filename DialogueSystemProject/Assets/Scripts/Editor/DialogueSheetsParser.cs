@@ -223,6 +223,11 @@ public class DialogueSheetsParser : EditorWindow
                 if (actorColIndex >= 0 && actorColIndex < fields.Count)
                 {
                     actorDict[languagesTexts[j]] = fields[actorColIndex].Trim();
+
+                    if (fields[actorColIndex].Trim() == null || fields[actorColIndex].Trim() == "")
+                    {
+                        actorDict[languagesTexts[j]] = fields[actorDefaultIndex].Trim();
+                    }
                 }
             }
 
