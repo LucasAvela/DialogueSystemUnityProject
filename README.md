@@ -55,10 +55,10 @@ Essa aba contém os diálogos com ramificações e scripts.
 | **StartScript**   | Script a ser executado antes do diálogo. |
 | **MiddleScript**  | Script a ser executado durante o diálogo. |
 | **EndScript**     | Script a ser executado ao final do diálogo. |
-| **Actor [pt]**    | Nome do personagem em português.        |
-| **Actor [en]**    | Nome do personagem em inglês.           |
+| **en_us**    | Nome do personagem em inglês.        |
+| **Actor_en_us**    | Nome do personagem em inglês.           |
 
-> **Nota:** Adicione colunas `Insert [idioma]` e `Actor [idioma]` conforme os idiomas suportados.
+> **Nota:** Adicione colunas `idioma` e `Actor_idioma` conforme os idiomas suportados.
 
 ### 📄 Aba `Dialogo Simples`
 
@@ -67,8 +67,8 @@ Utilizada para diálogos sem ramificações.
 | Campo         | Descrição        |
 |---------------|-------------------|
 | **Key**           | Identificador do diálogo simples. |
-| **Insert [pt]**   | Texto em português.     |
-| **Insert [en]**   | Texto em inglês.        |
+| **en_us**   | Texto em inglês.        |
+| **pt_br**   | Texto em português.     |
 
 ### 📄 Aba `UI`
 
@@ -77,8 +77,8 @@ Contém os textos da interface do usuário (UI).
 | Campo         | Descrição     |
 |---------------|------------------|
 | **Key**           | Identificador do texto UI.   |
-| **Insert [pt]**   | Texto em português.    |
-| **Insert [en]**   | Texto em inglês.       |
+| **en_us**   | Texto em inglês.        |
+| **pt_br**   | Texto em português.     |
 
 ### 📄 Aba `Questions`
 
