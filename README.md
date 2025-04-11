@@ -3,7 +3,7 @@
 
 Modular system for interactive dialogues and multilingual localization in Unity. With this system, you can create dynamic narratives with branches, questions, custom scripts, and TextMeshPro integration, offering a rich experience for the player.
 
-<!-- TODO: Insert a banner or illustrative image of the system in action -->
+<img src="/docs/img/header.png" width="500"/>
 
 ---
 
@@ -20,8 +20,6 @@ Modular system for interactive dialogues and multilingual localization in Unity.
 1. **Import the Files**  
    Download the release and import the `DialogueSystem/` folder into your Unity project's `Assets` folder.
 
-   <!-- TODO: Insert GIF showing folder import in Unity -->
-
 2. **Install the Newtonsoft.Json Package**  
    - Go to: `Window > Package Manager`
    - Click `+ > Add package from git URL...`
@@ -30,7 +28,7 @@ Modular system for interactive dialogues and multilingual localization in Unity.
      https://github.com/jilleJr/Newtonsoft.Json-for-Unity.git
      ```
 
-   <!-- TODO: Insert image or GIF showing package installation via Package Manager -->
+      <img src="/docs/img/packageManager.png" width="400"/>
 
 ---
 
@@ -46,6 +44,8 @@ Create a spreadsheet with **4 tabs**. Each tab represents a data set that will b
 ### 📄 `Dialogue` Tab
 
 This tab contains the dialogues with branching and scripts.
+
+<img src="/docs/img/dialogueSheet.png" height="80"/>
 
 | Field         | Description                                  |
 |---------------|----------------------------------------------|
@@ -65,6 +65,8 @@ This tab contains the dialogues with branching and scripts.
 
 Used for dialogues without branching.
 
+<img src="/docs/img/simpleDialogueSheet.png" height="80"/>
+
 | Field     | Description             |
 |-----------|-------------------------|
 | **Key**       | Identifier of the dialogue. |
@@ -74,6 +76,8 @@ Used for dialogues without branching.
 ### 📄 `UI` Tab
 
 Contains UI text strings.
+
+<img src="/docs/img/uiSheet.png" height="80"/>
 
 | Field     | Description              |
 |-----------|--------------------------|
@@ -85,13 +89,13 @@ Contains UI text strings.
 
 Defines response options for choice-based dialogues.
 
+<img src="/docs/img/questionSheet.png" height="80"/>
+
 | Field     | Description                                  |
 |-----------|----------------------------------------------|
 | **Key**       | Identifier of the option/question.         |
 | **UIKey**     | References the UI text from the UI tab.    |
 | **NextKey**   | ID of the dialogue triggered by this option. |
-
-<!-- TODO: Insert image showing spreadsheet example in Google Sheets -->
 
 ---
 
@@ -99,6 +103,8 @@ Defines response options for choice-based dialogues.
 
 In Unity's menu, go to: `Tool > Dialogue`  
 This window helps configure and generate the JSON files from the spreadsheet data.
+
+<img src="/docs/img/dialogueWindow.png" width="400"/>
 
 ### 🔘 Window Buttons
 
@@ -130,8 +136,6 @@ Defines how many languages your project will support. Once set, additional field
 
 This button runs the script that downloads data from the spreadsheet and generates JSON files, saved to:  
 `Assets/Resources/DialogueSystem/`
-
-<!-- TODO: Insert GIF showing Save Config, Load Config, and Parser button usage -->
 
 ---
 
