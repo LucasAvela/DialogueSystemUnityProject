@@ -178,6 +178,7 @@ MonoBehaviour:
   - question_0
   - key_none_0
   - game_question
+  - ActionButton
   _simpleDialogueKeys:
   - SimpleDialogue
   - ClosedDoor
@@ -2859,7 +2860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f53305be8321148b440092b279f2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerName: Jogador
+  _playerName: Player Name
+  _actionName: Pokebola
+  _inputActions: {fileID: -944628639613478452, guid: de3253a5a79399149966619bfa4c0cca, type: 3}
 --- !u!1 &1121373982
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ public class DialogueScriptManager : MonoBehaviour
             case "PlayerName":
                 return text.Replace("{PlayerName}", GameManager.Instance.ReturnPlayerName());
 
+            case "ActionButton":
+                return text.Replace("{ActionButton}", GameManager.Instance.ReturnActionButton());
+
             default:
                 return text;
         }

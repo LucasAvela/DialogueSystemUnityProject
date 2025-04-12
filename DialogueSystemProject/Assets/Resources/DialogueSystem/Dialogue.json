@@ -696,5 +696,45 @@
       "Middle": [],
       "End": []
     }
+  },
+  "ActionButton": {
+    "Actor": {
+      "en_us": "Pokemon Master",
+      "en_gb": "Pokemon Master",
+      "pt_br": "Mestre Pokémon",
+      "es": "Maestro Pokémon",
+      "it": "Maestro dei Pokémon",
+      "fr": "Maître Pokémon",
+      "de": "Pokémon-Meister",
+      "pl": "Mistrz Pokemonów",
+      "ru": "Мастер покемонов",
+      "ja": "ポケモンマスター",
+      "ko": "포켓몬 마스터",
+      "zh": "神奇宝贝大师"
+    },
+    "Text": {
+      "en_us": "The {ActionButton} button throw a Pokeball!",
+      "en_gb": "The {ActionButton} button throw a Pokeball!",
+      "pt_br": "O botão {ActionButton} joga uma pokebola!",
+      "es": "El botón {ActionButton} lanza una pokebola!",
+      "it": "Il pulsante {ActionButton} lancia una pokeball!",
+      "fr": "Le bouton {ActionButton} lance une pokéball !",
+      "de": "Der {ActionButton}-Knopf wirft einen Pokéball!",
+      "pl": "Przycisk {ActionButton} rzuca pokeballa!",
+      "ru": "Кнопка {ActionButton} бросает покебол!",
+      "ja": "{ActionButton} ボタンがモンスターボールを投げる！",
+      "ko": "{ActionButton} 버튼이 포켓볼을 던진다!",
+      "zh": "{ActionButton} 按钮投出精灵球！"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [
+        "ActionButton"
+      ],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
   }
 }

@@ -1,0 +1,34 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "ActionMap",
+            "id": "33c90e2f-3590-4542-8f9c-8fbdf7bc36d4",
+            "actions": [
+                {
+                    "name": "Pokebola",
+                    "type": "Button",
+                    "id": "7dba5cae-e833-42a6-8acf-bc443707568d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6f026cf2-3332-4267-bbdc-5a4b68cbf3a5",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pokebola",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
