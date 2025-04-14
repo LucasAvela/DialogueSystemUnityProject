@@ -185,6 +185,7 @@ MonoBehaviour:
   - AmericoSimple
   - key_player
   - add_bullets
+  - Action_button
   _actualDialogueKey: 
   _actualSimpleDialogueKey: 
   _nextDialogue: 0

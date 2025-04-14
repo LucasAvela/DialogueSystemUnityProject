@@ -304,5 +304,26 @@
     "Scripts": {
       "Insert": []
     }
+  },
+  "Action_icon": {
+    "Text": {
+      "en_us": "press {ActionButton}",
+      "en_gb": "press {ActionButton}",
+      "pt_br": "pressione {ActionButton}",
+      "es": "presione {ActionButton}",
+      "it": "premi {ActionButton}",
+      "fr": "appuyez sur {ActionButton}",
+      "de": "drücke {ActionButton}",
+      "pl": "naciśnij przycisk {ActionButton}",
+      "ru": "нажмите {ActionButton}",
+      "ja": "{アクションボタン}を押してください",
+      "ko": "{ActionButton}을 누르세요.",
+      "zh": "按{操作按钮}"
+    },
+    "Scripts": {
+      "Insert": [
+        "ActionButton"
+      ]
+    }
   }
 }

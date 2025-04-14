@@ -114,5 +114,26 @@
     "Scripts": {
       "Insert": []
     }
+  },
+  "Action_button": {
+    "Text": {
+      "en_us": "{ActionButton}  Throws a Pokebola",
+      "en_gb": "{ActionButton}  Throws a Pokebola",
+      "pt_br": "{ActionButton} lança uma Pokébola",
+      "es": "{ActionButton} Lanza una Pokebola",
+      "it": "{ActionButton} Lancia una Pokebola",
+      "fr": "{ActionButton} lance un Pokébola",
+      "de": "{ActionButton} Wirft eine Pokebola",
+      "pl": "{ActionButton} Rzuca Pokebolą",
+      "ru": "{ActionButton} бросает покеболу",
+      "ja": "{ActionButton} ポケボラを投げます",
+      "ko": "{ActionButton}이 포케볼라를 던졌습니다.",
+      "zh": "{ActionButton} 抛出 Pokebola"
+    },
+    "Scripts": {
+      "Insert": [
+        "ActionButton"
+      ]
+    }
   }
 }
