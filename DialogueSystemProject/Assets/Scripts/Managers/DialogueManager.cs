@@ -372,6 +372,26 @@ public class DialogueManager : MonoBehaviour
         _language = language;
         if (_onDialogue) UpdateDialogue(_actualDialogueKey);
         if (_onSimpleDialogue) StartSimpleDialogue(_actualSimpleDialogueKey);
+
+        if (_onQuestionDialogue)
+        {
+            if (_questionDialogueContainer != null)
+            {
+                foreach (Transform child in _questionDialogueContainer)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+
+            if (_questionDialogueTextContainer != null)
+            {
+                foreach (Transform child in _questionDialogueTextContainer)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+        }
+
         onDialogueUpdated?.Invoke();
     }
 
