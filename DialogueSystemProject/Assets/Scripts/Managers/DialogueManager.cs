@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DialogueParser _dialogueParser;
     [SerializeField] private DialogueScriptManager _dialogueScriptManager;
     [SerializeField] private string _language = "en_us";
+    [SerializeField] private string _alphaTag = "<alpha=#00>";
 
     [Space(10)]
     [Header("Dialogue")]
@@ -76,6 +77,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool _onDialoguePanelAnimation = false;
     [SerializeField] private bool _skipWritingDialogue = false;
     [SerializeField] private bool _stopDialogue = false;
+    [SerializeField] private List<string> _actualTagsList = new List<string>();
+    [SerializeField] private List<string> _actualScriptsList = new List<string>();
     // Simple Dialogue
     [Header("Simple Dialogue State")]
     [TextArea(1, 2)][SerializeField] private string _actualSimpleDialogueKey = null;
@@ -133,7 +136,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StopDialogue()
-    {   
+    {
         if (!_onDialogue) return;
 
         _stopDialogue = true;
@@ -238,83 +241,121 @@ public class DialogueManager : MonoBehaviour
     }
 
     private IEnumerator WriteDialogue(string text, DialogueEntry dialogue)
+{
+    _onWritingDialogue = true;
+
+    if (dialogue.Scripts.Insert != null)
     {
-        _onWritingDialogue = true;
-
-        if (dialogue.Scripts.Insert != null)
-        {
-            foreach (string insert in dialogue.Scripts.Insert)
-            {
-                text = _dialogueScriptManager.InsertText(insert, text);
-            }
-        }
-
-        if (dialogue.Scripts.Start != null)
-        {
-            foreach (string start in dialogue.Scripts.Start)
-            {
-                _dialogueScriptManager.StartScript(start);
-            }
-        }
-
-        int i = 0;
-        while (i < text.Length)
-        {
-            if (text[i] == '<')
-            {
-                int endTag = text.IndexOf('>', i);
-                if (endTag != -1)
-                {
-                    string fullTag = text.Substring(i, endTag - i + 1);
-                    _dialogueText.text += fullTag;
-                    i = endTag + 1;
-                    continue;
-                }
-            }
-
-            if (text[i] == '{')
-            {
-                int endMidScriptTag = text.IndexOf('}', i);
-                if (endMidScriptTag != -1)
-                {
-                    string fullMidScriptTag = text.Substring(i + 1, endMidScriptTag - i - 1);
-                    string MiddleScriptKey = dialogue.Scripts.Middle[int.Parse(fullMidScriptTag)];
-                    _onMiddleScriptRunning = true;
-                    yield return _dialogueScriptManager.MiddleScript(MiddleScriptKey);
-                    _onMiddleScriptRunning = false;
-                    if (_stopDialogue) StopDialogue();
-                    i = endMidScriptTag + 1;
-                    continue;
-                }
-            }
-
-            if (_skipWritingDialogue & !_onMiddleScriptRunning)
-            {
-                int nextMidScriptIndex = text.IndexOf("{", i);
-                if (nextMidScriptIndex != -1)
-                {
-                    string textUntilMidScript = text.Substring(i, nextMidScriptIndex - i);
-                    _dialogueText.text += textUntilMidScript;
-                    i = nextMidScriptIndex;
-                    _skipWritingDialogue = false;
-                    continue;
-                }
-                else
-                {
-                    _dialogueText.text = System.Text.RegularExpressions.Regex.Replace(text, "\\{\\d+\\}", "");
-                    _skipWritingDialogue = false;
-                    break;
-                }
-            }
-
-            _dialogueText.text += text[i];
-            i++;
-            yield return new WaitForSeconds(_writingTime);
-        }
-
-        OnWritingComplete(dialogue);
-        _onWritingDialogue = false;
+        foreach (string insert in dialogue.Scripts.Insert)
+            text = _dialogueScriptManager.InsertText(insert, text);
     }
+
+    if (dialogue.Scripts.Start != null)
+    {
+        foreach (string start in dialogue.Scripts.Start)
+            _dialogueScriptManager.StartScript(start);
+    }
+
+    for (int i = 0; i < text.Length; i++)
+    {
+        if (text[i] == '<')
+        {
+            int endTag = text.IndexOf('>', i);
+            if (endTag != -1)
+            {
+                string fullTag = text.Substring(i, endTag - i + 1);
+                _actualTagsList.Add(fullTag);
+                text = text.Remove(i, endTag - i + 1).Insert(i, " ^");
+            }
+        }
+        else if (text[i] == '{')
+        {
+            int endTag = text.IndexOf('}', i);
+            if (endTag != -1)
+            {
+                string fullMidScriptTag = text.Substring(i + 1, endTag - i - 1);
+                string middleScriptKey = dialogue.Scripts.Middle[int.Parse(fullMidScriptTag)];
+                _actualScriptsList.Add(middleScriptKey);
+                text = text.Remove(i, endTag - i + 1).Insert(i, "~");
+            }
+        }
+    }
+
+    int writeCursor = 0;
+    int tagIndex = 0;
+    int scriptIndex = 0;
+
+    while (writeCursor < text.Length)
+    {
+        if (text[writeCursor] == '^')
+        {
+            text = text.Remove(writeCursor - 1, 2).Insert(writeCursor - 1, _actualTagsList[tagIndex]);
+            tagIndex++;
+
+            int endTag = text.IndexOf('>', writeCursor);
+            if (endTag != -1)
+                writeCursor = endTag + 2;
+
+            continue;
+        }
+        else if (text[writeCursor] == '~')
+        {
+            text = text.Remove(writeCursor, 1);
+            _onMiddleScriptRunning = true;
+            yield return _dialogueScriptManager.MiddleScript(_actualScriptsList[scriptIndex]);
+            _onMiddleScriptRunning = false;
+            scriptIndex++;
+            continue;
+        }
+
+        if (_skipWritingDialogue && !_onMiddleScriptRunning)
+        {
+            int nextMidScript = text.IndexOf('~', writeCursor);
+
+            if (nextMidScript != -1)
+            {
+                for (int i = writeCursor; i < nextMidScript; i++)
+                {
+                    if (text[i] == '^')
+                    {
+                        text = text.Remove(i, 1).Insert(i, _actualTagsList[tagIndex]);
+                        tagIndex++;
+                    }
+                    writeCursor = i;
+                }
+
+                int endTag = text.IndexOf('>', writeCursor);
+                if (endTag != -1)
+                    writeCursor = endTag + 1;
+
+                _skipWritingDialogue = false;
+                continue;
+            }
+            else
+            {
+                for (int i = writeCursor; i < text.Length; i++)
+                {
+                    if (text[i] == '^')
+                    {
+                        text = text.Remove(i, 1).Insert(i, _actualTagsList[tagIndex]);
+                        tagIndex++;
+                    }
+                }
+
+                _skipWritingDialogue = false;
+                break;
+            }
+        }
+
+        _dialogueText.text = text.Insert(writeCursor, _alphaTag);
+        writeCursor++;
+        yield return new WaitForSeconds(_writingTime);
+    }
+
+    _dialogueText.text = text;
+    OnWritingComplete(dialogue);
+    _onWritingDialogue = false;
+}
 
     private void OnWritingComplete(DialogueEntry dialogue)
     {
@@ -330,6 +371,9 @@ public class DialogueManager : MonoBehaviour
         _actualDialogueActor = null;
         _actualDialogueText = null;
         _skipWritingDialogue = false;
+
+        _actualTagsList.Clear();
+        _actualScriptsList.Clear();
     }
 
     public void StartSimpleDialogue(string key)
