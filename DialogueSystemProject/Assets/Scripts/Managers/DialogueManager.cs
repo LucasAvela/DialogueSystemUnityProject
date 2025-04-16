@@ -77,6 +77,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private bool _onDialoguePanelAnimation = false;
     [SerializeField] private bool _skipWritingDialogue = false;
     [SerializeField] private bool _stopDialogue = false;
+    [SerializeField] private char _actualCursorChar = ' ';
     [SerializeField] private List<string> _actualTagsList = new List<string>();
     [SerializeField] private List<string> _actualScriptsList = new List<string>();
     // Simple Dialogue
@@ -287,6 +288,8 @@ public class DialogueManager : MonoBehaviour
 
     while (writeCursor < text.Length)
     {
+        _actualCursorChar = text[writeCursor];
+        
         if (text[writeCursor] == '^')
         {
             text = text.Remove(writeCursor - 1, 2).Insert(writeCursor - 1, _actualTagsList[tagIndex]);
@@ -318,7 +321,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     if (text[i] == '^')
                     {
-                        text = text.Remove(i, 1).Insert(i, _actualTagsList[tagIndex]);
+                        text = text.Remove(i -1, 2).Insert(i -1, _actualTagsList[tagIndex]);
                         tagIndex++;
                     }
                     writeCursor = i;
@@ -337,7 +340,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     if (text[i] == '^')
                     {
-                        text = text.Remove(i, 1).Insert(i, _actualTagsList[tagIndex]);
+                        text = text.Remove(i -1, 2).Insert(i -1, _actualTagsList[tagIndex]);
                         tagIndex++;
                     }
                 }
@@ -352,6 +355,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(_writingTime);
     }
 
+    _actualCursorChar = ' ';
     _dialogueText.text = text;
     OnWritingComplete(dialogue);
     _onWritingDialogue = false;
@@ -372,6 +376,7 @@ public class DialogueManager : MonoBehaviour
         _actualDialogueText = null;
         _skipWritingDialogue = false;
 
+        _actualCursorChar = ' ';
         _actualTagsList.Clear();
         _actualScriptsList.Clear();
     }
