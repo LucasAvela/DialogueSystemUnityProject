@@ -10,7 +10,7 @@ Modular system for interactive dialogues and multilingual localization in Unity.
 ## ✅ Requirements
 
 - Unity 6.0 or higher
-- [Newtonsoft.Json](https://github.com/jilleJr/Newtonsoft.Json-for-Unity)
+- [Newtonsoft.Json]([https://github.com/jilleJr/Newtonsoft.Json-for-Unity](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.2/manual/index.html))
 - TextMeshPro (included by default in Unity)
 
 ---
