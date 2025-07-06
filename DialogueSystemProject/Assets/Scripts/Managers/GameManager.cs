@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     [Header("Player Settings")]
     [SerializeField] private string _playerName;
 

@@ -310,15 +310,15 @@
       "en_us": "press {ActionButton}",
       "en_gb": "press {ActionButton}",
       "pt_br": "pressione {ActionButton}",
-      "es": "presione {ActionButton}",
+      "es": "Presione {ActionButton}",
       "it": "premi {ActionButton}",
       "fr": "appuyez sur {ActionButton}",
-      "de": "drücke {ActionButton}",
-      "pl": "naciśnij przycisk {ActionButton}",
+      "de": "drücken Sie {ActionButton}",
+      "pl": "naciśnij {ActionButton}",
       "ru": "нажмите {ActionButton}",
-      "ja": "{アクションボタン}を押してください",
-      "ko": "{ActionButton}을 누르세요.",
-      "zh": "按{操作按钮}"
+      "ja": "{ActionButton} を押す",
+      "ko": "{ActionButton}을 누르세요",
+      "zh": "按下{ActionButton}"
     },
     "Scripts": {
       "Insert": [

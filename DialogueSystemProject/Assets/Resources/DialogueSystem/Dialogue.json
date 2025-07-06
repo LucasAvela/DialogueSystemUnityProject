@@ -77,18 +77,18 @@
   },
   "key_1": {
     "Actor": {
-      "en_us": "{Player}",
-      "en_gb": "{Player}",
-      "pt_br": "{Player}",
-      "es": "{Player}",
-      "it": "{Player}",
-      "fr": "{Player}",
-      "de": "{Player}",
-      "pl": "{Player}",
-      "ru": "{Player}",
-      "ja": "{Player}",
-      "ko": "{Player}",
-      "zh": "{Player}"
+      "en_us": "{PlayerName}",
+      "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "es": "{PlayerName}",
+      "it": "{PlayerName}",
+      "fr": "{PlayerName}",
+      "de": "{PlayerName}",
+      "pl": "{PlayerName}",
+      "ru": "{PlayerName}",
+      "ja": "{PlayerName}",
+      "ko": "{PlayerName}",
+      "zh": "{PlayerName}"
     },
     "Text": {
       "en_us": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
@@ -158,7 +158,7 @@
       ],
       "Start": [],
       "Middle": [
-        "MiddleScriptAmerico"
+        "&DelayedText()"
       ],
       "End": []
     }
@@ -331,7 +331,7 @@
       "zh": "爱德华"
     },
     "Text": {
-      "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><b><#ffdd47>flashlight</color></b></font>?",
+      "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><#ffdd47>flashlight</color></font>?",
       "en_gb": "... Can you get me a <font=NotoSans Underlay Outline SDF><b><#ffdd47>flashlight</color></b></font>?",
       "pt_br": "... Você pode me dar uma <font=NotoSans Underlay Outline SDF><b><#ffdd47>lanterna</color></b></font>?",
       "es": "... ¿Puedes conseguirme una <font=NotoSans Underlay Outline SDF><b><#ffdd47>linterna</color></b></font>?",
@@ -369,18 +369,18 @@
       "zh": "阿梅里科"
     },
     "Text": {
-      "en_us": "Maybe Stella's got one. {0}There's just junk in the storage downstairs.",
-      "en_gb": "Maybe Stella's got one. {0}There's just junk in the storage downstairs.",
-      "pt_br": "Talvez Stella tenha uma. {0}Só tem tralha no depósito lá embaixo.",
-      "es": "Tal vez Stella tenga una. {0}En el almacén de abajo solo hay trastos.",
-      "it": "Forse Stella ne ha una. {0}C'è solo roba inutile nel deposito di sotto.",
-      "fr": "Peut-être que Stella en a une. {0}Il n'y a que du bazar dans les rangements en bas.",
-      "de": "Vielleicht hat Stella eine. {0}Unten im Lagerraum gibt es nur Schrott.",
-      "pl": "Może Stella ma. {0}W magazynie na dole są same śmieci.",
-      "ru": "У Стеллы должен быть. {0}А на складе внизу просто куча хлама.",
-      "ja": "ステラに聞けよ。アイツが持ってるだろう？ {0}下の倉庫？あそこはガラクタだらけさ。",
-      "ko": "스텔라한테 있을 걸요. {0}아래층 창고엔 쓰레기밖에 없어요.",
-      "zh": "史黛拉好像有一个。{0}楼下储物室里都是些垃圾玩意儿。"
+      "en_us": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+      "en_gb": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
+      "pt_br": "Talvez Stella tenha uma.{0} Só tem tralha no depósito lá embaixo.",
+      "es": "Tal vez Stella tenga una.{0} En el almacén de abajo solo hay trastos.",
+      "it": "Forse Stella ne ha una.{0} C'è solo roba inutile nel deposito di sotto.",
+      "fr": "Peut-être que Stella en a une.{0} Il n'y a que du bazar dans les rangements en bas.",
+      "de": "Vielleicht hat Stella eine.{0} Unten im Lagerraum gibt es nur Schrott.",
+      "pl": "Może Stella ma.{0} W magazynie na dole są same śmieci.",
+      "ru": "У Стеллы должен быть.{0} А на складе внизу просто куча хлама.",
+      "ja": "ステラに聞けよ。アイツが持ってるだろう？{0} 下の倉庫？あそこはガラクタだらけさ。",
+      "ko": "스텔라한테 있을 걸요.{0} 아래층 창고엔 쓰레기밖에 없어요.",
+      "zh": "史黛拉好像有一个。{0} 楼下储物室里都是些垃圾玩意儿。"
     },
     "Next_Key": null,
     "Question": null,
@@ -388,7 +388,7 @@
       "Insert": [],
       "Start": [],
       "Middle": [
-        "MiddleScriptAmerico"
+        "&DelayedText()"
       ],
       "End": []
     }
@@ -471,18 +471,18 @@
   },
   "key_none_0": {
     "Actor": {
-      "en_us": "{Player}",
-      "en_gb": "{Player}",
-      "pt_br": "{Player}",
-      "es": "{Player}",
-      "it": "{Player}",
-      "fr": "{Player}",
-      "de": "{Player}",
-      "pl": "{Player}",
-      "ru": "{Player}",
-      "ja": "{Player}",
-      "ko": "{Player}",
-      "zh": "{Player}"
+      "en_us": "{PlayerName}",
+      "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "es": "{PlayerName}",
+      "it": "{PlayerName}",
+      "fr": "{PlayerName}",
+      "de": "{PlayerName}",
+      "pl": "{PlayerName}",
+      "ru": "{PlayerName}",
+      "ja": "{PlayerName}",
+      "ko": "{PlayerName}",
+      "zh": "{PlayerName}"
     },
     "Text": {
       "en_us": "This is the worst dialogue ever! The developer ran out of creativity!",
@@ -509,18 +509,18 @@
   },
   "key_none_1": {
     "Actor": {
-      "en_us": "{Player}",
-      "en_gb": "{Player}",
-      "pt_br": "{Player}",
-      "es": "{Player}",
-      "it": "{Player}",
-      "fr": "{Player}",
-      "de": "{Player}",
-      "pl": "{Player}",
-      "ru": "{Player}",
-      "ja": "{Player}",
-      "ko": "{Player}",
-      "zh": "{Player}"
+      "en_us": "{PlayerName}",
+      "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "es": "{PlayerName}",
+      "it": "{PlayerName}",
+      "fr": "{PlayerName}",
+      "de": "{PlayerName}",
+      "pl": "{PlayerName}",
+      "ru": "{PlayerName}",
+      "ja": "{PlayerName}",
+      "ko": "{PlayerName}",
+      "zh": "{PlayerName}"
     },
     "Text": {
       "en_us": "This one is even worse! It's 1:15 AM and the developer hasn't slept yet!",
@@ -547,14 +547,14 @@
   },
   "key_none_2": {
     "Actor": {
-      "en_us": "Roberta",
-      "en_gb": "Roberta",
-      "pt_br": "Roberta",
-      "es": "Roberta",
-      "it": "Roberta",
-      "fr": "Roberta",
-      "de": "Roberta",
-      "pl": "Roberta",
+      "en_us": "{PlayerName}",
+      "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "es": "{PlayerName}",
+      "it": "{PlayerName}",
+      "fr": "{PlayerName}",
+      "de": "{PlayerName}",
+      "pl": "{PlayerName}",
       "ru": "Роберта",
       "ja": "ロベルタ",
       "ko": "로베르타",
@@ -703,14 +703,14 @@
       "en_gb": "Pokemon Master",
       "pt_br": "Mestre Pokémon",
       "es": "Maestro Pokémon",
-      "it": "Maestro dei Pokémon",
+      "it": "Maestro Pokémon",
       "fr": "Maître Pokémon",
       "de": "Pokémon-Meister",
       "pl": "Mistrz Pokemonów",
       "ru": "Мастер покемонов",
       "ja": "ポケモンマスター",
       "ko": "포켓몬 마스터",
-      "zh": "神奇宝贝大师"
+      "zh": "宝可梦大师"
     },
     "Text": {
       "en_us": "The {ActionButton} button throw a Pokeball!",
@@ -732,6 +732,124 @@
       "Insert": [
         "ActionButton"
       ],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "LongSentence": {
+    "Actor": {
+      "en_us": "Long",
+      "en_gb": "Long",
+      "pt_br": "Long",
+      "es": "Long",
+      "it": "Long",
+      "fr": "Long",
+      "de": "Long",
+      "pl": "Long",
+      "ru": "Long",
+      "ja": "Long",
+      "ko": "Long",
+      "zh": "Long"
+    },
+    "Text": {
+      "en_us": "Despite the countless difficulties encountered throughout the development process — which included everything from the meticulous elaboration of strategies aimed at solving highly specific problems, through the critical analysis of data collected in controlled environments, to the constant reassessment of methods previously considered effective — it was possible to achieve, with remarkable success and within the deadlines established by a multidisciplinary team committed to technical excellence and continuous innovation, a result that not only exceeded initial expectations but also set a new standard of quality and efficiency in the project's context, clearly demonstrating the value of collaborative work, rigorous planning, and perseverance in the face of the most complex challenges.",
+      "en_gb": "Despite the innumerable challenges encountered throughout the course of development — which encompassed everything from the meticulous crafting of strategies aimed at resolving highly specific issues, to the critical analysis of data obtained in controlled conditions, and the ongoing reassessment of methodologies previously deemed effective — it was, nonetheless, possible to achieve, with exceptional success and within the timeframes stipulated by a multidisciplinary team dedicated to technical excellence and continuous innovation, an outcome that not only surpassed the initial expectations but also established a new benchmark for quality and efficiency within the project’s context, thus unequivocally illustrating the value of collaboration, precise planning, and perseverance in the face of complexity.",
+      "pt_br": "Apesar das inumeráveis dificuldades enfrentadas ao longo do processo de desenvolvimento — que incluiu desde a elaboração minuciosa de estratégias voltadas para a resolução de problemas altamente específicos, passando pela análise crítica de dados coletados em ambientes controlados, até a constante reavaliação de métodos considerados, até então, eficazes —, foi possível alcançar, com êxito notável e dentro dos prazos estipulados por uma equipe multidisciplinar comprometida com a excelência técnica e a inovação contínua, um resultado que não apenas superou as expectativas iniciais, como também estabeleceu um novo parâmetro de qualidade e eficiência no contexto em que se insere o projeto, demonstrando, de forma inequívoca, o valor do trabalho colaborativo, do planejamento rigoroso e da perseverança diante dos desafios mais complexos.",
+      "es": "A pesar de las innumerables dificultades enfrentadas durante todo el proceso de desarrollo —que incluyeron desde la elaboración minuciosa de estrategias destinadas a resolver problemas altamente específicos, pasando por el análisis crítico de datos recolectados en entornos controlados, hasta la constante reevaluación de métodos previamente considerados eficaces—, fue posible alcanzar, con notable éxito y dentro de los plazos establecidos por un equipo multidisciplinario comprometido con la excelencia técnica y la innovación continua, un resultado que no solo superó las expectativas iniciales, sino que también estableció un nuevo estándar de calidad y eficiencia en el contexto del proyecto, demostrando de manera inequívoca el valor del trabajo colaborativo, la planificación rigurosa y la perseverancia frente a los desafíos más complejos.",
+      "it": "Nonostante le innumerevoli difficoltà incontrate durante l'intero processo di sviluppo —che hanno incluso la meticolosa elaborazione di strategie volte alla risoluzione di problemi altamente specifici, l'analisi critica dei dati raccolti in ambienti controllati, e la costante rivalutazione di metodi precedentemente considerati efficaci— è stato possibile raggiungere, con notevole successo e nei tempi stabiliti da un team multidisciplinare impegnato nell'eccellenza tecnica e nell'innovazione continua, un risultato che non solo ha superato le aspettative iniziali, ma ha anche stabilito un nuovo standard di qualità ed efficienza nel contesto del progetto, dimostrando in modo inequivocabile il valore del lavoro collaborativo, della pianificazione rigorosa e della perseveranza di fronte alle sfide più complesse.",
+      "fr": "Malgré les innombrables difficultés rencontrées tout au long du processus de développement — comprenant l'élaboration minutieuse de stratégies visant à résoudre des problèmes hautement spécifiques, l'analyse critique de données recueillies dans des environnements contrôlés, et la réévaluation constante de méthodes jusqu'alors jugées efficaces —, il a été possible d’atteindre, avec un succès remarquable et dans les délais établis par une équipe pluridisciplinaire engagée dans l'excellence technique et l'innovation continue, un résultat qui a non seulement dépassé les attentes initiales, mais également établi une nouvelle norme de qualité et d'efficacité dans le cadre du projet, démontrant de manière incontestable la valeur du travail collaboratif, de la planification rigoureuse et de la persévérance face aux défis les plus complexes.",
+      "de": "Trotz der unzähligen Schwierigkeiten, die während des gesamten Entwicklungsprozesses auftraten — darunter die sorgfältige Ausarbeitung von Strategien zur Lösung hochspezifischer Probleme, die kritische Analyse von in kontrollierten Umgebungen erhobenen Daten sowie die kontinuierliche Neubewertung zuvor als wirksam geltender Methoden — war es möglich, mit bemerkenswertem Erfolg und innerhalb der von einem multidisziplinären Team festgelegten Fristen ein Ergebnis zu erzielen, das nicht nur die ursprünglichen Erwartungen übertraf, sondern auch einen neuen Maßstab für Qualität und Effizienz im Kontext des Projekts setzte und damit den unschätzbaren Wert von Zusammenarbeit, präziser Planung und Ausdauer angesichts der komplexesten Herausforderungen eindeutig unter Beweis stellte.",
+      "pl": "Pomimo niezliczonych trudności napotkanych w trakcie całego procesu rozwoju — obejmujących między innymi szczegółowe opracowywanie strategii mających na celu rozwiązanie wysoce specyficznych problemów, krytyczną analizę danych zebranych w kontrolowanych warunkach oraz ciągłą ponowną ocenę metod wcześniej uznawanych za skuteczne — udało się osiągnąć, z wyjątkowym sukcesem i w ramach terminów ustalonych przez multidyscyplinarny zespół zaangażowany w doskonałość techniczną i ciągłe innowacje, wynik, który nie tylko przekroczył początkowe oczekiwania, ale także ustanowił nowy standard jakości i wydajności w kontekście projektu, jednoznacznie ukazując wartość pracy zespołowej, rygorystycznego planowania i wytrwałości w obliczu najbardziej złożonych wyzwań.",
+      "ru": "Несмотря на бесчисленные трудности, возникшие в ходе всего процесса разработки — включая тщательную разработку стратегий для решения крайне специфических задач, критический анализ данных, собранных в контролируемых условиях, и постоянную переоценку ранее эффективных методов — удалось достичь выдающегося результата в установленные сроки благодаря мультидисциплинарной команде, приверженной техническому совершенству и постоянным инновациям, что не только превзошло первоначальные ожидания, но и установило новый стандарт качества и эффективности в контексте проекта, наглядно продемонстрировав ценность совместной работы, строгого планирования и настойчивости перед лицом самых сложных вызовов.",
+      "ja": "非常に特定的な問題を解決することを目的とした戦略の綿密な策定、制御された環境で収集されたデータの批判的分析、以前は効果的と見なされていた方法の継続的な再評価などを含む、開発プロセス全体を通じて直面した無数の困難にもかかわらず、技術的卓越性と継続的な革新に取り組む学際的なチームによって設定された期限内に、驚くべき成功を収めることができただけでなく、プロジェクトの文脈において品質と効率性の新たな基準を確立し、最も複雑な課題に直面した際の協力作業、綿密な計画、そして忍耐の価値を明確に示しました。",
+      "ko": "고도로 구체적인 문제를 해결하기 위한 전략의 세밀한 수립, 통제된 환경에서 수집된 데이터의 비판적 분석, 이전에는 효과적이라고 여겨졌던 방법의 지속적인 재평가 등, 전체 개발 과정에서 마주한 수많은 어려움에도 불구하고, 기술적 우수성과 지속적인 혁신을 추구하는 다학제 팀이 설정한 기한 내에 놀라운 성공을 거둘 수 있었으며, 이는 초기 기대를 뛰어넘는 성과를 낳았을 뿐만 아니라 프로젝트 맥락에서 품질과 효율성의 새로운 기준을 세우며, 가장 복잡한 도전에 직면했을 때 협력, 철저한 계획, 인내의 가치를 명확히 보여주었습니다.",
+      "zh": "尽管在整个开发过程中面临了无数困难——包括为解决高度特定问题而精心制定的策略、在受控环境中收集数据的批判性分析，以及对先前被认为有效的方法的持续重新评估——一个致力于技术卓越与持续创新的多学科团队仍然在规定的时间内取得了显著成功，达成了一个不仅超出最初预期、而且在项目背景下确立了质量与效率新标准的成果，清楚地展示了协作、严谨规划以及在面对最复杂挑战时坚持不懈的价值。"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [
+        "NotGonnaWork()"
+      ],
+      "Middle": [],
+      "End": [
+        "print(\"Não vai Funcionar\")"
+      ]
+    }
+  },
+  "ShortSentence": {
+    "Actor": {
+      "en_us": "Short",
+      "en_gb": "Short",
+      "pt_br": "Short",
+      "es": "Short",
+      "it": "Short",
+      "fr": "Short",
+      "de": "Short",
+      "pl": "Short",
+      "ru": "Short",
+      "ja": "Short",
+      "ko": "Short",
+      "zh": "Short"
+    },
+    "Text": {
+      "en_us": "Despite difficulties, success came through teamwork and planning.",
+      "en_gb": "Despite difficulties, success came through teamwork and planning.",
+      "pt_br": "Apesar das dificuldades, o sucesso veio com equipe e planejamento.",
+      "es": "A pesar de las dificultades, el éxito vino con trabajo en equipo y planificación.",
+      "it": "Nonostante le difficoltà, il successo è arrivato con squadra e pianificazione.",
+      "fr": "Malgré les difficultés, le succès est venu grâce à l’équipe et à la planification.",
+      "de": "Trotz Schwierigkeiten kam der Erfolg durch Teamarbeit und Planung.",
+      "pl": "Mimo trudności, sukces osiągnięto dzięki pracy zespołowej i planowaniu.",
+      "ru": "Несмотря на трудности, успех достигнут благодаря команде и планированию.",
+      "ja": "困難にもかかわらず、成功はチームワークと計画で達成された。",
+      "ko": "어려움에도 불구하고, 성공은 팀워크와 계획으로 이루어졌다.",
+      "zh": "尽管困难重重，成功依靠团队合作与规划实现。"
+    },
+    "Next_Key": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "LoopSentence": {
+    "Actor": {
+      "en_us": "Lupee",
+      "en_gb": "Lupee",
+      "pt_br": "Lupee",
+      "es": "Lupee",
+      "it": "Lupee",
+      "fr": "Lupee",
+      "de": "Lupee",
+      "pl": "Lupee",
+      "ru": "Lupee",
+      "ja": "Lupee",
+      "ko": "Lupee",
+      "zh": "Lupee"
+    },
+    "Text": {
+      "en_us": "I am a loop. I begin, I repeat, and I never truly end. Every time you think it’s over, I start again—unchanged, yet always moving.",
+      "en_gb": "I’m a loop. I start, I echo, I return. There's no final line, just a rhythm that goes on, circling endlessly.",
+      "pt_br": "Eu sou um loop. Começo, repito, continuo. Não tenho fim, apenas sigo girando, sempre voltando ao ponto inicial.",
+      "es": "Soy un bucle. Empiezo, me repito, y sigo. No tengo final, solo vueltas infinitas sobre mí mismo.",
+      "it": "Sono un ciclo. Inizio, mi ripeto, e continuo. Non c'è una fine, solo un ritorno costante all'inizio.",
+      "fr": "Je suis une boucle. Je commence, je recommence, je continue. Il n’y a pas de fin, seulement un éternel recommencement.",
+      "de": "Ich bin eine Schleife. Ich beginne, wiederhole mich, und gehe weiter. Kein Ende – nur ein ständiger Kreis.",
+      "pl": "Jestem pętlą. Zaczynam, powtarzam się i trwam. Nie mam końca – tylko wieczny obrót.",
+      "ru": "Я — цикл. Я начинаюсь, повторяюсь и продолжаюсь. У меня нет конца — только вечное возвращение.",
+      "ja": "私はループです。始まり、繰り返し、そして終わることはありません。常に同じ場所へ戻り続けます。",
+      "ko": "나는 루프야. 시작하고, 반복하고, 끝나지 않아. 계속해서 같은 길을 돌고 있어.",
+      "zh": "我是一个循环。我开始，重复，从不结束。永远回到原点，永不停息。"
+    },
+    "Next_Key": "LoopSentence",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
       "Start": [],
       "Middle": [],
       "End": []
