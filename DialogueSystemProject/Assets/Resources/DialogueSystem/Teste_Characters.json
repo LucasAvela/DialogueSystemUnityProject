@@ -1,0 +1,224 @@
+{
+  "key": {
+    "Original": "",
+    "Actor": {
+      "en_us": "",
+      "en_gb": "",
+      "pt_br": "",
+      "es": "",
+      "it": "",
+      "fr": "",
+      "de": "",
+      "pl": "",
+      "ru": "",
+      "ja": "",
+      "ko": "",
+      "zh": ""
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_John": {
+    "Original": "John Peter",
+    "Actor": {
+      "en_us": "John Peter",
+      "en_gb": "John Peter",
+      "pt_br": "João Pedro",
+      "es": "Juan Pedro",
+      "it": "Giovanni Pietro",
+      "fr": "Jean Pierre",
+      "de": "Johann Peter",
+      "pl": "Jan Piotr",
+      "ru": "Джон Питер",
+      "ja": "ジョン・ピーター",
+      "ko": "존 피터",
+      "zh": "约翰·彼得"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Player": {
+    "Original": "{PlayerName}",
+    "Actor": {
+      "en_us": "{PlayerName}",
+      "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "es": "{PlayerName}",
+      "it": "{PlayerName}",
+      "fr": "{PlayerName}",
+      "de": "{PlayerName}",
+      "pl": "{PlayerName}",
+      "ru": "{PlayerName}",
+      "ja": "{PlayerName}",
+      "ko": "{PlayerName}",
+      "zh": "{PlayerName}"
+    },
+    "Scripts": {
+      "Insert": [
+        "PlayerName"
+      ]
+    }
+  },
+  "Actor_Soldier": {
+    "Original": "Soldier",
+    "Actor": {
+      "en_us": "Soldier",
+      "en_gb": "Soldier",
+      "pt_br": "Soldado",
+      "es": "Soldado",
+      "it": "Soldato",
+      "fr": "Soldat",
+      "de": "Soldat",
+      "pl": "Żołnierz",
+      "ru": "Солдат",
+      "ja": "兵士",
+      "ko": "비교",
+      "zh": "士兵"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Edgar": {
+    "Original": "Edgar",
+    "Actor": {
+      "en_us": "Edgar",
+      "en_gb": "Edgar",
+      "pt_br": "Edgar",
+      "es": "Edgar",
+      "it": "Edgar",
+      "fr": "Edgar",
+      "de": "Edgar",
+      "pl": "Edgar",
+      "ru": "Эдгар",
+      "ja": "エドガー",
+      "ko": "에드가",
+      "zh": "爱德华"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Americo": {
+    "Original": "Americo",
+    "Actor": {
+      "en_us": "Americo",
+      "en_gb": "Americo",
+      "pt_br": "Americo",
+      "es": "Americo",
+      "it": "Americo",
+      "fr": "Americo",
+      "de": "Americo",
+      "pl": "Americo",
+      "ru": "Америко",
+      "ja": "アメリコ",
+      "ko": "아메리코",
+      "zh": "阿梅里科"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Carlos": {
+    "Original": "Carlos",
+    "Actor": {
+      "en_us": "Carl",
+      "en_gb": "Charles",
+      "pt_br": "Carlos",
+      "es": "Carlos",
+      "it": "Carlo",
+      "fr": "Charles",
+      "de": "Karl",
+      "pl": "Karol",
+      "ru": "Карлос",
+      "ja": "Карлос",
+      "ko": "카를로스",
+      "zh": "卡洛斯"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_PokeMaster": {
+    "Original": "Pokemon Master",
+    "Actor": {
+      "en_us": "Pokemon Master",
+      "en_gb": "Pokemon Master",
+      "pt_br": "Mestre Pokémon",
+      "es": "Maestro Pokémon",
+      "it": "Maestro Pokémon",
+      "fr": "Maître Pokémon",
+      "de": "Pokémon-Meister",
+      "pl": "Mistrz Pokemonów",
+      "ru": "Мастер покемонов",
+      "ja": "ポケモンマスター",
+      "ko": "포켓몬 마스터",
+      "zh": "宝可梦大师"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Long": {
+    "Original": "Long",
+    "Actor": {
+      "en_us": "Long",
+      "en_gb": "Long",
+      "pt_br": "Long",
+      "es": "Long",
+      "it": "Long",
+      "fr": "Long",
+      "de": "Long",
+      "pl": "Long",
+      "ru": "Long",
+      "ja": "Long",
+      "ko": "Long",
+      "zh": "Long"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Short": {
+    "Original": "Short",
+    "Actor": {
+      "en_us": "Short",
+      "en_gb": "Short",
+      "pt_br": "Short",
+      "es": "Short",
+      "it": "Short",
+      "fr": "Short",
+      "de": "Short",
+      "pl": "Short",
+      "ru": "Short",
+      "ja": "Short",
+      "ko": "Short",
+      "zh": "Short"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Actor_Lupee": {
+    "Original": "Lupee",
+    "Actor": {
+      "en_us": "Lupee",
+      "en_gb": "Lupee",
+      "pt_br": "Lupee",
+      "es": "Lupee",
+      "it": "Lupee",
+      "fr": "Lupee",
+      "de": "Lupee",
+      "pl": "Lupee",
+      "ru": "Lupee",
+      "ja": "Lupee",
+      "ko": "Lupee",
+      "zh": "Lupee"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  }
+}
