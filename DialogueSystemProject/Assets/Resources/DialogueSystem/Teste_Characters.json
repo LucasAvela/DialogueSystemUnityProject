@@ -141,6 +141,26 @@
       "Insert": []
     }
   },
+  "Actor_Roberta": {
+    "Original": "Roberta",
+    "Actor": {
+      "en_us": "Roberta",
+      "en_gb": "Roberta",
+      "pt_br": "Roberta",
+      "es": "Roberta",
+      "it": "Roberta",
+      "fr": "Roberta",
+      "de": "Roberta",
+      "pl": "Roberta",
+      "ru": "Roberta",
+      "ja": "Roberta",
+      "ko": "Roberta",
+      "zh": "Roberta"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
   "Actor_PokeMaster": {
     "Original": "Pokemon Master",
     "Actor": {

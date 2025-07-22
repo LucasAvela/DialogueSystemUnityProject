@@ -30,18 +30,16 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     [Header("Dependencies")]
-    [SerializeField] private DialogueParser _dialogueParser;
+    [SerializeField] private DialogueRuntimeHandler _dialogueRuntimeHandler;
     [SerializeField] private DialogueScriptManager _dialogueScriptManager;
-    [SerializeField] private string _language = "en_us";
-
-    public event System.Action onDialogueUpdated;
+    [SerializeField] private string _language;
 
     public DialogueData GetDialogueData(string key)
     {
-        DialogueEntry dialogue = _dialogueParser.GetDialogueByKey(key);
+        DialogueEntry dialogue = _dialogueRuntimeHandler.GetDialogueByKey(key);
 
-        string nextKey = dialogue.Next_Key;
-        string actor = dialogue.Actor[_language];
+        string nextKey = dialogue.NextKey;
+        string actor = GetActor(dialogue.Actor);
         string text = dialogue.Text[_language];
         List<string> startScriptsList = new List<string>(dialogue.Scripts.Start);
         List<string> middleScriptsList = new List<string>(dialogue.Scripts.Middle);
@@ -55,24 +53,17 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (actor.Contains('{'))
-        {
-            string insert = actor.Replace("{", "").Replace("}", "");
-            actor = _dialogueScriptManager.InsertText(insert, actor);
-            print(actor);
-        }
-
         return new DialogueData(key, nextKey, actor, text, startScriptsList, middleScriptsList, endScriptsList);
     }
 
     public string GetSimpleDialogue(string key)
     {
-        DialogueEntrySimple dialogue = _dialogueParser.GetSimpleDialogueByKey(key);
-        string text = dialogue.Text[_language];
+        SimpleDialogueEntry simpleDialogue = _dialogueRuntimeHandler.GetSimpleDialogueByKey(key);
+        string text = simpleDialogue.Text[_language];
 
-        if (dialogue.Scripts.Insert != null)
+        if (simpleDialogue.Scripts.Insert != null)
         {
-            foreach (string insert in dialogue.Scripts.Insert)
+            foreach (string insert in simpleDialogue.Scripts.Insert)
             {
                 text = _dialogueScriptManager.InsertText(insert, text);
             }
@@ -83,12 +74,12 @@ public class DialogueManager : MonoBehaviour
 
     public string GetSimpleText(string key)
     {
-        DialogueEntryUI dialogue = _dialogueParser.GetUIDialogueByKey(key);
-        string text = dialogue.Text[_language];
+        SimpleTextEntry simpleText = _dialogueRuntimeHandler.GetSimpleTextByKey(key);
+        string text = simpleText.Text[_language];
 
-        if (dialogue.Scripts.Insert != null)
+        if (simpleText.Scripts.Insert != null)
         {
-            foreach (string insert in dialogue.Scripts.Insert)
+            foreach (string insert in simpleText.Scripts.Insert)
             {
                 text = _dialogueScriptManager.InsertText(insert, text);
             }
@@ -97,20 +88,20 @@ public class DialogueManager : MonoBehaviour
         return text;
     }
 
-    public void ChangeLanguage(string newLanguage)
+    public string GetActor(string key)
     {
-        _language = newLanguage;
-        onDialogueUpdated?.Invoke();
-    }
+        CharactersEntry character = _dialogueRuntimeHandler.GetCharacterByKey(key);
+        string actorName = character.Actor[_language];
 
-    public void ExecuteMethod(string method)
-    {
-        _dialogueScriptManager.CallMethod(method);
-    }
+        if (character.Scripts.Insert != null)
+        {
+            foreach (string insert in character.Scripts.Insert)
+            {
+                actorName = _dialogueScriptManager.InsertText(insert, actorName);
+            }
+        }
 
-    public IEnumerator ExecuteCoroutine(string coroutine)
-    {
-        yield return StartCoroutine(_dialogueScriptManager.CallCoroutine(coroutine));
+        return actorName;
     }
 }
 

@@ -25,7 +25,7 @@
     }
   },
   "key_0": {
-    "Actor": "John Peter",
+    "Actor": "Actor_John",
     "Text": {
       "en_us": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
       "en_gb": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
@@ -50,7 +50,7 @@
     }
   },
   "key_1": {
-    "Actor": "{PlayerName}",
+    "Actor": "Actor_Player",
     "Text": {
       "en_us": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
       "en_gb": "It... {0}looks like... {2}it's working, {1}<font=NotoSans Underlay SDF>John Peter!</font>",
@@ -83,7 +83,7 @@
     }
   },
   "Player_0": {
-    "Actor": "Soldier",
+    "Actor": "Actor_Soldier",
     "Text": {
       "en_us": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
       "en_gb": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
@@ -112,7 +112,7 @@
     }
   },
   "Americo_0": {
-    "Actor": "Edgar",
+    "Actor": "Actor_Edgar",
     "Text": {
       "en_us": "Americo, the lights are out, can...",
       "en_gb": "Americo, the lights are out, can...",
@@ -137,7 +137,7 @@
     }
   },
   "Americo_1": {
-    "Actor": "Americo",
+    "Actor": "Actor_Americo",
     "Text": {
       "en_us": "<b>No shit!</b><sprite name=\"as\"> I thought my eyes were closed.",
       "en_gb": "<b>No shit!</b><sprite name=\"as\"> I thought my eyes were closed.",
@@ -162,7 +162,7 @@
     }
   },
   "Americo_2": {
-    "Actor": "Edgar",
+    "Actor": "Actor_Edgar",
     "Text": {
       "en_us": "...",
       "en_gb": "...",
@@ -187,7 +187,7 @@
     }
   },
   "Americo_3": {
-    "Actor": "Americo",
+    "Actor": "Actor_Americo",
     "Text": {
       "en_us": "What do you want?",
       "en_gb": "What do you want?",
@@ -212,7 +212,7 @@
     }
   },
   "Americo_4": {
-    "Actor": "Edgar",
+    "Actor": "Actor_Edgar",
     "Text": {
       "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><#ffdd47>flashlight</color></font>?",
       "en_gb": "... Can you get me a <font=NotoSans Underlay Outline SDF><b><#ffdd47>flashlight</color></b></font>?",
@@ -237,7 +237,7 @@
     }
   },
   "Americo_5": {
-    "Actor": "Americo",
+    "Actor": "Actor_Americo",
     "Text": {
       "en_us": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
       "en_gb": "Maybe Stella's got one.{0} There's just junk in the storage downstairs.",
@@ -264,7 +264,7 @@
     }
   },
   "question_0": {
-    "Actor": "Carlos",
+    "Actor": "Actor_Carlos",
     "Text": {
       "en_us": "Lucas, do you want to play <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
       "en_gb": "Lucas, do you want to play <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>?",
@@ -289,7 +289,7 @@
     }
   },
   "question_1": {
-    "Actor": "Carlos",
+    "Actor": "Actor_Carlos",
     "Text": {
       "en_us": "Alright then.",
       "en_gb": "Alright then.",
@@ -314,7 +314,7 @@
     }
   },
   "key_none_0": {
-    "Actor": "{PlayerName}",
+    "Actor": "Actor_Player",
     "Text": {
       "en_us": "This is the worst dialogue ever! The developer ran out of creativity!",
       "en_gb": "This is the worst dialogue ever! The developer ran out of creativity!",
@@ -339,7 +339,7 @@
     }
   },
   "key_none_1": {
-    "Actor": "{PlayerName}",
+    "Actor": "Actor_Player",
     "Text": {
       "en_us": "This one is even worse! It's 1:15 AM and the developer hasn't slept yet!",
       "en_gb": "This one is even worse! It's 1:15 AM and the developer hasn't slept yet!",
@@ -364,7 +364,7 @@
     }
   },
   "key_none_2": {
-    "Actor": "Roberta",
+    "Actor": "Actor_Roberta",
     "Text": {
       "en_us": "The developer fell asleep! It's me now, Roberta!",
       "en_gb": "The developer fell asleep! It's me now, Roberta!",
@@ -389,7 +389,7 @@
     }
   },
   "game_question": {
-    "Actor": "Carlos",
+    "Actor": "Actor_Carlos",
     "Text": {
       "en_us": "What do you wanna play?",
       "en_gb": "What do you want to play?",
@@ -414,7 +414,7 @@
     }
   },
   "game_question_mc": {
-    "Actor": "Carlos",
+    "Actor": "Actor_Carlos",
     "Text": {
       "en_us": "I'm going to start the server.",
       "en_gb": "I'm going to start the server.",
@@ -439,7 +439,7 @@
     }
   },
   "game_question_cs": {
-    "Actor": "Carlos",
+    "Actor": "Actor_Carlos",
     "Text": {
       "en_us": "Let's go!",
       "en_gb": "Let's go!",
@@ -464,7 +464,7 @@
     }
   },
   "ActionButton": {
-    "Actor": "Pokemon Master",
+    "Actor": "Actor_PokeMaster",
     "Text": {
       "en_us": "The {ActionButton} button throw a Pokeball!",
       "en_gb": "The {ActionButton} button throw a Pokeball!",
@@ -491,7 +491,7 @@
     }
   },
   "LongSentence": {
-    "Actor": "Long",
+    "Actor": "Actor_Long",
     "Text": {
       "en_us": "Despite the countless difficulties encountered throughout the development process — which included everything from the meticulous elaboration of strategies aimed at solving highly specific problems, through the critical analysis of data collected in controlled environments, to the constant reassessment of methods previously considered effective — it was possible to achieve, with remarkable success and within the deadlines established by a multidisciplinary team committed to technical excellence and continuous innovation, a result that not only exceeded initial expectations but also set a new standard of quality and efficiency in the project's context, clearly demonstrating the value of collaborative work, rigorous planning, and perseverance in the face of the most complex challenges.",
       "en_gb": "Despite the innumerable challenges encountered throughout the course of development — which encompassed everything from the meticulous crafting of strategies aimed at resolving highly specific issues, to the critical analysis of data obtained in controlled conditions, and the ongoing reassessment of methodologies previously deemed effective — it was, nonetheless, possible to achieve, with exceptional success and within the timeframes stipulated by a multidisciplinary team dedicated to technical excellence and continuous innovation, an outcome that not only surpassed the initial expectations but also established a new benchmark for quality and efficiency within the project’s context, thus unequivocally illustrating the value of collaboration, precise planning, and perseverance in the face of complexity.",
@@ -520,7 +520,7 @@
     }
   },
   "ShortSentence": {
-    "Actor": "Short",
+    "Actor": "Actor_Short",
     "Text": {
       "en_us": "Despite difficulties, success came through teamwork and planning.",
       "en_gb": "Despite difficulties, success came through teamwork and planning.",
@@ -545,7 +545,7 @@
     }
   },
   "LoopSentence": {
-    "Actor": "Lupee",
+    "Actor": "Actor_Lupee",
     "Text": {
       "en_us": "I am a loop. I begin, I repeat, and I never truly end. Every time you think it’s over, I start again—unchanged, yet always moving.",
       "en_gb": "I’m a loop. I start, I echo, I return. There's no final line, just a rhythm that goes on, circling endlessly.",
