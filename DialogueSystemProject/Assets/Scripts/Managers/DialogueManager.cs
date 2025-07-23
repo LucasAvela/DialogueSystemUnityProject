@@ -34,6 +34,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DialogueScriptManager _dialogueScriptManager;
     [SerializeField] private string _language;
 
+    public event System.Action onLanguageUpdated;
+
     public DialogueData GetDialogueData(string key)
     {
         DialogueEntry dialogue = _dialogueRuntimeHandler.GetDialogueByKey(key);
@@ -102,6 +104,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         return actorName;
+    }
+
+    public void ChangeLanguage(string newLanguage)
+    {
+        _language = newLanguage;
+        onLanguageUpdated?.Invoke();
     }
 }
 

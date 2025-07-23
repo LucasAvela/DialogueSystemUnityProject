@@ -15,7 +15,7 @@
       "ko": "",
       "zh": ""
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -40,7 +40,7 @@
       "ko": "이것은 <#00bf2d>Corylus Dev</color>의 <b>대화 시스템</b> 첫 번째 테스트입니다",
       "zh": "这是 <#00bf2d>Corylus Dev</color> 的 <b>对话系统</b> 的第一次测试"
     },
-    "Next_Key": "key_1",
+    "NextKey": "key_1",
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -65,7 +65,7 @@
       "ko": "{1}조너 피터... {0}잘... {2}작동하는 것 같네요!",
       "zh": "看起来{0}好像... {2}正常运行了, {1}约翰·彼得!"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -98,7 +98,7 @@
       "ko": "나는 야, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>{0}애가 드래는 힘들 편이었는데, 무롱에 팔로 내 무롱에 팔을 보고 나와 내린 심장이 발견되었다.",
       "zh": "我曾经像你一样是个冒险家，<font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>。{0}然后我的膝盖中了一箭。"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [
@@ -127,7 +127,7 @@
       "ko": "아메리코, 불이 나가서요. 혹시...",
       "zh": "亚美利哥，灯灭了，可以..."
     },
-    "Next_Key": "Americo_1",
+    "NextKey": "Americo_1",
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -152,7 +152,7 @@
       "ko": "<b>미친!</b><sprite name=\"as\"> 내가 눈을 감고 있는 거라 생각했는데.",
       "zh": "<b>真的？！</b><sprite name=\"as\"> 我以为我闭眼了。"
     },
-    "Next_Key": "Americo_2",
+    "NextKey": "Americo_2",
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -177,7 +177,7 @@
       "ko": "...",
       "zh": "..."
     },
-    "Next_Key": "Americo_3",
+    "NextKey": "Americo_3",
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -202,7 +202,7 @@
       "ko": "뭐가 필요한데요?",
       "zh": "你要啥？"
     },
-    "Next_Key": "Americo_4",
+    "NextKey": "Americo_4",
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -227,7 +227,7 @@
       "ko": "... <font=NotoSans Underlay Outline SDF><b><#ffdd47>손전등</color></b></font> 좀 구해줄 수 있어요?",
       "zh": "...可以给我一个<font=NotoSans Underlay Outline SDF><b><#ffdd47>电筒</color></b></font>吗？"
     },
-    "Next_Key": "Americo_5",
+    "NextKey": "Americo_5",
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -252,7 +252,7 @@
       "ko": "스텔라한테 있을 걸요.{0} 아래층 창고엔 쓰레기밖에 없어요.",
       "zh": "史黛拉好像有一个。{0} 楼下储物室里都是些垃圾玩意儿。"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -279,7 +279,7 @@
       "ko": "루카스, <#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>를 하고 싶으신가요?",
       "zh": "卡洛斯，你想玩<#368a39><i><b><font=Minecraft>Minecraft</font></b><i></color>吗？"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": "MinecraftQuestion",
     "Scripts": {
       "Insert": [],
@@ -304,7 +304,7 @@
       "ko": "좋아, 그러면.",
       "zh": "那好吧。"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -329,7 +329,7 @@
       "ko": "이것은 이제까지 본 최악의 대화입니다! 개발자의 창의력이 바닥났습니다!",
       "zh": "这是有史以来最糟糕的对话！开发者的创意耗尽了！"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": "noCreativity0",
     "Scripts": {
       "Insert": [],
@@ -354,7 +354,7 @@
       "ko": "이것은 더 최악입니다! 새벽 1시 15분인데 개발자는 아직 자지 않았습니다!",
       "zh": "这个更糟！现在是凌晨1:15，开发者还没睡！"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": "noCreativity1",
     "Scripts": {
       "Insert": [],
@@ -379,7 +379,7 @@
       "ko": "개발자가 잠들었어요! 이제는 저, 로베르타입니다!",
       "zh": "开发者睡着了！现在是我，罗伯塔！"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -404,7 +404,7 @@
       "ko": "뭐 하고 싶어?",
       "zh": "你想玩什么？"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": "gameQuestion",
     "Scripts": {
       "Insert": [],
@@ -429,7 +429,7 @@
       "ko": "서버를 시작할게.",
       "zh": "我要启动服务器。"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -454,7 +454,7 @@
       "ko": "가자!",
       "zh": "走吧！"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -479,7 +479,7 @@
       "ko": "{ActionButton} 버튼이 포켓볼을 던진다!",
       "zh": "{ActionButton} 按钮投出精灵球！"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [
@@ -506,7 +506,7 @@
       "ko": "고도로 구체적인 문제를 해결하기 위한 전략의 세밀한 수립, 통제된 환경에서 수집된 데이터의 비판적 분석, 이전에는 효과적이라고 여겨졌던 방법의 지속적인 재평가 등, 전체 개발 과정에서 마주한 수많은 어려움에도 불구하고, 기술적 우수성과 지속적인 혁신을 추구하는 다학제 팀이 설정한 기한 내에 놀라운 성공을 거둘 수 있었으며, 이는 초기 기대를 뛰어넘는 성과를 낳았을 뿐만 아니라 프로젝트 맥락에서 품질과 효율성의 새로운 기준을 세우며, 가장 복잡한 도전에 직면했을 때 협력, 철저한 계획, 인내의 가치를 명확히 보여주었습니다.",
       "zh": "尽管在整个开发过程中面临了无数困难——包括为解决高度特定问题而精心制定的策略、在受控环境中收集数据的批判性分析，以及对先前被认为有效的方法的持续重新评估——一个致力于技术卓越与持续创新的多学科团队仍然在规定的时间内取得了显著成功，达成了一个不仅超出最初预期、而且在项目背景下确立了质量与效率新标准的成果，清楚地展示了协作、严谨规划以及在面对最复杂挑战时坚持不懈的价值。"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -535,7 +535,7 @@
       "ko": "어려움에도 불구하고, 성공은 팀워크와 계획으로 이루어졌다.",
       "zh": "尽管困难重重，成功依靠团队合作与规划实现。"
     },
-    "Next_Key": null,
+    "NextKey": null,
     "Question": null,
     "Scripts": {
       "Insert": [],
@@ -560,7 +560,7 @@
       "ko": "나는 루프야. 시작하고, 반복하고, 끝나지 않아. 계속해서 같은 길을 돌고 있어.",
       "zh": "我是一个循环。我开始，重复，从不结束。永远回到原点，永不停息。"
     },
-    "Next_Key": "LoopSentence",
+    "NextKey": "LoopSentence",
     "Question": null,
     "Scripts": {
       "Insert": [],

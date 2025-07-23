@@ -204,7 +204,7 @@ public class DialogueSheetsParser : EditorWindow
                 {
                     { "Actor", null },
                     { "Text", new Dictionary<string, object>() },
-                    { "Next_Key", null },
+                    { "NextKey", null },
                     { "Question", null },
                     { "Scripts", new Dictionary<string, object>
                         {
@@ -250,7 +250,7 @@ public class DialogueSheetsParser : EditorWindow
             if (nextKeyIndex >= 0 && nextKeyIndex < fields.Count)
             {
                 string nextKey = fields[nextKeyIndex].Trim();
-                entry["Next_Key"] = string.IsNullOrEmpty(nextKey) ? null : nextKey;
+                entry["NextKey"] = string.IsNullOrEmpty(nextKey) ? null : nextKey;
             }
 
             if (questionIndex >= 0 && questionIndex < fields.Count)
