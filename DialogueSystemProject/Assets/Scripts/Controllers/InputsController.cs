@@ -17,4 +17,9 @@ public class InputsController : MonoBehaviour
     {
         _dialogueController.ConsumeInput();
     }
+
+    public void StopDialogue()
+    {
+        _dialogueController.StopDialogue();
+    }
 }

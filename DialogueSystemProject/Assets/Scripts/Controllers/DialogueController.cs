@@ -44,6 +44,11 @@ public class DialogueController : MonoBehaviour
     private Coroutine _writingDialogueCoroutine = null;
     private Coroutine _instantDialogueCoroutine = null;
 
+    public event System.Action onDialogueStart;
+    public event System.Action onDialogueUpdate;
+    public event System.Action onDialogueFinish;
+    public event System.Action onDialogueWriteFinish;
+
     private void Start()
     {
         _dialogueManager = DialogueManager.Instance;
@@ -61,6 +66,7 @@ public class DialogueController : MonoBehaviour
     {
         if (!_onDialogue && !_onDialoguePanelAnimation)
         {
+            onDialogueStart?.Invoke();
             _onDialogue = true;
             _actualDialogueKey = key;
             StartCoroutine(OpenDialoguePanel());
@@ -94,12 +100,36 @@ public class DialogueController : MonoBehaviour
 
         if (_nextDialogueKey != null && _nextDialogueKey != "")
         {
+            onDialogueUpdate?.Invoke();
             _actualDialogueKey = _nextDialogueKey;
             UpdateDialogue();
         }
         else
         {
+            onDialogueFinish?.Invoke();
+            ClearDialogue();
             StartCoroutine(CloseDialogue());
+        }
+    }
+
+    public void StopDialogue()
+    {
+        if (!_onDialogue || _onDialoguePanelAnimation) return;
+
+        _stopDialogue = true;
+
+        if (!_onMiddleScriptRunning)
+        {
+            if (_writingDialogueCoroutine != null) StopCoroutine(_writingDialogueCoroutine);
+            if (_instantDialogueCoroutine != null) StopCoroutine(_instantDialogueCoroutine);
+
+            _onDialoguePanelAnimation = false;
+            _onWritingDialogue = false;
+            ClearDialogue();
+            StartCoroutine(CloseDialogue());
+            _onDialogue = false;
+            _stopDialogue = false;
+            onDialogueFinish?.Invoke();
         }
     }
 
@@ -136,7 +166,7 @@ public class DialogueController : MonoBehaviour
     {
         if (_isDialogueInstant)
         {
-            //_instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
+            _instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
         }
         else
         {
@@ -144,6 +174,46 @@ public class DialogueController : MonoBehaviour
         }
 
         _dialogueActorText.text = _actualDialogueActor;
+    }
+
+    private IEnumerator DisplayInstantDialogue()
+    {
+        string text = _actualDialogueText;
+        _onDialogueTextAnimation = true;
+
+        if (_actualStartScriptsList != null)
+        {
+            foreach (string script in _actualStartScriptsList)
+            {
+                _dialogueManager.ExecuteMethod(script);
+            }
+        }
+
+        text = text.Replace("§", "");
+
+        _dialogueText.text = text;
+        StartCoroutine(EnableInstantText());
+
+        if (_actualMiddleScriptsList != null)
+        {
+            _onMiddleScriptRunning = true;
+            foreach (string script in _actualMiddleScriptsList)
+            {
+                if (script[0] == '&')
+                {
+                    yield return StartCoroutine(_dialogueManager.ExecuteCoroutine(script.Substring(1)));
+                }
+                else
+                {
+                    _dialogueManager.ExecuteMethod(script);
+                }
+            }
+            _onMiddleScriptRunning = false;
+        }
+
+        onDialogueWriteFinish?.Invoke();
+        if (_stopDialogue) StopDialogue();
+        yield return null;
     }
 
     private IEnumerator WriteDialogue()
@@ -315,6 +385,7 @@ public class DialogueController : MonoBehaviour
                 }
             }
 
+            if (_stopDialogue) StopDialogue();
             _dialogueText.text = text.Insert(writeCursor, _alphaTag);
             writeCursor++;
             yield return new WaitForSecondsRealtime(_writingTime);
@@ -322,6 +393,7 @@ public class DialogueController : MonoBehaviour
 
         _dialogueText.text = text;
         _onWritingDialogue = false;
+        onDialogueWriteFinish?.Invoke();
     }
 
     #region Animations
@@ -366,6 +438,23 @@ public class DialogueController : MonoBehaviour
         _dialoguePanel.SetActive(false);
         _onDialoguePanelAnimation = false;
         _onDialogue = false;
+    }
+
+    private IEnumerator EnableInstantText()
+    {
+        if (_dialogueAnimator != null && _showTextAnimation != null)
+        {
+            _dialogueAnimator.Play(_showTextAnimation.name);
+
+            yield return null;
+
+            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_showTextAnimation.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            {
+                yield return null;
+            }
+        }
+
+        _onDialogueTextAnimation = false;
     }
     #endregion
 }
