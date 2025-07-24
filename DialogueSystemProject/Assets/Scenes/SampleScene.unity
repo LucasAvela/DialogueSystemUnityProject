@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueController: {fileID: 1043568129}
-  _dialogueKey: Americo_4
+  _dialogueKey: Americo_0
   _simpleDialogueController: {fileID: 0}
   _languageDropdown: {fileID: 0}
 --- !u!1 &948702706
@@ -871,6 +871,7 @@ MonoBehaviour:
   _actualStartScriptsList: []
   _actualMiddleScriptsList: []
   _actualEndScriptsList: []
+  _actualSpritesList: []
   _actualMiddleScriptsListIndex: 
 --- !u!1 &1061552987
 GameObject:

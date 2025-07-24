@@ -36,6 +36,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private List<string> _actualStartScriptsList = new List<string>();
     [SerializeField] private List<string> _actualMiddleScriptsList = new List<string>();
     [SerializeField] private List<string> _actualEndScriptsList = new List<string>();
+    [SerializeField] private List<string> _actualSpritesList = new List<string>();
     [SerializeField] private List<int> _actualMiddleScriptsListIndex = new List<int>();
 
     [Header("Internals")] // Internal state and references for managing dialogue
@@ -188,6 +189,11 @@ public class DialogueController : MonoBehaviour
                         text = text.Remove(i, fullTag.Length).Insert(i, newTag);
                         endTag = i + newTag.Length - 1;
                     }
+                    else if (fullTag.StartsWith("<sprite"))
+                    {
+                        _actualSpritesList.Add(fullTag);
+                        text = text.Remove(i, fullTag.Length).Insert(i, "◌");
+                    }
 
                     i = endTag;
                 }
@@ -196,6 +202,7 @@ public class DialogueController : MonoBehaviour
 
         int writeCursor = 0;
         int scriptIndex = 0;
+        int spriteIndex = 0;
 
         while (writeCursor <= text.Length)
         {
@@ -238,6 +245,13 @@ public class DialogueController : MonoBehaviour
                     writeCursor = endTag + 1;
                     continue;
                 }
+            }
+
+            if (writeCursor < text.Length && text[writeCursor] == '◌')
+            {
+                text = text.Remove(writeCursor, 1).Insert(writeCursor, _actualSpritesList[spriteIndex]);
+                writeCursor += _actualSpritesList[spriteIndex].Length;
+                spriteIndex++;
             }
 
             if (_skipWritingDialogue && !_onMiddleScriptRunning)
