@@ -231,7 +231,7 @@ public class DialogueController : MonoBehaviour
                     else if (fullTag == "<alpha=#00>")
                     {
                         string correctedTag = "</color>";
-                        text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, correctedTag);
+                        text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, "</color>");
                         endTag = writeCursor + correctedTag.Length - 1;
                     }
 
@@ -242,7 +242,49 @@ public class DialogueController : MonoBehaviour
 
             if (_skipWritingDialogue && !_onMiddleScriptRunning)
             {
-                
+                int end = text.Length;
+                if (_actualMiddleScriptsList != null && _actualMiddleScriptsListIndex.Count > scriptIndex && _actualMiddleScriptsListIndex[scriptIndex] > writeCursor)
+                {
+                    end = _actualMiddleScriptsListIndex[scriptIndex];
+                }
+
+                for (int i = writeCursor; i < end && i < text.Length; i++)
+                {
+                    if (text[i] == '<')
+                    {
+                        int endTag = text.IndexOf('>', i);
+                        if (endTag != -1)
+                        {
+                            string fullTag = text.Substring(i, endTag - i + 1);
+                            if (fullTag.Length == 11 && fullTag.StartsWith("<#") && fullTag.EndsWith("00>"))
+                            {
+                                string correctedTag = fullTag.Substring(0, fullTag.Length - 3) + ">";
+                                text = text.Remove(i, fullTag.Length).Insert(i, correctedTag);
+                                endTag = i + correctedTag.Length - 1;
+                            }
+                            else if (fullTag == "<alpha=#00>")
+                            {
+                                string correctedTag = "</color>";
+                                text = text.Remove(i, fullTag.Length).Insert(i, correctedTag);
+                                endTag = i + correctedTag.Length - 1;
+                            }
+                            i = endTag;
+                        }
+                    }
+                }
+
+                if (end != text.Length)
+                {
+                    writeCursor = end;
+                    _dialogueText.text = text.Insert(writeCursor, _alphaTag);
+                    _skipWritingDialogue = false;
+                    continue;
+                }
+                else
+                {
+                    _skipWritingDialogue = false;
+                    break;
+                }
             }
 
             _dialogueText.text = text.Insert(writeCursor, _alphaTag);
