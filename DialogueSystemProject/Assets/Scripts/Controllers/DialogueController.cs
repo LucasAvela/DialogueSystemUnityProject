@@ -36,7 +36,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private List<string> _actualStartScriptsList = new List<string>();
     [SerializeField] private List<string> _actualMiddleScriptsList = new List<string>();
     [SerializeField] private List<string> _actualEndScriptsList = new List<string>();
-    [SerializeField] private List<string> _actualTagsList = new List<string>();
+    [SerializeField] private List<int> _actualMiddleScriptsListIndex = new List<int>();
 
     [Header("Internals")] // Internal state and references for managing dialogue
     private DialogueManager _dialogueManager = null;
@@ -69,7 +69,7 @@ public class DialogueController : MonoBehaviour
     public void ConsumeInput()
     {
         if (!_onDialogue || _onDialoguePanelAnimation || _onDialogueTextAnimation || _onMiddleScriptRunning) return;
-        
+
         if (_onWritingDialogue)
         {
             _skipWritingDialogue = true;
@@ -113,13 +113,95 @@ public class DialogueController : MonoBehaviour
         _actualStartScriptsList.Clear();
         _actualMiddleScriptsList.Clear();
         _actualEndScriptsList.Clear();
-        _actualTagsList.Clear();
+        _actualMiddleScriptsListIndex.Clear();
     }
 
     private void DisplayDialogue()
     {
-        _dialogueText.text = _actualDialogueText;
+        if (_isDialogueInstant)
+        {
+            //_instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
+        }
+        else
+        {
+            _writingDialogueCoroutine = StartCoroutine(WriteDialogue());
+        }
+
         _dialogueActorText.text = _actualDialogueActor;
+    }
+
+    private IEnumerator WriteDialogue()
+    {
+        string text = _actualDialogueText;
+        _onWritingDialogue = true;
+
+        int tagIndex = 0;
+        while (tagIndex < text.Length)
+        {
+            if (text[tagIndex] == '<')
+            {
+                int endTag = text.IndexOf('>', tagIndex);
+                if (endTag != -1)
+                {
+                    string fullTag = text.Substring(tagIndex, endTag - tagIndex + 1);
+
+                    if (fullTag.Length == 9 && fullTag.StartsWith("<#") && fullTag[8] == '>')
+                    {
+                        string hex = fullTag.Substring(2, 6);
+                        string newTag = $"<#{hex}00>";
+                        text = text.Remove(tagIndex, fullTag.Length).Insert(tagIndex, newTag);
+                        endTag = tagIndex + newTag.Length - 1;
+                    }
+                    else if (fullTag == "</color>")
+                    {
+                        string newTag = "<#FFFFFFFF>";
+                        text = text.Remove(tagIndex, fullTag.Length).Insert(tagIndex, newTag);
+                        endTag = tagIndex + newTag.Length - 1;
+                    }
+
+                    tagIndex = endTag + 1;
+                    continue;
+                }
+            }
+
+            tagIndex++;
+        }
+
+        int writeCursor = 0;
+
+        while (writeCursor <= text.Length)
+        {
+            if (writeCursor < text.Length && text[writeCursor] == '<')
+            {
+                int endTag = text.IndexOf('>', writeCursor);
+                if (endTag != -1)
+                {
+                    string fullTag = text.Substring(writeCursor, endTag - writeCursor + 1);
+                    if (fullTag.Length == 11 && fullTag.StartsWith("<#") && fullTag.EndsWith("00>"))
+                    {
+                        string correctedTag = fullTag.Substring(0, fullTag.Length - 3) + "FF>";
+                        text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, correctedTag);
+                        endTag = writeCursor + correctedTag.Length - 1;
+                    }
+                    else if (fullTag == "<#FFFFFFFF>")
+                    {
+                        string correctedTag = "</color>";
+                        text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, correctedTag);
+                        endTag = writeCursor + correctedTag.Length - 1;
+                    }
+
+                    writeCursor = endTag + 1;
+                    continue;
+                }
+            }
+
+            _dialogueText.text = text.Insert(writeCursor, _alphaTag);
+            writeCursor++;
+            yield return new WaitForSecondsRealtime(_writingTime);
+        }
+
+        _dialogueText.text = text;
+        _onWritingDialogue = false;
     }
 
     #region Animations
