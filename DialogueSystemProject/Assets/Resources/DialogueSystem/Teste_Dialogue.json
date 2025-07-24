@@ -48,16 +48,16 @@
   "key_1": {
     "Actor": "Actor_Player",
     "Text": {
-      "en_us": "It... §Looks like... §It's working! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "pt_br": "Parece... §Parece que... §Está funcionando! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "es": "Es... §Parece que... §¡Está funcionando! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "it": "Sembra... §Sembra che... §Funzioni! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "fr": "Ça... §On dirait que... §Ça marche ! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "de": "Es... §Sieht so aus, als ob... §Es funktioniert! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "ru": "Похоже... §Похоже, что... §Работает! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "ja": "それは... §どうやら... §動いているようです！ §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "ko": "이건... §작동하는 것 같아... §정상 작동 중이야! §<font=NotoSans Underlay SDF>John Peter.</font>",
-      "zh": "它... §看起来... §好像成功了！ §<font=NotoSans Underlay SDF>John Peter.</font>"
+      "en_us": "It... §Looks like... §It's working! §John Peter.</font>",
+      "pt_br": "Parece... §Parece que... §Está funcionando! §John Peter",
+      "es": "Es... §Parece que... §¡Está funcionando! §John Peter.",
+      "it": "Sembra... §Sembra che... §Funzioni! §John Peter.",
+      "fr": "Ça... §On dirait que... §Ça marche ! §John Peter.",
+      "de": "Es... §Sieht so aus, als ob... §Es funktioniert! §John Peter.",
+      "ru": "Похоже... §Похоже, что... §Работает! §John Peter.",
+      "ja": "それは... §どうやら... §動いているようです！ §John Peter.",
+      "ko": "이건... §작동하는 것 같아... §정상 작동 중이야! §John Peter.",
+      "zh": "它... §看起来... §好像成功了！ §John Peter."
     },
     "NextKey": null,
     "Question": null,
@@ -79,7 +79,7 @@
   "Player_0": {
     "Actor": "Actor_Soldier",
     "Text": {
-      "en_us": "I used to be an adventurer like you, <font=NotoSans Underlay SDF><b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
+      "en_us": "I used to be an adventurer like you, <b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
       "pt_br": "",
       "es": "",
       "it": "",
