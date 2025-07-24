@@ -111,6 +111,16 @@ public class DialogueManager : MonoBehaviour
         _language = newLanguage;
         onLanguageUpdated?.Invoke();
     }
+
+    public void ExecuteMethod(string method)
+    {
+        _dialogueScriptManager.CallMethod(method);
+    }
+
+    public IEnumerator ExecuteCoroutine(string coroutine)
+    {
+        yield return StartCoroutine(_dialogueScriptManager.CallCoroutine(coroutine));
+    }
 }
 
 public class DialogueData

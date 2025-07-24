@@ -48,7 +48,7 @@
   "key_1": {
     "Actor": "Actor_Player",
     "Text": {
-      "en_us": "It... §Looks like... §It's working! §John Peter.</font>",
+      "en_us": "It... §Looks like... §It's working! §John Peter.",
       "pt_br": "Parece... §Parece que... §Está funcionando! §John Peter",
       "es": "Es... §Parece que... §¡Está funcionando! §John Peter.",
       "it": "Sembra... §Sembra che... §Funzioni! §John Peter.",
@@ -79,7 +79,7 @@
   "Player_0": {
     "Actor": "Actor_Soldier",
     "Text": {
-      "en_us": "I used to be an adventurer like you, <b><#d91616>{PlayerName}</color></b></font>.{0} Then I took an arrow in the knee.",
+      "en_us": "I used to be an adventurer like you, <b><#d91616>{PlayerName}</color></b>. §Then I took an arrow in the knee.",
       "pt_br": "",
       "es": "",
       "it": "",
@@ -198,7 +198,7 @@
   "Americo_4": {
     "Actor": "Actor_Edgar",
     "Text": {
-      "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><#ffdd47>flashlight</color></font>?",
+      "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><#ffdd47>flashlight</color>?",
       "pt_br": "",
       "es": "",
       "it": "",

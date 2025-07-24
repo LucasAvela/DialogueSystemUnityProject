@@ -76,6 +76,21 @@ public class DialogueController : MonoBehaviour
             return;
         }
 
+        if (_actualEndScriptsList != null)
+        {
+            foreach (string script in _actualEndScriptsList)
+            {
+                if (script[0] == '&')
+                {
+                    StartCoroutine(_dialogueManager.ExecuteCoroutine(script.Substring(1)));
+                }
+                else
+                {
+                    _dialogueManager.ExecuteMethod(script);
+                }
+            }
+        }
+
         if (_nextDialogueKey != null && _nextDialogueKey != "")
         {
             _actualDialogueKey = _nextDialogueKey;
@@ -135,42 +150,72 @@ public class DialogueController : MonoBehaviour
         string text = _actualDialogueText;
         _onWritingDialogue = true;
 
-        int tagIndex = 0;
-        while (tagIndex < text.Length)
+        if (_actualStartScriptsList != null)
         {
-            if (text[tagIndex] == '<')
+            foreach (string script in _actualStartScriptsList)
             {
-                int endTag = text.IndexOf('>', tagIndex);
+                _dialogueManager.ExecuteMethod(script);
+            }
+        }
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (text[i] == '§')
+            {
+                text = text.Remove(i, 1);
+                _actualMiddleScriptsListIndex.Add(i);
+            }
+        }
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (text[i] == '<')
+            {
+                int endTag = text.IndexOf('>', i);
                 if (endTag != -1)
                 {
-                    string fullTag = text.Substring(tagIndex, endTag - tagIndex + 1);
-
+                    string fullTag = text.Substring(i, endTag - i + 1);
                     if (fullTag.Length == 9 && fullTag.StartsWith("<#") && fullTag[8] == '>')
                     {
                         string hex = fullTag.Substring(2, 6);
                         string newTag = $"<#{hex}00>";
-                        text = text.Remove(tagIndex, fullTag.Length).Insert(tagIndex, newTag);
-                        endTag = tagIndex + newTag.Length - 1;
+                        text = text.Remove(i, fullTag.Length).Insert(i, newTag);
+                        endTag = i + newTag.Length - 1;
                     }
                     else if (fullTag == "</color>")
                     {
-                        string newTag = "<#FFFFFFFF>";
-                        text = text.Remove(tagIndex, fullTag.Length).Insert(tagIndex, newTag);
-                        endTag = tagIndex + newTag.Length - 1;
+                        string newTag = "<alpha=#00>";
+                        text = text.Remove(i, fullTag.Length).Insert(i, newTag);
+                        endTag = i + newTag.Length - 1;
                     }
 
-                    tagIndex = endTag + 1;
-                    continue;
+                    i = endTag;
                 }
             }
-
-            tagIndex++;
         }
 
         int writeCursor = 0;
+        int scriptIndex = 0;
 
         while (writeCursor <= text.Length)
         {
+            if (_actualMiddleScriptsListIndex.Contains(writeCursor))
+            {
+                _onMiddleScriptRunning = true;
+
+                if (_actualMiddleScriptsList[scriptIndex][0] == '&')
+                {
+                    yield return StartCoroutine(_dialogueManager.ExecuteCoroutine(_actualMiddleScriptsList[scriptIndex].Substring(1)));
+                }
+                else
+                {
+                    _dialogueManager.ExecuteMethod(_actualMiddleScriptsList[scriptIndex]);
+                }
+
+                _onMiddleScriptRunning = false;
+                scriptIndex++;
+            }
+
             if (writeCursor < text.Length && text[writeCursor] == '<')
             {
                 int endTag = text.IndexOf('>', writeCursor);
@@ -179,11 +224,11 @@ public class DialogueController : MonoBehaviour
                     string fullTag = text.Substring(writeCursor, endTag - writeCursor + 1);
                     if (fullTag.Length == 11 && fullTag.StartsWith("<#") && fullTag.EndsWith("00>"))
                     {
-                        string correctedTag = fullTag.Substring(0, fullTag.Length - 3) + "FF>";
+                        string correctedTag = fullTag.Substring(0, fullTag.Length - 3) + ">";
                         text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, correctedTag);
                         endTag = writeCursor + correctedTag.Length - 1;
                     }
-                    else if (fullTag == "<#FFFFFFFF>")
+                    else if (fullTag == "<alpha=#00>")
                     {
                         string correctedTag = "</color>";
                         text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, correctedTag);
@@ -193,6 +238,11 @@ public class DialogueController : MonoBehaviour
                     writeCursor = endTag + 1;
                     continue;
                 }
+            }
+
+            if (_skipWritingDialogue && !_onMiddleScriptRunning)
+            {
+                
             }
 
             _dialogueText.text = text.Insert(writeCursor, _alphaTag);
