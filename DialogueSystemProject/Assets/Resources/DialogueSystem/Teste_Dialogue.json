@@ -103,6 +103,52 @@
       "End": []
     }
   },
+  "npc_0": {
+    "Actor": "Actor_Player",
+    "Text": {
+      "en_us": "Hey NPC! Ready to repeat the same line again?",
+      "pt_br": "",
+      "es": "",
+      "it": "",
+      "fr": "",
+      "de": "",
+      "ru": "",
+      "ja": "",
+      "ko": "",
+      "zh": ""
+    },
+    "NextKey": "npc_1",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "npc_1": {
+    "Actor": "_npc",
+    "Text": {
+      "en_us": "I might repeat myself, but at least I don’t walk into walls.",
+      "pt_br": "",
+      "es": "",
+      "it": "",
+      "fr": "",
+      "de": "",
+      "ru": "",
+      "ja": "",
+      "ko": "",
+      "zh": ""
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
   "Americo_0": {
     "Actor": "Actor_Edgar",
     "Text": {

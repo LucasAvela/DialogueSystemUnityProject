@@ -9,6 +9,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private TextMeshProUGUI _dialogueActorText;
+    [SerializeField] private ActorController _actorController;
     [SerializeField] private bool _isDialogueInstant = false;
     [SerializeField] private float _writingTime = 0.05f;
     [SerializeField] private string _alphaTag = "<alpha=#00>";
@@ -55,7 +56,7 @@ public class DialogueController : MonoBehaviour
 
         if (_dialogueManager == null)
         {
-            Debug.LogError("DialogueManager instance not found. Please ensure it is initialized before using DialogueWriterController.");
+            Debug.LogError("DialogueManager instance not found. Please ensure it is initialized before using DialogueController.");
             return;
         }
 
@@ -140,7 +141,7 @@ public class DialogueController : MonoBehaviour
 
         _actualDialogueKey = dialogueData.Key;
         _nextDialogueKey = dialogueData.NextKey;
-        _actualDialogueActor = dialogueData.Actor;
+        _actualDialogueActor = (dialogueData.Actor == _dialogueManager.NPCActorKey && _actorController != null) ? _actorController.Name() : dialogueData.Actor;
         _actualDialogueText = dialogueData.Text;
         _actualStartScriptsList = dialogueData.StartScriptsList;
         _actualMiddleScriptsList = dialogueData.MiddleScriptsList;

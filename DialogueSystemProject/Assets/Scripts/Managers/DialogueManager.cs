@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DialogueScriptManager _dialogueScriptManager;
     [SerializeField] private string _language;
 
+    [Header("Settings")]
+    [SerializeField] public char midScriptIdentifier;
+    [SerializeField] public string NPCActorKey;
+
     public event System.Action onLanguageUpdated;
 
     public DialogueData GetDialogueData(string key)
@@ -92,6 +96,8 @@ public class DialogueManager : MonoBehaviour
 
     public string GetActor(string key)
     {
+        if (key == NPCActorKey) return key;
+
         CharactersEntry character = _dialogueRuntimeHandler.GetCharacterByKey(key);
         string actorName = character.Actor[_language];
 
