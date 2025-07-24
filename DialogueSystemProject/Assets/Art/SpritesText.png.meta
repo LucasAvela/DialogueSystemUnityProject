@@ -148,14 +148,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpritesText_0
+      name: cs
       rect:
         serializedVersion: 2
         x: 0
         y: 255
         width: 257
         height: 257
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -170,14 +170,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesText_1
+      name: mc
       rect:
         serializedVersion: 2
         x: 272
         y: 255
         width: 227
         height: 257
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -192,14 +192,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesText_2
+      name: as
       rect:
         serializedVersion: 2
         x: 8
-        y: 7
+        y: 6
         width: 238
         height: 236
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -214,14 +214,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritesText_3
+      name: am
       rect:
         serializedVersion: 2
         x: 325
         y: 13
         width: 123
         height: 205
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -239,7 +239,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0347a4a980013394fae1adb8f07e4e8a
     internalID: 0
     vertices: []
     indices: 
@@ -249,10 +249,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpritesText_0: 8911045052541541802
-      SpritesText_1: 5326640754497026367
-      SpritesText_2: 5379312222079454334
-      SpritesText_3: 8214099146983266334
+      SpritesText_4: -786149362
+      am: 8214099146983266334
+      as: 5379312222079454334
+      cs: 8911045052541541802
+      mc: 5326640754497026367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

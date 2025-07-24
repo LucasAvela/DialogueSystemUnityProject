@@ -288,6 +288,13 @@ public class DialogueController : MonoBehaviour
                         }
                     }
 
+                    if (text[i] == '◌')
+                    {
+                        text = text.Remove(i, 1).Insert(i, _actualSpritesList[spriteIndex]);
+                        i += _actualSpritesList[spriteIndex].Length;
+                        spriteIndex++;
+                    }
+
                     if (!toScript)
                     {
                         end = text.Length;
