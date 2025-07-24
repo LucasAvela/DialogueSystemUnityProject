@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueController: {fileID: 1043568129}
-  _dialogueKey: Player_0
+  _dialogueKey: Americo_4
   _simpleDialogueController: {fileID: 0}
   _languageDropdown: {fileID: 0}
 --- !u!1 &948702706

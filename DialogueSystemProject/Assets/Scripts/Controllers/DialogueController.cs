@@ -242,9 +242,11 @@ public class DialogueController : MonoBehaviour
 
             if (_skipWritingDialogue && !_onMiddleScriptRunning)
             {
+                bool toScript = false;
                 int end = text.Length;
                 if (_actualMiddleScriptsList != null && _actualMiddleScriptsListIndex.Count > scriptIndex && _actualMiddleScriptsListIndex[scriptIndex] > writeCursor)
                 {
+                    toScript = true;
                     end = _actualMiddleScriptsListIndex[scriptIndex];
                 }
 
@@ -270,6 +272,11 @@ public class DialogueController : MonoBehaviour
                             }
                             i = endTag;
                         }
+                    }
+
+                    if (!toScript)
+                    {
+                        end = text.Length;
                     }
                 }
 

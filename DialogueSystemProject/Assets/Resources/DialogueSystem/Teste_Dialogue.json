@@ -198,7 +198,7 @@
   "Americo_4": {
     "Actor": "Actor_Edgar",
     "Text": {
-      "en_us": "... Can you get me a <font=NotoSans Underlay Outline SDF><#ffdd47>flashlight</color>?",
+      "en_us": "... Can you get me a <b><#ffdd47>flashlight</color>?<b>",
       "pt_br": "",
       "es": "",
       "it": "",
