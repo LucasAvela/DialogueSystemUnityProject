@@ -1406,7 +1406,7 @@ MonoBehaviour:
   _dialogueRuntimeHandler: {fileID: 1137701955}
   _dialogueScriptManager: {fileID: 1137701957}
   _language: en_us
-  midScriptIdentifier: 167
+  midScriptChar: 167
   NPCActorKey: _npc
 --- !u!114 &1137701957
 MonoBehaviour:

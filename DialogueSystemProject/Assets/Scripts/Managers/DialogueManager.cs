@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private string _language;
 
     [Header("Settings")]
-    [SerializeField] public char midScriptIdentifier;
+    [SerializeField] public char midScriptChar;
     [SerializeField] public string NPCActorKey;
 
     public event System.Action onLanguageUpdated;

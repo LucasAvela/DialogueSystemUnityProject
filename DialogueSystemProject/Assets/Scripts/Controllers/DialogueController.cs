@@ -190,7 +190,7 @@ public class DialogueController : MonoBehaviour
             }
         }
 
-        text = text.Replace("§", "");
+        text = text.Replace(_dialogueManager.midScriptChar.ToString(), "");
 
         _dialogueText.text = text;
         StartCoroutine(EnableInstantText());
@@ -232,7 +232,7 @@ public class DialogueController : MonoBehaviour
 
         for (int i = 0; i < text.Length; i++)
         {
-            if (text[i] == '§')
+            if (text[i] == _dialogueManager.midScriptChar)
             {
                 text = text.Remove(i, 1);
                 _actualMiddleScriptsListIndex.Add(i);
