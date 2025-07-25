@@ -42,8 +42,8 @@ public class SimpleDialogueController : MonoBehaviour
 
         _actualSimpleDialogueKey = key;
         _actualSimpleDialogueText = _dialogueManager.GetSimpleDialogue(key);
-        _simpleDialogueText.text = _actualSimpleDialogueText;;
-        
+        _simpleDialogueText.text = _actualSimpleDialogueText; ;
+
         StartCoroutine(EnableSimpleDialogue());
     }
 

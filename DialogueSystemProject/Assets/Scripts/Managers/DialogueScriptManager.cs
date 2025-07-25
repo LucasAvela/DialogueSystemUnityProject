@@ -12,21 +12,6 @@ public class DialogueScriptManager : MonoBehaviour, MethodReflection
         _dialogueManager = DialogueManager.Instance;
     }
 
-    public string InsertText(string insert, string text)
-    {
-        switch (insert)
-        {
-            case "PlayerName":
-                return text.Replace("{PlayerName}", GameManager.Instance.ReturnPlayerName());
-
-            case "ActionButton":
-                return text.Replace("{ActionButton}", GameManager.Instance.ReturnActionButton());
-
-            default:
-                return text;
-        }
-    }
-
     public void CallMethod(string input)
     {
         if (string.IsNullOrWhiteSpace(input)) return;
@@ -135,6 +120,21 @@ public class DialogueScriptManager : MonoBehaviour, MethodReflection
         }
 
         yield return StartCoroutine(coroutine);
+    }
+
+    public string InsertText(string insert, string text)
+    {
+        switch (insert)
+        {
+            case "PlayerName":
+                return text.Replace("{PlayerName}", GameManager.Instance.ReturnPlayerName());
+
+            case "ActionButton":
+                return text.Replace("{ActionButton}", GameManager.Instance.ReturnActionButton());
+
+            default:
+                return text;
+        }
     }
 
     public void StartScript(string n)

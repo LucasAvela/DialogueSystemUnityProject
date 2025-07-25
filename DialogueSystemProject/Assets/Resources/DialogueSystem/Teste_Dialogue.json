@@ -1,0 +1,574 @@
+{
+  "key": {
+    "Actor": "",
+    "Text": {
+      "en_us": "",
+      "pt_br": "",
+      "es": "",
+      "it": "",
+      "fr": "",
+      "de": "",
+      "ru": "",
+      "ja": "",
+      "ko": "",
+      "zh": ""
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_0": {
+    "Actor": "Actor_John",
+    "Text": {
+      "en_us": "This is the first test of the <b>Dialogue System</b> by <#00bf2d>Corylus Dev</color>",
+      "pt_br": "Este é o primeiro teste do <b>Sistema de Diálogo</b> por <#00bf2d>Corylus Dev</color>",
+      "es": "Esta es la primera prueba del <b>Sistema de Diálogo</b> de <#00bf2d>Corylus Dev</color>",
+      "it": "Questo è il primo test del <b>Sistema di Dialogo</b> di <#00bf2d>Corylus Dev</color>",
+      "fr": "Ceci est le premier test du <b>Système de Dialogue</b> par <#00bf2d>Corylus Dev</color>",
+      "de": "Dies ist der erste Test des <b>Dialogsystems</b> von <#00bf2d>Corylus Dev</color>",
+      "ru": "Это первый тест <b>Системы Диалогов</b> от <#00bf2d>Corylus Dev</color>",
+      "ja": "これは<#00bf2d>Corylus Dev</color>による<b>ダイアログシステム</b>の最初のテストです",
+      "ko": "이것은 <#00bf2d>Corylus Dev</color>의 <b>Dialogue System</b>의 첫 번째 테스트입니다.",
+      "zh": "这是由<#00bf2d>Corylus Dev</color>开发的<b>对话系统</b>的首次测试"
+    },
+    "NextKey": "key_1",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_1": {
+    "Actor": "Actor_Player",
+    "Text": {
+      "en_us": "It... §Looks like... §It's working! §John Peter.",
+      "pt_br": "Parece... §Parece que... §Está funcionando! §John Peter",
+      "es": "Es... §Parece que... §¡Está funcionando! §John Peter.",
+      "it": "Sembra... §Sembra che... §Funzioni! §John Peter.",
+      "fr": "Ça... §On dirait que... §Ça marche ! §John Peter.",
+      "de": "Es... §Sieht so aus, als ob... §Es funktioniert! §John Peter.",
+      "ru": "Похоже... §Похоже, что... §Работает! §John Peter.",
+      "ja": "それは... §どうやら... §動いているようです！ §John Peter.",
+      "ko": "이건... §작동하는 것 같아... §정상 작동 중이야! §John Peter.",
+      "zh": "它... §看起来... §好像成功了！ §John Peter."
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [
+        "StartScript(0)"
+      ],
+      "Middle": [
+        "MiddleScript(0)",
+        "MiddleScript(1)",
+        "MiddleScript(2)"
+      ],
+      "End": [
+        "EndScript(0)"
+      ]
+    }
+  },
+  "Player_0": {
+    "Actor": "Actor_Soldier",
+    "Text": {
+      "en_us": "I used to be an adventurer like you, <b><#d91616>{PlayerName}</color></b>. §Then I took an arrow in the knee.",
+      "pt_br": "Eu costumava ser um aventureiro como você, <b><#d91616>{PlayerName}</color></b>. §Então tomei uma flecha no joelho.",
+      "es": "Solía ser un aventurero como tú, <b><#d91616>{PlayerName}</color></b>. §Luego recibí una flecha en la rodilla.",
+      "it": "Ero un avventuriero come te, <b><#d91616>{PlayerName}</color></b>. §Poi ho preso una freccia al ginocchio.",
+      "fr": "J'étais un aventurier comme toi, <b><#d91616>{PlayerName}</color></b>. §Puis j'ai pris une flèche au genou.",
+      "de": "Ich war früher ein Abenteurer wie du, <b><#d91616>{PlayerName}</color></b>. §Dann bekam ich einen Pfeil ins Knie.",
+      "ru": "Раньше я был искателем приключений, как ты, <b><#d91616>{PlayerName}</color></b>. §Потом я получил стрелу в колено.",
+      "ja": "かつてはあなたのような冒険者でした、<b><#d91616>{PlayerName}</color></b>。§それから膝に矢を受けました。",
+      "ko": "나는 너처럼 모험가였어, <b><#d91616>{PlayerName}</color></b>. §그때 무릎에 화살을 맞았지.",
+      "zh": "我曾经像你一样是个冒险者，<b><#d91616>{PlayerName}</color></b>。§然后我膝盖中了一箭。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [
+        "PlayerName"
+      ],
+      "Start": [],
+      "Middle": [
+        "&DelayedText()"
+      ],
+      "End": []
+    }
+  },
+  "npc_0": {
+    "Actor": "Actor_Player",
+    "Text": {
+      "en_us": "Hey NPC! Ready to repeat the same line again?",
+      "pt_br": "Ei NPC! Pronto para repetir a mesma frase de novo?",
+      "es": "¡Oye NPC! ¿Listo para repetir la misma línea otra vez?",
+      "it": "Ehi NPC! Pronto a ripetere la stessa frase di nuovo?",
+      "fr": "Hé PNJ ! Prêt à répéter la même phrase encore une fois ?",
+      "de": "Hey NPC! Bereit, die gleiche Zeile nochmal zu wiederholen?",
+      "ru": "Привет, NPC! Готов снова повторять одну и ту же фразу?",
+      "ja": "ねえNPC！また同じセリフを繰り返す準備はできてる？",
+      "ko": "이봐 NPC! 같은 대사를 다시 반복할 준비됐어?",
+      "zh": "嘿NPC！准备好再次重复同一句话了吗？"
+    },
+    "NextKey": "npc_1",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "npc_1": {
+    "Actor": "_npc",
+    "Text": {
+      "en_us": "I might repeat myself, but at least I don’t walk into walls.",
+      "pt_br": "Posso me repetir, mas pelo menos eu não ando batendo nas paredes.",
+      "es": "Puede que me repita, pero al menos no choco con las paredes.",
+      "it": "Potrei ripetermi, ma almeno non vado a sbattere contro i muri.",
+      "fr": "Je me répète peut-être, mais au moins je ne marche pas dans les murs.",
+      "de": "Ich wiederhole mich vielleicht, aber zumindest laufe ich nicht gegen Wände.",
+      "ru": "Я могу повторяться, но по крайней мере я не врезаюсь в стены.",
+      "ja": "何度も言うかもしれないけど、少なくとも壁にぶつかることはないよ。",
+      "ko": "반복할 수도 있지만, 적어도 벽에 부딪히지는 않아.",
+      "zh": "我可能会重复自己，但至少我不会撞到墙。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_0": {
+    "Actor": "Actor_Edgar",
+    "Text": {
+      "en_us": "Americo, the lights are out, can...",
+      "pt_br": "Américo, as luzes estão apagadas, consegue...",
+      "es": "Américo, las luces están apagadas, ¿puedes...?",
+      "it": "Americo, le luci sono spente, puoi...",
+      "fr": "Américo, les lumières sont éteintes, peux-tu...",
+      "de": "Americo, das Licht ist aus, kannst du...",
+      "ru": "Америко, свет выключен, можешь ли...",
+      "ja": "アメリコ、電気が消えているけど、できる？",
+      "ko": "아메리코, 불이 꺼졌어, 할 수 있어?",
+      "zh": "阿梅里科，灯灭了，可以...？"
+    },
+    "NextKey": "Americo_1",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_1": {
+    "Actor": "Actor_Americo",
+    "Text": {
+      "en_us": "<b>No shit!</b><sprite name=\"as\"> I thought my eyes were closed.",
+      "pt_br": "<b>Sério mesmo?</b><sprite name=\"as\"> Pensei que meus olhos estivessem fechados.",
+      "es": "<b>¡No me digas!</b><sprite name=\"as\"> Pensé que tenía los ojos cerrados.",
+      "it": "<b>Non scherzare!</b><sprite name=\"as\"> Pensavo di avere gli occhi chiusi.",
+      "fr": "<b>Sans blague !</b><sprite name=\"as\"> Je pensais que mes yeux étaient fermés.",
+      "de": "<b>Kein Scheiß!</b><sprite name=\"as\"> Ich dachte, meine Augen wären geschlossen.",
+      "ru": "<b>Да ладно!</b><sprite name=\"as\"> Я думал, что глаза закрыты.",
+      "ja": "<b>冗談じゃない！</b><sprite name=\"as\"> 目を閉じてると思ったよ。",
+      "ko": "<b>설마!</b><sprite name=\"as\"> 눈을 감고 있는 줄 알았어.",
+      "zh": "<b>开什么玩笑！</b><sprite name=\"as\"> 我还以为我闭着眼睛呢。"
+    },
+    "NextKey": "Americo_2",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_2": {
+    "Actor": "Actor_Edgar",
+    "Text": {
+      "en_us": "...",
+      "pt_br": "...",
+      "es": "...",
+      "it": "...",
+      "fr": "...",
+      "de": "...",
+      "ru": "...",
+      "ja": "...",
+      "ko": "...",
+      "zh": "..."
+    },
+    "NextKey": "Americo_3",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_3": {
+    "Actor": "Actor_Americo",
+    "Text": {
+      "en_us": "What do you want?",
+      "pt_br": "O que você quer?",
+      "es": "¿Qué quieres?",
+      "it": "Cosa vuoi?",
+      "fr": "Que veux-tu ?",
+      "de": "Was willst du?",
+      "ru": "Что ты хочешь?",
+      "ja": "何が欲しいの？",
+      "ko": "뭐 원해?",
+      "zh": "你想要什么？"
+    },
+    "NextKey": "Americo_4",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_4": {
+    "Actor": "Actor_Edgar",
+    "Text": {
+      "en_us": "... Can you get me a <b><#ffdd47>flashlight</color>?<b>",
+      "pt_br": "... Você pode me conseguir uma <b><#ffdd47>lanterna</color>?<b>",
+      "es": "... ¿Puedes traerme una <b><#ffdd47>linterna</color>?</b>",
+      "it": "... Puoi procurarmi una <b><#ffdd47>torcia</color>?</b>",
+      "fr": "... Peux-tu m'apporter une <b><#ffdd47>lampe de poche</color>?</b>",
+      "de": "... Kannst du mir eine <b><#ffdd47>Taschenlampe</color>?</b> besorgen?",
+      "ru": "... Ты можешь принести мне <b><#ffdd47>фонарик</color>?</b>",
+      "ja": "... <b><#ffdd47>懐中電灯</color></b>を持ってきてくれる？",
+      "ko": "... <b><#ffdd47>손전등</color></b> 가져다줄 수 있어?",
+      "zh": "... 你能给我拿个<b><#ffdd47>手电筒</color>吗？</b>"
+    },
+    "NextKey": "Americo_5",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "Americo_5": {
+    "Actor": "Actor_Americo",
+    "Text": {
+      "en_us": "Maybe Stella's got one. §There's just junk in the storage downstairs.",
+      "pt_br": "Talvez a Stella tenha uma. §Não tem nada além de tralha no depósito lá embaixo.",
+      "es": "Quizás Stella tenga una. §Solo hay basura en el almacén de abajo.",
+      "it": "Forse Stella ne ha una. §C'è solo spazzatura nel magazzino di sotto.",
+      "fr": "Peut-être que Stella en a une. §Il n'y a que des déchets dans la cave en bas.",
+      "de": "Vielleicht hat Stella eine. §Im Lager unten ist nur Müll.",
+      "ru": "Может, у Стеллы есть одна. §Внизу в кладовке просто хлам.",
+      "ja": "もしかしたらステラが持ってるかも。§地下の倉庫にはガラクタしかない。",
+      "ko": "아마 스텔라가 하나 가지고 있을 거야. §아래 창고에는 쓰레기만 있어.",
+      "zh": "也许斯特拉有一个。§楼下储藏室里只有废物。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [
+        "&DelayedText()"
+      ],
+      "End": []
+    }
+  },
+  "question_0": {
+    "Actor": "Actor_Carlos",
+    "Text": {
+      "en_us": "Lucas, do you want to play <#368a39><i><b>Minecraft</b><i></color>?",
+      "pt_br": "Lucas, quer jogar <#368a39><i><b>Minecraft</b><i></color>?",
+      "es": "Lucas, ¿quieres jugar <#368a39><i><b>Minecraft</b></i></color>?",
+      "it": "Lucas, vuoi giocare a <#368a39><i><b>Minecraft</b></i></color>?",
+      "fr": "Lucas, tu veux jouer à <#368a39><i><b>Minecraft</b></i></color> ?",
+      "de": "Lucas, willst du <#368a39><i><b>Minecraft</b></i></color> spielen?",
+      "ru": "Лукас, хочешь поиграть в <#368a39><i><b>Minecraft</b></i></color>?",
+      "ja": "ルーカス、<#368a39><i><b>Minecraft</b></i></color>を遊びたい？",
+      "ko": "루카스, <#368a39><i><b>Minecraft</b></i></color> 할래?",
+      "zh": "卢卡斯，你想玩吗 <#368a39><i><b>Minecraft</b></i></color>？"
+    },
+    "NextKey": null,
+    "Question": "MinecraftQuestion",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "question_1": {
+    "Actor": "Actor_Carlos",
+    "Text": {
+      "en_us": "Alright then.",
+      "pt_br": "Então tá.",
+      "es": "Está bien entonces.",
+      "it": "Va bene allora.",
+      "fr": "Très bien alors.",
+      "de": "Na gut, dann.",
+      "ru": "Ладно тогда.",
+      "ja": "じゃあいいよ。",
+      "ko": "알겠어.",
+      "zh": "好吧。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_none_0": {
+    "Actor": "Actor_Player",
+    "Text": {
+      "en_us": "I have so much work to do… I can't sleep now… but I'm exhausted. My body is begging for rest, and my mind is starting to slip. What should I do?",
+      "pt_br": "Tenho tanto trabalho... não consigo dormir agora... mas estou exausto. Meu corpo implora por descanso, e minha mente está começando a falhar. O que devo fazer?",
+      "es": "Tengo mucho trabajo que hacer… no puedo dormir ahora… pero estoy agotado. Mi cuerpo suplica por descanso y mi mente empieza a fallar. ¿Qué debo hacer?",
+      "it": "Ho così tanto lavoro da fare… non riesco a dormire ora… ma sono esausto. Il mio corpo implora riposo e la mia mente inizia a vacillare. Cosa dovrei fare?",
+      "fr": "J'ai tellement de travail à faire… je ne peux pas dormir maintenant… mais je suis épuisé. Mon corps implore du repos, et mon esprit commence à flancher. Que dois-je faire ?",
+      "de": "Ich habe so viel Arbeit zu erledigen… ich kann jetzt nicht schlafen… aber ich bin erschöpft. Mein Körper fleht um Ruhe, und mein Geist beginnt nachzulassen. Was soll ich tun?",
+      "ru": "У меня так много работы… я не могу сейчас спать… но я истощён. Моё тело умоляет о покое, а ум начинает давать сбои. Что мне делать?",
+      "ja": "やることがたくさんあって…今は眠れない…でも疲れ果てている。体は休息を求めていて、心はだんだんと崩れ始めている。どうしたらいい？",
+      "ko": "할 일이 너무 많아… 지금은 잠을 잘 수 없어… 하지만 너무 지쳤어. 몸은 휴식을 간절히 원하고, 마음은 점점 흔들리기 시작해. 어떻게 해야 할까?",
+      "zh": "我有这么多工作要做……现在不能睡……但我已经精疲力尽。我的身体渴望休息，思绪开始混乱。我该怎么办？"
+    },
+    "NextKey": null,
+    "Question": "SleepQuestion",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_none_1": {
+    "Actor": "Actor_Player",
+    "Text": {
+      "en_us": "It's not worth pushing through anymore. I need to sleep.",
+      "pt_br": "Não vale mais a pena continuar. Preciso dormir.",
+      "es": "Ya no vale la pena seguir adelante. Necesito dormir.",
+      "it": "Non vale più la pena continuare. Ho bisogno di dormire.",
+      "fr": "Ce n'est plus la peine de continuer. J'ai besoin de dormir.",
+      "de": "Es lohnt sich nicht mehr durchzuhalten. Ich muss schlafen.",
+      "ru": "Больше нет смысла продолжать. Мне нужно спать.",
+      "ja": "もう無理をする価値はない。眠る必要がある。",
+      "ko": "더 이상 무리할 가치가 없어. 잠이 필요해.",
+      "zh": "再坚持下去已经没有意义了。我需要睡觉。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "key_none_2": {
+    "Actor": "Actor_Roberta",
+    "Text": {
+      "en_us": "The developer fell asleep! It's me now, Roberta!",
+      "pt_br": "O desenvolvedor adormeceu! Agora sou eu, Roberta!",
+      "es": "¡El desarrollador se quedó dormido! ¡Ahora soy yo, Roberta!",
+      "it": "Lo sviluppatore si è addormentato! Ora sono io, Roberta!",
+      "fr": "Le développeur s'est endormi ! C'est moi maintenant, Roberta !",
+      "de": "Der Entwickler ist eingeschlafen! Jetzt bin ich dran, Roberta!",
+      "ru": "Разработчик уснул! Теперь я, Роберта!",
+      "ja": "開発者が眠ってしまった！今は私、ロベルタよ！",
+      "ko": "개발자가 잠들었어! 지금은 나야, 로베르타!",
+      "zh": "开发者睡着了！现在是我，罗伯塔！"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "game_question": {
+    "Actor": "Actor_Carlos",
+    "Text": {
+      "en_us": "What do you wanna play?",
+      "pt_br": "O que você quer jogar?",
+      "es": "¿Qué quieres jugar?",
+      "it": "A cosa vuoi giocare?",
+      "fr": "À quoi veux-tu jouer ?",
+      "de": "Was willst du spielen?",
+      "ru": "Во что ты хочешь играть?",
+      "ja": "何を遊びたい？",
+      "ko": "뭐 하고 싶어?",
+      "zh": "你想玩什么？"
+    },
+    "NextKey": null,
+    "Question": "gameQuestion",
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "game_question_mc": {
+    "Actor": "Actor_Carlos",
+    "Text": {
+      "en_us": "I'm going to start the server.",
+      "pt_br": "Vou iniciar o servidor.",
+      "es": "Voy a iniciar el servidor.",
+      "it": "Sto per avviare il server.",
+      "fr": "Je vais démarrer le serveur.",
+      "de": "Ich werde den Server starten.",
+      "ru": "Я собираюсь запустить сервер.",
+      "ja": "サーバーを起動します。",
+      "ko": "서버를 시작할게.",
+      "zh": "我要启动服务器。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "game_question_cs": {
+    "Actor": "Actor_Carlos",
+    "Text": {
+      "en_us": "Let's go!",
+      "pt_br": "Bora!",
+      "es": "¡Vamos!",
+      "it": "Andiamo!",
+      "fr": "Allons-y !",
+      "de": "Los geht's!",
+      "ru": "Поехали!",
+      "ja": "行こう！",
+      "ko": "가자!",
+      "zh": "走吧！"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "ActionButton": {
+    "Actor": "Actor_PokeMaster",
+    "Text": {
+      "en_us": "The {ActionButton} button throw a Pokeball!",
+      "pt_br": "O botão {ActionButton} lança uma Pokebola!",
+      "es": "¡El botón {ActionButton} lanza una Pokébola!",
+      "it": "Il pulsante {ActionButton} lancia una Pokéball!",
+      "fr": "Le bouton {ActionButton} lance une Pokéball !",
+      "de": "Die Taste {ActionButton} wirft einen Pokéball!",
+      "ru": "Кнопка {ActionButton} бросает Покебол!",
+      "ja": "{ActionButton}ボタンがポケボールを投げる！",
+      "ko": "{ActionButton} 버튼이 포켓볼을 던져요!",
+      "zh": "{ActionButton}按钮投出一个宝贝球！"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [
+        "ActionButton"
+      ],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "LongSentence": {
+    "Actor": "Actor_Long",
+    "Text": {
+      "en_us": "Despite the countless difficulties encountered throughout the development process — which included everything from the meticulous elaboration of strategies aimed at solving highly specific problems, through the critical analysis of data collected in controlled environments, to the constant reassessment of methods previously considered effective — it was possible to achieve, with remarkable success and within the deadlines established by a multidisciplinary team committed to technical excellence and continuous innovation, a result that not only exceeded initial expectations but also set a new standard of quality and efficiency in the project's context, clearly demonstrating the value of collaborative work, rigorous planning, and perseverance in the face of the most complex challenges.",
+      "pt_br": "Apesar das inúmeras dificuldades encontradas ao longo do processo de desenvolvimento — que incluiu desde a elaboração meticulosa de estratégias voltadas à resolução de problemas altamente específicos, passando pela análise crítica de dados coletados em ambientes controlados, até a constante reavaliação de métodos antes considerados eficazes — foi possível alcançar, com notável sucesso e dentro dos prazos estabelecidos por uma equipe multidisciplinar comprometida com a excelência técnica e a inovação contínua, um resultado que não só superou as expectativas iniciais como também estabeleceu um novo padrão de qualidade e eficiência no contexto do projeto, demonstrando claramente o valor do trabalho colaborativo, do planejamento rigoroso e da perseverança diante dos desafios mais complexos.",
+      "es": "A pesar de las innumerables dificultades encontradas a lo largo del proceso de desarrollo —que incluyó desde la minuciosa elaboración de estrategias orientadas a la solución de problemas muy específicos, pasando por el análisis crítico de datos recogidos en entornos controlados, hasta la constante reevaluación de métodos previamente considerados eficaces— fue posible alcanzar, con notable éxito y dentro de los plazos establecidos por un equipo multidisciplinario comprometido con la excelencia técnica y la innovación continua, un resultado que no sólo superó las expectativas iniciales sino que marcó un nuevo estándar de calidad y eficiencia en el contexto del proyecto, demostrando claramente el valor del trabajo colaborativo, la planificación rigurosa y la perseverancia frente a los desafíos más complejos.",
+      "it": "Nonostante le innumerevoli difficoltà incontrate durante tutto il processo di sviluppo, che ha compreso tutto: dall'elaborazione meticolosa di strategie volte a risolvere problemi altamente specifici, all'analisi critica dei dati raccolti in ambienti controllati, alla continua rivalutazione di metodi precedentemente ritenuti efficaci, è stato possibile raggiungere, con notevole successo e nei tempi stabiliti da un team multidisciplinare impegnato nell'eccellenza tecnica e nell'innovazione continua, un risultato che non solo ha superato le aspettative iniziali, ma ha anche stabilito un nuovo standard di qualità ed efficienza nel contesto del progetto, dimostrando chiaramente il valore del lavoro collaborativo, della pianificazione rigorosa e della perseveranza di fronte alle sfide più complesse.",
+      "fr": "Malgré les innombrables difficultés rencontrées tout au long du processus de développement — qui comprenait tout, depuis l'élaboration méticuleuse de stratégies visant à résoudre des problèmes très spécifiques, en passant par l'analyse critique des données collectées dans des environnements contrôlés, jusqu'à la réévaluation constante de méthodes auparavant considérées comme efficaces — il a été possible d'obtenir, avec un succès remarquable et dans les délais établis par une équipe multidisciplinaire engagée dans l'excellence technique et l'innovation continue, un résultat qui a non seulement dépassé les attentes initiales mais a également établi un nouveau standard de qualité et d'efficacité dans le contexte du projet, démontrant clairement la valeur du travail collaboratif, de la planification rigoureuse et de la persévérance face aux défis les plus complexes.",
+      "de": "Trotz der zahllosen Schwierigkeiten, die während des gesamten Entwicklungsprozesses auftraten – von der sorgfältigen Ausarbeitung von Strategien zur Lösung hochspezifischer Probleme über die kritische Analyse der in kontrollierten Umgebungen gesammelten Daten bis hin zur ständigen Neubewertung zuvor als wirksam erachteter Methoden – war es mit bemerkenswertem Erfolg und innerhalb der von einem multidisziplinären Team, das sich technischer Exzellenz und kontinuierlicher Innovation verschrieben hat, festgelegten Fristen möglich, ein Ergebnis zu erzielen, das nicht nur die ursprünglichen Erwartungen übertraf, sondern auch einen neuen Qualitäts- und Effizienzstandard im Kontext des Projekts setzte und den Wert gemeinsamer Arbeit, rigoroser Planung und Beharrlichkeit angesichts der komplexesten Herausforderungen deutlich unter Beweis stellte.",
+      "ru": "Несмотря на бесчисленные трудности, возникшие в процессе разработки, — от тщательной проработки стратегий, направленных на решение весьма специфических проблем, критического анализа данных, собранных в контролируемых условиях, до постоянной переоценки методов, ранее считавшихся эффективными, — удалось добиться выдающегося успеха и в сроки, установленные многопрофильной командой, приверженной техническому совершенству и постоянным инновациям, результата, который не только превзошел первоначальные ожидания, но и установил новый стандарт качества и эффективности в контексте проекта, наглядно продемонстрировав ценность совместной работы, строгого планирования и настойчивости перед лицом самых сложных задач.",
+      "ja": "開発プロセス全体を通じて、非常に特殊な問題を解決するための戦略を綿密に練り上げることから、管理された環境で収集されたデータの批判的分析、以前は効果的と考えられていた方法の絶え間ない再評価まで、数え切れないほどの困難に直面しましたが、技術的卓越性と継続的な革新に取り組む多分野のチームによって設定された期限内に、目覚ましい成功を収めて、当初の期待を超えただけでなく、プロジェクトの状況における品質と効率の新しい基準を設定し、最も複雑な課題に直面した際の共同作業、厳密な計画、粘り強さの価値を明確に示す結果を達成することができました。",
+      "ko": "개발 과정 전반에 걸쳐 셀 수 없이 많은 어려움이 있었습니다. 여기에는 매우 구체적인 문제를 해결하기 위한 전략의 꼼꼼한 수립부터 통제된 환경에서 수집된 데이터의 비판적 분석, 이전에 효과적이라고 여겨졌던 방법에 대한 지속적인 재평가까지 모든 것이 포함되었습니다. 그러나 기술적 우수성과 지속적인 혁신에 전념하는 여러 분야의 팀이 정한 마감일 내에 놀라운 성공을 거두며 초기 기대치를 뛰어넘었을 뿐만 아니라 프로젝트 맥락에서 품질과 효율성의 새로운 기준을 제시한 결과를 얻을 수 있었습니다. 이는 협업적 작업, 엄격한 계획, 가장 복잡한 과제에 직면했을 때의 인내의 가치를 분명히 보여주었습니다.",
+      "zh": "尽管在整个开发过程中遇到了无数困难——包括从精心制定解决高度具体问题的策略，到对受控环境中收集的数据进行批判性分析，再到不断重新评估以前被认为有效的方法——但我们仍然能够在一个致力于技术卓越和持续创新的多学科团队设定的期限内取得显著成功，这一成果不仅超出了最初的预期，而且为项目设立了新的质量和效率标准，清楚地展示了协作、严谨规划和在最复杂挑战面前坚持不懈的价值。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [
+        "NotGonnaWork()"
+      ],
+      "Middle": [],
+      "End": [
+        "print(\"Não vai Funcionar\")"
+      ]
+    }
+  },
+  "ShortSentence": {
+    "Actor": "Actor_Short",
+    "Text": {
+      "en_us": "Despite difficulties, success came through teamwork and planning.",
+      "pt_br": "Apesar das dificuldades, o sucesso veio através do trabalho em equipe e do planejamento.",
+      "es": "A pesar de las dificultades, el éxito llegó gracias al trabajo en equipo y la planificación.",
+      "it": "Nonostante le difficoltà, il successo è arrivato grazie al lavoro di squadra e alla pianificazione.",
+      "fr": "Malgré les difficultés, le succès est venu grâce au travail d’équipe et à la planification.",
+      "de": "Trotz aller Schwierigkeiten gelang der Erfolg durch Teamarbeit und Planung.",
+      "ru": "Несмотря на трудности, успех был достигнут благодаря командной работе и планированию.",
+      "ja": "困難にもかかわらず、チームワークと計画により成功を収めることができました。",
+      "ko": "어려움에도 불구하고, 팀워크와 계획을 통해 성공을 거두었습니다.",
+      "zh": "尽管面临困难，但凭借团队合作和精心策划，我们最终取得了成功。"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  },
+  "LoopSentence": {
+    "Actor": "Actor_Lupee",
+    "Text": {
+      "en_us": "I am a loop. I begin, I repeat, and I never truly end. Every time you think it’s over, I start again—unchanged, yet always moving.",
+      "pt_br": "Eu sou um loop. Eu começo, repito e nunca termino de verdade. Toda vez que você pensa que acabou, eu recomeço — inalterado, mas sempre em movimento.",
+      "es": "Soy un bucle. Empiezo, repito, y nunca termino del todo. Cada vez que crees que se acabó, vuelvo a empezar, inalterado, pero siempre en movimiento.",
+      "it": "Sono un ciclo. Inizio, ripeto e non finisco mai veramente. Ogni volta che pensi che sia finita, ricomincio, immutato, eppure sempre in movimento.",
+      "fr": "Je suis une boucle. Je commence, je répète, et je ne termine jamais vraiment. Chaque fois que tu penses que c'est fini, je recommence, inchangé, mais toujours en mouvement.",
+      "de": "Ich bin eine Schleife. Ich beginne, ich wiederhole, und ich höre nie wirklich auf. Jedes Mal, wenn du denkst, es ist vorbei, fange ich wieder an – unverändert, aber immer in Bewegung.",
+      "ru": "Я — замкнутый круг. Я начинаюсь, повторяюсь и никогда по-настоящему не заканчиваюсь. Каждый раз, когда ты думаешь, что всё кончено, я начинаю снова — неизменный, но всегда в движении.",
+      "ja": "私はループだ。始まり、繰り返し、そして決して本当の終わりはない。あなたが終わったと思うたびに、私はまた始まる。変わらないけれど、常に動き続けている。",
+      "ko": "나는 고리다. 시작하고, 반복하고, 결코 진정으로 끝나지 않는다. 끝났다고 생각할 때마다 나는 다시 시작한다. 변함없이, 그러나 항상 움직이고 있다.",
+      "zh": "我是一个循环。我开始，我重复，永无止境。每当你以为它结束了，我又重新开始——不变，却始终动感。"
+    },
+    "NextKey": "LoopSentence",
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [],
+      "End": []
+    }
+  }
+}

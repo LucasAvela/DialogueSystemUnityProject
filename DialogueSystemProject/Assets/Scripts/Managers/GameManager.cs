@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             readablePath = InputControlPath.ToHumanReadableString(binding.effectivePath,InputControlPath.HumanReadableStringOptions.OmitDevice);
         }
         
-        return $"<sprite=\"SpriteButtons\" name={readablePath}_button>";
+        return $"<sprite=\"Xbox\" name={readablePath}>";
     }
 
     [ContextMenu("Print Action Button")]

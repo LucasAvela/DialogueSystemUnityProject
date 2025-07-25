@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
@@ -9,15 +10,21 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private TextMeshProUGUI _dialogueActorText;
-    [SerializeField] private bool _isDialogueInstant = false;
+    [SerializeField] private ActorController _actorController;
+    [SerializeField] private WriteModes _dialogueMode;
     [SerializeField] private float _writingTime = 0.05f;
     [SerializeField] private string _alphaTag = "<alpha=#00>";
 
-    [Header("Animations Settings")] 
+    [Header("Questions Settings")]
+    [SerializeField] private QuestionsModes _questionMode;
+    [SerializeField] private Transform _questionPanel;
+    [SerializeField] private GameObject _questionButtonPrefab;
+
+    [Header("Animations Settings")] // Animations
     [SerializeField] private Animator _dialogueAnimator;
-    [SerializeField] private AnimationClip _enableDialoguePanel;
-    [SerializeField] private AnimationClip _disableDialoguePanel;
-    [SerializeField] private AnimationClip _enableText;
+    [SerializeField] private AnimationClip _openPanelAnimation;
+    [SerializeField] private AnimationClip _closePanelAnimation;
+    [SerializeField] private AnimationClip _showTextAnimation;
 
     [Header("Dialogue Runtime Flags")] // Flags to control dialogue state and behavior
     [SerializeField] private bool _onDialogue = false;
@@ -27,23 +34,40 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private bool _onDialogueTextAnimation = false;
     [SerializeField] private bool _skipWritingDialogue = false;
     [SerializeField] private bool _stopDialogue = false;
+    [SerializeField] private bool _onQuestion = false;
 
     [Header("Dialogue Content")] // Actual dialogue content and metadata
     [TextArea(1, 2)][SerializeField] private string _actualDialogueKey = null;
     [TextArea(1, 2)][SerializeField] private string _nextDialogueKey = null;
+    [TextArea(1, 2)][SerializeField] private string _actualQuestionKey = null;
     [TextArea(1, 2)][SerializeField] private string _actualDialogueActor = null;
     [TextArea(3, 9)][SerializeField] private string _actualDialogueText = null;
     [SerializeField] private List<string> _actualStartScriptsList = new List<string>();
     [SerializeField] private List<string> _actualMiddleScriptsList = new List<string>();
     [SerializeField] private List<string> _actualEndScriptsList = new List<string>();
-    [SerializeField] private List<string> _actualTagsList = new List<string>();
+    [SerializeField] private List<string> _actualSpritesList = new List<string>();
+    [SerializeField] private List<int> _actualMiddleScriptsListIndex = new List<int>();
 
     [Header("Internals")] // Internal state and references for managing dialogue
     private DialogueManager _dialogueManager = null;
     private Coroutine _writingDialogueCoroutine = null;
     private Coroutine _instantDialogueCoroutine = null;
 
-    public event System.Action onDialogueStop;
+    private enum WriteModes
+    {
+        LetterByLetter,
+        InstantText
+    }
+
+    private enum QuestionsModes
+    {
+        OnDialogueAdvance,
+        OnWriteFinish
+    }
+
+    public event System.Action onDialogueStart;
+    public event System.Action onDialogueUpdate;
+    public event System.Action onDialogueFinish;
     public event System.Action onDialogueWriteFinish;
 
     private void Start()
@@ -52,7 +76,7 @@ public class DialogueController : MonoBehaviour
 
         if (_dialogueManager == null)
         {
-            Debug.LogError("DialogueManager instance not found. Please ensure it is initialized before using DialogueWriterController.");
+            Debug.LogError("DialogueManager instance not found. Please ensure it is initialized before using DialogueController.");
             return;
         }
 
@@ -63,32 +87,22 @@ public class DialogueController : MonoBehaviour
     {
         if (!_onDialogue && !_onDialoguePanelAnimation)
         {
+            onDialogueStart?.Invoke();
             _onDialogue = true;
-            StartCoroutine(OpenDialogue(key));
+            _actualDialogueKey = key;
+            StartCoroutine(OpenDialoguePanel());
         }
-    }
-
-    private void UpdateDialogue(string key)
-    {
-        ClearDialogue();
-        DialogueData dialogueData = _dialogueManager.GetDialogueData(key);
-
-        _actualDialogueKey = dialogueData.Key;
-        _nextDialogueKey = dialogueData.NextKey;
-        _actualDialogueActor = dialogueData.Actor;
-        _actualDialogueText = dialogueData.Text;
-        _actualStartScriptsList = dialogueData.StartScriptsList;
-        _actualMiddleScriptsList = dialogueData.MiddleScriptsList;
-        _actualEndScriptsList = dialogueData.EndScriptsList;
-
-        DisplayDialogue();
     }
 
     public void ConsumeInput()
     {
-        if (!_onDialogue || _onDialoguePanelAnimation || _onDialogueTextAnimation || _onMiddleScriptRunning) return;
+        if (!_onDialogue || _onDialoguePanelAnimation || _onDialogueTextAnimation || _onMiddleScriptRunning || _onQuestion) return;
 
-        if (_onWritingDialogue) { _skipWritingDialogue = true; return; }
+        if (_onWritingDialogue)
+        {
+            _skipWritingDialogue = true;
+            return;
+        }
 
         if (_actualEndScriptsList != null)
         {
@@ -105,12 +119,22 @@ public class DialogueController : MonoBehaviour
             }
         }
 
-        if (_nextDialogueKey != null && _nextDialogueKey != "")
+        if (_questionMode == QuestionsModes.OnDialogueAdvance && _actualQuestionKey != null)
         {
-            UpdateDialogue(_nextDialogueKey);
+            _onQuestion = true;
+            DisplayQuestions();
+            return;
+        }
+
+        if (_nextDialogueKey != null)
+        {
+            _actualDialogueKey = _nextDialogueKey;
+            UpdateDialogue();
         }
         else
         {
+            onDialogueFinish?.Invoke();
+            ClearDialogue();
             StartCoroutine(CloseDialogue());
         }
     }
@@ -124,6 +148,7 @@ public class DialogueController : MonoBehaviour
         if (!_onMiddleScriptRunning)
         {
             if (_writingDialogueCoroutine != null) StopCoroutine(_writingDialogueCoroutine);
+            if (_instantDialogueCoroutine != null) StopCoroutine(_instantDialogueCoroutine);
 
             _onDialoguePanelAnimation = false;
             _onWritingDialogue = false;
@@ -131,33 +156,51 @@ public class DialogueController : MonoBehaviour
             StartCoroutine(CloseDialogue());
             _onDialogue = false;
             _stopDialogue = false;
-            onDialogueStop?.Invoke();
+            onDialogueFinish?.Invoke();
         }
+    }
+
+    private void UpdateDialogue()
+    {
+        ClearDialogue();
+        DialogueData dialogueData = _dialogueManager.GetDialogueData(_actualDialogueKey);
+        onDialogueUpdate?.Invoke();
+
+        _actualDialogueKey = dialogueData.Key;
+        _nextDialogueKey = dialogueData.NextKey;
+        _actualQuestionKey = dialogueData.Question;
+        _actualDialogueActor = (dialogueData.Actor == _dialogueManager.NPCActorKey && _actorController != null) ? _actorController.Name() : dialogueData.Actor;
+        _actualDialogueText = dialogueData.Text;
+        _actualStartScriptsList = dialogueData.StartScriptsList;
+        _actualMiddleScriptsList = dialogueData.MiddleScriptsList;
+        _actualEndScriptsList = dialogueData.EndScriptsList;
+
+        DisplayDialogue();
     }
 
     private void ClearDialogue()
     {
         _dialogueText.text = "";
         _dialogueActorText.text = "";
-        _actualDialogueKey = null;
         _nextDialogueKey = null;
+        _actualQuestionKey = null;
         _actualDialogueActor = null;
         _actualDialogueText = null;
         _actualStartScriptsList.Clear();
         _actualMiddleScriptsList.Clear();
         _actualEndScriptsList.Clear();
-        _actualTagsList.Clear();
+        _actualMiddleScriptsListIndex.Clear();
     }
 
     private void DisplayDialogue()
     {
-        if (_isDialogueInstant)
-        {
-            _instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
-        }
-        else
+        if (_dialogueMode == WriteModes.LetterByLetter)
         {
             _writingDialogueCoroutine = StartCoroutine(WriteDialogue());
+        }
+        else if (_dialogueMode == WriteModes.InstantText)
+        {
+            _instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
         }
 
         _dialogueActorText.text = _actualDialogueActor;
@@ -166,35 +209,17 @@ public class DialogueController : MonoBehaviour
     private IEnumerator DisplayInstantDialogue()
     {
         string text = _actualDialogueText;
-
         _onDialogueTextAnimation = true;
 
         if (_actualStartScriptsList != null)
         {
             foreach (string script in _actualStartScriptsList)
             {
-                if (script[0] == '&')
-                {
-                    yield return StartCoroutine(_dialogueManager.ExecuteCoroutine(script.Substring(1)));
-                }
-                else
-                {
-                    _dialogueManager.ExecuteMethod(script);
-                }
+                _dialogueManager.ExecuteMethod(script);
             }
         }
 
-        for (int i = 0; i < text.Length; i++)
-        {
-            if (text[i] == '{')
-            {
-                int endTag = text.IndexOf('}', i);
-                if (endTag != -1)
-                {
-                    text = text.Remove(i, endTag - i + 1);
-                }
-            }
-        }
+        text = text.Replace(_dialogueManager.midScriptChar.ToString(), "");
 
         _dialogueText.text = text;
         StartCoroutine(EnableInstantText());
@@ -224,7 +249,6 @@ public class DialogueController : MonoBehaviour
     private IEnumerator WriteDialogue()
     {
         string text = _actualDialogueText;
-
         _onWritingDialogue = true;
 
         if (_actualStartScriptsList != null)
@@ -237,48 +261,53 @@ public class DialogueController : MonoBehaviour
 
         for (int i = 0; i < text.Length; i++)
         {
+            if (text[i] == _dialogueManager.midScriptChar)
+            {
+                text = text.Remove(i, 1);
+                _actualMiddleScriptsListIndex.Add(i);
+            }
+        }
+
+        for (int i = 0; i < text.Length; i++)
+        {
             if (text[i] == '<')
             {
                 int endTag = text.IndexOf('>', i);
                 if (endTag != -1)
                 {
                     string fullTag = text.Substring(i, endTag - i + 1);
-                    _actualTagsList.Add(fullTag);
-                    text = text.Remove(i, endTag - i + 1).Insert(i, " ^");
-                }
-            }
-            else if (text[i] == '{')
-            {
-                int endTag = text.IndexOf('}', i);
-                if (endTag != -1)
-                {
-                    text = text.Remove(i, endTag - i + 1).Insert(i, " ~");
+                    if (fullTag.Length == 9 && fullTag.StartsWith("<#") && fullTag[8] == '>')
+                    {
+                        string hex = fullTag.Substring(2, 6);
+                        string newTag = $"<#{hex}00>";
+                        text = text.Remove(i, fullTag.Length).Insert(i, newTag);
+                        endTag = i + newTag.Length - 1;
+                    }
+                    else if (fullTag == "</color>")
+                    {
+                        string newTag = "<alpha=#00>";
+                        text = text.Remove(i, fullTag.Length).Insert(i, newTag);
+                        endTag = i + newTag.Length - 1;
+                    }
+                    else if (fullTag.StartsWith("<sprite"))
+                    {
+                        _actualSpritesList.Add(fullTag);
+                        text = text.Remove(i, fullTag.Length).Insert(i, "◌");
+                    }
+
+                    i = endTag;
                 }
             }
         }
 
         int writeCursor = 0;
-        int tagIndex = 0;
         int scriptIndex = 0;
+        int spriteIndex = 0;
 
-        while (writeCursor < text.Length)
+        while (writeCursor <= text.Length)
         {
-            if (text[writeCursor] == '^')
+            if (_actualMiddleScriptsListIndex.Contains(writeCursor))
             {
-                text = text.Remove(writeCursor - 1, 2).Insert(writeCursor - 1, _actualTagsList[tagIndex]);
-                tagIndex++;
-
-                int endTag = text.IndexOf('>', writeCursor);
-                if (endTag != -1)
-                {
-                    writeCursor = endTag + 2;
-                }
-
-                continue;
-            }
-            else if (text[writeCursor] == '~')
-            {
-                text = text.Remove(writeCursor - 1, 2);
                 _onMiddleScriptRunning = true;
 
                 if (_actualMiddleScriptsList[scriptIndex][0] == '&')
@@ -292,80 +321,175 @@ public class DialogueController : MonoBehaviour
 
                 _onMiddleScriptRunning = false;
                 scriptIndex++;
-                continue;
+            }
+
+            if (writeCursor < text.Length && text[writeCursor] == '<')
+            {
+                int endTag = text.IndexOf('>', writeCursor);
+                if (endTag != -1)
+                {
+                    string fullTag = text.Substring(writeCursor, endTag - writeCursor + 1);
+                    if (fullTag.Length == 11 && fullTag.StartsWith("<#") && fullTag.EndsWith("00>"))
+                    {
+                        string correctedTag = fullTag.Substring(0, fullTag.Length - 3) + ">";
+                        text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, correctedTag);
+                        endTag = writeCursor + correctedTag.Length - 1;
+                    }
+                    else if (fullTag == "<alpha=#00>")
+                    {
+                        string correctedTag = "</color>";
+                        text = text.Remove(writeCursor, fullTag.Length).Insert(writeCursor, "</color>");
+                        endTag = writeCursor + correctedTag.Length - 1;
+                    }
+
+                    writeCursor = endTag + 1;
+                    continue;
+                }
+            }
+
+            if (writeCursor < text.Length && text[writeCursor] == '◌')
+            {
+                text = text.Remove(writeCursor, 1).Insert(writeCursor, _actualSpritesList[spriteIndex]);
+                writeCursor += _actualSpritesList[spriteIndex].Length;
+                spriteIndex++;
             }
 
             if (_skipWritingDialogue && !_onMiddleScriptRunning)
             {
-                int nextMidScript = text.IndexOf('~', writeCursor);
-
-                if (nextMidScript != -1)
+                bool toScript = false;
+                int end = text.Length;
+                if (_actualMiddleScriptsList != null && _actualMiddleScriptsListIndex.Count > scriptIndex && _actualMiddleScriptsListIndex[scriptIndex] > writeCursor)
                 {
-                    for (int i = writeCursor; i < nextMidScript; i++)
+                    toScript = true;
+                    end = _actualMiddleScriptsListIndex[scriptIndex];
+                }
+
+                for (int i = writeCursor; i < end && i < text.Length; i++)
+                {
+                    if (text[i] == '<')
                     {
-                        if (text[i] == '^')
+                        int endTag = text.IndexOf('>', i);
+                        if (endTag != -1)
                         {
-                            text = text.Remove(i - 1, 2).Insert(i - 1, _actualTagsList[tagIndex]);
-                            tagIndex++;
+                            string fullTag = text.Substring(i, endTag - i + 1);
+                            if (fullTag.Length == 11 && fullTag.StartsWith("<#") && fullTag.EndsWith("00>"))
+                            {
+                                string correctedTag = fullTag.Substring(0, fullTag.Length - 3) + ">";
+                                text = text.Remove(i, fullTag.Length).Insert(i, correctedTag);
+                                endTag = i + correctedTag.Length - 1;
+                            }
+                            else if (fullTag == "<alpha=#00>")
+                            {
+                                string correctedTag = "</color>";
+                                text = text.Remove(i, fullTag.Length).Insert(i, correctedTag);
+                                endTag = i + correctedTag.Length - 1;
+                            }
+                            i = endTag;
                         }
-                        writeCursor = i;
                     }
 
-                    int endTag = text.IndexOf('>', writeCursor);
-                    if (endTag != -1)
+                    if (text[i] == '◌')
                     {
-                        writeCursor = endTag + 1;
+                        text = text.Remove(i, 1).Insert(i, _actualSpritesList[spriteIndex]);
+                        i += _actualSpritesList[spriteIndex].Length;
+                        spriteIndex++;
                     }
 
+                    if (!toScript)
+                    {
+                        end = text.Length;
+                    }
+                }
+
+                if (end != text.Length)
+                {
+                    writeCursor = end;
+                    _dialogueText.text = text.Insert(writeCursor, _alphaTag);
                     _skipWritingDialogue = false;
                     continue;
                 }
                 else
                 {
-                    for (int i = writeCursor; i < text.Length; i++)
-                    {
-                        if (text[i] == '^')
-                        {
-                            text = text.Remove(i - 1, 2).Insert(i - 1, _actualTagsList[tagIndex]);
-                            tagIndex++;
-                        }
-                    }
-
                     _skipWritingDialogue = false;
                     break;
                 }
             }
 
-            _dialogueText.text = text.Insert(writeCursor, _alphaTag);
             if (_stopDialogue) StopDialogue();
+            _dialogueText.text = text.Insert(writeCursor, _alphaTag);
             writeCursor++;
             yield return new WaitForSecondsRealtime(_writingTime);
         }
 
         _dialogueText.text = text;
         _onWritingDialogue = false;
+        OnWritingComplete();
+    }
+
+    private void OnWritingComplete()
+    {
         onDialogueWriteFinish?.Invoke();
+
+        if (_questionMode == QuestionsModes.OnWriteFinish && _actualQuestionKey != null)
+        {
+            _onQuestion = true;
+            DisplayQuestions();
+        }
+    }
+
+    private void DisplayQuestions()
+    {
+        List<QuestionsEntry> questions = _dialogueManager.GetQuestions(_actualQuestionKey);
+
+        foreach (Transform child in _questionPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        if (_questionMode == QuestionsModes.OnDialogueAdvance)
+        {
+            _dialogueText.text = "";
+            _dialogueActorText.text = "";
+        }
+
+        _questionPanel.gameObject.SetActive(true);
+
+        foreach (QuestionsEntry question in questions)
+        {
+            GameObject buttonObj = Instantiate(_questionButtonPrefab, _questionPanel);
+            buttonObj.GetComponentInChildren<SimpleTextController>().SetKey(question.TextKey);
+            buttonObj.GetComponent<Button>().onClick.AddListener(() => OnQuestionSelected(question));
+        }
+    }
+
+    private void OnQuestionSelected(QuestionsEntry question)
+    {
+        _onQuestion = false;
+        _actualDialogueKey = question.NextKey;
+        _actualQuestionKey = null;
+        _questionPanel.gameObject.SetActive(false);
+        UpdateDialogue(); 
     }
 
     #region Animations
-    private IEnumerator OpenDialogue(string key)
+    private IEnumerator OpenDialoguePanel()
     {
         _onDialoguePanelAnimation = true;
         _dialoguePanel.SetActive(true);
 
-        if (_dialogueAnimator != null && _enableDialoguePanel != null)
+        if (_dialogueAnimator != null && _openPanelAnimation != null)
         {
-            _dialogueAnimator.Play(_enableDialoguePanel.name);
+            _dialogueAnimator.Play(_openPanelAnimation.name);
 
             yield return null;
 
-            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_enableDialoguePanel.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_openPanelAnimation.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             {
                 yield return null;
             }
         }
 
-        UpdateDialogue(key);
+        UpdateDialogue();
         _onDialoguePanelAnimation = false;
     }
 
@@ -373,13 +497,13 @@ public class DialogueController : MonoBehaviour
     {
         _onDialoguePanelAnimation = true;
 
-        if (_dialogueAnimator != null && _disableDialoguePanel != null)
+        if (_dialogueAnimator != null && _closePanelAnimation != null)
         {
-            _dialogueAnimator.Play(_disableDialoguePanel.name);
+            _dialogueAnimator.Play(_closePanelAnimation.name);
 
             yield return null;
 
-            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_disableDialoguePanel.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_closePanelAnimation.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             {
                 yield return null;
             }
@@ -393,13 +517,13 @@ public class DialogueController : MonoBehaviour
 
     private IEnumerator EnableInstantText()
     {
-        if (_dialogueAnimator != null && _enableText != null)
+        if (_dialogueAnimator != null && _showTextAnimation != null)
         {
-            _dialogueAnimator.Play(_enableText.name);
+            _dialogueAnimator.Play(_showTextAnimation.name);
 
             yield return null;
 
-            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_enableText.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            while (_dialogueAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash(_showTextAnimation.name) && _dialogueAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
             {
                 yield return null;
             }
