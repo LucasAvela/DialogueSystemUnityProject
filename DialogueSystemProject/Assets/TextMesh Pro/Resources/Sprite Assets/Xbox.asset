@@ -84,52 +84,52 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 1
     m_Scale: 1
-    m_Name: A
+    m_Name: Button South
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 2
     m_Scale: 1
-    m_Name: B
+    m_Name: Button East
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 3
     m_Scale: 1
-    m_Name: X
+    m_Name: Button West
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 4
     m_Scale: 1
-    m_Name: Y
+    m_Name: Button North
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
     m_Scale: 1
-    m_Name: Menu
+    m_Name: Start
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 8
     m_Scale: 1
-    m_Name: View
+    m_Name: Select
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 6
     m_Scale: 1
-    m_Name: LB
+    m_Name: Left Shoulder
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 7
     m_Scale: 1
-    m_Name: RB
+    m_Name: Right Shoulder
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 9
     m_Scale: 1
-    m_Name: LT
+    m_Name: Left Trigger
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 10
     m_Scale: 1
-    m_Name: RT
+    m_Name: Right Trigger
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 5
@@ -139,22 +139,22 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 11
     m_Scale: 1
-    m_Name: UP
+    m_Name: D-Pad/Up
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 12
     m_Scale: 1
-    m_Name: DOWN
+    m_Name: D-Pad/Down
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 13
     m_Scale: 1
-    m_Name: LEFT
+    m_Name: D-Pad/Left
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 14
     m_Scale: 1
-    m_Name: RIGHT
+    m_Name: D-Pad/Right
   m_GlyphTable:
   - m_Index: 0
     m_Metrics:

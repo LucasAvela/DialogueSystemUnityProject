@@ -45,6 +45,7 @@ public class DialogueManager : MonoBehaviour
         DialogueEntry dialogue = _dialogueRuntimeHandler.GetDialogueByKey(key);
 
         string nextKey = dialogue.NextKey;
+        string question = dialogue.Question;
         string actor = GetActor(dialogue.Actor);
         string text = dialogue.Text[_language];
         List<string> startScriptsList = new List<string>(dialogue.Scripts.Start);
@@ -59,7 +60,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        return new DialogueData(key, nextKey, actor, text, startScriptsList, middleScriptsList, endScriptsList);
+        return new DialogueData(key, nextKey, question, actor, text, startScriptsList, middleScriptsList, endScriptsList);
     }
 
     public string GetSimpleDialogue(string key)
@@ -112,6 +113,11 @@ public class DialogueManager : MonoBehaviour
         return actorName;
     }
 
+    public List<QuestionsEntry> GetQuestions(string key)
+    {
+        return _dialogueRuntimeHandler.GetQuestionByKey(key);
+    }
+
     public void ChangeLanguage(string newLanguage)
     {
         _language = newLanguage;
@@ -133,16 +139,18 @@ public class DialogueData
 {
     public string Key;
     public string NextKey;
+    public string Question;
     public string Actor;
     public string Text;
     public List<string> StartScriptsList;
     public List<string> MiddleScriptsList;
     public List<string> EndScriptsList;
 
-    public DialogueData(string key, string nextKey, string actor, string text, List<string> startScriptsList, List<string> middleScriptsList, List<string> endScriptsList)
+    public DialogueData(string key, string nextKey, string question, string actor, string text, List<string> startScriptsList, List<string> middleScriptsList, List<string> endScriptsList)
     {
         Key = key;
         NextKey = nextKey;
+        Question = question;
         Actor = actor;
         Text = text;
         StartScriptsList = startScriptsList;

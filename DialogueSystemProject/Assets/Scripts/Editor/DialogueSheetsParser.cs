@@ -535,7 +535,7 @@ public class DialogueSheetsParser : EditorWindow
 
                 questionList.Add(new Dictionary<string, object>
             {
-                { "UIKey", ui },
+                { "TextKey", ui },
                 { "NextKey", next }
             });
             }

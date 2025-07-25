@@ -350,7 +350,7 @@
       "zh": "我有这么多工作要做……现在不能睡……但我已经精疲力尽。我的身体渴望休息，思绪开始混乱。我该怎么办？"
     },
     "NextKey": null,
-    "Question": "noCreativity0",
+    "Question": "SleepQuestion",
     "Scripts": {
       "Insert": [],
       "Start": [],
@@ -373,7 +373,7 @@
       "zh": "再坚持下去已经没有意义了。我需要睡觉。"
     },
     "NextKey": null,
-    "Question": "noCreativity1",
+    "Question": null,
     "Scripts": {
       "Insert": [],
       "Start": [],

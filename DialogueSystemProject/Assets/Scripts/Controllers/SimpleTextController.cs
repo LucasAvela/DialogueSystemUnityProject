@@ -67,4 +67,9 @@ public class SimpleTextController : MonoBehaviour
 
         Debug.LogWarning("SimpleTextController: No TextMeshPro or TextMeshProUGUI component found on the GameObject.");
     }
+
+    public void SetKey(string key)
+    {
+        _key = key;
+    }
 }

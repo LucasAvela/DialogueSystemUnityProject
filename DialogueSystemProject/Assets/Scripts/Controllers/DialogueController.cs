@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private TextMeshProUGUI _dialogueActorText;
     [SerializeField] private ActorController _actorController;
-    [SerializeField] private bool _isDialogueInstant = false;
+    [SerializeField] private WriteModes _dialogueMode;
     [SerializeField] private float _writingTime = 0.05f;
     [SerializeField] private string _alphaTag = "<alpha=#00>";
+
+    [Header("Questions Settings")]
+    [SerializeField] private QuestionsModes _questionMode;
+    [SerializeField] private Transform _questionPanel;
+    [SerializeField] private GameObject _questionButtonPrefab;
 
     [Header("Animations Settings")] // Animations
     [SerializeField] private Animator _dialogueAnimator;
@@ -28,10 +34,12 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private bool _onDialogueTextAnimation = false;
     [SerializeField] private bool _skipWritingDialogue = false;
     [SerializeField] private bool _stopDialogue = false;
+    [SerializeField] private bool _onQuestion = false;
 
     [Header("Dialogue Content")] // Actual dialogue content and metadata
     [TextArea(1, 2)][SerializeField] private string _actualDialogueKey = null;
     [TextArea(1, 2)][SerializeField] private string _nextDialogueKey = null;
+    [TextArea(1, 2)][SerializeField] private string _actualQuestionKey = null;
     [TextArea(1, 2)][SerializeField] private string _actualDialogueActor = null;
     [TextArea(3, 9)][SerializeField] private string _actualDialogueText = null;
     [SerializeField] private List<string> _actualStartScriptsList = new List<string>();
@@ -44,6 +52,18 @@ public class DialogueController : MonoBehaviour
     private DialogueManager _dialogueManager = null;
     private Coroutine _writingDialogueCoroutine = null;
     private Coroutine _instantDialogueCoroutine = null;
+
+    private enum WriteModes
+    {
+        LetterByLetter,
+        InstantText
+    }
+
+    private enum QuestionsModes
+    {
+        OnDialogueAdvance,
+        OnWriteFinish
+    }
 
     public event System.Action onDialogueStart;
     public event System.Action onDialogueUpdate;
@@ -76,7 +96,7 @@ public class DialogueController : MonoBehaviour
 
     public void ConsumeInput()
     {
-        if (!_onDialogue || _onDialoguePanelAnimation || _onDialogueTextAnimation || _onMiddleScriptRunning) return;
+        if (!_onDialogue || _onDialoguePanelAnimation || _onDialogueTextAnimation || _onMiddleScriptRunning || _onQuestion) return;
 
         if (_onWritingDialogue)
         {
@@ -99,9 +119,15 @@ public class DialogueController : MonoBehaviour
             }
         }
 
-        if (_nextDialogueKey != null && _nextDialogueKey != "")
+        if (_questionMode == QuestionsModes.OnDialogueAdvance && _actualQuestionKey != null)
         {
-            onDialogueUpdate?.Invoke();
+            _onQuestion = true;
+            DisplayQuestions();
+            return;
+        }
+
+        if (_nextDialogueKey != null)
+        {
             _actualDialogueKey = _nextDialogueKey;
             UpdateDialogue();
         }
@@ -138,9 +164,11 @@ public class DialogueController : MonoBehaviour
     {
         ClearDialogue();
         DialogueData dialogueData = _dialogueManager.GetDialogueData(_actualDialogueKey);
+        onDialogueUpdate?.Invoke();
 
         _actualDialogueKey = dialogueData.Key;
         _nextDialogueKey = dialogueData.NextKey;
+        _actualQuestionKey = dialogueData.Question;
         _actualDialogueActor = (dialogueData.Actor == _dialogueManager.NPCActorKey && _actorController != null) ? _actorController.Name() : dialogueData.Actor;
         _actualDialogueText = dialogueData.Text;
         _actualStartScriptsList = dialogueData.StartScriptsList;
@@ -155,6 +183,7 @@ public class DialogueController : MonoBehaviour
         _dialogueText.text = "";
         _dialogueActorText.text = "";
         _nextDialogueKey = null;
+        _actualQuestionKey = null;
         _actualDialogueActor = null;
         _actualDialogueText = null;
         _actualStartScriptsList.Clear();
@@ -165,13 +194,13 @@ public class DialogueController : MonoBehaviour
 
     private void DisplayDialogue()
     {
-        if (_isDialogueInstant)
-        {
-            _instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
-        }
-        else
+        if (_dialogueMode == WriteModes.LetterByLetter)
         {
             _writingDialogueCoroutine = StartCoroutine(WriteDialogue());
+        }
+        else if (_dialogueMode == WriteModes.InstantText)
+        {
+            _instantDialogueCoroutine = StartCoroutine(DisplayInstantDialogue());
         }
 
         _dialogueActorText.text = _actualDialogueActor;
@@ -394,7 +423,52 @@ public class DialogueController : MonoBehaviour
 
         _dialogueText.text = text;
         _onWritingDialogue = false;
+        OnWritingComplete();
+    }
+
+    private void OnWritingComplete()
+    {
         onDialogueWriteFinish?.Invoke();
+
+        if (_questionMode == QuestionsModes.OnWriteFinish && _actualQuestionKey != null)
+        {
+            _onQuestion = true;
+            DisplayQuestions();
+        }
+    }
+
+    private void DisplayQuestions()
+    {
+        List<QuestionsEntry> questions = _dialogueManager.GetQuestions(_actualQuestionKey);
+
+        foreach (Transform child in _questionPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        if (_questionMode == QuestionsModes.OnDialogueAdvance)
+        {
+            _dialogueText.text = "";
+            _dialogueActorText.text = "";
+        }
+
+        _questionPanel.gameObject.SetActive(true);
+
+        foreach (QuestionsEntry question in questions)
+        {
+            GameObject buttonObj = Instantiate(_questionButtonPrefab, _questionPanel);
+            buttonObj.GetComponentInChildren<SimpleTextController>().SetKey(question.TextKey);
+            buttonObj.GetComponent<Button>().onClick.AddListener(() => OnQuestionSelected(question));
+        }
+    }
+
+    private void OnQuestionSelected(QuestionsEntry question)
+    {
+        _onQuestion = false;
+        _actualDialogueKey = question.NextKey;
+        _actualQuestionKey = null;
+        _questionPanel.gameObject.SetActive(false);
+        UpdateDialogue(); 
     }
 
     #region Animations

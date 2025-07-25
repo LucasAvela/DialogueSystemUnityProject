@@ -220,40 +220,6 @@
       "Insert": []
     }
   },
-  "colorado_key": {
-    "Text": {
-      "en_us": "International",
-      "pt_br": "Internacional",
-      "es": "Internacional",
-      "it": "Internazionale",
-      "fr": "International",
-      "de": "International",
-      "ru": "Международный",
-      "ja": "インターナショナル",
-      "ko": "인터내셔널",
-      "zh": "国际"
-    },
-    "Scripts": {
-      "Insert": []
-    }
-  },
-  "octa_key": {
-    "Text": {
-      "en_us": "Octa",
-      "pt_br": "Octa",
-      "es": "Octa",
-      "it": "Octa",
-      "fr": "Octa",
-      "de": "Octa",
-      "ru": "Окта",
-      "ja": "オクタ",
-      "ko": "옥타",
-      "zh": "八面体"
-    },
-    "Scripts": {
-      "Insert": []
-    }
-  },
   "Wall": {
     "Text": {
       "en_us": "I'm at the <b><#fff952>wall</color></b>.",
@@ -341,6 +307,40 @@
       "Insert": [
         "ActionButton"
       ]
+    }
+  },
+  "GTS": {
+    "Text": {
+      "en_us": "Go to Sleep",
+      "pt_br": "Vá dormir",
+      "es": "Ve a dormir",
+      "it": "Vai a dormire",
+      "fr": "Aller dormir",
+      "de": "Geh schlafen",
+      "ru": "Идти спать",
+      "ja": "寝る",
+      "ko": "잠자리에 들다",
+      "zh": "睡觉"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "SAN": {
+    "Text": {
+      "en_us": "Stay All Night",
+      "pt_br": "Ficar a noite toda",
+      "es": "Quédate toda la noche",
+      "it": "Rimani tutta la notte",
+      "fr": "Rester toute la nuit",
+      "de": "Bleib die ganze Nacht",
+      "ru": "Оставайтесь на всю ночь",
+      "ja": "一晩中滞在",
+      "ko": "밤새 머물다",
+      "zh": "整晚待着"
+    },
+    "Scripts": {
+      "Insert": []
     }
   }
 }
