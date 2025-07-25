@@ -1,0 +1,329 @@
+{
+  "key": {
+    "Text": {
+      "en_us": "",
+      "en_gb": "",
+      "pt_br": "",
+      "es": "",
+      "it": "",
+      "fr": "",
+      "de": "",
+      "pl": "",
+      "ru": "",
+      "ja": "",
+      "ko": "",
+      "zh": ""
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "StartDialogue": {
+    "Text": {
+      "en_us": "Start Dialogue",
+      "en_gb": "Start Dialogue",
+      "pt_br": "Iniciar Diálogo",
+      "es": "Iniciar Diálogo",
+      "it": "Avvia Dialogo",
+      "fr": "Démarrer le Dialogue",
+      "de": "Dialog Starten",
+      "pl": "Rozpocznij Dialog",
+      "ru": "Начать Диалог",
+      "ja": "ダイアログを開始",
+      "ko": "대화 시작",
+      "zh": "开始对话"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "StopDialogue": {
+    "Text": {
+      "en_us": "Stop Dialogue",
+      "en_gb": "Stop Dialogue",
+      "pt_br": "Parar Diálogo",
+      "es": "Detener Diálogo",
+      "it": "Interrompere il Dialogo",
+      "fr": "Arrêter le Dialogue",
+      "de": "Dialog Beenden",
+      "pl": "Zatrzymaj Dialog",
+      "ru": "Остановить Диалог",
+      "ja": "ダイアログを停止",
+      "ko": "대화 중지",
+      "zh": "停止对话"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "NextDialogue": {
+    "Text": {
+      "en_us": "Next Dialogue",
+      "en_gb": "Next Dialogue",
+      "pt_br": "Próximo Diálogo",
+      "es": "Próximo Diálogo",
+      "it": "Dialogo Successivo",
+      "fr": "Dialogue Suivant",
+      "de": "Nächster Dialog",
+      "pl": "Następny Dialog",
+      "ru": "Следующий Диалог",
+      "ja": "次のダイアログ",
+      "ko": "다음 대화",
+      "zh": "下一个对话"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "StartSimpleDialogue": {
+    "Text": {
+      "en_us": "Start Simple Dialogue",
+      "en_gb": "Start Simple Dialogue",
+      "pt_br": "Iniciar Diálogo Simples",
+      "es": "Iniciar Diálogo Simple",
+      "it": "Avvia Dialogo Semplice",
+      "fr": "Démarrer le Dialogue Simple",
+      "de": "Einfachen Dialog Starten",
+      "pl": "Rozpocznij Prosty Dialog",
+      "ru": "Начать Простой Диалог",
+      "ja": "シンプルな会話を開始",
+      "ko": "간단한 대화 시작",
+      "zh": "开始简单对话"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "EasterEgg": {
+    "Text": {
+      "en_us": "Easter Egg",
+      "en_gb": "Easter Egg",
+      "pt_br": "Ovo de Páscoa",
+      "es": "Huevo de Pascua",
+      "it": "Uovo di Pasqua",
+      "fr": "Œuf de Pâques",
+      "de": "Osterei",
+      "pl": "Jajko Wielkanocne",
+      "ru": "Пасхальное яйцо",
+      "ja": "イースターエッグ",
+      "ko": "이스터 에그",
+      "zh": "彩蛋"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "yes_key": {
+    "Text": {
+      "en_us": "Yes",
+      "en_gb": "Yes",
+      "pt_br": "Sim",
+      "es": "Sí",
+      "it": "Sì",
+      "fr": "Oui",
+      "de": "Ja",
+      "pl": "Tak",
+      "ru": "Да",
+      "ja": "はい",
+      "ko": "네",
+      "zh": "是的"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "no_key": {
+    "Text": {
+      "en_us": "No",
+      "en_gb": "No",
+      "pt_br": "Não",
+      "es": "No",
+      "it": "No",
+      "fr": "Non",
+      "de": "Nein",
+      "pl": "Nie",
+      "ru": "Нет",
+      "ja": "いいえ",
+      "ko": "아니요",
+      "zh": "不"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "maybe_key": {
+    "Text": {
+      "en_us": "Maybe",
+      "en_gb": "Maybe",
+      "pt_br": "Talvez",
+      "es": "Quizás",
+      "it": "Forse",
+      "fr": "Peut-être",
+      "de": "Vielleicht",
+      "pl": "Może",
+      "ru": "Возможно",
+      "ja": "多分",
+      "ko": "아마도",
+      "zh": "也许"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "later_key": {
+    "Text": {
+      "en_us": "Later",
+      "en_gb": "Later",
+      "pt_br": "Mais Tarde",
+      "es": "Más tarde",
+      "it": "Più tardi",
+      "fr": "Plus tard",
+      "de": "Später",
+      "pl": "Później",
+      "ru": "Позже",
+      "ja": "後で",
+      "ko": "나중에",
+      "zh": "稍后"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "colorado_key": {
+    "Text": {
+      "en_us": "International",
+      "en_gb": "International",
+      "pt_br": "Internacional",
+      "es": "Internacional",
+      "it": "Internazionale",
+      "fr": "International",
+      "de": "International",
+      "pl": "Międzynarodowy",
+      "ru": "Международный",
+      "ja": "インターナショナル",
+      "ko": "인터내셔널",
+      "zh": "国际"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "octa_key": {
+    "Text": {
+      "en_us": "Octa",
+      "en_gb": "Octa",
+      "pt_br": "Octa",
+      "es": "Octa",
+      "it": "Octa",
+      "fr": "Octa",
+      "de": "Octa",
+      "pl": "Octa",
+      "ru": "Окта",
+      "ja": "オクタ",
+      "ko": "옥타",
+      "zh": "八面体"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Wall": {
+    "Text": {
+      "en_us": "I'm at the <b><#fff952>wall</color></b>.",
+      "en_gb": "I'm at the <b><#fff952>wall</color></b>.",
+      "pt_br": "Estou na <b><#fff952>parede</color></b>.",
+      "es": "Estoy en la <b><#fff952>pared</color></b>.",
+      "it": "Sono al <b><#fff952>muro</color></b>.",
+      "fr": "Je suis au <b><#fff952>mur</color></b>.",
+      "de": "Ich bin an der <b><#fff952>Wand</color></b>.",
+      "pl": "Jestem przy <b><#fff952>ścianie</color></b>.",
+      "ru": "Я у <b><#fff952>стены</color></b>.",
+      "ja": "<b><#fff952>壁</color></b>にいます。",
+      "ko": "<b><#fff952>벽</color></b>에 있습니다.",
+      "zh": "我在<b><#fff952>墙</color></b>边。"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "key_player": {
+    "Text": {
+      "en_us": "{PlayerName}",
+      "en_gb": "{PlayerName}",
+      "pt_br": "{PlayerName}",
+      "es": "{PlayerName}",
+      "it": "{PlayerName}",
+      "fr": "{PlayerName}",
+      "de": "{PlayerName}",
+      "pl": "{PlayerName}",
+      "ru": "{PlayerName}",
+      "ja": "{PlayerName}",
+      "ko": "{PlayerName}",
+      "zh": "{PlayerName}"
+    },
+    "Scripts": {
+      "Insert": [
+        "PlayerName"
+      ]
+    }
+  },
+  "minecraft_icon": {
+    "Text": {
+      "en_us": "<sprite name=\"mc\">",
+      "en_gb": "<sprite name=\"mc\">",
+      "pt_br": "<sprite name=\"mc\">",
+      "es": "<sprite name=\"mc\">",
+      "it": "<sprite name=\"mc\">",
+      "fr": "<sprite name=\"mc\">",
+      "de": "<sprite name=\"mc\">",
+      "pl": "<sprite name=\"mc\">",
+      "ru": "<sprite name=\"mc\">",
+      "ja": "<sprite name=\"mc\">",
+      "ko": "<sprite name=\"mc\">",
+      "zh": "<sprite name=\"mc\">"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "cs_icon": {
+    "Text": {
+      "en_us": "<sprite name=\"cs\">",
+      "en_gb": "<sprite name=\"cs\">",
+      "pt_br": "<sprite name=\"cs\">",
+      "es": "<sprite name=\"cs\">",
+      "it": "<sprite name=\"cs\">",
+      "fr": "<sprite name=\"cs\">",
+      "de": "<sprite name=\"cs\">",
+      "pl": "<sprite name=\"cs\">",
+      "ru": "<sprite name=\"cs\">",
+      "ja": "<sprite name=\"cs\">",
+      "ko": "<sprite name=\"cs\">",
+      "zh": "<sprite name=\"cs\">"
+    },
+    "Scripts": {
+      "Insert": []
+    }
+  },
+  "Action_icon": {
+    "Text": {
+      "en_us": "press {ActionButton}",
+      "en_gb": "press {ActionButton}",
+      "pt_br": "pressione {ActionButton}",
+      "es": "Presione {ActionButton}",
+      "it": "premi {ActionButton}",
+      "fr": "appuyez sur {ActionButton}",
+      "de": "drücken Sie {ActionButton}",
+      "pl": "naciśnij {ActionButton}",
+      "ru": "нажмите {ActionButton}",
+      "ja": "{ActionButton} を押す",
+      "ko": "{ActionButton}을 누르세요",
+      "zh": "按下{ActionButton}"
+    },
+    "Scripts": {
+      "Insert": [
+        "ActionButton"
+      ]
+    }
+  }
+}

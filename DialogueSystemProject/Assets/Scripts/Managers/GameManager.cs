@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     [Header("Player Settings")]
     [SerializeField] private string _playerName;
 
@@ -60,7 +65,7 @@ public class GameManager : MonoBehaviour
             readablePath = InputControlPath.ToHumanReadableString(binding.effectivePath,InputControlPath.HumanReadableStringOptions.OmitDevice);
         }
         
-        return $"<sprite=\"SpriteButtons\" name={readablePath}_button>";
+        return $"<sprite=\"Xbox\" name={readablePath}>";
     }
 
     [ContextMenu("Print Action Button")]

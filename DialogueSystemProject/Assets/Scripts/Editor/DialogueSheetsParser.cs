@@ -12,19 +12,20 @@ public class DialogueSheetsParser : EditorWindow
     private string _sheetID;
     private int _gidDialogue;
     private int _gidSimpleDialogue;
-    private int _gidUI;
-    private int _gidQuestion;
+    private int _gidSimpleText;
+    private int _gidCharacters;
+    private int _gidQuestions;
 
     private int _languagesCount;
-    private string[] _texts;
-    private string[] _actors;
-    private bool[] _languageFoldouts;
     private bool _showLanguages = true;
+    private string[] _languages;
 
     private string _dialogueSystemFolder = Application.dataPath + "/Resources/DialogueSystem";
+    private string _tempDownloadFolder = Application.dataPath + "/Resources/DialogueSystem/Temp";
+    private string _configFolder = Application.dataPath + "/Resources/DialogueSystem/Config";
+    private string _prefix;
 
-    List<string> languagesTexts = new List<string>();
-    List<string> languagesActors = new List<string>();
+    List<string> _languagesList = new List<string>();
 
     [MenuItem("Tools/Dialogue")]
     public static void OpenWindow()
@@ -32,6 +33,7 @@ public class DialogueSheetsParser : EditorWindow
         GetWindow<DialogueSheetsParser>("Dialogue");
     }
 
+    #region GUI
     private void OnGUI()
     {
         GUILayout.Label("Dialogue Sheets Parser", EditorStyles.boldLabel);
@@ -52,8 +54,9 @@ public class DialogueSheetsParser : EditorWindow
         _sheetID = EditorGUILayout.TextField("Google Sheet ID", _sheetID);
         _gidDialogue = EditorGUILayout.IntField("GID - Dialogue", _gidDialogue);
         _gidSimpleDialogue = EditorGUILayout.IntField("GID - Simple Dialogue", _gidSimpleDialogue);
-        _gidUI = EditorGUILayout.IntField("GID - UI", _gidUI);
-        _gidQuestion = EditorGUILayout.IntField("GID - Question", _gidQuestion);
+        _gidSimpleText = EditorGUILayout.IntField("GID - Simple Text", _gidSimpleText);
+        _gidCharacters = EditorGUILayout.IntField("GID - Characters", _gidCharacters);
+        _gidQuestions = EditorGUILayout.IntField("GID - Question", _gidQuestions);
 
         EditorGUILayout.Space();
 
@@ -61,12 +64,10 @@ public class DialogueSheetsParser : EditorWindow
         if (newCount != _languagesCount)
         {
             _languagesCount = newCount;
-            _texts = new string[_languagesCount];
-            _actors = new string[_languagesCount];
-            _languageFoldouts = new bool[_languagesCount];
+            _languages = new string[_languagesCount];
         }
 
-        if (_languagesCount <= 0) return;
+        if (_languagesCount <= 0) _languagesCount = 0;
 
         EditorGUI.indentLevel++;
         _showLanguages = EditorGUILayout.Foldout(_showLanguages, "Languages");
@@ -76,80 +77,84 @@ public class DialogueSheetsParser : EditorWindow
             EditorGUI.indentLevel++;
             for (int i = 0; i < _languagesCount; i++)
             {
-                _languageFoldouts[i] = EditorGUILayout.Foldout(_languageFoldouts[i], $"Language {i + 1}");
-                if (_languageFoldouts[i])
-                {
-                    EditorGUI.indentLevel++;
-                    _texts[i] = EditorGUILayout.TextField($"Text {i + 1} Label", _texts[i]);
-                    _actors[i] = EditorGUILayout.TextField($"Actor {i + 1} Label", _actors[i]);
-                    EditorGUI.indentLevel--;
-                }
+                _languages[i] = EditorGUILayout.TextField($"Language {i}", _languages[i]);
             }
             EditorGUI.indentLevel--;
         }
         EditorGUI.indentLevel--;
 
         EditorGUILayout.Space();
-        _dialogueSystemFolder = EditorGUILayout.TextField("Output Folder", _dialogueSystemFolder);
-
-        if (GUILayout.Button("Select Folder"))
-        {
-            string path = EditorUtility.OpenFolderPanel("Select Output Folder", _dialogueSystemFolder, "");
-            if (!string.IsNullOrEmpty(path))
-            {
-                _dialogueSystemFolder = path;
-            }
-        }
+        _prefix = EditorGUILayout.TextField("FIles Prefix", _prefix);
 
         EditorGUILayout.Space();
-        if (GUILayout.Button("Delete All JSON Files"))
+        if (GUILayout.Button("Delete All DATA Files"))
         {
-            DeleteData();
+            //DeleteData();
         }
         if (GUILayout.Button("Parse Dialogue Sheet"))
         {
             StartParser();
         }
     }
+    #endregion
 
     private void StartParser()
     {
-        languagesTexts.Clear();
-        languagesActors.Clear();
+        _languagesList.Clear();
+
         for (int i = 0; i < _languagesCount; i++)
         {
-            languagesTexts.Add(_texts[i]);
-            languagesActors.Add(_actors[i]);
+            _languagesList.Add(_languages[i]);
         }
-        Debug.Log($"🔣 Selected Languages: {string.Join(", ", languagesTexts)}");
-        Debug.Log("⏳ Downloading spreadsheet data...");
+
+        Debug.Log($"🔣 Selected Languages: {string.Join(", ", _languagesList)}");
         try
         {
-            EditorUtility.DisplayProgressBar("Parsing Sheets", "Downloading and parsing Dialogue...", 0.25f);
-            DialogueParse();
-            EditorUtility.DisplayProgressBar("Parsing Sheets", "Parsing Simple Dialogue...", 0.5f);
-            SimpleDialogueParser();
-            EditorUtility.DisplayProgressBar("Parsing Sheets", "Parsing UI data...", 0.75f);
-            UIParser();
-            EditorUtility.DisplayProgressBar("Parsing Sheets", "Parsing Questions...", 1f);
-            QuestionParser();
+            EditorUtility.DisplayProgressBar("⏳ Downloading Sheets", "Fetches data from the Google Sheet using the provided ID and GIDs.", 0.0f);
+            DownloadSheet("Dialogue.csv", _gidDialogue);
+            EditorUtility.DisplayProgressBar("⏳ Downloading Sheets", "Fetches data from the Google Sheet using the provided ID and GIDs.", 0.2f);
+            DownloadSheet("SimpleDialogue.csv", _gidSimpleDialogue);
+            EditorUtility.DisplayProgressBar("⏳ Downloading Sheets", "Fetches data from the Google Sheet using the provided ID and GIDs.", 0.4f);
+            DownloadSheet("SimpleText.csv", _gidSimpleText);
+            EditorUtility.DisplayProgressBar("⏳ Downloading Sheets", "Fetches data from the Google Sheet using the provided ID and GIDs.", 0.6f);
+            DownloadSheet("Characters.csv", _gidCharacters);
+            EditorUtility.DisplayProgressBar("⏳ Downloading Sheets", "Fetches data from the Google Sheet using the provided ID and GIDs.", 0.8f);
+            DownloadSheet("Questions.csv", _gidQuestions);
+            EditorUtility.DisplayProgressBar("⏳ Downloading Sheets", "Fetches data from the Google Sheet using the provided ID and GIDs.", 1.0f);
         }
         finally
         {
             EditorUtility.ClearProgressBar();
         }
-        Debug.Log("✅ Download and processing complete!");
+        Debug.Log("✅ Download complete!");
+
+        try
+        {
+            EditorUtility.DisplayProgressBar("⏳ Processing Dialogue Data", "Parsing Dialogue sheet and building structured JSON.", 0.0f);
+            ParseDialogue();
+            EditorUtility.DisplayProgressBar("⏳ Processing Simple Dialogue", "Converting simple dialogue rows into JSON format.", 0.2f);
+            ParseSimpleDialogue();
+            EditorUtility.DisplayProgressBar("⏳ Processing Simple Text", "Transforming simple text entries into localized data.", 0.4f);
+            ParseSimpleText();
+            EditorUtility.DisplayProgressBar("⏳ Processing Characters", "Loading character information and preparing JSON output.", 0.6f);
+            ParseCharacters();
+            EditorUtility.DisplayProgressBar("⏳ Processing Questions", "Linking UI options to dialogue flow and exporting questions.", 0.8f);
+            ParseQuestions();
+            EditorUtility.DisplayProgressBar("✅ All Done", "All dialogue data has been successfully converted to JSON.", 1.0f);
+        }
+        finally
+        {
+            EditorUtility.ClearProgressBar();
+        }
+        Debug.Log("✅ All dialogue data has been parsed and saved as JSON.");
+        AssetDatabase.Refresh();
     }
 
-    private void DialogueParse()
+    #region Download
+    private void DownloadSheet(string path_out, int sheet_gid)
     {
-        string dialogueCsv = Path.Combine(_dialogueSystemFolder, "Dialogue.csv");
-        string dialogueJson = Path.Combine(_dialogueSystemFolder, "Dialogue.json");
-
-        if (File.Exists(dialogueCsv)) File.Delete(dialogueCsv);
-        if (File.Exists(dialogueJson)) File.Delete(dialogueJson);
-
-        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={_gidDialogue}";
+        string csv = Path.Combine(_tempDownloadFolder, _prefix + path_out);
+        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={sheet_gid}";
         UnityWebRequest www = UnityWebRequest.Get(url);
         var request = www.SendWebRequest();
 
@@ -157,29 +162,22 @@ public class DialogueSheetsParser : EditorWindow
 
         if (www.result == UnityWebRequest.Result.Success)
         {
-            File.WriteAllBytes(dialogueCsv, www.downloadHandler.data);
-            Debug.Log($"✅ Downloaded: {Path.GetFileName(dialogueCsv)}");
+            File.WriteAllBytes(csv, www.downloadHandler.data);
         }
         else
         {
-            Debug.LogError($"❌ Failed to download {Path.GetFileName(dialogueCsv)}: {www.error}");
+            Debug.LogError($"❌ Failed to download {Path.GetFileName(csv)}: {www.error}");
         }
+    }
+    #endregion
 
-        var emptyDict = new Dictionary<string, object>
-        {
-            { "Actor", new Dictionary<string, object>() },
-            { "Text", new Dictionary<string, object>() },
-            { "Next_Key", null },
-            { "Question", null },
-            { "Scripts", new Dictionary<string, object>
-                {
-                    { "Insert", new List<object>() },
-                    { "Start", new List<object>() },
-                    { "Middle", new List<object>() },
-                    { "End", new List<object>() }
-                }
-            }
-        };
+    #region Parse
+    private void ParseDialogue()
+    {
+        string dialogueCsv = Path.Combine(_tempDownloadFolder, _prefix + "Dialogue.csv");
+        string dialogueJson = Path.Combine(_dialogueSystemFolder, _prefix + "Dialogue.json");
+
+        if (File.Exists(dialogueJson)) File.Delete(dialogueJson);
 
         string[] lines = File.ReadAllLines(dialogueCsv);
         string[] headers = lines[0].Split(',');
@@ -191,7 +189,7 @@ public class DialogueSheetsParser : EditorWindow
         int middleIndex = Array.IndexOf(headers, "MiddleScript");
         int endIndex = Array.IndexOf(headers, "EndScript");
         int questionIndex = Array.IndexOf(headers, "Question");
-        int actorDefaultIndex = Array.IndexOf(headers, "Actor");
+        int actorIndex = Array.IndexOf(headers, "Actor");
 
         var dialogueData = new Dictionary<string, object>();
 
@@ -204,9 +202,9 @@ public class DialogueSheetsParser : EditorWindow
             {
                 var clone = new Dictionary<string, object>
                 {
-                    { "Actor", new Dictionary<string, object>() },
+                    { "Actor", null },
                     { "Text", new Dictionary<string, object>() },
-                    { "Next_Key", null },
+                    { "NextKey", null },
                     { "Question", null },
                     { "Scripts", new Dictionary<string, object>
                         {
@@ -232,26 +230,16 @@ public class DialogueSheetsParser : EditorWindow
 
             var entry = (Dictionary<string, object>)dialogueData[keyValue];
 
-            var actorDict = (Dictionary<string, object>)entry["Actor"];
-            for (int j = 0; j < languagesActors.Count; j++)
+            if (actorIndex >= 0 && actorIndex < fields.Count)
             {
-                string lang = languagesActors[j];
-                int actorColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
-                if (actorColIndex >= 0 && actorColIndex < fields.Count)
-                {
-                    actorDict[languagesTexts[j]] = fields[actorColIndex].Trim();
-
-                    if (fields[actorColIndex].Trim() == null || fields[actorColIndex].Trim() == "")
-                    {
-                        actorDict[languagesTexts[j]] = fields[actorDefaultIndex].Trim();
-                    }
-                }
+                string actor = fields[actorIndex].Trim();
+                entry["Actor"] = actor;
             }
 
             var textDict = (Dictionary<string, object>)entry["Text"];
-            for (int j = 0; j < languagesTexts.Count; j++)
+            for (int j = 0; j < _languagesList.Count; j++)
             {
-                string lang = languagesTexts[j];
+                string lang = _languagesList[j];
                 int textColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
                 if (textColIndex >= 0 && textColIndex < fields.Count)
                 {
@@ -262,7 +250,7 @@ public class DialogueSheetsParser : EditorWindow
             if (nextKeyIndex >= 0 && nextKeyIndex < fields.Count)
             {
                 string nextKey = fields[nextKeyIndex].Trim();
-                entry["Next_Key"] = string.IsNullOrEmpty(nextKey) ? null : nextKey;
+                entry["NextKey"] = string.IsNullOrEmpty(nextKey) ? null : nextKey;
             }
 
             if (questionIndex >= 0 && questionIndex < fields.Count)
@@ -284,49 +272,19 @@ public class DialogueSheetsParser : EditorWindow
 
             if (endIndex >= 0 && endIndex < fields.Count)
                 scriptsDict["End"] = fields[endIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
-
         }
 
         string json = JsonConvert.SerializeObject(dialogueData, Formatting.Indented);
         if (File.Exists(dialogueCsv)) File.Delete(dialogueCsv);
         File.WriteAllText(dialogueJson, json);
-        Debug.Log($"✅ JSON saved: {Path.GetFileName(dialogueJson)}");
-        AssetDatabase.Refresh();
     }
 
-    private void SimpleDialogueParser()
+    private void ParseSimpleDialogue()
     {
-        string simpleDialogueCsv = Path.Combine(_dialogueSystemFolder, "SimpleDialogue.csv");
-        string simpleDialogueJson = Path.Combine(_dialogueSystemFolder, "SimpleDialogue.json");
+        string simpleDialogueCsv = Path.Combine(_tempDownloadFolder, _prefix + "SimpleDialogue.csv");
+        string simpleDialogueJson = Path.Combine(_dialogueSystemFolder, _prefix + "SimpleDialogue.json");
 
-        if (File.Exists(simpleDialogueCsv)) File.Delete(simpleDialogueCsv);
         if (File.Exists(simpleDialogueJson)) File.Delete(simpleDialogueJson);
-
-        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={_gidSimpleDialogue}";
-        UnityWebRequest www = UnityWebRequest.Get(url);
-        var request = www.SendWebRequest();
-
-        while (!request.isDone) { }
-
-        if (www.result == UnityWebRequest.Result.Success)
-        {
-            File.WriteAllBytes(simpleDialogueCsv, www.downloadHandler.data);
-            Debug.Log($"✅ Downloaded: {Path.GetFileName(simpleDialogueCsv)}");
-        }
-        else
-        {
-            Debug.LogError($"❌ Failed to download {Path.GetFileName(simpleDialogueCsv)}: {www.error}");
-        }
-
-        var emptyDict = new Dictionary<string, object>
-        {
-            { "Text", new Dictionary<string, object>() },
-            { "Scripts", new Dictionary<string, object>
-                {
-                    { "Insert", new List<object>() }
-                }
-            }
-        };
 
         string[] lines = File.ReadAllLines(simpleDialogueCsv);
         string[] headers = lines[0].Split(',');
@@ -368,9 +326,9 @@ public class DialogueSheetsParser : EditorWindow
             var entry = (Dictionary<string, object>)simpleDialogueData[keyValue];
 
             var textDict = (Dictionary<string, object>)entry["Text"];
-            for (int j = 0; j < languagesTexts.Count; j++)
+            for (int j = 0; j < _languagesList.Count; j++)
             {
-                string lang = languagesTexts[j];
+                string lang = _languagesList[j];
                 int textColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
                 if (textColIndex >= 0 && textColIndex < fields.Count)
                 {
@@ -387,51 +345,22 @@ public class DialogueSheetsParser : EditorWindow
         string json = JsonConvert.SerializeObject(simpleDialogueData, Formatting.Indented);
         if (File.Exists(simpleDialogueCsv)) File.Delete(simpleDialogueCsv);
         File.WriteAllText(simpleDialogueJson, json);
-        Debug.Log($"✅ JSON saved: {Path.GetFileName(simpleDialogueJson)}");
-        AssetDatabase.Refresh();
     }
 
-    private void UIParser()
+    private void ParseSimpleText()
     {
-        string uiCsv = Path.Combine(_dialogueSystemFolder, "UI.csv");
-        string uiJson = Path.Combine(_dialogueSystemFolder, "UI.json");
+        string simpleTextCsv = Path.Combine(_tempDownloadFolder, _prefix + "SimpleText.csv");
+        string simpleTextJson = Path.Combine(_dialogueSystemFolder, _prefix + "SimpleText.json");
 
-        if (File.Exists(uiCsv)) File.Delete(uiCsv);
-        if (File.Exists(uiJson)) File.Delete(uiJson);
+        if (File.Exists(simpleTextJson)) File.Delete(simpleTextJson);
 
-        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={_gidUI}";
-        UnityWebRequest www = UnityWebRequest.Get(url);
-        var request = www.SendWebRequest();
-
-        while (!request.isDone) { }
-
-        if (www.result == UnityWebRequest.Result.Success)
-        {
-            File.WriteAllBytes(uiCsv, www.downloadHandler.data);
-            Debug.Log($"✅ Downloaded: {Path.GetFileName(uiCsv)}");
-        }
-        else
-        {
-            Debug.LogError($"❌ Failed to download {Path.GetFileName(uiCsv)}: {www.error}");
-        }
-
-        var emptyDict = new Dictionary<string, object>
-        {
-            { "Text", new Dictionary<string, object>() },
-            { "Scripts", new Dictionary<string, object>
-                {
-                    { "Insert", new List<object>() }
-                }
-            }
-        };
-
-        string[] lines = File.ReadAllLines(uiCsv);
+        string[] lines = File.ReadAllLines(simpleTextCsv);
         string[] headers = lines[0].Split(',');
 
         int keyIndex = Array.IndexOf(headers, "Key");
         int insertIndex = Array.IndexOf(headers, "Insert");
 
-        var uiData = new Dictionary<string, object>();
+        var simpleTextData = new Dictionary<string, object>();
 
         for (int i = 1; i < lines.Length; i++)
         {
@@ -450,7 +379,7 @@ public class DialogueSheetsParser : EditorWindow
                     }
                 };
 
-                uiData[keyValue] = clone;
+                simpleTextData[keyValue] = clone;
             }
         }
 
@@ -460,14 +389,14 @@ public class DialogueSheetsParser : EditorWindow
             if (keyIndex < 0 || keyIndex >= fields.Count) continue;
 
             string keyValue = fields[keyIndex].Trim();
-            if (!uiData.ContainsKey(keyValue)) continue;
+            if (!simpleTextData.ContainsKey(keyValue)) continue;
 
-            var entry = (Dictionary<string, object>)uiData[keyValue];
+            var entry = (Dictionary<string, object>)simpleTextData[keyValue];
 
             var textDict = (Dictionary<string, object>)entry["Text"];
-            for (int j = 0; j < languagesTexts.Count; j++)
+            for (int j = 0; j < _languagesList.Count; j++)
             {
-                string lang = languagesTexts[j];
+                string lang = _languagesList[j];
                 int textColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
                 if (textColIndex >= 0 && textColIndex < fields.Count)
                 {
@@ -481,43 +410,106 @@ public class DialogueSheetsParser : EditorWindow
                 scriptsDict["Insert"] = fields[insertIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
         }
 
-        string json = JsonConvert.SerializeObject(uiData, Formatting.Indented);
-        if (File.Exists(uiCsv)) File.Delete(uiCsv);
-        File.WriteAllText(uiJson, json);
-        Debug.Log($"✅ JSON saved: {Path.GetFileName(uiJson)}");
-        AssetDatabase.Refresh();
+        string json = JsonConvert.SerializeObject(simpleTextData, Formatting.Indented);
+        if (File.Exists(simpleTextCsv)) File.Delete(simpleTextCsv);
+        File.WriteAllText(simpleTextJson, json);
     }
 
-    private void QuestionParser()
+    private void ParseCharacters()
     {
-        string questionCsv = Path.Combine(_dialogueSystemFolder, "Question.csv");
-        string questionJson = Path.Combine(_dialogueSystemFolder, "Question.json");
+        string charactersCsv = Path.Combine(_tempDownloadFolder, _prefix + "Characters.csv");
+        string charactersJson = Path.Combine(_dialogueSystemFolder, _prefix + "Characters.json");
 
-        if (File.Exists(questionCsv)) File.Delete(questionCsv);
+        if (File.Exists(charactersJson)) File.Delete(charactersJson);
+
+        string[] lines = File.ReadAllLines(charactersCsv);
+        string[] headers = lines[0].Split(',');
+
+        int keyIndex = Array.IndexOf(headers, "Key");
+        int insertIndex = Array.IndexOf(headers, "Insert");
+        int actorIndex = Array.IndexOf(headers, "Actor");
+
+        var characterData = new Dictionary<string, object>();
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            var fields = lines[i].Split(',');
+            if (keyIndex < 0 || keyIndex >= fields.Length) continue;
+            string keyValue = fields[keyIndex].Trim();
+            if (!string.IsNullOrEmpty(keyValue))
+            {
+                var clone = new Dictionary<string, object>
+                {
+                    { "Original", null},
+                    { "Actor", new Dictionary<string, object>() },
+                    { "Scripts", new Dictionary<string, object>
+                        {
+                            { "Insert", new List<object>() }
+                        }
+                    }
+                };
+
+                characterData[keyValue] = clone;
+            }
+        }
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            var fields = ParseCsvLine(lines[i]);
+            if (keyIndex < 0 || keyIndex >= fields.Count) continue;
+
+            string keyValue = fields[keyIndex].Trim();
+            if (!characterData.ContainsKey(keyValue)) continue;
+
+            var entry = (Dictionary<string, object>)characterData[keyValue];
+
+            var actorDict = (Dictionary<string, object>)entry["Actor"];
+            for (int j = 0; j < _languagesList.Count; j++)
+            {
+                string lang = _languagesList[j];
+                int textColIndex = Array.FindIndex(headers, h => h.Trim().EndsWith(lang, StringComparison.OrdinalIgnoreCase));
+                if (textColIndex >= 0 && textColIndex < fields.Count)
+                {
+                    if (string.IsNullOrEmpty(fields[textColIndex].Trim()))
+                    {
+                        actorDict[lang] = fields[actorIndex].Trim();
+                    }
+                    else
+                    {
+                        actorDict[lang] = fields[textColIndex].Trim();
+                    }
+                }
+            }
+
+            var scriptsDict = (Dictionary<string, object>)entry["Scripts"];
+
+            if (insertIndex >= 0 && insertIndex < fields.Count)
+                scriptsDict["Insert"] = fields[insertIndex].Split('|').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).Cast<object>().ToList();
+
+            if (actorIndex >= 0 && actorIndex < fields.Count)
+            {
+                string actor = fields[actorIndex].Trim();
+                entry["Original"] = actor;
+            }
+        }
+
+        string json = JsonConvert.SerializeObject(characterData, Formatting.Indented);
+        if (File.Exists(charactersCsv)) File.Delete(charactersCsv);
+        File.WriteAllText(charactersJson, json);
+    }
+
+    private void ParseQuestions()
+    {
+        string questionCsv = Path.Combine(_tempDownloadFolder, _prefix + "Questions.csv");
+        string questionJson = Path.Combine(_dialogueSystemFolder, _prefix + "Questions.json");
+
         if (File.Exists(questionJson)) File.Delete(questionJson);
-
-        string url = $"https://docs.google.com/spreadsheets/d/{_sheetID}/export?format=csv&gid={_gidQuestion}";
-        UnityWebRequest www = UnityWebRequest.Get(url);
-        var request = www.SendWebRequest();
-
-        while (!request.isDone) { }
-
-        if (www.result == UnityWebRequest.Result.Success)
-        {
-            File.WriteAllBytes(questionCsv, www.downloadHandler.data);
-            Debug.Log($"✅ Downloaded: {Path.GetFileName(questionCsv)}");
-        }
-        else
-        {
-            Debug.LogError($"❌ Failed to download {Path.GetFileName(questionCsv)}: {www.error}");
-            return;
-        }
 
         string[] lines = File.ReadAllLines(questionCsv);
         string[] headers = lines[0].Split(',');
 
         int keyIndex = Array.IndexOf(headers, "Key");
-        int uiKeyIndex = Array.IndexOf(headers, "UIKey");
+        int uiKeyIndex = Array.IndexOf(headers, "TextKey");
         int nextKeyIndex = Array.IndexOf(headers, "NextKey");
 
         var questionData = new Dictionary<string, object>();
@@ -543,7 +535,7 @@ public class DialogueSheetsParser : EditorWindow
 
                 questionList.Add(new Dictionary<string, object>
             {
-                { "UIKey", ui },
+                { "TextKey", ui },
                 { "NextKey", next }
             });
             }
@@ -555,26 +547,11 @@ public class DialogueSheetsParser : EditorWindow
 
         string json = JsonConvert.SerializeObject(questionData, Formatting.Indented);
         File.WriteAllText(questionJson, json);
-        Debug.Log($"✅ JSON saved: {Path.GetFileName(questionJson)}");
-        AssetDatabase.Refresh();
     }
 
-    public void DeleteData()
-    {
-        string dialogueJson = Path.Combine(_dialogueSystemFolder, "Dialogue.json");
-        string simpleDialogueJson = Path.Combine(_dialogueSystemFolder, "SimpleDialogue.json");
-        string uiJson = Path.Combine(_dialogueSystemFolder, "UI.json");
-        string questionJson = Path.Combine(_dialogueSystemFolder, "Question.json");
+    #endregion
 
-        if (File.Exists(dialogueJson)) File.Delete(dialogueJson);
-        if (File.Exists(simpleDialogueJson)) File.Delete(simpleDialogueJson);
-        if (File.Exists(uiJson)) File.Delete(uiJson);
-        if (File.Exists(questionJson)) File.Delete(questionJson);
-
-        Debug.Log("✅ Deleted all JSON files.");
-        AssetDatabase.Refresh();
-    }
-
+    #region Utility
     public static List<string> ParseCsvLine(string line)
     {
         var result = new List<string>();
@@ -611,47 +588,48 @@ public class DialogueSheetsParser : EditorWindow
         result.Add(current);
         return result;
     }
+    #endregion
 
-    #region save/load
+    #region Save & Load
     [System.Serializable]
-    public class DialogueSheetConfig
+    public class DialogueParseConfig
     {
         public string sheetID;
         public int gidDialogue;
         public int gidSimpleDialogue;
-        public int gidUI;
-        public int gidQuestion;
+        public int gidSimpleText;
+        public int gidCharacters;
+        public int gidQuestions;
 
         public int languagesCount;
-        public string[] texts;
-        public string[] actors;
-        public string dialogueSystemFolder;
+        public string[] languages;
+        public string prefix;
     }
 
     private void SaveConfig()
     {
-        DialogueSheetConfig config = new DialogueSheetConfig
+        DialogueParseConfig config = new DialogueParseConfig
         {
             sheetID = _sheetID,
             gidDialogue = _gidDialogue,
             gidSimpleDialogue = _gidSimpleDialogue,
-            gidUI = _gidUI,
-            gidQuestion = _gidQuestion,
+            gidSimpleText = _gidSimpleText,
+            gidCharacters = _gidCharacters,
+            gidQuestions = _gidQuestions,
             languagesCount = _languagesCount,
-            texts = _texts,
-            actors = _actors,
-            dialogueSystemFolder = _dialogueSystemFolder
+            languages = _languages,
+            prefix = _prefix
         };
 
         string json = JsonConvert.SerializeObject(config, Formatting.Indented);
-        string path = Path.Combine(_dialogueSystemFolder, "dialogueParser_config.json");
+        string path = Path.Combine(_configFolder, "config.json");
         File.WriteAllText(path, json);
-        Debug.Log($"✅ Configuration saved at: {path}");
+        Debug.Log($"💾 Configuration saved at: \n{path}");
     }
 
     private void LoadConfig()
     {
-        string path = Path.Combine(_dialogueSystemFolder, "dialogueParser_config.json");
+        string path = Path.Combine(_configFolder, "config.json");
         if (!File.Exists(path))
         {
             Debug.LogWarning("⚠️ No configuration file found at the specified path.");
@@ -659,21 +637,19 @@ public class DialogueSheetsParser : EditorWindow
         }
 
         string json = File.ReadAllText(path);
-        DialogueSheetConfig config = JsonConvert.DeserializeObject<DialogueSheetConfig>(json);
+        DialogueParseConfig config = JsonConvert.DeserializeObject<DialogueParseConfig>(json);
 
         _sheetID = config.sheetID;
         _gidDialogue = config.gidDialogue;
         _gidSimpleDialogue = config.gidSimpleDialogue;
-        _gidUI = config.gidUI;
-        _gidQuestion = config.gidQuestion;
+        _gidSimpleText = config.gidSimpleText;
+        _gidCharacters = config.gidCharacters;
+        _gidQuestions = config.gidQuestions;
         _languagesCount = config.languagesCount;
-        _texts = config.texts;
-        _actors = config.actors;
-        _dialogueSystemFolder = config.dialogueSystemFolder;
+        _languages = config.languages;
+        _prefix = config.prefix;
 
-        _languageFoldouts = new bool[_languagesCount];
-
-        Debug.Log("✅ Configuration loaded successfully.");
+        Debug.Log("📝 Configuration loaded successfully.");
     }
     #endregion
 }

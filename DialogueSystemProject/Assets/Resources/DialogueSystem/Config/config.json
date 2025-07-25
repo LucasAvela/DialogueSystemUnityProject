@@ -1,0 +1,22 @@
+{
+  "sheetID": "1XO71LjD7YhW9hW9M2cug3cjDZsMOGxIxwDwb8piMl7I",
+  "gidDialogue": 0,
+  "gidSimpleDialogue": 1811942842,
+  "gidSimpleText": 919370151,
+  "gidCharacters": 1144974830,
+  "gidQuestions": 819870635,
+  "languagesCount": 10,
+  "languages": [
+    "en_us",
+    "pt_br",
+    "es",
+    "it",
+    "fr",
+    "de",
+    "ru",
+    "ja",
+    "ko",
+    "zh"
+  ],
+  "prefix": "Teste_"
+}

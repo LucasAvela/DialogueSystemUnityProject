@@ -25,12 +25,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""ActionMap"",
-            ""id"": ""33c90e2f-3590-4542-8f9c-8fbdf7bc36d4"",
+            ""id"": ""40a1641d-993a-442e-9875-c379e912d0fe"",
             ""actions"": [
                 {
                     ""name"": ""Pokebola"",
                     ""type"": ""Button"",
-                    ""id"": ""7dba5cae-e833-42a6-8acf-bc443707568d"",
+                    ""id"": ""df847db8-4290-46a2-9834-01b38491d5f5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -40,8 +40,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""6f026cf2-3332-4267-bbdc-5a4b68cbf3a5"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""id"": ""5b02ed82-cbc7-42e5-abb4-74333d42f869"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

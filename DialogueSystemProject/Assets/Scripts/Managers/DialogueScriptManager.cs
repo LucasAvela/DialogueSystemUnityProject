@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
+using System.Reflection;
 using UnityEngine;
 
-public class DialogueScriptManager : MonoBehaviour
+public class DialogueScriptManager : MonoBehaviour, MethodReflection
 {
     private DialogueManager _dialogueManager;
 
@@ -10,8 +12,118 @@ public class DialogueScriptManager : MonoBehaviour
         _dialogueManager = DialogueManager.Instance;
     }
 
+    public void CallMethod(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input)) return;
+
+        int openIndex = input.IndexOf('(');
+        int closeIndex = input.LastIndexOf(')');
+
+        if (openIndex < 0 || closeIndex < openIndex)
+        {
+            Debug.LogWarning("Invalid method format. Use MethodName() or MethodName(argument).");
+            return;
+        }
+
+        string methodName = input.Substring(0, openIndex).Trim();
+        string argument = input.Substring(openIndex + 1, closeIndex - openIndex - 1).Trim();
+
+        Type interfaceType = typeof(MethodReflection);
+        MethodInfo method = interfaceType.GetMethod(methodName);
+
+        if (method == null || method.ReturnType != typeof(void))
+        {
+            Debug.LogWarning($"Method '{methodName}' is not valid for CallMethod.");
+            return;
+        }
+
+        ParameterInfo[] parameters = method.GetParameters();
+
+        try
+        {
+            if (parameters.Length == 0)
+            {
+                method.Invoke(this, null);
+            }
+            else if (parameters.Length == 1)
+            {
+                method.Invoke(this, new object[] { argument });
+            }
+            else
+            {
+                Debug.LogWarning($"Method '{methodName}' has more than one parameter — not supported.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Error while invoking '{methodName}': {ex.Message}");
+        }
+    }
+
+    public IEnumerator CallCoroutine(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input)) yield break;
+
+        int openIndex = input.IndexOf('(');
+        int closeIndex = input.LastIndexOf(')');
+
+        if (openIndex < 0 || closeIndex < openIndex)
+        {
+            Debug.LogWarning("Invalid coroutine format. Use MethodName() or MethodName(argument).");
+            yield break;
+        }
+
+        string methodName = input.Substring(0, openIndex).Trim();
+        string argument = input.Substring(openIndex + 1, closeIndex - openIndex - 1).Trim();
+
+        IEnumerator coroutine = null;
+
+        try
+        {
+            Type interfaceType = typeof(MethodReflection);
+            MethodInfo method = interfaceType.GetMethod(methodName);
+
+            if (method == null || method.ReturnType != typeof(IEnumerator))
+            {
+                Debug.LogWarning($"Method '{methodName}' is not valid for CallCoroutine.");
+                yield break;
+            }
+
+            ParameterInfo[] parameters = method.GetParameters();
+            object result = null;
+
+            if (parameters.Length == 0)
+            {
+                result = method.Invoke(this, null);
+            }
+            else if (parameters.Length == 1)
+            {
+                result = method.Invoke(this, new object[] { argument });
+            }
+            else
+            {
+                Debug.LogWarning($"Method '{methodName}' has more than one parameter — not supported.");
+                yield break;
+            }
+
+            coroutine = result as IEnumerator;
+            if (coroutine == null)
+            {
+                Debug.LogWarning($"Method '{methodName}' did not return a valid IEnumerator.");
+                yield break;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Error while starting coroutine '{methodName}': {ex.Message}");
+            yield break;
+        }
+
+        yield return StartCoroutine(coroutine);
+    }
+
     public string InsertText(string insert, string text)
-    {   
+    {
         switch (insert)
         {
             case "PlayerName":
@@ -25,75 +137,33 @@ public class DialogueScriptManager : MonoBehaviour
         }
     }
 
-    public string InsertActor(string insert)
+    public void StartScript(string n)
     {
-        string actorName = insert.Replace("{", "").Replace("}", "");
-
-        switch (actorName)
-        {
-            case "Player":
-                return GameManager.Instance.ReturnPlayerName();
-
-            default:
-                return "Actor not found";
-        }
+        print($"StartScript: {n}");
     }
 
-    public void StartScript(string script)
+    public void MiddleScript(string n)
     {
-        switch (script)
-        {
-            case "StartScript(0)":
-                print("Chamando StartScript(0)");
-                break;
-
-            default:
-                Debug.LogError($"StartScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
-                break;
-        }
+        print($"MiddleScript: {n}");
     }
 
-    public IEnumerator MiddleScript(string script)
+    public void EndScript(string n)
     {
-        switch (script)
-        {
-            case "MiddleScript(0)":
-                print("Chamando MiddleScript(0)");
-                yield return new WaitForSeconds(1f);
-                break;
-
-            case "MiddleScript(1)":
-                print("Chamando MiddleScript(1)");
-                yield return new WaitForSeconds(1f);
-                break;
-
-            case "MiddleScript(2)":
-                print("Chamando MiddleScript(2)");
-                yield return new WaitForSeconds(1f);
-                break;
-
-            case "MiddleScriptAmerico":
-                DialogueManager.Instance.StartSimpleDialogue("AmericoSimple");
-                yield return new WaitForSeconds(2f);
-                break;
-
-            default:
-                Debug.LogError($"MiddleScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
-                break;
-        }
+        print($"EndScript: {n}");
     }
 
-    public void EndScript(string script)
+    public IEnumerator DelayedText()
     {
-        switch (script)
-        {
-            case "EndScript(0)":
-                print("Chamando EndScript(0)");
-                break;
-
-            default:
-                Debug.LogError($"EndScript Error: Key '{script}' not found in the dictionary. Please check if the key is correct or initialized.");
-                break;
-        }
+        print("DelayedText: Waiting...");
+        yield return new WaitForSeconds(5f);
+        print("DelayedText: Done!");
     }
+}
+
+public interface MethodReflection
+{
+    void StartScript(string n);
+    void MiddleScript(string n);
+    void EndScript(string n);
+    IEnumerator DelayedText();
 }
