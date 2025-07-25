@@ -5,6 +5,9 @@ public class DialogueActionsController : MonoBehaviour
     [SerializeField] private DialogueController _dialogueController;
     private bool _isSubscribed = false;
 
+    [Header("Examples")]
+    [SerializeField] private GameObject _nextButton;
+
     private void Start()
     {
         if (_dialogueController != null && !_isSubscribed)
@@ -61,15 +64,18 @@ public class DialogueActionsController : MonoBehaviour
     private void OnDialogueUpdate()
     {
         print("Dialogue has been Updated 🔄");
+        _nextButton?.SetActive(false);
     }
 
     private void OnDialogueFinish()
     {
         print("Dialogue has finished 🏁");
+        _nextButton?.SetActive(false);
     }
 
     private void OnDialogueWriteFinish()
     {
         print("Dialogue Write has finished ✏️");
+        _nextButton?.SetActive(true);
     }
 }

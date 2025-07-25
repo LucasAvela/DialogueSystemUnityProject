@@ -8,6 +8,7 @@ public class SimpleTextController : MonoBehaviour
 
     [Header("Internals")] // Internal state and references for managing dialogue
     private DialogueManager _dialogueManager;
+    private bool _dmSubscribed;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class SimpleTextController : MonoBehaviour
         {
             UpdateText();
             _dialogueManager.onLanguageUpdated += UpdateText;
+            _dmSubscribed = true;
         }
         else
         {
@@ -27,26 +29,24 @@ public class SimpleTextController : MonoBehaviour
 
     void OnEnable()
     {
-        if (_dialogueManager == null)
-        {
-            return;
-        }
-
-        if (_dialogueManager != null)
+        if (_dialogueManager != null && !_dmSubscribed)
         {
             UpdateText();
             _dialogueManager.onLanguageUpdated += UpdateText;
+            _dmSubscribed = true;
         }
     }
 
     void OnDisable()
     {
         _dialogueManager.onLanguageUpdated -= UpdateText;
+        _dmSubscribed = false;
     }
 
     void OnDestroy()
     {
         _dialogueManager.onLanguageUpdated -= UpdateText;
+        _dmSubscribed = false;
     }
 
     private void UpdateText()
