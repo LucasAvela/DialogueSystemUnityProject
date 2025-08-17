@@ -104,15 +104,15 @@
   "Input": {
     "Text": {
       "en_us": "Button Remap",
-      "pt_br": "Remapeamento de botões",
-      "es": "Reasignación de botones",
-      "it": "Rimappatura dei pulsanti",
-      "fr": "Remappage des boutons",
-      "de": "Tastenneubelegung",
+      "pt_br": "Remapear Entrada",
+      "es": "Reasignar entrada",
+      "it": "Rimappa input",
+      "fr": "Remappage d'entrée",
+      "de": "Eingabe neu zuordnen",
       "ru": "Переназначение кнопок",
-      "ja": "ボタンの再マップ",
-      "ko": "버튼 리맵",
-      "zh": "按钮重新映射"
+      "ja": "入力の再マップ",
+      "ko": "입력 다시 매핑",
+      "zh": "重新映射输入"
     },
     "Scripts": {
       "Insert": []
