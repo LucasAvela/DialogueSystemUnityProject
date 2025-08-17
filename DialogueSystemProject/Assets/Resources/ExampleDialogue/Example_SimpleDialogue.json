@@ -2,13 +2,11 @@
   "key": {
     "Text": {
       "en_us": "",
-      "en_gb": "",
       "pt_br": "",
       "es": "",
       "it": "",
       "fr": "",
       "de": "",
-      "pl": "",
       "ru": "",
       "ja": "",
       "ko": "",
@@ -21,13 +19,11 @@
   "SimpleDialogue": {
     "Text": {
       "en_us": "Simple Dialogue",
-      "en_gb": "Simple Dialogue",
       "pt_br": "Diálogo Simples",
       "es": "Diálogo Simple",
       "it": "Dialogo Semplice",
       "fr": "Dialogue Simple",
       "de": "Einfacher Dialog",
-      "pl": "Prosty Dialog",
       "ru": "Простой Диалог",
       "ja": "シンプルな会話",
       "ko": "간단한 대화",
@@ -40,13 +36,11 @@
   "ClosedDoor": {
     "Text": {
       "en_us": "<#fff952>The door</color> is locked.",
-      "en_gb": "<#fff952>The door</color> is locked.",
       "pt_br": "<#fff952>A porta</color> está trancada.",
       "es": "<#fff952>La puerta</color> está cerrada con llave.",
       "it": "<#fff952>La porta</color> è chiusa a chiave.",
       "fr": "<#fff952>La porte</color> est verrouillée.",
       "de": "<#fff952>Die Tür</color> ist verschlossen.",
-      "pl": "<#fff952>Drzwi</color> są zamknięte na klucz.",
       "ru": "<#fff952>Дверь</color> заперта.",
       "ja": "<#fff952>ドア</color>はロックされています。",
       "ko": "<#fff952>문</color>이 잠겨 있습니다.",
@@ -59,13 +53,11 @@
   "AmericoSimple": {
     "Text": {
       "en_us": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
-      "en_gb": "Américo <b><#fff952>lights</color></b> a <b><#eb7826>cigarette</color></b>.",
       "pt_br": "Américo <b><#fff952>acende</color></b> um <b><#eb7826>cigarro</color></b>.",
       "es": "Américo <b><#fff952>enciende</color></b> un <b><#eb7826>cigarrillo</color></b>.",
       "it": "Américo <b><#fff952>accende</color></b> una <b><#eb7826>sigaretta</color></b>.",
       "fr": "Américo <b><#fff952>allume</color></b> une <b><#eb7826>cigarette</color></b>.",
       "de": "Américo <b><#fff952>zündet</color></b> eine <b><#eb7826>Zigarette</color></b> an.",
-      "pl": "Américo <b><#fff952>zapala</color></b> <b><#eb7826>papierosa</color></b>.",
       "ru": "Америко <b><#fff952>зажигает</color></b> <b><#eb7826>сигарету</color></b>.",
       "ja": "アメリコは<b><#fff952>タバコに火をつける</color></b>。",
       "ko": "아메리코가 <b><#fff952>담배에 불을 붙인다</color></b>.",
@@ -78,13 +70,11 @@
   "key_player": {
     "Text": {
       "en_us": "{PlayerName} is here.",
-      "en_gb": "{PlayerName} is here.",
       "pt_br": "{PlayerName} está aqui.",
       "es": "{PlayerName} está aquí.",
       "it": "{PlayerName} è qui.",
       "fr": "{PlayerName} est ici.",
       "de": "{PlayerName} ist hier.",
-      "pl": "{PlayerName} jest tutaj.",
       "ru": "{PlayerName} здесь.",
       "ja": "{PlayerName}がここにいます。",
       "ko": "{PlayerName}가 여기에 있습니다.",
@@ -99,13 +89,11 @@
   "add_bullets": {
     "Text": {
       "en_us": "Added <sprite name=\"am\">",
-      "en_gb": "Added <sprite name=\"am\">",
       "pt_br": "Adicionado <sprite name=\"am\">",
       "es": "Añadido <sprite name=\"am\">",
       "it": "Aggiunto <sprite name=\"am\">",
       "fr": "Ajouté <sprite name=\"am\">",
       "de": "Hinzugefügt <sprite name=\"am\">",
-      "pl": "Dodano <sprite name=\"am\">",
       "ru": "Добавлено <sprite name=\"am\">",
       "ja": "追加済み <sprite name=\"am\">",
       "ko": "추가됨 <sprite name=\"am\">",
@@ -118,17 +106,15 @@
   "Action_button": {
     "Text": {
       "en_us": "{ActionButton}  Throws a Pokebola",
-      "en_gb": "{ActionButton}  Throws a Pokebola",
       "pt_br": "{ActionButton} Lança uma Pokébola",
       "es": "{ActionButton} Lanza una Pokebola",
       "it": "{ActionButton} Lancia una Pokebola",
       "fr": "{ActionButton} Lance une Pokébola",
       "de": "{ActionButton} Wirft ein Pokebola",
-      "pl": "{ActionButton} Rzuca Pokebolą",
       "ru": "{ActionButton} Бросает Покеболу",
       "ja": "{ActionButton} ポケボラを投げる",
       "ko": "{ActionButton} 포케볼라를 던집니다.",
-      "zh": "{ActionButton} 抛出一个 Pokebola"
+      "zh": "{ActionButton} 抛出一只 Pokebola"
     },
     "Scripts": {
       "Insert": [

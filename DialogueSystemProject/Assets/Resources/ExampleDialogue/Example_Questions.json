@@ -1,0 +1,59 @@
+{
+  "key": [],
+  "Question": [
+    {
+      "TextKey": "yes_key",
+      "NextKey": "key"
+    },
+    {
+      "TextKey": "no_key",
+      "NextKey": "key"
+    },
+    {
+      "TextKey": "maybe_key",
+      "NextKey": "key"
+    },
+    {
+      "TextKey": "later_key",
+      "NextKey": "key"
+    }
+  ],
+  "MinecraftQuestion": [
+    {
+      "TextKey": "yes_key",
+      "NextKey": "question_1"
+    },
+    {
+      "TextKey": "no_key",
+      "NextKey": "question_1"
+    },
+    {
+      "TextKey": "maybe_key",
+      "NextKey": "question_1"
+    },
+    {
+      "TextKey": "later_key",
+      "NextKey": "question_1"
+    }
+  ],
+  "gameQuestion": [
+    {
+      "TextKey": "minecraft_icon",
+      "NextKey": "game_question_mc"
+    },
+    {
+      "TextKey": "cs_icon",
+      "NextKey": "game_question_cs"
+    }
+  ],
+  "SleepQuestion": [
+    {
+      "TextKey": "GTS",
+      "NextKey": "key_none_1"
+    },
+    {
+      "TextKey": "SAN",
+      "NextKey": "key_none_2"
+    }
+  ]
+}
