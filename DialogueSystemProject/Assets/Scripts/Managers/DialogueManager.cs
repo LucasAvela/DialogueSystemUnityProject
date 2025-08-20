@@ -133,6 +133,12 @@ public class DialogueManager : MonoBehaviour
     {
         yield return StartCoroutine(_dialogueScriptManager.CallCoroutine(coroutine));
     }
+
+    [ContextMenu("Reload Language")]
+    public void ReloadLanguage()
+    {
+        onLanguageUpdated?.Invoke();
+    }
 }
 
 public class DialogueData

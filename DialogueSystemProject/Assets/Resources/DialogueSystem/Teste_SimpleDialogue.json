@@ -114,7 +114,7 @@
       "ru": "{ActionButton} Бросает Покеболу",
       "ja": "{ActionButton} ポケボラを投げる",
       "ko": "{ActionButton} 포케볼라를 던집니다.",
-      "zh": "{ActionButton} 抛出一个 Pokebola"
+      "zh": "{ActionButton} 抛出一只 Pokebola"
     },
     "Scripts": {
       "Insert": [
