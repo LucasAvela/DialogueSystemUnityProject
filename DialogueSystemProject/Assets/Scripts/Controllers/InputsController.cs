@@ -33,7 +33,10 @@ public class InputsController : MonoBehaviour
         ActionButton,
         LongSentence,
         ShortSentence,
-        LoopSentence
+        LoopSentence,
+        StopDialog,
+        DestroyDialogue,
+        AnswerDialogue
     }
 
     private enum SimpleDialogueKeys

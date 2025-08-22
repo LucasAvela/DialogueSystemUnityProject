@@ -570,5 +570,80 @@
       "Middle": [],
       "End": []
     }
+  },
+  "StopDialog": {
+    "Actor": "_npc",
+    "Text": {
+      "en_us": "This dialogue will be interrupted right now;§",
+      "pt_br": "Este diálogo será interrompido agora mesmo.§",
+      "es": "Este diálogo será interrumpido ahora mismo.§",
+      "it": "Questo dialogo verrà interrotto proprio adesso.§",
+      "fr": "Ce dialogue sera interrompu immédiatement.§",
+      "de": "Dieser Dialog wird sofort unterbrochen.§",
+      "ru": "Этот диалог будет прерван прямо сейчас.§",
+      "ja": "この会話は今すぐ中断されます。§",
+      "ko": "이 대화는 지금 바로 중단됩니다.§",
+      "zh": "此对话将立即中断。§"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [
+        "StopScript()"
+      ],
+      "End": []
+    }
+  },
+  "DestroyDialogue": {
+    "Actor": "_npc",
+    "Text": {
+      "en_us": "This dialogue will be destroyed in 5 seconds.§",
+      "pt_br": "Este diálogo será destruído em 5 segundos.§",
+      "es": "Este diálogo será destruido en 5 segundos.§",
+      "it": "Questo dialogo verrà distrutto tra 5 secondi.§",
+      "fr": "Ce dialogue sera détruit dans 5 secondes.§",
+      "de": "Dieser Dialog wird in 5 Sekunden zerstört.§",
+      "ru": "Этот диалог будет уничтожен через 5 секунд.§",
+      "ja": "この会話は5秒後に破壊されます。§",
+      "ko": "이 대화는 5초 후에 파괴됩니다.§",
+      "zh": "此对话将在5秒后被销毁。§"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [],
+      "Middle": [
+        "&DelayedStop()"
+      ],
+      "End": []
+    }
+  },
+  "AnswerDialogue": {
+    "Actor": "_npc",
+    "Text": {
+      "en_us": "Answer",
+      "pt_br": "Resposta",
+      "es": "Respuesta",
+      "it": "Risposta",
+      "fr": "Réponse",
+      "de": "Antwort",
+      "ru": "Ответ",
+      "ja": "答え",
+      "ko": "답변",
+      "zh": "回答"
+    },
+    "NextKey": null,
+    "Question": null,
+    "Scripts": {
+      "Insert": [],
+      "Start": [
+        "StopScript()"
+      ],
+      "Middle": [],
+      "End": []
+    }
   }
 }

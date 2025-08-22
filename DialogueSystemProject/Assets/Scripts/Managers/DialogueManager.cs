@@ -124,9 +124,9 @@ public class DialogueManager : MonoBehaviour
         onLanguageUpdated?.Invoke();
     }
 
-    public void ExecuteMethod(string method)
+    public void ExecuteMethod(DialogueController dialogueController, string method)
     {
-        _dialogueScriptManager.CallMethod(method);
+        _dialogueScriptManager.CallMethod(dialogueController, method);
     }
 
     public IEnumerator ExecuteCoroutine(string coroutine)

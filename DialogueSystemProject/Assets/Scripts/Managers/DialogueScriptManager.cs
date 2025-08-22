@@ -6,15 +6,18 @@ using UnityEngine;
 public class DialogueScriptManager : MonoBehaviour, MethodReflection
 {
     private DialogueManager _dialogueManager;
+    private DialogueController _dialogueController;
 
     void Start()
     {
         _dialogueManager = DialogueManager.Instance;
     }
 
-    public void CallMethod(string input)
+    public void CallMethod(DialogueController dialogueController, string input)
     {
         if (string.IsNullOrWhiteSpace(input)) return;
+
+        _dialogueController = dialogueController;
 
         int openIndex = input.IndexOf('(');
         int closeIndex = input.LastIndexOf(')');
@@ -152,11 +155,25 @@ public class DialogueScriptManager : MonoBehaviour, MethodReflection
         print($"EndScript: {n}");
     }
 
+    public void StopScript()
+    {
+        _dialogueController.StopDialogue();
+        print("StopScript: Dialogue stopped.");
+    }
+
     public IEnumerator DelayedText()
     {
         print("DelayedText: Waiting...");
         yield return new WaitForSeconds(5f);
         print("DelayedText: Done!");
+    }
+
+    public IEnumerator DelayedStop()
+    {
+        print("DelayedStop: Waiting...");
+        yield return new WaitForSeconds(5f);
+        _dialogueController.StopDialogue();
+        print("DelayedStop: Dialogue stopped.");
     }
 }
 
@@ -165,5 +182,7 @@ public interface MethodReflection
     void StartScript(string n);
     void MiddleScript(string n);
     void EndScript(string n);
+    void StopScript();
     IEnumerator DelayedText();
+    IEnumerator DelayedStop();
 }

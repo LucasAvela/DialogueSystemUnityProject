@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using System.Security.Cryptography;
 
 public class DialogueController : MonoBehaviour
 {
@@ -111,7 +109,7 @@ public class DialogueController : MonoBehaviour
                 }
                 else
                 {
-                    _dialogueManager.ExecuteMethod(script);
+                    _dialogueManager.ExecuteMethod(this, script);
                 }
             }
         }
@@ -137,7 +135,7 @@ public class DialogueController : MonoBehaviour
 
     public void StopDialogue() // Method to stop the current dialogue
     {
-        if (!_onDialogue || _onDialoguePanelAnimation) return;
+        if (!_onDialogue) return;
 
         _stopDialogue = true;
 
@@ -215,9 +213,10 @@ public class DialogueController : MonoBehaviour
 
         if (_actualStartScriptsList != null)
         {
-            foreach (string script in _actualStartScriptsList)
+            var startScriptsCopy = new List<string>(_actualStartScriptsList);
+            foreach (string script in startScriptsCopy)
             {
-                _dialogueManager.ExecuteMethod(script);
+                _dialogueManager.ExecuteMethod(this, script);
             }
         }
 
@@ -237,7 +236,7 @@ public class DialogueController : MonoBehaviour
                 }
                 else
                 {
-                    _dialogueManager.ExecuteMethod(script);
+                    _dialogueManager.ExecuteMethod(this, script);
                 }
             }
             _onMiddleScriptRunning = false;
@@ -255,9 +254,10 @@ public class DialogueController : MonoBehaviour
 
         if (_actualStartScriptsList != null)
         {
-            foreach (string script in _actualStartScriptsList)
+            var startScriptsCopy = new List<string>(_actualStartScriptsList);
+            foreach (string script in startScriptsCopy)
             {
-                _dialogueManager.ExecuteMethod(script);
+                _dialogueManager.ExecuteMethod(this, script);
             }
         }
 
@@ -318,7 +318,7 @@ public class DialogueController : MonoBehaviour
                 }
                 else
                 {
-                    _dialogueManager.ExecuteMethod(_actualMiddleScriptsList[scriptIndex]);
+                    _dialogueManager.ExecuteMethod(this, _actualMiddleScriptsList[scriptIndex]);
                 }
 
                 _onMiddleScriptRunning = false;
