@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ActorController : MonoBehaviour
+public class ActorDialogueController : MonoBehaviour
 {
     [SerializeField] private string _actorKey;
     

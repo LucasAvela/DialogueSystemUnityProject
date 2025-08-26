@@ -1164,7 +1164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -32, y: 32}
+  m_AnchoredPosition: {x: -30, y: 30}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &737393306
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueController: {fileID: 1043568129}
   _simpleDialogueController: {fileID: 265742017}
-  _dialogueKey: 0
+  _dialogueKey: 21
   _simpleDialogueKey: 0
   _languageDropdown: {fileID: 998615739}
 --- !u!1 &931734144
@@ -2139,6 +2139,7 @@ MonoBehaviour:
   _dialogueMode: 0
   _writingTime: 0.05
   _alphaTag: <alpha=#00>
+  _animationTag: <grow>
   _dialogueAnimator: {fileID: 1043568130}
   _openPanelAnimation: {fileID: 7400000, guid: b24d10ab9ef2460479768225949f0478, type: 2}
   _closePanelAnimation: {fileID: 7400000, guid: 7e288d1e9653aa643aa3f4936a05c920, type: 2}
@@ -4508,6 +4509,7 @@ GameObject:
   - component: {fileID: 1980304105}
   - component: {fileID: 1980304107}
   - component: {fileID: 1980304106}
+  - component: {fileID: 1980304108}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4587,7 +4589,7 @@ MonoBehaviour:
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 40
+  m_fontSizeMin: 25
   m_fontSizeMax: 60
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -4635,6 +4637,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980304104}
   m_CullTransparentMesh: 1
+--- !u!114 &1980304108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980304104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cc8a40f9848a54c94bf232155b0b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: f0a33761ff6919d4a9979ee36980a29d, type: 2}
+  context:
+    scaleAnimations: 1
+    scaleUniformly: 1
+    useScaledTime: 1
+    tmpAnimator: {fileID: 0}
+  updateFrom: 0
+  animateOnStart: 1
+  animationsOverride: 0
+  defaultAnimationsStrings: []
+  defaultShowAnimationsStrings: []
+  defaultHideAnimationsStrings: []
+  excludedCharacters: 
+  excludedCharactersShow: 
+  excludedCharactersHide: 
+  excludePunctuation: 0
+  excludePunctuationShow: 0
+  excludePunctuationHide: 0
+  sceneKeywordDatabase: {fileID: 0}
+  keywordDatabase: {fileID: 0}
+  sceneAnimations:
+    _serializedList: []
+  sceneShowAnimations:
+    _serializedList: []
+  sceneHideAnimations:
+    _serializedList: []
+  preview: 0
+  useDefaultDatabase: 1
+  useDefaultKeywordDatabase: 0
+  initDatabase: 1
+  previewUpdatesPerSecond: 60
+  previewTimeScale: 1
 --- !u!1 &1984465772
 GameObject:
   m_ObjectHideFlags: 0

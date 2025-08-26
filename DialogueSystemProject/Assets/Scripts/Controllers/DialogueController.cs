@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using TMPEffects.Components;
 
 public class DialogueController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private WriteModes _dialogueMode;
     [SerializeField] private float _writingTime = 0.05f;
     [SerializeField] private string _alphaTag = "<alpha=#00>";
+    [SerializeField] private string _animationTag = "<#FF0000>";
 
     [Header("Animations Settings")] // Settings for dialogue animations
     [SerializeField] private Animator _dialogueAnimator;
@@ -47,9 +49,8 @@ public class DialogueController : MonoBehaviour
     private Coroutine _instantDialogueCoroutine = null;
 
     [Header("Modules")] // References to other components and modules
-    [SerializeField] private ActorController _actorController;
+    [SerializeField] private ActorDialogueController _actorController;
     [SerializeField] private QuestionController _questionController;
-
 
     private enum WriteModes
     {
@@ -303,6 +304,7 @@ public class DialogueController : MonoBehaviour
         }
 
         int writeCursor = 0;
+        int animCursor = -1;
         int scriptIndex = 0;
         int spriteIndex = 0;
 
@@ -418,8 +420,16 @@ public class DialogueController : MonoBehaviour
             }
 
             if (_stopDialogue) StopDialogue();
-            _dialogueText.text = text.Insert(writeCursor, _alphaTag);
+            if (animCursor >= 0 && animCursor < text.Length)
+            {
+                _dialogueText.text = text.Insert(writeCursor, _alphaTag).Insert(animCursor, _animationTag);
+            }
+            else
+            {
+                _dialogueText.text = text.Insert(writeCursor, _alphaTag);
+            }
             writeCursor++;
+            animCursor++;
             yield return new WaitForSecondsRealtime(_writingTime);
         }
 
