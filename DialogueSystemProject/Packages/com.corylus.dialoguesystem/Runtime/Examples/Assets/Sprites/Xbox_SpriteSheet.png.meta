@@ -523,7 +523,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Xbox_SpriteSheet_0: -7442963216473916681
+      Xbox_SpriteSheet_1: 3465556222895086565
+      Xbox_SpriteSheet_10: -3927262774038380447
+      Xbox_SpriteSheet_11: -6150181525181278957
+      Xbox_SpriteSheet_12: 9183224990592178018
+      Xbox_SpriteSheet_13: -679139232123668622
+      Xbox_SpriteSheet_14: 7622360278487970231
+      Xbox_SpriteSheet_2: -7184870117178419601
+      Xbox_SpriteSheet_3: -1131349305909091320
+      Xbox_SpriteSheet_4: 9132712372916638336
+      Xbox_SpriteSheet_5: 7600306565518314741
+      Xbox_SpriteSheet_6: -7657627843023669011
+      Xbox_SpriteSheet_7: -3857795053797544390
+      Xbox_SpriteSheet_8: 7678574636841203885
+      Xbox_SpriteSheet_9: -3682266237761871908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
