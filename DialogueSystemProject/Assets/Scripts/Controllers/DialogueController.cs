@@ -303,7 +303,7 @@ public class DialogueController : MonoBehaviour
         }
 
         int writeCursor = 0;
-        int animCursor = -1;
+        int animCursor = 0;
         int scriptIndex = 0;
         int spriteIndex = 0;
 
@@ -428,7 +428,7 @@ public class DialogueController : MonoBehaviour
                 _dialogueText.text = text.Insert(writeCursor, _alphaTag);
             }
             writeCursor++;
-            animCursor++;
+            animCursor = writeCursor - 1;
             yield return new WaitForSecondsRealtime(_writingTime);
         }
 

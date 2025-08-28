@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueController: {fileID: 1043568129}
   _simpleDialogueController: {fileID: 265742017}
-  _dialogueKey: 21
+  _dialogueKey: 0
   _simpleDialogueKey: 0
   _languageDropdown: {fileID: 998615739}
 --- !u!1 &931734144
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   _dialogueMode: 0
   _writingTime: 0.05
   _alphaTag: <alpha=#00>
-  _animationTag: <jump>
+  _animationTag: <alpha=#88>
   _dialogueAnimator: {fileID: 1043568130}
   _openPanelAnimation: {fileID: 7400000, guid: b24d10ab9ef2460479768225949f0478, type: 2}
   _closePanelAnimation: {fileID: 7400000, guid: 7e288d1e9653aa643aa3f4936a05c920, type: 2}
