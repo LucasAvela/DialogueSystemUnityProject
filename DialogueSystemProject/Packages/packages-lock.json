@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.corylus.dialoguesystem": {
+      "version": "file:com.corylus.dialoguesystem",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
     "com.luca3317.tmpeffects": {
       "version": "https://github.com/Luca3317/TMPEffects.git?path=/Package",
       "depth": 0,

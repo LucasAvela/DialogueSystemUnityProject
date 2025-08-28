@@ -1,0 +1,23 @@
+{
+  "name": "com.corylus.dialoguesystem",
+  "version": "1.0.0",
+  "displayName": "Corylus Dialogue System",
+  "description": "Modular system for interactive dialogues and multilingual localization in Unity. With this system, you can create dynamic narratives with branches, questions, custom scripts, and TextMeshPro integration, offering a rich experience for the player.",
+  "documentationUrl": "https://github.com/LucasAvela/DialogueSystemUnityProject",
+  "licensesUrl": "https://github.com/LucasAvela/DialogueSystemUnityProject?tab=GPL-3.0-1-ov-file",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  },
+  "keywords": [
+    "Dialogue",
+    "Dialogue System",
+    "Localization",
+    "Multilingual",
+    "TextMeshPro",
+    "Narrative"
+  ],
+  "author": {
+    "name": "Corylus",
+    "url": "https://github.com/LucasAvela"
+  }
+}
