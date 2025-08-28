@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using TMPEffects.Components;
 
 public class DialogueController : MonoBehaviour
 {
