@@ -1104,8 +1104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questionMode: 0
-  _questionPanel: {fileID: 0}
-  _questionButtonPrefab: {fileID: 0}
+  _questionPanel: {fileID: 1613534317}
+  _questionButtonPrefab: {fileID: 6463417770351322598, guid: ba0593696ddb8ab469b244b68b244b73, type: 3}
 --- !u!1 &805753447
 GameObject:
   m_ObjectHideFlags: 0

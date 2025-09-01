@@ -72,4 +72,9 @@ public class SimpleTextController : MonoBehaviour
     {
         _key = key;
     }
+
+    public string GetKey()
+    {
+        return _key;
+    }
 }

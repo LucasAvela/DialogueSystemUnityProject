@@ -524,4 +524,17 @@ public class DialogueController : MonoBehaviour
         _onDialogueTextAnimation = false;
     }
     #endregion
+
+    #region Getters
+    public bool IsOnDialogue() { return _onDialogue; }
+    public bool IsOnWritingDialogue() { return _onWritingDialogue; }
+    public bool IsOnMiddleScriptRunning() { return _onMiddleScriptRunning; }
+    public bool IsOnDialoguePanelAnimation() { return _onDialoguePanelAnimation; }
+    public bool IsOnDialogueTextAnimation() { return _onDialogueTextAnimation; }
+    public bool IsOnQuestion() { return _onQuestion; }
+    public string GetActualDialogueKey() { return _actualDialogueKey; }
+    public string GetNextDialogueKey() { return _nextDialogueKey; }
+    public string GetActualDialogueActor() { return _actualDialogueActor; }
+    public string GetActualDialogueText() { return _actualDialogueText; }
+    #endregion
 }
