@@ -3,10 +3,22 @@ using System.Collections;
 using System.Reflection;
 using UnityEngine;
 
-public class DialogueScriptManager : MonoBehaviour, MethodReflection
+public class DialogueScriptManager : MonoBehaviour
 {
     private DialogueManager _dialogueManager;
     private DialogueController _dialogueController;
+
+    [SerializeField] private MonoBehaviour _scriptsContainer;
+    private MethodReflection _methodTarget;
+
+    void Awake()
+    {
+        if (_scriptsContainer != null)
+            _methodTarget = _scriptsContainer as MethodReflection;
+
+        if (_methodTarget == null)
+            Debug.LogError("_scriptsContainer não implementa MethodReflection!");
+    }
 
     void Start()
     {
@@ -40,22 +52,16 @@ public class DialogueScriptManager : MonoBehaviour, MethodReflection
             return;
         }
 
-        ParameterInfo[] parameters = method.GetParameters();
-
         try
         {
+            ParameterInfo[] parameters = method.GetParameters();
+
             if (parameters.Length == 0)
-            {
-                method.Invoke(this, null);
-            }
+                method.Invoke(_methodTarget, null);
             else if (parameters.Length == 1)
-            {
-                method.Invoke(this, new object[] { argument });
-            }
+                method.Invoke(_methodTarget, new object[] { argument });
             else
-            {
                 Debug.LogWarning($"Method '{methodName}' has more than one parameter — not supported.");
-            }
         }
         catch (Exception ex)
         {
@@ -96,13 +102,9 @@ public class DialogueScriptManager : MonoBehaviour, MethodReflection
             object result = null;
 
             if (parameters.Length == 0)
-            {
-                result = method.Invoke(this, null);
-            }
+                result = method.Invoke(_methodTarget, null);
             else if (parameters.Length == 1)
-            {
-                result = method.Invoke(this, new object[] { argument });
-            }
+                result = method.Invoke(_methodTarget, new object[] { argument });
             else
             {
                 Debug.LogWarning($"Method '{methodName}' has more than one parameter — not supported.");
@@ -127,62 +129,12 @@ public class DialogueScriptManager : MonoBehaviour, MethodReflection
 
     public string InsertText(string insert, string text)
     {
-        switch (insert)
+        if (_methodTarget == null)
         {
-            case "PlayerName":
-                return text.Replace("{PlayerName}", ExampleGameManager.Instance.ReturnPlayerName());
-
-            case "ActionButton":
-                return text.Replace("{ActionButton}", ExampleGameManager.Instance.ReturnActionButton());
-
-            default:
-                return text;
+            Debug.LogWarning("No MethodReflection target set for InsertText.");
+            return text;
         }
-    }
 
-    public void StartScript(string n)
-    {
-        print($"StartScript: {n}");
+        return _methodTarget.InsertText(insert, text);
     }
-
-    public void MiddleScript(string n)
-    {
-        print($"MiddleScript: {n}");
-    }
-
-    public void EndScript(string n)
-    {
-        print($"EndScript: {n}");
-    }
-
-    public void StopScript()
-    {
-        _dialogueController.StopDialogue();
-        print("StopScript: Dialogue stopped.");
-    }
-
-    public IEnumerator DelayedText()
-    {
-        print("DelayedText: Waiting...");
-        yield return new WaitForSeconds(5f);
-        print("DelayedText: Done!");
-    }
-
-    public IEnumerator DelayedStop()
-    {
-        print("DelayedStop: Waiting...");
-        yield return new WaitForSeconds(5f);
-        _dialogueController.StopDialogue();
-        print("DelayedStop: Dialogue stopped.");
-    }
-}
-
-public interface MethodReflection
-{
-    void StartScript(string n);
-    void MiddleScript(string n);
-    void EndScript(string n);
-    void StopScript();
-    IEnumerator DelayedText();
-    IEnumerator DelayedStop();
 }
